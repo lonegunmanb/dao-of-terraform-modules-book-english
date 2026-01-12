@@ -1,0 +1,1065 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Local sub-modules · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="readme-documentation.html" />
+    
+    
+    <link rel="prev" href="locals.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="terraform-resource-files.html">
+            
+                <a href="terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="terraform-input-variables.html">
+            
+                <a href="terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="terraform-output-values.html">
+            
+                <a href="terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="terraform-configuration.html">
+            
+                <a href="terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="locals.html">
+            
+                <a href="locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6" data-path="modules.html">
+            
+                <a href="modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="readme-documentation.html">
+            
+                <a href="readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="examples.html">
+            
+                <a href="examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="ci-pipeline-code.html">
+            
+                <a href="ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Local sub-modules</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#local-sub-modules"><b>1.2.6.1. </b>Local Sub-modules</a></li><ul><li><span class="title-icon "></span><a href="#resources-intended-for-multiple-declarations-within-a-module"><b>1.2.6.1.1. </b>Resources Intended for Multiple Declarations Within a Module</a></li><li><span class="title-icon "></span><a href="#sub-modules-intended-to-be-published-as-independent-modules"><b>1.2.6.1.2. </b>Sub-modules Intended to Be Published as Independent Modules</a></li></ul></ul></div><a href="#local-sub-modules" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="local-sub-modules"><a name="local-sub-modules" class="anchor-navigation-ex-anchor" href="#local-sub-modules"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.6.1. Local Sub-modules</h1>
+<p>We mentioned in <a href="terraform-resource-files.html#local-submodules-vs-splitting-tf-code-files">Local Sub-modules vs Splitting <code>.tf</code> Code Files</a> that there are two scenarios where we can create sub-modules within a module:</p>
+<ul>
+<li>A resource (or group of resources) intended to be declared in multiple places within the module</li>
+<li>Sub-modules intended to be published as independent modules with reference addresses</li>
+</ul>
+<p>We will discuss both scenarios in this chapter.</p>
+<h2 id="resources-intended-for-multiple-declarations-within-a-module"><a name="resources-intended-for-multiple-declarations-within-a-module" class="anchor-navigation-ex-anchor" href="#resources-intended-for-multiple-declarations-within-a-module"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.6.1.1. Resources Intended for Multiple Declarations Within a Module</h2>
+<p>Sometimes we choose local sub-modules for <strong>DRY (Don&apos;t Repeat Yourself) principles and maintainability</strong>. For example, in the <a href="https://registry.terraform.io/modules/Azure/avm-res-compute-virtualmachine/azurerm/latest" target="_blank"><code>avm-res-compute-virtualmachine</code></a> module, not only is an Azure virtual machine defined, but the module also allows callers to define various extensions installed on the virtual machine (<a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension" target="_blank"><code>azurerm_virtual_machine_extension</code></a>). However, different extensions only differ in fields like <code>publisher</code>, <code>type</code>, and <code>settings</code>. If we wrote dozens of nearly identical resource blocks directly in the root module, the code would become bloated and difficult to maintain. By extracting them into a local sub-module, we only need to put the common logic in <a href="https://github.com/Azure/terraform-azurerm-avm-res-compute-virtualmachine/tree/ff7f66c99ffde07eae053ad2455bcd1c8d944ce6/modules/extension" target="_blank"><code>modules/extension</code></a>, then call the unified template multiple times in <code>main.extensions.tf</code> with <code>for_each</code> to instantiate each extension. This keeps the code readable and makes it easy to make centralized changes later.</p>
+<p>The second point: <strong>explicit dependencies (<code>depends_on</code>)</strong>. <code>azurerm_virtual_machine_extension</code> must wait until the virtual machine is fully available before execution, otherwise extension hanging or initialization failures may occur. Although the extension block references <code>virtual_machine_id</code> and Terraform can implicitly infer the &quot;create VM first, install extensions later&quot; order, <strong>when there are other resources alongside the VM that also modify VM properties (e.g., first add a managed identity to the VM, then deploy extensions that depend on the identity), implicit dependencies are often insufficient</strong>. Therefore, in each <code>module &quot;extension&quot;</code> call block, the author explicitly wrote something like:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token property">depends_on</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span>
+  azurerm_linux_virtual_machine.this,
+  azurerm_windows_virtual_machine.this,
+  module.run_command
+<span class="token punctuation">]</span>
+</code></pre>
+<p>This ensures that:</p>
+<ul>
+<li><strong>Extensions will only trigger after VM resources are completed</strong>;</li>
+<li><strong>When a VM is replaced or Run Command changes, extensions will also be redeployed accordingly</strong>;</li>
+<li><strong>Avoids deployment order confusion caused by &quot;hidden dependencies&quot; that the Azure RM Provider cannot identify</strong>.</li>
+</ul>
+<p>Additionally, if the dependency relationship requires that a group of related resources must all be created before the dependent resource can begin creation, rather than writing complex dependent resource addresses in <code>depends_on</code>, it&apos;s better to encapsulate this group of related resources as a module. When an address in <code>depends_on</code> is a module, Terraform will only trigger the creation of resources that depend on that module after all resources in the module are completely created. This helps make our code concise and understandable, while being easy to maintain (adding resources to the sub-module doesn&apos;t require modifying <code>depends_on</code> in the root module).</p>
+<p>The official Terraform documentation clearly states that <code>depends_on</code> is used for &quot;hidden dependencies that Terraform cannot automatically infer,&quot; and since version 0.13, it can directly apply to module blocks. So this approach is both standard and necessary. Without such explicit dependencies, certain post-installation steps that require system extensions to be installed first (such as custom scripts or GC policies) might encounter race conditions, leading to the awkward situation of <code>terraform apply</code> failures.</p>
+<h2 id="sub-modules-intended-to-be-published-as-independent-modules"><a name="sub-modules-intended-to-be-published-as-independent-modules" class="anchor-navigation-ex-anchor" href="#sub-modules-intended-to-be-published-as-independent-modules"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.6.1.2. Sub-modules Intended to Be Published as Independent Modules</h2>
+<p>Sometimes our reusable modules only expose various configurable options for a certain type of cloud resource, but to use that resource correctly, different scenarios often require corresponding best practice configurations. Leaving module callers to figure out these best practice configurations on their own is inconvenient and cannot ensure that users with different skill levels can write correct and complete configurations. In this case, we can choose to create a set of local sub-modules that encapsulate calls to the root module along with pre-configured parameters representing best practices for different scenarios.</p>
+<p>A concrete example is network security groups (<a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group" target="_blank"><code>azurerm_network_security_group</code></a>). Network security groups are similar to firewalls, defining access rules in virtual networks, generally composed of protocol, source IP, source port, destination IP, destination port, allow/deny action, and rule priority. Different services use different rules, mostly differing in destination ports and protocols. We can pre-configure corresponding common rule parameters for various services and save them as sub-modules under <code>modules</code>:</p>
+<pre class="language-"><code class="lang-text">.
+&#x251C;&#x2500;&#x2500; ActiveDirectory
+&#x251C;&#x2500;&#x2500; Cassandra
+&#x251C;&#x2500;&#x2500; Cassandra-JMX
+&#x251C;&#x2500;&#x2500; Cassandra-Thrift
+&#x251C;&#x2500;&#x2500; CouchDB
+&#x251C;&#x2500;&#x2500; CouchDB-HTTPS
+&#x251C;&#x2500;&#x2500; DNS-TCP
+&#x251C;&#x2500;&#x2500; DNS-UDP
+&#x251C;&#x2500;&#x2500; DynamicPorts
+&#x251C;&#x2500;&#x2500; ElasticSearch
+&#x251C;&#x2500;&#x2500; FTP
+&#x251C;&#x2500;&#x2500; HTTP
+&#x251C;&#x2500;&#x2500; HTTPS
+&#x251C;&#x2500;&#x2500; IMAP
+&#x251C;&#x2500;&#x2500; IMAPS
+&#x251C;&#x2500;&#x2500; Kestrel
+&#x251C;&#x2500;&#x2500; LDAP
+&#x251C;&#x2500;&#x2500; MSSQL
+&#x251C;&#x2500;&#x2500; Memcached
+&#x251C;&#x2500;&#x2500; MongoDB
+&#x251C;&#x2500;&#x2500; MySQL
+&#x251C;&#x2500;&#x2500; Neo4J
+&#x251C;&#x2500;&#x2500; POP3
+&#x251C;&#x2500;&#x2500; POP3S
+&#x251C;&#x2500;&#x2500; PostgreSQL
+&#x251C;&#x2500;&#x2500; RDP
+&#x251C;&#x2500;&#x2500; RabbitMQ
+&#x251C;&#x2500;&#x2500; Redis
+&#x251C;&#x2500;&#x2500; Riak
+&#x251C;&#x2500;&#x2500; Riak-JMX
+&#x251C;&#x2500;&#x2500; SMTP
+&#x251C;&#x2500;&#x2500; SMTPS
+&#x251C;&#x2500;&#x2500; SSH
+&#x251C;&#x2500;&#x2500; WinRM
+&#x2514;&#x2500;&#x2500; _template
+</code></pre>
+<p>Although these types of sub-modules are located in the module repository, they can be referenced as independent modules using double-slash syntax. For example, you can write <code>source = &quot;xxxx//modules/rules&quot;</code> in Terraform configuration to reference the <code>modules/rules</code> subdirectory alone. Each sub-module generally only encapsulates one typical usage pattern or best practice configuration, keeping the module focused on a single function. This way, callers can import only the needed functional subset without understanding the implementation details of the complete module.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="locals.html" class="navigation navigation-prev " aria-label="Previous page: local blocks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="readme-documentation.html" class="navigation navigation-next " aria-label="Next page: README">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Local sub-modules","level":"1.2.6","depth":2,"next":{"title":"README","level":"1.2.7","depth":2,"path":"terraform-module-anatomy/readme-documentation.md","ref":"terraform-module-anatomy/readme-documentation.md","articles":[]},"previous":{"title":"local blocks","level":"1.2.5","depth":2,"path":"terraform-module-anatomy/locals.md","ref":"terraform-module-anatomy/locals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"terraform-module-anatomy/modules.md","mtime":"2026-01-07T06:06:51.985Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

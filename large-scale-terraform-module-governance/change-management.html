@@ -1,0 +1,1070 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Change Management · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="pipeline-security-considerations.html" />
+    
+    
+    <link rel="prev" href="pipeline-execution-context.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="one-module-one-repository.html">
+            
+                <a href="one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="semantic-versioning.html">
+            
+                <a href="semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="maintaining-consistent-repository-content.html">
+            
+                <a href="maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="unified-repository-permission-system.html">
+            
+                <a href="unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="continuous-integration-pipelines.html">
+            
+                <a href="continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="maintaining-global-pipeline-consistency.html">
+            
+                <a href="maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="pipeline-execution-context.html">
+            
+                <a href="pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.8" data-path="change-management.html">
+            
+                <a href="change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="pipeline-security-considerations.html">
+            
+                <a href="pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Change Management</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#change-management"><b>1.4.8.1. </b>Change Management</a></li><ul><li><span class="title-icon "></span><a href="#the-importance-of-standardizing-the-contribution-process"><b>1.4.8.1.1. </b>The Importance of Standardizing the Contribution Process</a></li><li><span class="title-icon "></span><a href="#early-communication"><b>1.4.8.1.2. </b>Early Communication</a></li><li><span class="title-icon "></span><a href="#branching-and-development"><b>1.4.8.1.3. </b>Branching and Development</a></li><li><span class="title-icon "></span><a href="#adhering-to-development-standards"><b>1.4.8.1.4. </b>Adhering to Development Standards</a></li><li><span class="title-icon "></span><a href="#submitting-a-pr"><b>1.4.8.1.5. </b>Submitting a PR</a></li><li><span class="title-icon "></span><a href="#automated-checks"><b>1.4.8.1.6. </b>Automated Checks</a></li><li><span class="title-icon "></span><a href="#maintainer-review"><b>1.4.8.1.7. </b>Maintainer Review</a></li><li><span class="title-icon "></span><a href="#merge-strategy"><b>1.4.8.1.8. </b>Merge Strategy</a></li><li><span class="title-icon "></span><a href="#handling-failures"><b>1.4.8.1.9. </b>Handling Failures</a></li><li><span class="title-icon "></span><a href="#summary"><b>1.4.8.1.10. </b>Summary</a></li></ul></ul></div><a href="#change-management" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="change-management"><a name="change-management" class="anchor-navigation-ex-anchor" href="#change-management"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1. Change Management</h1>
+<p>In the governance of large-scale Terraform modules, change management is an indispensable component. Since the governed modules are open-source projects, they not only receive submissions from internal company developers but may also attract code improvements from external contributors. This brings continuous vitality to the module&apos;s evolution, but it also presents a challenge: how to ensure that every change is high-quality, secure, and controllable.</p>
+<p>This section details the module contribution process and how maintainers can manage changes efficiently and robustly.</p>
+<h2 id="the-importance-of-standardizing-the-contribution-process"><a name="the-importance-of-standardizing-the-contribution-process" class="anchor-navigation-ex-anchor" href="#the-importance-of-standardizing-the-contribution-process"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.1. The Importance of Standardizing the Contribution Process</h2>
+<p>Terraform modules directly manipulate cloud infrastructure. The consequences of errors can range from resource creation failures to the accidental modification or destruction of existing production resources. Therefore, every code change must undergo strict quality and security checks.</p>
+<p>Establishing a standardized contribution process not only guarantees the safety and stability of the module itself but also provides a clear path for external contributors, preventing them from investing unnecessary effort due to misaligned expectations.</p>
+<p>Below, we explain the process using the change specifications of Azure Verified Modules as an example:</p>
+<h2 id="early-communication"><a name="early-communication" class="anchor-navigation-ex-anchor" href="#early-communication"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.2. Early Communication</h2>
+<p>Before submitting any new features, fixes, or optimizations, contributors should first create an <strong>Issue</strong> to describe the problem or proposed improvement in detail. This helps the module maintenance team assess feasibility in advance and ensures that the proposed changes align with the module&apos;s development direction.</p>
+<h2 id="branching-and-development"><a name="branching-and-development" class="anchor-navigation-ex-anchor" href="#branching-and-development"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.3. Branching and Development</h2>
+<p>Once the proposal is approved, contributors should create a new working branch based on the module repository&apos;s <code>main</code> branch. It is recommended to use a clear naming convention, for example:</p>
+<pre class="language-"><code class="lang-text">fix/variable-docs
+feature/add-network-acl
+</code></pre>
+<p>This allows maintainers to quickly identify the nature of the changes in the PR list.</p>
+<h2 id="adhering-to-development-standards"><a name="adhering-to-development-standards" class="anchor-navigation-ex-anchor" href="#adhering-to-development-standards"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.4. Adhering to Development Standards</h2>
+<p>During the development process, contributors must ensure:</p>
+<ul>
+<li>All changes comply with the official HashiCorp and Azure Verified Modules specifications.</li>
+<li>The <code>pre-commit</code> hooks are run locally before committing code. This automatically checks code formatting, generates/updates documentation, and performs basic static analysis to ensure the changes meet fundamental requirements.</li>
+<li>AVM provides a check pipeline equivalent to the <code>make pr-check</code> command. This enables credential-free checks to be executed within the container images used by the Continuous Integration pipeline, ensuring consistency with the pipeline environment. A Pull Request that passes the <code>pr-check</code> is effectively guaranteed to pass the preliminary checks of the CI pipeline. You can execute these commands inside the container via <code>./avm pre-commit</code> and <code>./avm pr-check</code>.</li>
+</ul>
+<h2 id="submitting-a-pr"><a name="submitting-a-pr" class="anchor-navigation-ex-anchor" href="#submitting-a-pr"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.5. Submitting a PR</h2>
+<p>Upon completion of development, contributors should submit a Pull Request. The PR content should include:</p>
+<ul>
+<li>A clear title and detailed description explaining the changes, the purpose, and potential impacts.</li>
+<li>Completion of all items in the contribution template checklist.</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> A comprehensive PR description helps maintainers quickly understand the context, significantly improving review efficiency.</p>
+</blockquote>
+<h2 id="automated-checks"><a name="automated-checks" class="anchor-navigation-ex-anchor" href="#automated-checks"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.6. Automated Checks</h2>
+<p>After a PR is submitted, the pipeline automatically triggers a series of checks, including:</p>
+<ul>
+<li><strong>Code Formatting Check</strong>: Ensures adherence to the module&apos;s formatting and style guidelines.</li>
+<li><strong>Basic Functionality Verification</strong>: Checks for syntax errors in the module using <code>terraform validate</code>.</li>
+<li><strong>Static Code Analysis</strong>: Uses TFLint to perform static syntax analysis on the code. It blocks anti-patterns explicitly forbidden by the code standards, checks if the types and descriptions of standard interface input variables declared in the module match the standards, and verifies that provider version constraints and external module sources comply with standard specifications.</li>
+<li><strong>Documentation Check</strong>: Ensures that all documentation is consistent with the actual state of the current Terraform module.</li>
+<li><strong>Policy Rule Check</strong>: Ensures that all example code under <code>examples</code> follows the various rules prescribed by the AVM specifications. We will explain this in detail in the subsequent <a href="../testing-and-validation/compliance-testing.html">Rules chapter</a>.</li>
+<li><strong>Example Plan Test</strong>: Ensures that the example code under <code>examples/</code> can successfully execute <code>terraform apply</code>, that repeated <code>apply</code> executions do not cause Configuration Drift, and finally confirms that the infrastructure created by the example code can be correctly destroyed via <code>terraform destroy</code>. We will explain this in greater detail in the subsequent chapters on testing.</li>
+</ul>
+<p>If any checks fail, contributors should refer to the pipeline output hints to correct the issues and resubmit.</p>
+<h2 id="maintainer-review"><a name="maintainer-review" class="anchor-navigation-ex-anchor" href="#maintainer-review"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.7. Maintainer Review</h2>
+<p>Every PR <strong>must</strong> undergo a manual review by module maintainers. Key review points include:</p>
+<ul>
+<li>Whether the changes align with the long-term planning of the module.</li>
+<li>Whether there are potential security risks.</li>
+<li>Whether the input/output variables and structural design are reasonable, and if types and descriptions are consistent with the Provider.</li>
+<li>Whether the documentation and examples are complete and easy to understand.</li>
+</ul>
+<p>If necessary, maintainers will provide feedback, and contributors should respond actively and make improvements.</p>
+<h2 id="merge-strategy"><a name="merge-strategy" class="anchor-navigation-ex-anchor" href="#merge-strategy"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.8. Merge Strategy</h2>
+<p>After the review is passed, module maintainers will adopt the following merge strategy:</p>
+<ul>
+<li>Create a release branch: Create a new <code>release/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span></code> branch from the <code>main</code> branch.</li>
+<li>Adjust the target branch of the PR to the release branch.</li>
+<li>Merge the PR into the release branch.</li>
+<li>Initiate a new PR to merge the release branch into the <code>main</code> branch to trigger end-to-end testing.</li>
+<li>Once testing passes, formally merge into the <code>main</code> branch.</li>
+</ul>
+<p>This workflow ensures that the <code>main</code> branch always maintains high stability, avoiding the direct merger of potentially unstable changes.</p>
+<h2 id="handling-failures"><a name="handling-failures" class="anchor-navigation-ex-anchor" href="#handling-failures"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.9. Handling Failures</h2>
+<p>If end-to-end testing fails, the module maintainer will:</p>
+<ul>
+<li>Analyze the cause of the failure.</li>
+<li>Decide whether to return it to the contributor for modification or have the maintenance team fix the issue directly, depending on the situation.</li>
+</ul>
+<p>Security is always the top priority. Once a security risk is discovered, maintainers have the right to close the PR and report it to the security team if necessary. <strong>Issues involving security vulnerabilities and attack attempts must be handed over to a professional team for subsequent handling.</strong></p>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.8.1.10. Summary</h2>
+<p>Change management is not just a code review process; it is a core element in maintaining module quality and security. By establishing a clear and standardized contribution process, we can provide a good experience for external contributors while ensuring the continuous, high-quality development of the module.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="pipeline-execution-context.html" class="navigation navigation-prev " aria-label="Previous page: Pipeline Execution Context">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="pipeline-security-considerations.html" class="navigation navigation-next " aria-label="Next page: Pipeline Security Considerations">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Change Management","level":"1.4.8","depth":2,"next":{"title":"Pipeline Security Considerations","level":"1.4.9","depth":2,"path":"large-scale-terraform-module-governance/pipeline-security-considerations.md","ref":"large-scale-terraform-module-governance/pipeline-security-considerations.md","articles":[]},"previous":{"title":"Pipeline Execution Context","level":"1.4.7","depth":2,"path":"large-scale-terraform-module-governance/pipeline-execution-context.md","ref":"large-scale-terraform-module-governance/pipeline-execution-context.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"large-scale-terraform-module-governance/change-management.md","mtime":"2026-01-07T07:23:50.821Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

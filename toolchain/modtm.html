@@ -1,0 +1,1135 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>modtm · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="mapotf.html" />
+    
+    
+    <link rel="prev" href="grept.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >modtm</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#modtm-provider-terraform-module-telemetry-provider"><b>1.6.13.1. </b>ModTM Provider: Terraform Module Telemetry Provider</a></li><ul><li><span class="title-icon "></span><a href="#introduction-to-modtm-what-is-it"><b>1.6.13.1.1. </b>Introduction to ModTM: What Is It?</a></li><li><span class="title-icon "></span><a href="#core-principles-how-telemetry-data-is-collected-and-transmitted"><b>1.6.13.1.2. </b>Core Principles: How Telemetry Data Is Collected and Transmitted</a></li><li><span class="title-icon "></span><a href="#using-modtm-integrating-telemetry-into-modules"><b>1.6.13.1.3. </b>Using ModTM: Integrating Telemetry into Modules</a></li><li><span class="title-icon "></span><a href="#the-value-of-module-governance-data-driven-decision-making-and-optimization"><b>1.6.13.1.4. </b>The Value of Module Governance: Data-Driven Decision Making and Optimization</a></li><li><span class="title-icon "></span><a href="#summary"><b>1.6.13.1.5. </b>Summary</a></li></ul></ul></div><a href="#modtm-provider-terraform-module-telemetry-provider" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="modtm-provider-terraform-module-telemetry-provider"><a name="modtm-provider-terraform-module-telemetry-provider" class="anchor-navigation-ex-anchor" href="#modtm-provider-terraform-module-telemetry-provider"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.13.1. ModTM Provider: Terraform Module Telemetry Provider</h1>
+<p>In large organizations or communities, a series of reusable Terraform modules is often maintained. However, as the number of modules and the scale of their usage expand, module governance faces numerous challenges. Team leads and module maintainers often struggle to answer questions such as: Which modules are widely used? Which versions are still in production? Are there modules that are no longer in use and can be deprecated? Without effective data support, these decisions can only rely on guesswork or manual statistics, which are neither accurate nor timely. A lack of visibility into module usage leads to duplicated efforts, delayed upgrades, and even security compliance risks.</p>
+<p>In promoting best practices such as <strong>Azure Verified Modules (AVM)</strong>, Azure has profoundly recognized the importance of &quot;<strong>telemetry</strong>&quot; for module governance. Maintainers can only make fact-based decisions by collecting and analyzing module usage data. This necessity gave birth to the <strong>Terraform Module Telemetry Provider: ModTM</strong>. ModTM is a Terraform plugin provided by Azure, designed to solve the <strong>usage tracking</strong> problem in large-scale module governance.</p>
+<h2 id="introduction-to-modtm-what-is-it"><a name="introduction-to-modtm-what-is-it" class="anchor-navigation-ex-anchor" href="#introduction-to-modtm-what-is-it"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.13.1.1. Introduction to ModTM: What Is It?</h2>
+<p><strong>ModTM (Terraform Module TeleMetry)</strong> is a Terraform Provider plugin specifically designed to collect usage data for Terraform modules. It introduces a custom resource type, <code>modtm_telemetry</code>. When you include this resource in a module, ModTM sends pre-defined <strong>tag data</strong> within the module to a specified telemetry endpoint via an HTTP POST request whenever lifecycle operations (Create, Update, Delete, etc.) occur. Simply put, ModTM adds telemetry capabilities to Terraform modules, allowing the module to &quot;report itself&quot; regarding its usage and lifecycle events.</p>
+<p>The goal of ModTM is to <strong>enhance visibility into the module lifecycle</strong>, helping to understand usage patterns: which modules are frequently deployed, which versions are most popular, which modules may no longer be in use, and in which regions users are deploying them. This data is invaluable for module governance, enabling the identification of <strong>widely popular modules</strong> (to prioritize maintenance) and <strong>long-unused modules</strong> (to consider for retirement or refactoring). At the same time, ModTM emphasizes <strong>data privacy and control</strong>; it only collects tags defined by the user and a UUID for the module instance to identify it, without collecting any other environmental or resource-sensitive information. By allowing users to explicitly specify what data to report, ModTM hands the initiative of telemetry over to the user.</p>
+<p>It is worth noting that ModTM is a <strong>lightweight, non-intrusive</strong> solution. It does not affect the infrastructure itself, nor does it rely on cloud resource deployments. It merely sends HTTP requests during the plan execution via the Terraform Provider mechanism. Its implementation ensures <strong>no obstruction</strong> to the Terraform deployment process; even in environments with no network or restricted networks, a telemetry failure will not cause Terraform execution to error out or interrupt (at most causing a delay of a few seconds and logging the event). Because of this, using ModTM does not affect the normal deployment and operation of existing infrastructure, balancing data collection with system stability.</p>
+<h2 id="core-principles-how-telemetry-data-is-collected-and-transmitted"><a name="core-principles-how-telemetry-data-is-collected-and-transmitted" class="anchor-navigation-ex-anchor" href="#core-principles-how-telemetry-data-is-collected-and-transmitted"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.13.1.2. Core Principles: How Telemetry Data Is Collected and Transmitted</h2>
+<p><strong>The working principle of ModTM</strong> can be divided into two parts: the module side and the server side.</p>
+<ul>
+<li><p><strong>Client (Terraform Provider):</strong> When you configure the <code>modtm_telemetry</code> resource in a module, the ModTM Provider intercepts the module&apos;s lifecycle events when Terraform executes <code>apply</code>. During module <strong>Create</strong>, <strong>Update</strong>, or <strong>Delete</strong>, the ModTM Provider sends a set of pre-defined tags as a JSON payload via HTTP POST to a specified telemetry server <strong>URL</strong>. These tags typically include: the module&apos;s name or source, version number, deployment environment information, etc., which are specified by the user within the module.</p>
+</li>
+<li><p><strong>Server (Telemetry Collection Service):</strong> Azure provides a corresponding telemetry receiver service implementation. For example, in the Azure Verified Modules scenario, ModTM defaults to sending data to an Azure-hosted web service, which then forwards and stores the telemetry data in <strong>Azure Application Insights</strong> (Azure&apos;s cloud application monitoring service). Application Insights is used to centrally record and analyze these telemetry logs, allowing maintainers to query module usage. For instance, one can count usage by module name/version, summarize module deployments by Subscription ID, or track the lifecycle of module instances (when they were created and when they were destroyed).</p>
+</li>
+</ul>
+<p>Why not send data directly to Application Insights? Because ModTM aims to be a platform-agnostic, neutral solution. It avoids binding itself to the Azure platform, hence the use of HTTP for data transmission. Any user wishing to deploy a private telemetry collection service can implement their own HTTP server and save the collected data in their preferred manner.</p>
+<p>Azure officially describes ModTM as a &quot;lightweight telemetry provider that sends telemetry data to Azure Application Insights via an HTTP POST frontend service.&quot; This architecture ensures that <strong>no sensitive Telemetry keys are directly embedded</strong> in the module code. The module simply sends data to a public endpoint URL, while the actual Azure monitoring credentials are kept solely on the server side. For enterprise users who do not wish to send telemetry data to Microsoft-hosted services, ModTM also supports custom <strong>sending endpoints</strong> and filtering rules. For example, you can specify your own receiver service URL in the Provider configuration and limit collection to data from specific module sources. By default, the ModTM provided by Azure comes built-in with the official telemetry service URL and allowlists, ensuring an out-of-the-box experience for users of Azure Verified Modules.</p>
+<p>Regarding <strong>Data Content and Privacy Control</strong>, ModTM adopts a fully user-defined <strong>tags</strong> mechanism. You can choose which data to collect as key-value pairs, such as module identifiers, versions, the Azure Subscription or Tenant where it resides, deployment regions, etc. In official examples, it typically collects the Azure environment&apos;s Subscription ID, Tenant ID, as well as the module&apos;s source and version, plus a random UUID to identify each module instance. For example, a module might define tags as follows:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+  <span class="token property">subscription_id</span> <span class="token punctuation">=</span> one(data.azurerm_client_config.telemetry).subscription_id
+  <span class="token property">tenant_id</span>       <span class="token punctuation">=</span> one(data.azurerm_client_config.telemetry).tenant_id
+  <span class="token property">module_source</span>   <span class="token punctuation">=</span> one(data.modtm_module_source.telemetry).module_source
+  <span class="token property">module_version</span>  <span class="token punctuation">=</span> one(data.modtm_module_source.telemetry).module_version
+  <span class="token property">random_id</span>       <span class="token punctuation">=</span> one(random_uuid.telemetry).result
+  <span class="token property">location</span>        <span class="token punctuation">=</span> var.location
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In the tags above, <code>subscription_id</code> and <code>tenant_id</code> indicate the Azure environment where the module is deployed. <code>module_source</code> and <code>module_version</code> are automatically extracted by ModTM to identify the current module&apos;s source address and version number (via the <code>modtm_module_source</code> data source or Provider built-in functions). <code>random_id</code> is the generated UUID for the module instance, which remains constant across deployments, while <code>location</code> is a region parameter provided by the module user. You can also add more business-related tags (e.g., environment type, user team, etc.) as needed to enrich the telemetry information. <strong>ModTM does not actively collect any undeclared data</strong>; only these user-provided tags and the UUID are packaged and sent. If users do not want to report certain information due to privacy concerns, they can choose not to include it as a tag or <strong>completely disable telemetry</strong>.</p>
+<h2 id="using-modtm-integrating-telemetry-into-modules"><a name="using-modtm-integrating-telemetry-into-modules" class="anchor-navigation-ex-anchor" href="#using-modtm-integrating-telemetry-into-modules"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.13.1.3. Using ModTM: Integrating Telemetry into Modules</h2>
+<p>ModTM is designed to be easily integrated into Terraform modules. Here are the basic steps and examples for using ModTM:</p>
+<ol>
+<li><strong>Declare the ModTM Provider in the Module</strong>
+Ensure that the ModTM provider is required in the module&apos;s <code>terraform</code> configuration. For example, add the following to the module&apos;s <code>terraform.tf</code> file:
+```hcl
+terraform {
+required_providers {
+ modtm = {
+   source  = &quot;Azure/modtm&quot;
+   version = &quot;~&gt; 0.3&quot;
+ }
+}
+}</li>
+</ol>
+<pre class="language-"><code>
+This causes Terraform to download the Azure-provided modtm plugin (version 0.3.x). Azure&apos;s official module specifications mandate the inclusion of this configuration, checking that ModTM is correctly declared even during module code linting.
+2. **Add a Telemetry Configuration Toggle**
+It is generally recommended that modules provide a boolean variable (e.g., `enable_telemetry`) to allow users to control whether telemetry is enabled. In Azure modules, this variable defaults to `true` (enabled), and documentation clearly states that setting it to false will result in no telemetry collection. This respects user choice and facilitates turning off unnecessary network communication in certain environments (such as offline environments).
+3. **Define ModTM Resources in the Module**
+Create a `main.telemetry.tf` or equivalent Terraform configuration file, and use ModTM data sources and resources within it. For example:
+```hcl
+data &quot;azurerm_client_config&quot; &quot;telemetry&quot; {
+  count = var.enable_telemetry ? 1 : 0
+}
+
+data &quot;modtm_module_source&quot; &quot;telemetry&quot; {
+  count       = var.enable_telemetry ? 1 : 0
+  module_path = path.module
+}
+
+resource &quot;random_uuid&quot; &quot;telemetry&quot; {
+  count = var.enable_telemetry ? 1 : 0
+}
+
+resource &quot;modtm_telemetry&quot; &quot;telemetry&quot; {
+  count = var.enable_telemetry ? 1 : 0
+  tags = {
+    subscription_id = one(data.azurerm_client_config.telemetry).subscription_id
+    tenant_id       = one(data.azurerm_client_config.telemetry).tenant_id
+    module_source   = one(data.modtm_module_source.telemetry).module_source
+    module_version  = one(data.modtm_module_source.telemetry).module_version
+    random_id       = one(random_uuid.telemetry).result
+    location        = var.location
+  }
+}
+</code></pre><p>The code above uses the <strong>conditional count</strong> technique: when <code>enable_telemetry</code> is false, the <code>count</code> for these data sources and resources is <code>0</code>, effectively creating nothing, thus achieving a one-switch disablement of telemetry. Conversely, when enabled, ModTM performs the following during the module deployment: calls <code>azurerm_client_config</code> to get Subscription and Tenant IDs; uses <code>data.modtm_module_source</code> to automatically read the module&apos;s <code>source</code> and <code>version</code> attributes; creates a <code>random_uuid</code> to generate a <strong>unique module instance identifier</strong>; and finally executes the <code>modtm_telemetry</code> resource. <strong>Whenever this module instance is created, updated, or destroyed</strong>, <code>modtm_telemetry.telemetry</code> sends an HTTP request containing the aforementioned tags to the preset endpoint, thereby recording a telemetry log.
+It is specifically worth noting that <code>data.modtm_module_source.telemetry</code> obtains the current path of the module at deployment time by reading <a href="https://developer.hashicorp.com/terraform/language/expressions/references#path-module" target="_blank"><code>path.module</code></a> at runtime. From this path, it searches upwards layer by layer for the <code>.terraform/modules/modules.json</code> file, matching its own <code>source</code> and <code>version</code> information based on the path and returning it to the caller. This information can be used not only with the <code>modtm</code> Provider but also for other telemetry data purposes. For instance, in AzAPI, one can set data such as <a href="https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource#create_headers-1" target="_blank"><code>create_headers</code></a>. We can define an <code>azapi_resource</code> block like this:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azapi_resource&quot;</span></span> <span class="token string">&quot;example&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">type</span>      <span class="token punctuation">=</span> <span class="token string">&quot;Microsoft.ContainerRegistry/registries@2020-11-01-preview&quot;</span>
+  <span class="token property">name</span>      <span class="token punctuation">=</span> <span class="token string">&quot;registry1&quot;</span>
+  <span class="token property">parent_id</span> <span class="token punctuation">=</span> azurerm_resource_group.example.id
+
+  <span class="token property">location</span> <span class="token punctuation">=</span> azurerm_resource_group.example.location
+  <span class="token keyword">identity</span> <span class="token punctuation">{</span>
+    <span class="token property">type</span>         <span class="token punctuation">=</span> <span class="token string">&quot;SystemAssigned, UserAssigned&quot;</span>
+    <span class="token property">identity_ids</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span>azurerm_user_assigned_identity.example.id<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token property">body</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">sku</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+      <span class="token property">name</span> <span class="token punctuation">=</span> <span class="token string">&quot;Standard&quot;</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">properties</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+      <span class="token property">adminUserEnabled</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;Key&quot;</span> <span class="token punctuation">=</span> <span class="token string">&quot;Value&quot;</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">create_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+   <span class="token property">User-Agents</span> <span class="token punctuation">=</span> <span class="token string">&quot;module_source=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_source<span class="token punctuation">}</span></span>,module_version=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_version<span class="token punctuation">}</span></span>&quot;</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">update_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+   <span class="token property">User-Agents</span> <span class="token punctuation">=</span> <span class="token string">&quot;module_source=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_source<span class="token punctuation">}</span></span>,module_version=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_version<span class="token punctuation">}</span></span>&quot;</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">read_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+   <span class="token property">User-Agents</span> <span class="token punctuation">=</span> <span class="token string">&quot;module_source=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_source<span class="token punctuation">}</span></span>,module_version=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_version<span class="token punctuation">}</span></span>&quot;</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">delete_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+   <span class="token property">User-Agents</span> <span class="token punctuation">=</span> <span class="token string">&quot;module_source=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_source<span class="token punctuation">}</span></span>,module_version=<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">one</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span><span class="token type variable">modtm_module_source</span><span class="token punctuation">.</span>telemetry<span class="token punctuation">)</span><span class="token punctuation">.</span>module_version<span class="token punctuation">}</span></span>&quot;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token property">response_export_values</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;properties.loginServer&quot;</span>, <span class="token string">&quot;properties.policies.quarantinePolicy.status&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this way, when using this module, the Create/Read/Update/Delete methods issued through <code>azapi_resource.example</code> will include the module name and version information in the User-Agents. This helps Microsoft confirm in the backend which API calls originate from AVM modules, exactly which modules they originate from, version distribution, and other highly useful information.
+For new features in Terraform 1.5+, one can also omit the data source and directly call functions provided by the ModTM Provider to get the module source and version. For example, official support exists for syntax like <code>provider::modtm::module_source(path.module)</code>. Regardless of the method used, module usage information will ultimately be sent out without affecting the deployment of primary resources.</p>
+<ol>
+<li><strong>Verification and Execution</strong>
+After publishing and applying the module, you can verify if the telemetry data was successfully received by checking Azure Application Insights (if using the official endpoint) or the logs of your self-hosted telemetry service. Since ModTM is <strong>non-blocking</strong>, it will not print obvious success/failure messages in the Terraform output&#x2014;unless a network error occurs, in which case a log hint will be recorded. typically, you can see records similar to &quot;Received telemetry for module X version Y, Subscription ID=..., Time=...&quot; on the log server side, proving that ModTM is working correctly.</li>
+</ol>
+<p>With the above steps, module authors can enable a &quot;telemetry eye&quot; for their modules without writing any complex code. All resources introduced by ModTM (data sources and random UUIDs) are local in nature; they do not create extra resources in the cloud, nor do they affect the module&apos;s primary infrastructure functions. For the end-user utilizing the module, aside from a very small HTTP request traffic generated during Terraform execution, the deployment process and results are virtually unaffected.</p>
+<h2 id="the-value-of-module-governance-data-driven-decision-making-and-optimization"><a name="the-value-of-module-governance-data-driven-decision-making-and-optimization" class="anchor-navigation-ex-anchor" href="#the-value-of-module-governance-data-driven-decision-making-and-optimization"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.13.1.4. The Value of Module Governance: Data-Driven Decision Making and Optimization</h2>
+<p>Before the introduction of ModTM, module maintainers often lacked reliable data to improve and manage modules. Now, telemetry data collected via ModTM can significantly enhance the scientific nature and efficiency of <strong>module governance</strong>:</p>
+<ul>
+<li><strong>Usage Pattern Analysis:</strong> Maintenance teams can use tools like Application Insights to analyze collected logs. For example, counting how many times a module is deployed daily/monthly, or how many module instances currently exist in various subscriptions. This data helps determine the popularity and usage trends of a module. High-frequency modules can receive more resources for continuous optimization, while modules with low or zero usage may indicate redundant functionality or insufficient documentation, warranting further investigation.</li>
+<li><strong>Version and Upgrade Governance:</strong> Since ModTM captures module version information, maintainers can see which old versions users are still utilizing. For instance, if a large number of instances are found on an old version that hasn&apos;t been upgraded, the team can evaluate the reasons (perhaps upgrade resistance or compatibility issues) and formulate appropriate strategies. Conversely, if telemetry shows that most users have migrated to a new version, <strong>retiring</strong> old versions or features can be considered. In this way, version iteration and lifecycle management of large-scale module libraries become more evidence-based.</li>
+<li><strong>Module Compliance and Standardization Promotion:</strong> In internal enterprise deployments, architecture teams often mandate the use of certified standard modules. ModTM can help track the adoption of these standard modules. For example, by collecting the <code>module_source</code> tag, one can distinguish whether teams are using the company-provided module source. If some teams have forked the module themselves, corresponding records will not appear in the telemetry. This is because when teams fork a module, they might include private data in the module&apos;s <code>source</code> path, so strict restrictions must be placed on <code>source</code> to avoid collecting data that shouldn&apos;t be collected. Although ModTM itself cannot directly detect &quot;unused modules,&quot; it provides a quantitative basis for the scope of <strong>adopted standard modules</strong>, promoting compliance from a lateral perspective.</li>
+<li><strong>Anomaly and Issue Tracking (Indirect Benefits):</strong> Although ModTM primarily collects usage volume data, when combined with time-series analysis, it can also indirectly reveal certain anomalies. For example, if Create/Destroy events for a module show abnormal spikes, it might suggest resource churn (frequent deployment and destruction) or an automation process endlessly retrying. Maintainers can then investigate whether there are design issues or usage misconceptions with the module. Such insights depend on in-depth analysis of telemetry data, but once established, they are very helpful for improving module quality and stability.</li>
+<li><strong>Decision Transparency and Communication:</strong> With data support, module evolution decisions can be communicated more transparently to stakeholders. For example, when proposing to deprecate a module, maintainers can cite telemetry statistics proving &quot;zero new deployments and zero instances for this module in the past 6 months,&quot; making the decision easier to accept. Similarly, when demonstrating DevOps improvement results to management, metrics like increased module adoption rates can be used to quantify value.</li>
+</ul>
+<p>In summary, ModTM introduces a critical <strong>telemetry feedback loop</strong> to the Terraform module ecosystem. Modules are no longer &quot;black boxes&quot; that leave no trace after being put into use; maintainers can continuously monitor &quot;user behavior&quot; data of modules just like product managers treat software applications, thereby driving data-driven improvements. This is especially crucial in large-scale module governance scenarios&#x2014;when there are numerous modules and scattered users, only automated telemetry collection can provide a comprehensive grasp of the global situation.</p>
+<p>It is worth mentioning that Azure officially integrates ModTM by default in its <strong>Azure Verified Modules</strong> templates and <strong>enables</strong> telemetry collection by default. Users of these modules, while following open-source licenses, also help the module maintenance team collect valuable anonymous usage data (though users have the right to disable this at any time via variable configuration). The module code repositories also clearly contain data collection statements and privacy notices to ensure compliance. For the vast number of Terraform module developers, even if not in an Azure environment, the ModTM model holds reference value&#x2014;by using a lightweight telemetry tool, communities and enterprises can build a measurement system for module usage, enhancing the level of module governance.</p>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.13.1.5. Summary</h2>
+<p>The emergence of <strong>ModTM (Terraform Module TeleMetry)</strong> fills a gap in Terraform module governance. It solves the challenge of module usage data acquisition in a concise manner, helping large organizations realize <strong>module-level telemetry</strong> within their DevOps toolchains. Through ModTM, we can better understand module usage dynamics in the &quot;Infrastructure as Code&quot; world, which has significant value for optimizing modules, improving architecture, and promoting standardization. For developers, ModTM is easy to use, has zero interference with normal deployments, and offers a high degree of autonomy and privacy control, making it a trustworthy tool in large-scale module governance. As stated in the official documentation, ModTM empowers Terraform modules with data insight capabilities, enabling us to make smarter decisions while guaranteeing privacy and stability. With ModTM, the management of large Terraform module libraries is moving towards a <strong>more visualized and intelligent</strong> future.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="grept.html" class="navigation navigation-prev " aria-label="Previous page: grept">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="mapotf.html" class="navigation navigation-next " aria-label="Next page: mapotf">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"modtm","level":"1.6.13","depth":2,"next":{"title":"mapotf","level":"1.6.14","depth":2,"path":"toolchain/mapotf.md","ref":"toolchain/mapotf.md","articles":[]},"previous":{"title":"grept","level":"1.6.12","depth":2,"path":"toolchain/grept.md","ref":"toolchain/grept.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/modtm.md","mtime":"2026-01-07T06:34:51.433Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

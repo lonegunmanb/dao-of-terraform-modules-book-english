@@ -1,0 +1,1117 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>yorbox · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="newres.html" />
+    
+    
+    <link rel="prev" href="yor.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >yorbox</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#yorbox"><b>1.6.9.1. </b>YorBox</a></li><ul><li><span class="title-icon "></span><a href="#core-features-and-use-cases"><b>1.6.9.1.1. </b>Core Features and Use Cases</a></li><li><span class="title-icon "></span><a href="#why-is-yorbox-needed"><b>1.6.9.1.2. </b>Why is YorBox Needed?</a></li><li><span class="title-icon "></span><a href="#installation-and-usage"><b>1.6.9.1.3. </b>Installation and Usage</a></li><li><span class="title-icon "></span><a href="#flexible-use-of-boxtemplate"><b>1.6.9.1.4. </b>Flexible Use of boxTemplate</a></li><ul><li><span class="title-icon "></span><a href="#how-to-use-boxtemplate-to-add-a-unified-prefix-to-tag-keys"><b>1.6.9.1.4.1. </b>How to use BoxTemplate to add a unified prefix to tag keys</a></li></ul><li><span class="title-icon "></span><a href="#summary"><b>1.6.9.1.5. </b>Summary</a></li></ul></ul></div><a href="#yorbox" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="yorbox"><a name="yorbox" class="anchor-navigation-ex-anchor" href="#yorbox"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1. YorBox</h1>
+<p><strong>YorBox</strong> is an open-source command-line tool for Terraform, designed to work with <a href="yor.html"><code>yor</code></a> to facilitate the unified governance of resource tags. It is written in Go and leverages HashiCorp&apos;s <strong>HCL</strong> libraries (such as <em>hclwrite</em>) to parse and rewrite Terraform configurations. BridgeCrew Yor itself can automatically add tags to IaC templates, enabling traceability from code to cloud resources. However, the tags automatically inserted by Yor are hardcoded in the code, lacking flexibility for users. YorBox was created against this backdrop to enhance the controllability and flexibility of Yor tag governance.</p>
+<h2 id="core-features-and-use-cases"><a name="core-features-and-use-cases" class="anchor-navigation-ex-anchor" href="#core-features-and-use-cases"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1.1. Core Features and Use Cases</h2>
+<p>The core function of YorBox is to perform <strong>secondary processing</strong> on tags after BridgeCrew Yor has automatically added them, making these tags configurable and toggleable.</p>
+<p>Specifically, YorBox scans all Terraform <code>.tf</code> files in a specified directory, <strong>detects the tag blocks automatically generated by Yor</strong>, and wraps them into a &quot;box&quot; with conditional logic (i.e., a Terraform <a href="https://developer.hashicorp.com/terraform/language/expressions/conditionals" target="_blank">conditional expression</a>). This &quot;box&quot; is controlled by a boolean variable, allowing users to <strong>enable or disable</strong> the entire set of tags by toggling the variable. After processing by YorBox, the originally hardcoded tags are rewritten into a structure similar to <code>tags = (var.yor_toggle ? { ... } : {})</code>. Here, <code>yor_toggle</code> (the name is customizable) is the switch variable; when it is <code>false</code>, the expression returns an empty set of tags, effectively <strong>turning off automatic tagging</strong>. With this mechanism, developers can flexibly control whether to apply the tags injected by Yor in different environments or scenarios, ensuring consistent tag management without losing flexibility.</p>
+<p>In addition to the basic tag toggling function, YorBox also supports advanced usages such as <strong>tag prefixes</strong> and template customization. For example, BridgeCrew Yor provides an option to customize tag prefixes (<code>--tag-prefix</code>), which enables distinguishing tags from different sources in large-scale projects. When Yor uses a prefix (such as <code>&quot;avm_&quot;</code>) to name tags, YorBox allows users to specify that prefix via command-line arguments (such as <code>-tagsPrefix &quot;avm_&quot;</code>), thereby accurately locating the tag keys generated by Yor. Furthermore, YorBox offers <strong>Box Template</strong> configuration capabilities, allowing users to customize the format of the expression wrapping the tags. For instance, you can customize a template to add a unified prefix to tag keys or modify key names while retaining the original ones. This customization is implemented using Go template syntax, and YorBox renders the final code based on the template before inserting the new tag block. In summary, the purpose of YorBox is to make the automatic tagging process <strong>controllable and configurable</strong>: it maintains unified governance of tags across modules while allowing tags to be enabled/disabled or adjusted as needed, achieving flexible application of tag strategies at an enterprise scale.</p>
+<h2 id="why-is-yorbox-needed"><a name="why-is-yorbox-needed" class="anchor-navigation-ex-anchor" href="#why-is-yorbox-needed"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1.2. Why is YorBox Needed?</h2>
+<p>In the governance of large-scale Terraform modules, introducing YorBox mainly addresses the <strong>pain points</strong> encountered when using BridgeCrew Yor:</p>
+<ul>
+<li><strong>Inability to disable tags on demand</strong>: BridgeCrew Yor automatically adds tracking tags (such as <code>git_commit</code>, <code>yor_trace</code>, etc.) to resources, but in reusable Terraform modules, these tags are hardcoded directly into the code, and module users cannot control whether to apply them via variables. This creates a flexibility issue: not all deployment environments or teams need these additional tags, and if they cannot be disabled, they might be considered redundant information.</li>
+<li><strong>Fixed tag naming</strong>: The tag keys inserted by Yor are usually fixed (or uniformly prefixed). Different teams or projects may require different naming conventions. For example, a team might want all automatic tags to have a specific prefix to avoid conflicts with existing tags. However, with Yor&apos;s native functionality, such adjustments need to be uniformly specified when running Yor, and cannot be chosen independently by module users.</li>
+<li><strong>Version control noise</strong>: Every time Yor runs, it modifies Terraform module files to add/update tag lines. When teams run Yor frequently in continuous integration pipelines, the repository may accumulate a large number of commits containing only tag changes. Without a mechanism to control whether tag injection is enabled, unnecessary version control noise can be introduced in some scenarios.</li>
+</ul>
+<p>YorBox provides solutions to these problems. By adding a conditional switch to Yor&apos;s automatic tags, YorBox allows module maintainers to <strong>encapsulate the tag injection logic</strong>, giving module users the right to choose&#x2014;for example, by setting <code>var.yor_toggle = false</code> to turn off tag injection. At the same time, YorBox supports applying custom templates and prefix strategies when wrapping tags, ensuring that tag naming conforms to project conventions. In short, <strong>YorBox improves the governability of Yor in large projects</strong>: it retains the traceability convenience brought by automatic tagging while avoiding unnecessary mandatory tags and reducing operational burdens.</p>
+<h2 id="installation-and-usage"><a name="installation-and-usage" class="anchor-navigation-ex-anchor" href="#installation-and-usage"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1.3. Installation and Usage</h2>
+<p>As a standalone CLI tool, installing YorBox is very simple. Since it is written in Go, users can directly use the Go installation command to get the latest version:</p>
+<pre class="language-"><code class="lang-bash">go <span class="token function">install</span> github.com/lonegunmanb/yorbox@latest
+</code></pre>
+<p>The typical usage workflow for YorBox involves pairing it with BridgeCrew Yor:</p>
+<ol>
+<li><strong>Run Yor for automatic tagging:</strong> First, use BridgeCrew Yor to inject tags into the Terraform code in the current directory, for example:</li>
+</ol>
+<pre class="language-"><code class="lang-bash">yor tag <span class="token parameter variable">-d</span> ./
+</code></pre>
+<p>This step will add tracking tags (such as Git metadata and <code>yor_trace</code>, etc.) to resources and modules according to Yor&apos;s rules. You can add parameters like <code>--tag-prefix</code> to this command as needed to control the tag format.</p>
+<ol>
+<li><strong>Run YorBox to wrap tags:</strong> After Yor finishes execution, run YorBox to convert the injected tags into a format with a switch:</li>
+</ol>
+<pre class="language-"><code class="lang-bash">yorbox <span class="token parameter variable">-dir</span> <span class="token builtin class-name">.</span> <span class="token punctuation">\</span>
+       <span class="token parameter variable">-toggleName</span> <span class="token string">&quot;yor_toggle&quot;</span> <span class="token punctuation">\</span>
+       <span class="token parameter variable">-tagsPrefix</span> <span class="token string">&quot;&quot;</span>
+</code></pre>
+<p>   The above command specifies the target directory (<code>.</code> represents the current directory), uses the default switch variable name <code>yor_toggle</code>, and assumes Yor did not use an extra prefix (if Yor used a prefix when tagging, pass it here via <code>-tagsPrefix</code>, e.g., <code>-tagsPrefix &quot;avm_&quot;</code>). YorBox will scan all <code>.tf</code> files in the directory, find the tags inserted by Yor in each modified resource or module block, add conditional logic, and write them back to the file. After processing, the map originally assigned to <code>tags</code> will become a structure containing a ternary expression, such as:</p>
+<pre class="language-"><code class="lang-hcl">   <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token comment">/*&lt;box&gt;*/</span> var.yor_toggle ? <span class="token comment">/*&lt;/box&gt;*/</span> <span class="token punctuation">{</span>
+     <span class="token property">git_commit</span> <span class="token punctuation">=</span> <span class="token string">&quot;...&quot;</span> 
+     <span class="token property">git_file</span>   <span class="token punctuation">=</span> <span class="token string">&quot;...&quot;</span> 
+     <span class="token property">yor_trace</span>  <span class="token punctuation">=</span> <span class="token string">&quot;...&quot;</span>
+     <span class="token comment"># ...omitted Yor tags</span>
+   <span class="token punctuation">}</span> <span class="token comment">/*&lt;box&gt;*/</span> : <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">/*&lt;/box&gt;*/</span>
+</code></pre>
+<p>   Now, the value of the variable <code>yor_toggle</code> determines whether this set of tags takes effect: when <code>true</code>, the tags are applied; when <code>false</code>, it is empty.</p>
+<p>YorBox provides some optional parameters to adapt to different scenarios:</p>
+<ul>
+<li>Use <code>-toggleName <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span></code> to customize the switch variable name (default is <code>yor_toggle</code>) to avoid naming conflicts with other variables in the project.</li>
+<li>Use <code>-tagsPrefix <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>prefix</span><span class="token punctuation">&gt;</span></span></code> to specify the key name prefix used when Yor inserts tags (if any), ensuring that YorBox can correctly identify which tags need to be wrapped. For example, if Yor inserted tag keys like <code>my_prefix_git_commit</code>, run YorBox with the option <code>-tagsPrefix &quot;my_prefix_&quot;</code>, so the tool will look for tag keys starting with that prefix like <code>git_commit</code> for processing.</li>
+<li>Use <code>-boxTemplate &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template_string</span><span class="token punctuation">&gt;</span></span>&apos;</code> to override the default wrapping template. The default template simply wraps the tags in <code>(var.toggle ? { ... } : {})</code>. Experienced users can implement more complex logic through custom templates (such as using <code>for</code> expressions to batch replace key name prefixes in an example). Generally, the default behavior meets the needs, and this advanced parameter is not used unless there are special customization requirements.</li>
+</ul>
+<p>It should be noted that when YorBox inserts conditional tags into files, it uses special marker comments (such as <code>/*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>box</span><span class="token punctuation">&gt;</span></span>*/</code> and <code>/*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>box</span><span class="token punctuation">&gt;</span></span>*/</code>) to surround the generated code snippets. These markers do not affect the execution of the Terraform configuration, but are used to prompt YorBox to identify existing &quot;box&quot; areas when run next time, thereby avoiding repeated wrapping or facilitating the re-application of new template formats. If existing tag boxes need to be updated, YorBox will first remove old markers and code, and then insert the new structure. Therefore, repeated execution of YorBox is idempotent and can be safely executed repeatedly in continuous integration environments.</p>
+<p>When module users need to enable these tags, they only need to set the <code>yor_toggle</code> variable to <code>true</code> when calling the module in Terraform; conversely, when it defaults to <code>false</code>, the module will not contain any tracking tags. For example, when referencing the module in a Terraform configuration, you can set the switch and prefix like this:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">module<span class="token type variable"> &quot;example&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">source</span>               <span class="token punctuation">=</span> <span class="token string">&quot;azure/xxx/azurerm&quot;</span>
+  <span class="token comment"># ...other parameters...</span>
+  <span class="token property">yor_toggle</span>           <span class="token punctuation">=</span> <span class="token boolean">true</span>             <span class="token comment"># Enable automatic tracking tags</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="flexible-use-of-boxtemplate"><a name="flexible-use-of-boxtemplate" class="anchor-navigation-ex-anchor" href="#flexible-use-of-boxtemplate"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1.4. Flexible Use of boxTemplate</h2>
+<p><strong>Box Template (BoxTemplate)</strong> is a Go template used to generate the &quot;box&quot; expression. The box template supports user-passed variables. For example, the default template is as follows:</p>
+<pre class="language-"><code class="lang-text">{% raw %}/*&lt;box&gt;*/(var.{{ .toggleName }} ? /*&lt;/box&gt;*/ { yor_trace = 123 } /*&lt;box&gt;*/ : {})/*&lt;/box&gt;*/{% endraw %}
+</code></pre>
+<p>By running the command:</p>
+<pre class="language-"><code class="lang-bash">$ yorbox <span class="token parameter variable">-dir</span> <span class="token operator">&lt;</span>directory<span class="token operator">&gt;</span> <span class="token parameter variable">-toggleName</span> <span class="token string">&quot;my_toggle&quot;</span>
+</code></pre>
+<p>The generated code is:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token property">tags</span> <span class="token punctuation">=</span> (<span class="token comment">/*&lt;box&gt;*/</span>(var.my_toggle ? <span class="token comment">/*&lt;/box&gt;*/</span><span class="token punctuation">{</span>
+  <span class="token property">git_commit</span>           <span class="token punctuation">=</span> <span class="token string">&quot;898d5beaec7ffdef6df0d7abecff407362e2a74e&quot;</span>
+  <span class="token property">git_file</span>             <span class="token punctuation">=</span> <span class="token string">&quot;terraform/azure/aks.tf&quot;</span>
+  <span class="token property">git_last_modified_at</span> <span class="token punctuation">=</span> <span class="token string">&quot;2020-06-17 12:59:55&quot;</span>
+  <span class="token property">git_last_modified_by</span> <span class="token punctuation">=</span> <span class="token string">&quot;nimrodkor@gmail.com&quot;</span>
+  <span class="token property">git_modifiers</span>        <span class="token punctuation">=</span> <span class="token string">&quot;nimrodkor&quot;</span>
+  <span class="token property">git_org</span>              <span class="token punctuation">=</span> <span class="token string">&quot;bridgecrewio&quot;</span>
+  <span class="token property">git_repo</span>             <span class="token punctuation">=</span> <span class="token string">&quot;terragoat&quot;</span>
+  <span class="token property">yor_trace</span>            <span class="token punctuation">=</span> <span class="token string">&quot;6103d111-864e-42e5-899c-1864de281fd1&quot;</span>
+<span class="token punctuation">}</span><span class="token comment">/*&lt;box&gt;*/</span> : <span class="token punctuation">{</span><span class="token punctuation">}</span>)<span class="token comment">/*&lt;/box&gt;*/</span> )
+</code></pre>
+<p>Available variables are:</p>
+<ul>
+<li><code>dirPath</code>: corresponds to <code>-dir</code></li>
+<li><code>toggleName</code>: corresponds to <code>-toggleName</code></li>
+<li><code>tagsPrefix</code>: corresponds to <code>-tagsPrefix</code></li>
+</ul>
+<h3 id="how-to-use-boxtemplate-to-add-a-unified-prefix-to-tag-keys"><a name="how-to-use-boxtemplate-to-add-a-unified-prefix-to-tag-keys" class="anchor-navigation-ex-anchor" href="#how-to-use-boxtemplate-to-add-a-unified-prefix-to-tag-keys"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1.4.1. How to use BoxTemplate to add a unified prefix to tag keys</h3>
+<p>The following is an operational guide on how to batch add prefixes to all tag keys via the <code>-boxTemplate</code> parameter:</p>
+<h4 id="1-first-run-yor-to-inject-tags"><a name="1-first-run-yor-to-inject-tags" class="anchor-navigation-ex-anchor" href="#1-first-run-yor-to-inject-tags"><i class="fa fa-link" aria-hidden="true"></i></a>1. First, run Yor to inject tags</h4>
+<p>Assume your Terraform resources have been automatically tagged by BridgeCrew Yor, for example:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azurerm_resource_group&quot;</span></span> <span class="token string">&quot;example&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">name</span>     <span class="token punctuation">=</span> <span class="token string">&quot;example-rg&quot;</span>
+  <span class="token property">location</span> <span class="token punctuation">=</span> <span class="token string">&quot;East US&quot;</span>
+
+  <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">git_commit</span> <span class="token punctuation">=</span> <span class="token string">&quot;xxxxxx&quot;</span>
+    <span class="token property">yor_trace</span>  <span class="token punctuation">=</span> <span class="token string">&quot;xxxxxx&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="2-execute-yorbox-and-customize-the-box-template"><a name="2-execute-yorbox-and-customize-the-box-template" class="anchor-navigation-ex-anchor" href="#2-execute-yorbox-and-customize-the-box-template"><i class="fa fa-link" aria-hidden="true"></i></a>2. Execute YorBox and customize the box template</h4>
+<p>You want all tags injected by Yor to have a unified prefix, such as <code>my_prefix_</code>. You can run:</p>
+<pre class="language-"><code class="lang-bash">yorbox <span class="token parameter variable">-dir</span> <span class="token builtin class-name">.</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-boxTemplate</span> <span class="token punctuation">{</span>% raw %<span class="token punctuation">}</span><span class="token string">&apos;/*&lt;box&gt;*/(var.{{ .toggleName }} ? { for k,v in /*&lt;/box&gt;*/ { yor_trace = 123 } /*&lt;box&gt;*/ : &quot;my_prefix_${k}&quot;=&gt;v } : {})/*&lt;/box&gt;*/&apos;</span><span class="token punctuation">{</span>% endraw %<span class="token punctuation">}</span>
+</code></pre>
+<p>Here, <code>-boxTemplate</code> is used to specify the box template. The key logic of the template is:</p>
+<ul>
+<li>Inside the ternary expression <code>{ for k,v in ... : &quot;my_prefix_${k}&quot;=&gt;v }</code> structure, replace the original tag keys with <code>&quot;my_prefix_${k}&quot;</code>, achieving the automatic addition of unified prefixes to all tag keys.</li>
+</ul>
+<h4 id="3-example-of-the-generated-tag-block"><a name="3-example-of-the-generated-tag-block" class="anchor-navigation-ex-anchor" href="#3-example-of-the-generated-tag-block"><i class="fa fa-link" aria-hidden="true"></i></a>3. Example of the generated tag block</h4>
+<p>After processing, you will see the tag block become:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token property">tags</span> <span class="token punctuation">=</span> (<span class="token comment">/*&lt;box&gt;*/</span>(var.yor_toggle ? <span class="token punctuation">{</span> for k,v in <span class="token comment">/*&lt;/box&gt;*/</span><span class="token punctuation">{</span>
+  <span class="token property">git_commit</span> <span class="token punctuation">=</span> <span class="token string">&quot;xxxxxx&quot;</span>
+  <span class="token property">yor_trace</span>  <span class="token punctuation">=</span> <span class="token string">&quot;xxxxxx&quot;</span>
+<span class="token punctuation">}</span><span class="token comment">/*&lt;box&gt;*/</span> : <span class="token property">&quot;my_prefix_${k}&quot;</span><span class="token punctuation">=</span>&gt;v <span class="token punctuation">}</span> : <span class="token punctuation">{</span><span class="token punctuation">}</span>)<span class="token comment">/*&lt;/box&gt;*/</span>)
+</code></pre>
+<p>This means:</p>
+<ul>
+<li>When <code>yor_toggle</code> is <code>true</code>, all Yor tags will automatically be prefixed with <code>my_prefix_</code> and injected into the resource.</li>
+<li>When <code>yor_toggle</code> is <code>false</code>, no tags will be added.</li>
+</ul>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.9.1.5. Summary</h2>
+<p>In summary, as a powerful supplement to BridgeCrew Yor, YorBox solves many pain points of automatic tagging in modular scenarios. Applying YorBox in actual projects can make tag governance of Terraform modules more <strong>standardized, flexible, and controllable</strong>&#x2014;satisfying both cloud resource tracking and auditing requirements, and giving users enough autonomy to decide on tag adoption, thereby achieving consistent governance of tags in large-scale Infrastructure as Code projects.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="yor.html" class="navigation navigation-prev " aria-label="Previous page: yor">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="newres.html" class="navigation navigation-next " aria-label="Next page: newres">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"yorbox","level":"1.6.9","depth":2,"next":{"title":"newres","level":"1.6.10","depth":2,"path":"toolchain/newres.md","ref":"toolchain/newres.md","articles":[]},"previous":{"title":"yor","level":"1.6.8","depth":2,"path":"toolchain/yor.md","ref":"toolchain/yor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/yorbox.md","mtime":"2026-01-07T07:59:16.221Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

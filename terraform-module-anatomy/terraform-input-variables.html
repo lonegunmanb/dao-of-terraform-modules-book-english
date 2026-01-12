@@ -1,0 +1,1153 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>variables.tf · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="terraform-output-values.html" />
+    
+    
+    <link rel="prev" href="terraform-resource-files.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="terraform-resource-files.html">
+            
+                <a href="terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="terraform-input-variables.html">
+            
+                <a href="terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="terraform-output-values.html">
+            
+                <a href="terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="terraform-configuration.html">
+            
+                <a href="terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="locals.html">
+            
+                <a href="locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="modules.html">
+            
+                <a href="modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="readme-documentation.html">
+            
+                <a href="readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="examples.html">
+            
+                <a href="examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="ci-pipeline-code.html">
+            
+                <a href="ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >variables.tf</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#terraform-input-variable-files"><b>1.2.2.1. </b>Terraform Input Variable Files</a></li><ul><li><span class="title-icon "></span><a href="#all-input-variables-must-be-declared-in-variablestf"><b>1.2.2.1.1. </b>All input variables must be declared in variables.tf</a></li><li><span class="title-icon "></span><a href="#all-input-variables-must-have-an-accurate-type"><b>1.2.2.1.2. </b>All input variables must have an accurate type</a></li><li><span class="title-icon "></span><a href="#all-input-variables-must-have-an-accurate-description"><b>1.2.2.1.3. </b>All input variables must have an accurate description</a></li><li><span class="title-icon "></span><a href="#input-variables-that-receive-ephemeral-data-must-declare-ephemeral--true"><b>1.2.2.1.4. </b>Input variables that receive Ephemeral data must declare ephemeral = true</a></li><li><span class="title-icon "></span><a href="#input-variables-that-accept-sensitive-data-eg-passwords-must-declare-sensitive--true"><b>1.2.2.1.5. </b>Input variables that accept sensitive data (e.g. passwords) must declare sensitive = true</a></li><li><span class="title-icon "></span><a href="#sensitive-data-should-be-provided-via-a-dedicated-input-variable-rather-than-grouped-inside-an-object"><b>1.2.2.1.6. </b>Sensitive data should be provided via a dedicated input variable rather than grouped inside an object</a></li><li><span class="title-icon "></span><a href="#ephemeral-or-sensitive-variables-must-not-define-a-default-value"><b>1.2.2.1.7. </b>Ephemeral or Sensitive variables must not define a default value</a></li><li><span class="title-icon "></span><a href="#for-collection-typed-variables-prefer-using-an-empty-collection-as-default-rather-than-null"><b>1.2.2.1.8. </b>For collection-typed variables, prefer using an empty collection as default rather than null</a></li><li><span class="title-icon "></span><a href="#if-possible-declare-nullable--false-to-simplify-downstream-logic"><b>1.2.2.1.9. </b>If possible, declare nullable = false to simplify downstream logic</a></li><li><span class="title-icon "></span><a href="#for-variables-used-with-foreach-to-create-multiple-resources-prefer-map-over-set-and-clearly-state-in-the-description-that-map-keys-must-be-static-literals-not-dynamic-values"><b>1.2.2.1.10. </b>For variables used with for_each to create multiple resources, prefer map over set, and clearly state in the description that map keys must be static literals, not dynamic values</a></li><li><span class="title-icon "></span><a href="#do-not-declare-values-identical-to-terraform-defaults-eg-sensitive--false-nullable--true"><b>1.2.2.1.11. </b>Do not declare values identical to Terraform defaults, e.g. sensitive = false, nullable = true</a></li><li><span class="title-icon "></span><a href="#order-of-variable-definitions"><b>1.2.2.1.12. </b>Order of variable definitions</a></li><li><span class="title-icon "></span><a href="#naming-variables"><b>1.2.2.1.13. </b>Naming variables</a></li><li><span class="title-icon "></span><a href="#validation"><b>1.2.2.1.14. </b>validation</a></li></ul></ul></div><a href="#terraform-input-variable-files" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="terraform-input-variable-files"><a name="terraform-input-variable-files" class="anchor-navigation-ex-anchor" href="#terraform-input-variable-files"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1. Terraform Input Variable Files</h1>
+<p><code>variables.tf</code> is also one of the four files a Terraform module must always contain (<code>main.tf</code> / <code>variables.tf</code> / <code>output.tf</code> / <code>terraform.tf</code>). It contains all input <code>variable</code> blocks of the module. Even if the module has no <code>variable</code> blocks at all, you should still keep an empty <code>variables.tf</code> file. Multiple input variable files are allowed, but each filename must contain the substring <code>variables</code>, for example: <code>variables_db.tf</code> or <code>db_variables.tf</code>. Also, these <code>variables</code> files should contain only <code>variable</code> blocks.</p>
+<p>If we think of a module as a function, then <code>variables.tf</code> is its parameter list. A good module should follow certain conventions for its input variables:</p>
+<h2 id="all-input-variables-must-be-declared-in-variablestf"><a name="all-input-variables-must-be-declared-in-variablestf" class="anchor-navigation-ex-anchor" href="#all-input-variables-must-be-declared-in-variablestf"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.1. All input variables must be declared in variables.tf</h2>
+<h2 id="all-input-variables-must-have-an-accurate-type"><a name="all-input-variables-must-have-an-accurate-type" class="anchor-navigation-ex-anchor" href="#all-input-variables-must-have-an-accurate-type"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.2. All input variables must have an accurate type</h2>
+<h2 id="all-input-variables-must-have-an-accurate-description"><a name="all-input-variables-must-have-an-accurate-description" class="anchor-navigation-ex-anchor" href="#all-input-variables-must-have-an-accurate-description"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.3. All input variables must have an accurate description</h2>
+<h2 id="input-variables-that-receive-ephemeral-data-must-declare-ephemeral--true"><a name="input-variables-that-receive-ephemeral-data-must-declare-ephemeral--true" class="anchor-navigation-ex-anchor" href="#input-variables-that-receive-ephemeral-data-must-declare-ephemeral--true"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.4. Input variables that receive Ephemeral data must declare ephemeral = true</h2>
+<h2 id="input-variables-that-accept-sensitive-data-eg-passwords-must-declare-sensitive--true"><a name="input-variables-that-accept-sensitive-data-eg-passwords-must-declare-sensitive--true" class="anchor-navigation-ex-anchor" href="#input-variables-that-accept-sensitive-data-eg-passwords-must-declare-sensitive--true"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.5. Input variables that accept sensitive data (e.g. passwords) must declare sensitive = true</h2>
+<h2 id="sensitive-data-should-be-provided-via-a-dedicated-input-variable-rather-than-grouped-inside-an-object"><a name="sensitive-data-should-be-provided-via-a-dedicated-input-variable-rather-than-grouped-inside-an-object" class="anchor-navigation-ex-anchor" href="#sensitive-data-should-be-provided-via-a-dedicated-input-variable-rather-than-grouped-inside-an-object"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.6. Sensitive data should be provided via a dedicated input variable rather than grouped inside an object</h2>
+<p>Consider this input variable:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">variable<span class="token type variable"> &quot;virtual_machine&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span> <span class="token punctuation">=</span> map(object(<span class="token punctuation">{</span>
+    <span class="token property">name</span>     <span class="token punctuation">=</span> string
+<span class="token comment">///...</span>
+    <span class="token property">admin_password</span> <span class="token punctuation">=</span> string
+  <span class="token punctuation">}</span>))
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;Virtual Machine&quot;</span>
+  <span class="token property">sensitive</span>   <span class="token punctuation">=</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this variable, <code>admin_password</code> is sensitive data, but it is defined together with other members inside an <code>object</code> type. Terraform currently does not support marking a single attribute of an <code>object</code> as <code>sensitive</code>; we have no choice but to mark the entire variable as sensitive. The downside is that during <code>terraform plan</code> and <code>terraform apply</code>, Terraform will hide the entire object&apos;s values, making it impossible to see other (non-sensitive) attributes. More troublesome is the following situation:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azurerm_windows_virtual_machine&quot;</span></span> <span class="token string">&quot;example&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> var.virtual_machine
+
+  <span class="token property">name</span>                <span class="token punctuation">=</span> each.value.name
+<span class="token comment"># ...</span>
+  <span class="token property">admin_password</span>      <span class="token punctuation">=</span> each.value.password
+<span class="token punctuation">}</span>
+</code></pre>
+<p>When we assign a value to <code>var.virtual_machine</code> through a <code>terraform.tfvars</code> file and then run <code>terraform plan</code>, we&apos;ll see:</p>
+<pre class="language-"><code class="lang-text">&#x2577;
+&#x2502; Error: Invalid for_each argument
+&#x2502;
+&#x2502;   on main.tf, in resource &quot;azurerm_windows_virtual_machine&quot; &quot;example&quot;:
+&#x2502;   66:   for_each = var.virtual_machine
+&#x2502;     &#x251C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+&#x2502;     &#x2502; var.virtual_machine has a sensitive value
+&#x2502;
+&#x2502; Sensitive values, or values derived from sensitive values, cannot be used as for_each arguments. If used, the sensitive value
+&#x2502; could be exposed as a resource instance key.
+&#x2575;
+</code></pre>
+<p>Now we cannot use <code>for_each</code> to create resources. We must separate <code>admin_password</code> into its own variable.</p>
+<h2 id="ephemeral-or-sensitive-variables-must-not-define-a-default-value"><a name="ephemeral-or-sensitive-variables-must-not-define-a-default-value" class="anchor-navigation-ex-anchor" href="#ephemeral-or-sensitive-variables-must-not-define-a-default-value"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.7. Ephemeral or Sensitive variables must not define a default value</h2>
+<p>Setting default values for sensitive data (such as passwords or API keys) may allow these values to be guessed. Attackers might try defaults found in open-source code. If users aren&apos;t aware of this, our module could become an entry point for attacks.</p>
+<h2 id="for-collection-typed-variables-prefer-using-an-empty-collection-as-default-rather-than-null"><a name="for-collection-typed-variables-prefer-using-an-empty-collection-as-default-rather-than-null" class="anchor-navigation-ex-anchor" href="#for-collection-typed-variables-prefer-using-an-empty-collection-as-default-rather-than-null"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.8. For collection-typed variables, prefer using an empty collection as default rather than null</h2>
+<p>Using an empty collection avoids extra conditional logic inside the module. For example, when using <code>for_each</code> to create resources, an empty collection results in creating no resources, while <code>null</code> may cause errors or require additional condition checks.</p>
+<h2 id="if-possible-declare-nullable--false-to-simplify-downstream-logic"><a name="if-possible-declare-nullable--false-to-simplify-downstream-logic" class="anchor-navigation-ex-anchor" href="#if-possible-declare-nullable--false-to-simplify-downstream-logic"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.9. If possible, declare nullable = false to simplify downstream logic</h2>
+<p>In Terraform, input variables can be explicitly set to <code>null</code>. This can cause problems with certain types like <code>bool</code>, e.g. <code>var.log_enabled</code>:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">variable<span class="token type variable"> &quot;log_enabled&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span>        <span class="token punctuation">=</span> bool
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;Whether to turn log on or not&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>During runtime the value of <code>var.log_enabled</code> could be <code>true</code> / <code>false</code> / <code>null</code>. If we write:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token property">count</span> <span class="token punctuation">=</span> var.log_enabled ? <span class="token number">1</span> : <span class="token number">0</span>
+</code></pre>
+<p>Then when the value is <code>null</code> it triggers a runtime error, so we must write:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token property">count</span> <span class="token punctuation">=</span> var.log_enabled <span class="token punctuation">=</span><span class="token punctuation">=</span> <span class="token boolean">true</span> ? <span class="token number">1</span> : <span class="token number">0</span>
+</code></pre>
+<p>Even adding a default does not fix this:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">variable<span class="token type variable"> &quot;log_enabled&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span>        <span class="token punctuation">=</span> bool
+  <span class="token property">default</span>     <span class="token punctuation">=</span> <span class="token boolean">true</span>
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;Whether to turn log on or not&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>If the caller explicitly sets the variable to <code>null</code>, the runtime value is still <code>null</code>.</p>
+<p>If we set <code>nullable = false</code>, then when the caller sets it to <code>null</code> the default is used instead. The state space is reduced to just <code>true</code> / <code>false</code>, reducing errors and simplifying logic.</p>
+<h2 id="for-variables-used-with-foreach-to-create-multiple-resources-prefer-map-over-set-and-clearly-state-in-the-description-that-map-keys-must-be-static-literals-not-dynamic-values"><a name="for-variables-used-with-foreach-to-create-multiple-resources-prefer-map-over-set-and-clearly-state-in-the-description-that-map-keys-must-be-static-literals-not-dynamic-values" class="anchor-navigation-ex-anchor" href="#for-variables-used-with-foreach-to-create-multiple-resources-prefer-map-over-set-and-clearly-state-in-the-description-that-map-keys-must-be-static-literals-not-dynamic-values"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.10. For variables used with for_each to create multiple resources, prefer map over set, and clearly state in the description that map keys must be static literals, not dynamic values</h2>
+<p>The reason not to use <code>set</code> is that <code>set(object)</code> uses the entire object&apos;s data values to determine uniqueness. Terraform does not allow using such a set of objects as a <code>for_each</code> source.</p>
+<p><code>map</code> in Terraform only supports <code>string</code> keys, so it&apos;s an excellent data type to pair with <code>for_each</code> to create multiple resource blocks. But we must ensure the keys are static. What does that mean? Consider this code:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">variable<span class="token type variable"> &quot;groups&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span> <span class="token punctuation">=</span> map(object(<span class="token punctuation">{</span>
+    <span class="token property">location</span> <span class="token punctuation">=</span> string
+    <span class="token property">tags</span> <span class="token punctuation">=</span> map(string)
+  <span class="token punctuation">}</span>))
+<span class="token punctuation">}</span>
+
+<span class="token keyword">resource <span class="token type variable">&quot;random_string&quot;</span></span> <span class="token string">&quot;random&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> var.groups
+  <span class="token property">length</span>   <span class="token punctuation">=</span> <span class="token number">6</span>
+  <span class="token property">special</span>  <span class="token punctuation">=</span> <span class="token boolean">false</span>
+  <span class="token property">upper</span>    <span class="token punctuation">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">locals</span> <span class="token punctuation">{</span>
+  <span class="token property">resource_groups</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    for k, v in var.groups : <span class="token property">&quot;${k}-${random_string.random[k].result}&quot;</span> <span class="token punctuation">=</span>&gt; <span class="token punctuation">{</span>
+      <span class="token property">name</span>     <span class="token punctuation">=</span> <span class="token string">&quot;rg-<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>random_string<span class="token punctuation">.</span>random<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>result<span class="token punctuation">}</span></span>&quot;</span>
+      <span class="token property">location</span> <span class="token punctuation">=</span> v.location
+      <span class="token property">tags</span>     <span class="token punctuation">=</span> v.tags
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">resource <span class="token type variable">&quot;azurerm_resource_group&quot;</span></span> <span class="token string">&quot;main&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> local.resource_groups
+  <span class="token property">name</span>     <span class="token punctuation">=</span> each.value.name
+  <span class="token property">location</span> <span class="token punctuation">=</span> each.value.location
+  <span class="token property">tags</span>     <span class="token punctuation">=</span> each.value.tags
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This code throws an error at runtime:</p>
+<pre class="language-"><code class="lang-text">&#x2577;
+&#x2502; Error: Invalid for_each argument
+&#x2502;
+&#x2502;   on main.tf line 51, in resource &quot;azurerm_resource_group&quot; &quot;main&quot;:
+&#x2502;   51:   for_each = local.resource_groups
+&#x2502;     &#x251C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+&#x2502;     &#x2502; local.resource_groups will be known only after apply
+&#x2502;
+&#x2502; The &quot;for_each&quot; map includes keys derived from resource attributes that cannot be determined until apply, and so Terraform cannot 
+&#x2502; determine the full set of keys that will identify the instances of this resource.
+&#x2502;
+&#x2502; When working with unknown values in for_each, it&apos;s better to define the map keys statically in your configuration and place      
+&#x2502; apply-time results only in the map values.
+&#x2502;
+&#x2502; Alternatively, you could use the -target planning option to first apply only the resources that the for_each value depends on,   
+&#x2502; and then apply a second time to fully converge.
+&#x2575;
+</code></pre>
+<p>Terraform requires the keys of <code>for_each</code> to be known during the Plan phase, but in our code the keys include the output of <code>random_string</code>, which is only known after a successful Apply.</p>
+<p>This sample is intentionally simplified for comprehension, but in real module usage users may not realize the keys passed into the <code>map</code> contain values not yet known. Therefore we recommend explicitly documenting in the <code>description</code>: ensure keys are static.</p>
+<h2 id="do-not-declare-values-identical-to-terraform-defaults-eg-sensitive--false-nullable--true"><a name="do-not-declare-values-identical-to-terraform-defaults-eg-sensitive--false-nullable--true" class="anchor-navigation-ex-anchor" href="#do-not-declare-values-identical-to-terraform-defaults-eg-sensitive--false-nullable--true"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.11. Do not declare values identical to Terraform defaults, e.g. sensitive = false, nullable = true</h2>
+<p>Redundant code that restates defaults provides no value; keep code minimal.</p>
+<h2 id="order-of-variable-definitions"><a name="order-of-variable-definitions" class="anchor-navigation-ex-anchor" href="#order-of-variable-definitions"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.12. Order of variable definitions</h2>
+<p>Variables should follow this order:</p>
+<ol>
+<li>All required ones, sorted alphabetically</li>
+<li><p>All optional ones, sorted alphabetically</p>
+</li>
+<li><p>A variable that defines a <code>default</code> is optional; otherwise it&apos;s required.</p>
+</li>
+</ol>
+<h2 id="naming-variables"><a name="naming-variables" class="anchor-navigation-ex-anchor" href="#naming-variables"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.13. Naming variables</h2>
+<p>Ensure the <code>name</code>, <code>description</code>, and any <code>validation</code> of a <code>variable</code> align (as far as clarity allows) with upstream/downstream <code>resource</code> and <code>data</code> definitions. Ensure variables with the same purpose across different modules use the same naming.</p>
+<p>You may add a prefix ending with <code>_</code> to distinguish purposes. For example:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azurerm_linux_virtual_machine&quot;</span></span> <span class="token string">&quot;webserver&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">name</span>                <span class="token punctuation">=</span> <span class="token string">&quot;webserver&quot;</span>
+  <span class="token property">resource_group_name</span> <span class="token punctuation">=</span> azurerm_resource_group.example.name
+  <span class="token property">location</span>            <span class="token punctuation">=</span> azurerm_resource_group.example.location
+  <span class="token property">source_image_id</span>     <span class="token punctuation">=</span> var.webserver_source_image_id
+  ...
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Here in <code>webserver_source_image_id</code>, the <code>source_image_id</code> suffix matches the resource argument name (we assign <code>webserver_source_image_id</code> to <code>source_image_id</code>, both sides share the suffix). The <code>webserver_</code> prefix is valid.</p>
+<p>If a <code>variable</code> is used to pass a value to a resource argument, the variable&apos;s name should directly reuse that argument name (prefix allowed). The <code>description</code> should copy the relevant description from the resource&apos;s documentation whenever possible.</p>
+<p>For boolean feature toggles, use affirmative names: <code>xxx_enabled</code> instead of <code>xxx_disabled</code> to avoid double negatives like <code>!xxx_disabled</code>.</p>
+<p>Prefer <code>xxx_enabled</code> over <code>enable_xxx</code>.</p>
+<h2 id="validation"><a name="validation" class="anchor-navigation-ex-anchor" href="#validation"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2.1.14. validation</h2>
+<p>Input variable <a href="https://lonegunmanb.github.io/introduction-terraform/3.Terraform%E4%BB%A3%E7%A0%81%E7%9A%84%E4%B9%A6%E5%86%99/3.%E8%BE%93%E5%85%A5%E5%8F%98%E9%87%8F.html#%E6%96%AD%E8%A8%80-validation" target="_blank">validation</a> allows defining checks for input values. We allow and encourage module authors to use validation to block invalid inputs and provide clearer error messages. However, we discourage re-implementing validations already enforced by the Provider&apos;s schema (e.g., a field matching a regex). Duplicating such logic offers no extra value.</p>
+<p>If you define validations, <code>error_message</code> must clearly state what input is (not) expected.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="terraform-resource-files.html" class="navigation navigation-prev " aria-label="Previous page: main.tf">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="terraform-output-values.html" class="navigation navigation-next " aria-label="Next page: outputs.tf">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"variables.tf","level":"1.2.2","depth":2,"next":{"title":"outputs.tf","level":"1.2.3","depth":2,"path":"terraform-module-anatomy/terraform-output-values.md","ref":"terraform-module-anatomy/terraform-output-values.md","articles":[]},"previous":{"title":"main.tf","level":"1.2.1","depth":2,"path":"terraform-module-anatomy/terraform-resource-files.md","ref":"terraform-module-anatomy/terraform-resource-files.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"terraform-module-anatomy/terraform-input-variables.md","mtime":"2026-01-07T06:06:51.986Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

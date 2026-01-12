@@ -1,0 +1,1272 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>terraform-docs · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="terrafmt.html" />
+    
+    
+    <link rel="prev" href="tfenv.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >terraform-docs</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#what-is-terraform-docs-why-and-how-to-use-it"><b>1.6.3.1. </b>What is terraform-docs: Why and How to Use It</a></li><ul><li><span class="title-icon "></span><a href="#what-is-terraform-docs"><b>1.6.3.1.1. </b>What is terraform-docs</a></li><li><span class="title-icon "></span><a href="#why-use-terraform-docs"><b>1.6.3.1.2. </b>Why Use terraform-docs</a></li><ul><li><span class="title-icon "></span><a href="#automate-documentation-to-enhance-development-efficiency"><b>1.6.3.1.2.1. </b>Automate Documentation to Enhance Development Efficiency</a></li><li><span class="title-icon "></span><a href="#reduce-communication-costs-and-improve-collaboration-transparency"><b>1.6.3.1.2.2. </b>Reduce Communication Costs and Improve Collaboration Transparency</a></li><li><span class="title-icon "></span><a href="#support-multiple-output-formats-to-flexibly-adapt-to-team-needs"><b>1.6.3.1.2.3. </b>Support Multiple Output Formats to Flexibly Adapt to Team Needs</a></li><li><span class="title-icon "></span><a href="#easy-cicd-integration-to-ensure-continuous-updates"><b>1.6.3.1.2.4. </b>Easy CI/CD Integration to Ensure Continuous Updates</a></li></ul><li><span class="title-icon "></span><a href="#how-to-install-terraform-docs"><b>1.6.3.1.3. </b>How to Install terraform-docs</a></li><ul><li><span class="title-icon "></span><a href="#using-homebrew-macos"><b>1.6.3.1.3.1. </b>Using Homebrew (macOS)</a></li><li><span class="title-icon "></span><a href="#using-scoopchocolatey-windows"><b>1.6.3.1.3.2. </b>Using Scoop/Chocolatey (Windows)</a></li><li><span class="title-icon "></span><a href="#download-binary"><b>1.6.3.1.3.3. </b>Download Binary</a></li><li><span class="title-icon "></span><a href="#using-go-install-recommended-for-go-users"><b>1.6.3.1.3.4. </b>Using go install (Recommended for Go users)</a></li><li><span class="title-icon "></span><a href="#using-docker"><b>1.6.3.1.3.5. </b>Using Docker</a></li></ul><li><span class="title-icon "></span><a href="#how-to-use-terraform-docs"><b>1.6.3.1.4. </b>How to Use terraform-docs</a></li><ul><li><span class="title-icon "></span><a href="#basic-usage"><b>1.6.3.1.4.1. </b>Basic Usage</a></li><li><span class="title-icon "></span><a href="#integration-into-cicd-and-development-workflows"><b>1.6.3.1.4.2. </b>Integration into CI/CD and Development Workflows</a></li><li><span class="title-icon "></span><a href="#advanced-configuration-custom-templates-and-yaml-configuration"><b>1.6.3.1.4.3. </b>Advanced Configuration: Custom Templates and YAML Configuration</a></li><li><span class="title-icon "></span><a href="#content-customization-and-template-variables"><b>1.6.3.1.4.4. </b>Content Customization and Template Variables</a></li><li><span class="title-icon "></span><a href="#compatibility-and-ecosystem"><b>1.6.3.1.4.5. </b>Compatibility and Ecosystem</a></li></ul><li><span class="title-icon "></span><a href="#script-for-generating-documentation"><b>1.6.3.1.5. </b>Script for Generating Documentation</a></li><li><span class="title-icon "></span><a href="#script-for-checking-if-documentation-is-up-to-date"><b>1.6.3.1.6. </b>Script for Checking if Documentation is Up-to-Date</a></li><li><span class="title-icon "></span><a href="#best-practices-and-governance-recommendations"><b>1.6.3.1.7. </b>Best Practices and Governance Recommendations</a></li></ul></ul></div><a href="#what-is-terraform-docs-why-and-how-to-use-it" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="what-is-terraform-docs-why-and-how-to-use-it"><a name="what-is-terraform-docs-why-and-how-to-use-it" class="anchor-navigation-ex-anchor" href="#what-is-terraform-docs-why-and-how-to-use-it"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1. What is terraform-docs: Why and How to Use It</h1>
+<p>Users of Terraform modules need to read documentation on the Registry to understand a module&apos;s purpose, usage, and specifications for all parameters. As teams and organizations scale, the number and complexity of Terraform modules often increase dramatically, making documentation maintenance a critical bottleneck constraining collaboration, review, and delivery efficiency. <code>terraform-docs</code>, a tool focused on automating Terraform module documentation generation, was created specifically to address this pain point.</p>
+<h2 id="what-is-terraform-docs"><a name="what-is-terraform-docs" class="anchor-navigation-ex-anchor" href="#what-is-terraform-docs"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.1. What is terraform-docs</h2>
+<p><code>terraform-docs</code> is a utility tool that automatically generates documentation from Terraform modules and supports multiple output formats. It parses metadata within a module&#x2014;such as variables (<code>variable</code>), outputs (<code>output</code>), resources (<code>resource</code>), and <code>providers</code>&#x2014;and organizes them into a structured, standardized output. This significantly reduces the workload and error probability associated with manual documentation maintenance.</p>
+<blockquote>
+<p><strong>Official Definition:</strong> A utility to generate documentation from Terraform modules in various output formats.</p>
+<p>&#x2014;&#x2014;<a href="https://github.com/terraform-docs/terraform-docs" target="_blank">terraform-docs README</a></p>
+</blockquote>
+<p>It can run as a standalone command-line tool or be integrated into CI/CD pipelines via Docker containers, GitHub Actions, and pre-commit hooks.</p>
+<h2 id="why-use-terraform-docs"><a name="why-use-terraform-docs" class="anchor-navigation-ex-anchor" href="#why-use-terraform-docs"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.2. Why Use terraform-docs</h2>
+<h3 id="automate-documentation-to-enhance-development-efficiency"><a name="automate-documentation-to-enhance-development-efficiency" class="anchor-navigation-ex-anchor" href="#automate-documentation-to-enhance-development-efficiency"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.2.1. Automate Documentation to Enhance Development Efficiency</h3>
+<p>Manual maintenance of Terraform module documentation is labor-intensive and error-prone. With frequent changes to variables and outputs, documentation easily disconnects from the actual code. <code>terraform-docs</code> automatically parses the latest module definitions and generates authoritative documentation, maximizing consistency between code and docs.</p>
+<h3 id="reduce-communication-costs-and-improve-collaboration-transparency"><a name="reduce-communication-costs-and-improve-collaboration-transparency" class="anchor-navigation-ex-anchor" href="#reduce-communication-costs-and-improve-collaboration-transparency"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.2.2. Reduce Communication Costs and Improve Collaboration Transparency</h3>
+<p>A standardized documentation structure allows team members, reviewers, and even external users to quickly understand a module&apos;s interfaces, inputs, outputs, and dependencies. This drastically improves the efficiency of code reviews, reuse, and module governance.</p>
+<h3 id="support-multiple-output-formats-to-flexibly-adapt-to-team-needs"><a name="support-multiple-output-formats-to-flexibly-adapt-to-team-needs" class="anchor-navigation-ex-anchor" href="#support-multiple-output-formats-to-flexibly-adapt-to-team-needs"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.2.3. Support Multiple Output Formats to Flexibly Adapt to Team Needs</h3>
+<p><code>terraform-docs</code> supports various formats including Markdown, JSON, YAML, and Asciidoc, allowing for easy integration into various knowledge bases, portals, automated checks, or downstream toolchains.</p>
+<h3 id="easy-cicd-integration-to-ensure-continuous-updates"><a name="easy-cicd-integration-to-ensure-continuous-updates" class="anchor-navigation-ex-anchor" href="#easy-cicd-integration-to-ensure-continuous-updates"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.2.4. Easy CI/CD Integration to Ensure Continuous Updates</h3>
+<p>Through mechanisms like GitHub Actions and pre-commit hooks, documentation generation and validation can be automated. This &quot;shifts left&quot; the maintenance of documentation to the development and commit stages, preventing omissions and outdated information.</p>
+<h2 id="how-to-install-terraform-docs"><a name="how-to-install-terraform-docs" class="anchor-navigation-ex-anchor" href="#how-to-install-terraform-docs"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.3. How to Install terraform-docs</h2>
+<p><code>terraform-docs</code> supports multiple mainstream platforms with flexible installation methods:</p>
+<h3 id="using-homebrew-macos"><a name="using-homebrew-macos" class="anchor-navigation-ex-anchor" href="#using-homebrew-macos"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.3.1. Using Homebrew (macOS)</h3>
+<pre class="language-"><code class="lang-bash">brew <span class="token function">install</span> terraform-docs
+<span class="token comment"># or use tap</span>
+brew <span class="token function">install</span> terraform-docs/tap/terraform-docs
+</code></pre>
+<h3 id="using-scoopchocolatey-windows"><a name="using-scoopchocolatey-windows" class="anchor-navigation-ex-anchor" href="#using-scoopchocolatey-windows"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.3.2. Using Scoop/Chocolatey (Windows)</h3>
+<pre class="language-"><code class="lang-bash">scoop bucket <span class="token function">add</span> terraform-docs <span class="token punctuation">[</span>https://github.com/terraform-docs/scoop-bucket<span class="token punctuation">]</span><span class="token punctuation">(</span>https://github.com/terraform-docs/scoop-bucket<span class="token punctuation">)</span>
+scoop <span class="token function">install</span> terraform-docs
+
+<span class="token comment"># or</span>
+choco <span class="token function">install</span> terraform-docs
+</code></pre>
+<h3 id="download-binary"><a name="download-binary" class="anchor-navigation-ex-anchor" href="#download-binary"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.3.3. Download Binary</h3>
+<p>Download the binary for your platform from the <a href="https://github.com/terraform-docs/terraform-docs/releases" target="_blank">releases page</a>, unzip it, and add it to your <code>$PATH</code>.</p>
+<h3 id="using-go-install-recommended-for-go-users"><a name="using-go-install-recommended-for-go-users" class="anchor-navigation-ex-anchor" href="#using-go-install-recommended-for-go-users"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.3.4. Using go install (Recommended for Go users)</h3>
+<pre class="language-"><code class="lang-bash">go <span class="token function">install</span> github.com/terraform-docs/terraform-docs@latest
+</code></pre>
+<h3 id="using-docker"><a name="using-docker" class="anchor-navigation-ex-anchor" href="#using-docker"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.3.5. Using Docker</h3>
+<p>No local installation required; use the official image directly:</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">docker</span> run <span class="token parameter variable">--rm</span> <span class="token parameter variable">--volume</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>:/terraform-docs&quot;</span> <span class="token parameter variable">-u</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> <span class="token parameter variable">-u</span><span class="token variable">)</span></span> quay.io/terraform-docs/terraform-docs:0.20.0 markdown /terraform-docs
+</code></pre>
+<h2 id="how-to-use-terraform-docs"><a name="how-to-use-terraform-docs" class="anchor-navigation-ex-anchor" href="#how-to-use-terraform-docs"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.4. How to Use terraform-docs</h2>
+<h3 id="basic-usage"><a name="basic-usage" class="anchor-navigation-ex-anchor" href="#basic-usage"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.4.1. Basic Usage</h3>
+<p>The simplest usage is to run the following command in the Terraform module directory:</p>
+<pre class="language-"><code class="lang-bash">terraform-docs markdown <span class="token builtin class-name">.</span>
+</code></pre>
+<p>This reads the <code>.tf</code> files in the current directory and prints the module documentation in Markdown format to the standard output.</p>
+<p>Supported output formats include:</p>
+<ul>
+<li><code>asciidoc</code> (document/table)</li>
+<li><code>markdown</code> (document/table)</li>
+<li><code>json</code></li>
+<li><code>pretty</code></li>
+<li><code>tfvars</code> (<code>hcl</code> / <code>json</code>)</li>
+<li><code>toml</code></li>
+<li><code>xml</code></li>
+<li><code>yaml</code></li>
+</ul>
+<p>For example, to generate JSON documentation:</p>
+<pre class="language-"><code class="lang-bash">terraform-docs json <span class="token builtin class-name">.</span>
+</code></pre>
+<h3 id="integration-into-cicd-and-development-workflows"><a name="integration-into-cicd-and-development-workflows" class="anchor-navigation-ex-anchor" href="#integration-into-cicd-and-development-workflows"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.4.2. Integration into CI/CD and Development Workflows</h3>
+<h4 id="github-actions"><a name="github-actions" class="anchor-navigation-ex-anchor" href="#github-actions"><i class="fa fa-link" aria-hidden="true"></i></a>GitHub Actions</h4>
+<p>You can use the official <a href="https://github.com/terraform-docs/gh-actions" target="_blank">terraform-docs GitHub Action</a> to automatically generate and validate module documentation in Pull Requests.</p>
+<h4 id="pre-commit-hook"><a name="pre-commit-hook" class="anchor-navigation-ex-anchor" href="#pre-commit-hook"><i class="fa fa-link" aria-hidden="true"></i></a>pre-commit hook</h4>
+<p>By configuring <a href="https://pre-commit.com/" target="_blank">pre-commit</a>, you can automatically update documentation locally before committing, reducing the risk of missed updates.</p>
+<h4 id="docker"><a name="docker" class="anchor-navigation-ex-anchor" href="#docker"><i class="fa fa-link" aria-hidden="true"></i></a>Docker</h4>
+<p><a href="#using-docker">As shown above</a>, this is suitable for scenarios requiring no local installation, cross-platform compatibility, and CI environments.</p>
+<h3 id="advanced-configuration-custom-templates-and-yaml-configuration"><a name="advanced-configuration-custom-templates-and-yaml-configuration" class="anchor-navigation-ex-anchor" href="#advanced-configuration-custom-templates-and-yaml-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.4.3. Advanced Configuration: Custom Templates and YAML Configuration</h3>
+<p><code>terraform-docs</code> supports rich customization via a <code>.terraform-docs.yml</code> file. Typical configuration items include:</p>
+<ul>
+<li>Documentation structure templates (e.g., header, footer, section visibility)</li>
+<li>Recursive documentation generation for sub-modules</li>
+<li>Documentation sorting rules</li>
+<li>Output files and modes (e.g., inject into a specific location in README.md)</li>
+</ul>
+<p>A basic YAML configuration example:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">formatter</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span> <span class="token comment"># this is required</span>
+
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+<span class="token key atrule">header-from</span><span class="token punctuation">:</span> main.tf
+<span class="token key atrule">footer-from</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+<span class="token key atrule">recursive</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> modules
+  <span class="token key atrule">include-main</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token key atrule">sections</span><span class="token punctuation">:</span>
+  <span class="token key atrule">hide</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">show</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token key atrule">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+<span class="token key atrule">output</span><span class="token punctuation">:</span>
+  <span class="token key atrule">file</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">mode</span><span class="token punctuation">:</span> inject
+  <span class="token key atrule">template</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token punctuation">-</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> .Content <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token key atrule">output-values</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">from</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+<span class="token key atrule">sort</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">by</span><span class="token punctuation">:</span> name
+
+<span class="token key atrule">settings</span><span class="token punctuation">:</span>
+  <span class="token key atrule">anchor</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">color</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">default</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">escape</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">hide-empty</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">html</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">indent</span><span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token key atrule">lockfile</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">read-comments</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">required</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">sensitive</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<p>You can automatically inject the module interface documentation into a specific block of the README.md using:
+<code>terraform-docs markdown table --output-file README.md --output-mode inject .</code></p>
+<h3 id="content-customization-and-template-variables"><a name="content-customization-and-template-variables" class="anchor-navigation-ex-anchor" href="#content-customization-and-template-variables"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.4.4. Content Customization and Template Variables</h3>
+<p>The <code>terraform-docs</code> template allows insertion of various parts of the module, such as:</p>
+<ul>
+<li><code>{{.Inputs}}</code> Variable input table</li>
+<li><code>{{.Outputs}}</code> Output table</li>
+<li><code>{{.Providers}}</code> Provider information</li>
+<li><code>{{.Requirements}}</code> Version constraints</li>
+<li>It even supports <code>{{ include &quot;path/to/file&quot; }}</code> to import external content</li>
+</ul>
+<p>And functions like:</p>
+<ul>
+<li><code>{{ include &quot;relative/path/to/file&quot; }}</code></li>
+</ul>
+<p>These variables represent the output of individual sections generated by the selected formatter. For example, when the formatter is set to <code>markdown table</code>, <code>{{ .Inputs }}</code> will be the Markdown table representation of <em>inputs</em>.</p>
+<p>Note that section visibility parameters (i.e., <code>sections.show</code> and <code>sections.hide</code>) take precedence over the <code>content</code> configuration.</p>
+<p>Additionally, there is a special variable in <code>content</code>:</p>
+<ul>
+<li><code>{{ .Module }}</code></li>
+</ul>
+<p>Unlike other variables mentioned above, this variable does not generate a block based on the formatter but is the <a href="https://pkg.go.dev/github.com/terraform-docs/terraform-docs/terraform#Module" target="_blank">Terraform module</a> struct itself.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">content</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token punctuation">-</span>
+  You can place arbitrary text in content
+
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> .Header <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+  You can even insert it between different sections
+
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> .Providers <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+  The order does not have to follow the default order
+
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> .Outputs <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+  Can include content from any file via relative path
+
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> include &quot;relative/path/to/file&quot; <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> .Inputs <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+  <span class="token comment"># Example</span>
+
+  ```hcl
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> include &quot;examples/foo/main.tf&quot; <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  ```
+
+  <span class="token comment">## Resources</span>
+
+  <span class="token punctuation">{</span><span class="token punctuation">{</span> range .Module.Resources <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token punctuation">-</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .GetMode <span class="token punctuation">}</span><span class="token punctuation">}</span>.<span class="token punctuation">{</span><span class="token punctuation">{</span> .Spec <span class="token punctuation">}</span><span class="token punctuation">}</span> (<span class="token punctuation">{</span><span class="token punctuation">{</span> .Position.Filename <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">#{{ .Position.Line }})</span>
+  <span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">-</span> end <span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+<p>The template mechanism greatly enhances the customizability and aesthetics of the documentation.</p>
+<h3 id="compatibility-and-ecosystem"><a name="compatibility-and-ecosystem" class="anchor-navigation-ex-anchor" href="#compatibility-and-ecosystem"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.4.5. Compatibility and Ecosystem</h3>
+<p><code>terraform-docs</code> is compatible with mainstream Terraform versions and is well-maintained. The community is active, providing a detailed <a href="https://terraform-docs.io/user-guide/introduction/" target="_blank">User Guide</a>, <a href="https://terraform-docs.io/reference/terraform-docs/" target="_blank">CLI Reference</a>, and <a href="https://terraform-docs.io/user-guide/configuration/" target="_blank">Configuration Documentation</a>.</p>
+<h2 id="script-for-generating-documentation"><a name="script-for-generating-documentation" class="anchor-navigation-ex-anchor" href="#script-for-generating-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.5. Script for Generating Documentation</h2>
+<p>The Azure Verified Module uses the following script to invoke <code>terraform-docs</code> for documentation generation:</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-e</span>
+
+<span class="token function-name function">generate_docs</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">dir</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; Generating documentation in <span class="token variable">$dir</span>&quot;</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;<span class="token variable">$dir</span>/.terraform.lock.hcl&quot;</span>
+  terraform-docs <span class="token parameter variable">-c</span> <span class="token string">&quot;.terraform-docs.yml&quot;</span> <span class="token string">&quot;<span class="token variable">$dir</span>&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Generating root module documentation...&quot;</span>
+generate_docs <span class="token builtin class-name">.</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Generating examples documentation...&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> examples <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Error - no examples directory found&quot;</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">cd</span> examples
+<span class="token assign-left variable">subfolders</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> ./ <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$subfolders</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  generate_docs <span class="token variable">$d</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Generating sub modules documentation...&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> modules <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Warning - no modules directory found&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">cd</span> modules
+  <span class="token assign-left variable">subfolders</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> ./ <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+  <span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$subfolders</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    generate_docs <span class="token variable">$d</span>
+  <span class="token keyword">done</span>
+  <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<p>This script generates documentation for the module as well as all examples.</p>
+<h2 id="script-for-checking-if-documentation-is-up-to-date"><a name="script-for-checking-if-documentation-is-up-to-date" class="anchor-navigation-ex-anchor" href="#script-for-checking-if-documentation-is-up-to-date"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.6. Script for Checking if Documentation is Up-to-Date</h2>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+
+<span class="token function-name function">check_docs</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">dir</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; Generating documentation in <span class="token variable">$dir</span>&quot;</span>
+  <span class="token function">cp</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README.md&quot;</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README-generated.md&quot;</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;<span class="token variable">$dir</span>/.terraform.lock.hcl&quot;</span>
+  terraform-docs <span class="token parameter variable">-c</span> <span class="token string">&quot;.terraform-docs.yml&quot;</span> <span class="token string">&quot;<span class="token variable">$dir</span>&quot;</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; Comparing documentation in <span class="token variable">$dir</span>&quot;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">diff</span> <span class="token parameter variable">-q</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README.md&quot;</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README-generated.md&quot;</span><span class="token variable">)</span></span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; <span class="token variable">$dir</span>/README.md is out of date. Run &apos;make pre-commit&apos; to update the generated document and commit.&quot;</span>
+    <span class="token function">mv</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README-generated.md&quot;</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README.md&quot;</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+  <span class="token keyword">fi</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;<span class="token variable">$dir</span>/README-generated.md&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking root module documentation...&quot;</span>
+check_docs <span class="token builtin class-name">.</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking examples documentation...&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> examples <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Error - no examples directory found&quot;</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">cd</span> examples
+<span class="token assign-left variable">subfolders</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> ./ <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$subfolders</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  check_docs <span class="token variable">$d</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking sub modules documentation...&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> modules <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Warning - no modules directory found&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">cd</span> modules
+  <span class="token assign-left variable">subfolders</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> ./ <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+  <span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$subfolders</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  check_docs <span class="token variable">$d</span>
+  <span class="token keyword">done</span>
+  <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<p>This script attempts to generate documentation for the module and all examples but saves it to a <code>README-generated.md</code> file. It then checks if the documentation has been updated by comparing this file with the existing <code>README.md</code>. This script can be used in CI/CD pipelines to ensure that code changes include corresponding documentation updates.</p>
+<h2 id="best-practices-and-governance-recommendations"><a name="best-practices-and-governance-recommendations" class="anchor-navigation-ex-anchor" href="#best-practices-and-governance-recommendations"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.3.1.7. Best Practices and Governance Recommendations</h2>
+<ol>
+<li><strong>Combine pre-commit and PR checks</strong> to achieve documentation automation and standardization, ensuring docs always reflect the current module configuration.</li>
+<li><strong>Configure content templates</strong> to ensure a unified documentation structure across all modules, facilitating team knowledge transfer and module reuse.</li>
+<li><strong>Regularly upgrade terraform-docs</strong> to access better formatting support and new features.</li>
+</ol>
+<p><strong>For more detailed usage and best practices, please refer to the official documentation: <a href="https://terraform-docs.io/" target="_blank">terraform-docs.io</a>.</strong></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tfenv.html" class="navigation navigation-prev " aria-label="Previous page: tfenv">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="terrafmt.html" class="navigation navigation-next " aria-label="Next page: terrafmt">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"terraform-docs","level":"1.6.3","depth":2,"next":{"title":"terrafmt","level":"1.6.4","depth":2,"path":"toolchain/terrafmt.md","ref":"toolchain/terrafmt.md","articles":[]},"previous":{"title":"tfenv","level":"1.6.2","depth":2,"path":"toolchain/tfenv.md","ref":"toolchain/tfenv.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/terraform-docs.md","mtime":"2026-01-07T07:00:23.569Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1413 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>newres · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="conftest.html" />
+    
+    
+    <link rel="prev" href="yorbox.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >newres</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#newres"><b>1.6.10.1. </b>newres</a></li><ul><li><span class="title-icon "></span><a href="#why-we-need-this-tool"><b>1.6.10.1.1. </b>Why We Need This Tool</a></li><li><span class="title-icon "></span><a href="#usage"><b>1.6.10.1.2. </b>Usage</a></li><li><span class="title-icon "></span><a href="#summary"><b>1.6.10.1.3. </b>Summary</a></li></ul></ul></div><a href="#newres" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="newres"><a name="newres" class="anchor-navigation-ex-anchor" href="#newres"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.10.1. newres</h1>
+<p><code>newres</code> is a command-line tool designed to <strong>automatically generate Terraform configuration files</strong>. Simply put, given a specific cloud resource type (such as an AWS EC2 instance or an Azure Virtual Machine), <code>newres</code> creates the Terraform module code framework for that resource on your behalf. This includes two files: <strong><code>variables.tf</code></strong> (input variable definitions) and <strong><code>main.tf</code></strong> (resource definitions). With <code>newres</code>, there is no need to manually write tedious variable declarations and resource blocks; the tool <strong>automatically generates the necessary variables, attributes, and nested blocks</strong> based on the provided resource type. It even attaches descriptions from the official documentation, allowing you to start writing Terraform configurations much faster. This feature significantly reduces the time spent on manual configuration and minimizes the chance of errors.</p>
+<p><code>newres</code> supports mainstream Terraform providers, such as AWS, Azure, Google Cloud, and more. Whether it is a public cloud (like AWS) or a third-party provider (like Kubernetes or Helm), it can generate the corresponding Terraform module code based on the resource type. Currently, <code>newres</code> has built-in support for over a dozen official providers, including Alibaba Cloud, AWS, AzureRM, AzureAD, GCP, Kubernetes, Helm, etc. This means that regardless of which cloud platform a team uses, <code>newres</code> can adapt and generate the configuration framework for the corresponding resources, greatly enhancing the tool&apos;s universality.</p>
+<h2 id="why-we-need-this-tool"><a name="why-we-need-this-tool" class="anchor-navigation-ex-anchor" href="#why-we-need-this-tool"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.10.1.1. Why We Need This Tool</h2>
+<p><strong>Before <code>newres</code></strong>, adding a new resource was often a tedious and error-prone process for Terraform module developers. Let&apos;s look at the typical problems encountered when manually creating resource directories and structures in actual projects:</p>
+<ul>
+<li><strong>Heavy Repetitive Labor</strong>: Every time a new resource needs to be added to a module, the developer must create or modify <code>variables.tf</code> to add corresponding variables and write the resource block in <code>main.tf</code>. For each input variable, one must manually write the type, default value, description, etc.; for the resource block, one must fill in all required parameters, handle default values for optional parameters, and even manage dynamic iterations for nested blocks. This kind of mechanical repetition is time-consuming and prone to oversight.</li>
+<li><strong>Prone to Omissions and Misconfiguration</strong>: Cloud resources typically have many parameters; some are <strong>required</strong>, while others are <strong>optional</strong> (with default values or nullable). When writing manually, it is easy to accidentally omit a necessary parameter or mistake a required parameter for an optional one, leading to deployment errors. Additionally, different developers have different views on which optional parameters should be explicitly configured. Without a unified standard, it is difficult to guarantee that key configurations are not missed during a manual process.</li>
+<li><strong>Inconsistent Naming and Structure</strong>: In team collaboration, different engineers have different habits, leading to varied variable naming conventions and internal resource block organizations. For instance, for the same type of resource, Engineer A might use short names for variables, while Engineer B uses long names with prefixes. Or for nested blocks, some might write them directly within the resource, while others prefer using <code>dynamic</code> blocks. These inconsistencies cause confusion during code reviews and later maintenance, requiring extra effort to align styles.</li>
+<li><strong>High Cost of Consulting Documentation</strong>: Correctly writing Terraform code relies heavily on consulting official documentation. Every time a resource is added, one must flip through provider documentation to find the meaning and default value of each parameter and determine which are required. This is time-consuming in itself. Furthermore, if developers are lazy and skip writing comments, module users will have to check the documentation again later to understand parameter meanings, preventing knowledge from being consolidated within the code.</li>
+<li><strong>Issues with Scale</strong>: In large Terraform projects, these problems are amplified. If a module needs to support dozens of resources over time, manually managing variable and resource files becomes unsustainable. The &quot;copy-paste + modify&quot; approach is not only inefficient but also risks breaking existing formatting or variable definitions during modifications, burying hidden hazards.</li>
+</ul>
+<p>The emergence of <code>newres</code> is precisely to solve the above problems, making Terraform module development <strong>more efficient</strong>. It removes the <strong>pain points of manual workflows</strong> through automation:</p>
+<ul>
+<li><strong>Automates Boilerplate Code</strong>: <code>newres</code> automatically generates a complete set of variable definitions and resource block configurations based on the resource type, saving the effort of manual rewriting. Developers no longer need to type out <code>variable &quot;&quot; {}</code> blocks one by one or worry about the basic structure of resource blocks&#x2014;the tool prepares this boilerplate code for you. This greatly reduces the cognitive load when creating new resources, allowing you to focus more on the <strong>business logic</strong> of resource configuration rather than boilerplate details.</li>
+<li><strong>No Missing Key Parameters</strong>: Since <code>newres</code> generates code directly using the Terraform provider&apos;s Schema data and documentation, it ensures that all <strong>required parameters</strong> are generated as input variables without omission. Optional parameters are usually given reasonable default values (such as <code>null</code>) to maintain the integrity of the Terraform configuration. This means resource blocks created with <code>newres</code> are &quot;out-of-the-box&quot; ready; they are correct and complete in terms of syntax and basic required attributes, preventing Terraform execution errors caused by missing attributes. Of course, manual adjustments may still be needed for some advanced scenarios, but with the starting point produced by the tool, developers are unlikely to miss <strong>key configurations</strong>.</li>
+<li><strong>Unified Standards</strong>: <code>newres</code> has fixed patterns for variable naming, handling optional parameters with default values, and expanding nested blocks. For example, as mentioned earlier, it tends to add a resource prefix to variable names and separate them with underscores, naturally forming a consistent style across modules. Additionally, for nested blocks, <code>newres</code> uses the generic <code>dynamic</code> syntax to handle <strong>optional sub-configurations</strong>, uniformly generating them this way even if the nested block is actually required, to simplify the code structure. Once these patterns become a consensus, using <code>newres</code> is equivalent to following a single set of coding standards, reducing issues with inconsistent styles. In large teams, <strong>the tool acts as the standard</strong>; with the standard format automatically output by the tool, code reviews can focus on logic rather than debating style.</li>
+<li><strong>Built-in Documentation and Hints</strong>: Each variable generated by <code>newres</code> comes with a description string explaining its purpose, whether it is required, and the meaning of its default value. These descriptions come directly from official documentation or provider code comments and are accurate and detailed. This is equivalent to having built-in documentation in the code, helping developers understand it themselves and making it easier for others to quickly understand the role of variables during future maintenance. Manual writing often overlooks descriptions or skims over them, whereas the explanations automatically filled by <code>newres</code> greatly improve the module&apos;s self-descriptiveness. For beginners, seeing these explanations makes it easier to understand what each part of the Terraform configuration does, thereby learning standard writing practices.</li>
+<li><strong>Increases Development Speed, Reduces Errors</strong>: Overall, <code>newres</code> compresses a small &quot;development task&quot; that might take tens of minutes into <strong>a single command</strong>. Especially when dealing with large resources with hundreds of parameters, manually typing variables one by one is boring and error-prone, whereas using the tool can produce a first draft in <strong>seconds</strong>. Such efficiency gains are precious in projects with a fast iteration rhythm. In addition, since the configuration is organized by a machine, the syntax and basic configuration items will be correct, reducing the possibility of low-level errors. This is also beneficial for CI/CD processes&#x2014;fewer typos or omissions mean smoother pipeline execution.</li>
+</ul>
+<p>In summary, we need <code>newres</code> because it provides a comprehensive solution to the frequent and error-prone &quot;create new resource&quot; step in Terraform module development. It liberates developers from repetitive labor, ensures code compliance and completeness, and safeguards module governance. In large-scale Terraform projects, <code>newres</code> is not just a tool for improving efficiency but also a sharp weapon for ensuring <strong>standard enforcement</strong>.</p>
+<p>(Note: Although <code>newres</code> is highly automated, we should still review the generated code. The documentation structure of some Terraform providers is not uniform enough, which may cause <code>newres</code> to be unable to parse all fields 100% correctly. Therefore, when using the generated results, please verify them against actual requirements and the latest documentation to ensure configuration accuracy.)</p>
+<h2 id="usage"><a name="usage" class="anchor-navigation-ex-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.10.1.2. Usage</h2>
+<p>Having explained the principles and benefits, let&apos;s look at the actual usage of <code>newres</code>. Overall, it is very simple to use: <strong>install via Go tools, then run a command</strong> to generate the code skeleton.</p>
+<p><strong>Installation:</strong> Since <code>newres</code> is written in Go, you need a Go development environment on your system. Assuming Go is installed, you can get the latest version of <code>newres</code> directly via the following command:</p>
+<pre class="language-"><code class="lang-bash">go <span class="token function">install</span> github.com/lonegunmanb/newres/v3@latest
+</code></pre>
+<p><code>newres</code> provides two <strong>generation modes</strong>:</p>
+<ul>
+<li><strong>MultipleVariables Mode (Default)</strong>: Generates independent <code>variable</code> inputs for each parameter and sub-block of the resource. In this mode, multiple variable blocks will be listed in <code>variables.tf</code>, with each variable corresponding to an attribute or nested configuration of the Terraform resource. For complex resources, this may generate quite a few variables, but the advantage is that it is clear, intuitive, and values can be passed independently for each parameter.</li>
+<li><strong>UniVariable Mode</strong>: As the name suggests, it generates only a <strong>single variable</strong>, embedding all configurations of the entire resource into a complex type variable (including possible nested blocks as sub-attributes of the variable). This mode is more like encapsulating the resource configuration into an object passed through one variable, suitable for scenarios where a simplified interface is desired.</li>
+</ul>
+<p>By choosing between these two modes, <code>newres</code> can adapt to different team Terraform module design styles: use the default multi-variable mode if you prefer fine-grained parameters, or use the <code>-u</code> parameter to enable UniVariable mode if you prefer a single object input.</p>
+<p><strong>Basic Usage:</strong> The command-line arguments for <code>newres</code> are very simple, with three main parameters to note:</p>
+<ul>
+<li><strong><code>-dir [Directory Path]</code></strong>: Required parameter. Specifies the directory path where the generated Terraform configuration files will be stored. For example, writing <code>-dir ./myresource</code> means files will be generated in the &quot;myresource&quot; subdirectory of the current directory. If the directory does not exist, you need to create it manually first. We often point the target directory to a specific Terraform module directory.</li>
+<li><strong><code>-r [Resource Type]</code></strong>: Required parameter. Specifies the <strong>resource type</strong> for which to generate the configuration. The resource type syntax is consistent with the resource block type in Terraform configurations, such as <code>aws_instance</code>, <code>azurerm_resource_group</code>, <code>google_compute_instance</code>, etc. Through this parameter, <code>newres</code> knows which specific resource template we want to generate.</li>
+<li><strong><code>-u</code></strong>: Optional parameter. Indicates whether to use UniVariable mode. Adding this parameter generates code in single-variable mode; omitting it generates code in the default multi-variable mode (i.e., each attribute gets its own variable).</li>
+</ul>
+<p>In addition to these core parameters, <code>newres</code> has additional options for certain specific provider resources. For example, for Azure&apos;s AzAPI provider resources (<code>azapi_resource</code>), you need to use the additional <code>--azapi-resource-type</code> parameter to provide the specific resource type string (such as <code>&quot;Microsoft.Resources/resourceGroups@2021-04-01&quot;</code>). Most conventional resources do not need this option; it is only used when generating AzAPI generic resources.</p>
+<p><strong>Usage Example:</strong> Suppose we are writing an Azure Resource Group module and want to quickly generate the basic Terraform template for a resource group. After entering the module directory in the terminal, run the following command:</p>
+<pre class="language-"><code class="lang-bash">newres <span class="token parameter variable">-dir</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-r</span> azurerm_resource_group
+</code></pre>
+<p>Here we specify the current directory (<code>./</code>) as the output directory and the resource type as <code>azurerm_resource_group</code> (Azure Resource Manager provider&apos;s resource group). After execution, <code>newres</code> will automatically generate (or update) two files in the current directory: <strong><code>variables.tf</code></strong> and <strong><code>main.tf</code></strong>. <code>variables.tf</code> contains the input variable definitions required for the Azure resource group, such as <code>resource_group_location</code>, <code>resource_group_name</code>, <code>resource_group_tags</code>, etc., each with a type, default value (if applicable), and description. <code>main.tf</code> contains the corresponding resource block:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azurerm_resource_group&quot;</span></span> <span class="token string">&quot;this&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">location</span>   <span class="token punctuation">=</span> var.resource_group_location
+  <span class="token property">name</span>       <span class="token punctuation">=</span> var.resource_group_name
+  <span class="token property">managed_by</span> <span class="token punctuation">=</span> var.resource_group_managed_by
+  <span class="token property">tags</span>       <span class="token punctuation">=</span> var.resource_group_tags
+
+  dynamic <span class="token string">&quot;timeouts&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.resource_group_timeouts <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.resource_group_timeouts<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">create</span> <span class="token punctuation">=</span> timeouts.value.create
+      <span class="token property">delete</span> <span class="token punctuation">=</span> timeouts.value.delete
+      <span class="token property">read</span>   <span class="token punctuation">=</span> timeouts.value.read
+      <span class="token property">update</span> <span class="token punctuation">=</span> timeouts.value.update
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>From the results, we can see that basic attributes like location, name, and tags are already bound to the corresponding variables, and the associations and syntax are ready.</p>
+<p>Meanwhile, in the <code>variables.tf</code> file:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">variable<span class="token type variable"> &quot;resource_group_location&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span>        <span class="token punctuation">=</span> string
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;(Required) The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.&quot;</span>
+  <span class="token property">nullable</span>    <span class="token punctuation">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">variable<span class="token type variable"> &quot;resource_group_name&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span>        <span class="token punctuation">=</span> string
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;(Required) The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.&quot;</span>
+  <span class="token property">nullable</span>    <span class="token punctuation">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">variable<span class="token type variable"> &quot;resource_group_managed_by&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span>        <span class="token punctuation">=</span> string
+  <span class="token property">default</span>     <span class="token punctuation">=</span> null
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;(Optional) The ID of the resource or application that manages this Resource Group.&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">variable<span class="token type variable"> &quot;resource_group_tags&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span>        <span class="token punctuation">=</span> map(string)
+  <span class="token property">default</span>     <span class="token punctuation">=</span> null
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token string">&quot;(Optional) A mapping of tags which should be assigned to the Resource Group.&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">variable<span class="token type variable"> &quot;resource_group_timeouts&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span> <span class="token punctuation">=</span> object(<span class="token punctuation">{</span>
+    <span class="token property">create</span> <span class="token punctuation">=</span> optional(string)
+    <span class="token property">delete</span> <span class="token punctuation">=</span> optional(string)
+    <span class="token property">read</span>   <span class="token punctuation">=</span> optional(string)
+    <span class="token property">update</span> <span class="token punctuation">=</span> optional(string)
+  <span class="token punctuation">}</span>)
+  <span class="token property">default</span>     <span class="token punctuation">=</span> null
+  <span class="token property">description</span> <span class="token punctuation">=</span> <span class="token heredoc string">&lt;&lt;-EOT
+ - `create` - (Defaults to 90 minutes) Used when creating the Resource Group.
+ - `delete` - (Defaults to 90 minutes) Used when deleting the Resource Group.
+ - `read` - (Defaults to 5 minutes) Used when retrieving the Resource Group.
+ - `update` - (Defaults to 90 minutes) Used when updating the Resource Group.
+EOT</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Developers now only need to check if variable default values or descriptions need adjustment and supplement any module-specific logic (such as adding <code>output.tf</code> to export some values) according to requirements. The whole process eliminates the need to manually check documentation and write boilerplate.</p>
+<p>It is worth emphasizing that if we <strong>run the <code>newres</code> command multiple times</strong> to generate different resource types in the same target directory, <code>newres</code> will <strong>append</strong> the newly generated configuration to the existing files instead of overwriting them. That is, the first run might generate content related to a resource group, and the second run, if specifying another resource (such as <code>azurerm_storage_account</code>), will add the variables needed for the storage account to the original <code>variables.tf</code> and append the storage account resource block to the original <code>main.tf</code>. In this way, we can accumulate a complete configuration for a module supporting multiple resources step by step through multiple calls <strong>without manual merging</strong>, which is very suitable for scenarios where module functions are expanded gradually. Of course, after appending, it is recommended to read through the merged files to ensure there are no conflicts in variable naming for different resources and that the order aligns with team habits.</p>
+<p><strong>Other Examples:</strong> Besides the Azure example, let&apos;s look at another scenario. If you want to create an AWS EC2 instance module, you can execute:</p>
+<pre class="language-"><code class="lang-bash">newres <span class="token parameter variable">-dir</span> ./aws_ec2_module <span class="token parameter variable">-r</span> aws_instance
+</code></pre>
+<p>This will generate the EC2 instance Terraform resource block in the specified directory:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;aws_instance&quot;</span></span> <span class="token string">&quot;this&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">ami</span>                                  <span class="token punctuation">=</span> var.instance_ami
+  <span class="token property">associate_public_ip_address</span>          <span class="token punctuation">=</span> var.instance_associate_public_ip_address
+  <span class="token property">availability_zone</span>                    <span class="token punctuation">=</span> var.instance_availability_zone
+  <span class="token property">cpu_core_count</span>                       <span class="token punctuation">=</span> var.instance_cpu_core_count
+  <span class="token property">cpu_threads_per_core</span>                 <span class="token punctuation">=</span> var.instance_cpu_threads_per_core
+  <span class="token property">disable_api_stop</span>                     <span class="token punctuation">=</span> var.instance_disable_api_stop
+  <span class="token property">disable_api_termination</span>              <span class="token punctuation">=</span> var.instance_disable_api_termination
+  <span class="token property">ebs_optimized</span>                        <span class="token punctuation">=</span> var.instance_ebs_optimized
+  <span class="token property">enable_primary_ipv6</span>                  <span class="token punctuation">=</span> var.instance_enable_primary_ipv6
+  <span class="token property">get_password_data</span>                    <span class="token punctuation">=</span> var.instance_get_password_data
+  <span class="token property">hibernation</span>                          <span class="token punctuation">=</span> var.instance_hibernation
+  <span class="token property">host_id</span>                              <span class="token punctuation">=</span> var.instance_host_id
+  <span class="token property">host_resource_group_arn</span>              <span class="token punctuation">=</span> var.instance_host_resource_group_arn
+  <span class="token property">iam_instance_profile</span>                 <span class="token punctuation">=</span> var.instance_iam_instance_profile
+  <span class="token property">instance_initiated_shutdown_behavior</span> <span class="token punctuation">=</span> var.instance_instance_initiated_shutdown_behavior
+  <span class="token property">instance_type</span>                        <span class="token punctuation">=</span> var.instance_instance_type
+  <span class="token property">ipv6_address_count</span>                   <span class="token punctuation">=</span> var.instance_ipv6_address_count
+  <span class="token property">ipv6_addresses</span>                       <span class="token punctuation">=</span> var.instance_ipv6_addresses
+  <span class="token property">key_name</span>                             <span class="token punctuation">=</span> var.instance_key_name
+  <span class="token property">monitoring</span>                           <span class="token punctuation">=</span> var.instance_monitoring
+  <span class="token property">placement_group</span>                      <span class="token punctuation">=</span> var.instance_placement_group
+  <span class="token property">placement_partition_number</span>           <span class="token punctuation">=</span> var.instance_placement_partition_number
+  <span class="token property">private_ip</span>                           <span class="token punctuation">=</span> var.instance_private_ip
+  <span class="token property">secondary_private_ips</span>                <span class="token punctuation">=</span> var.instance_secondary_private_ips
+  <span class="token property">security_groups</span>                      <span class="token punctuation">=</span> var.instance_security_groups
+  <span class="token property">source_dest_check</span>                    <span class="token punctuation">=</span> var.instance_source_dest_check
+  <span class="token property">subnet_id</span>                            <span class="token punctuation">=</span> var.instance_subnet_id
+  <span class="token property">tags</span>                                 <span class="token punctuation">=</span> var.instance_tags
+  <span class="token property">tags_all</span>                             <span class="token punctuation">=</span> var.instance_tags_all
+  <span class="token property">tenancy</span>                              <span class="token punctuation">=</span> var.instance_tenancy
+  <span class="token property">user_data</span>                            <span class="token punctuation">=</span> var.instance_user_data
+  <span class="token property">user_data_base64</span>                     <span class="token punctuation">=</span> var.instance_user_data_base64
+  <span class="token property">user_data_replace_on_change</span>          <span class="token punctuation">=</span> var.instance_user_data_replace_on_change
+  <span class="token property">volume_tags</span>                          <span class="token punctuation">=</span> var.instance_volume_tags
+  <span class="token property">vpc_security_group_ids</span>               <span class="token punctuation">=</span> var.instance_vpc_security_group_ids
+
+  dynamic <span class="token string">&quot;capacity_reservation_specification&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_capacity_reservation_specification <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_capacity_reservation_specification<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">capacity_reservation_preference</span> <span class="token punctuation">=</span> capacity_reservation_specification.value.capacity_reservation_preference
+
+      dynamic <span class="token string">&quot;capacity_reservation_target&quot;</span> <span class="token punctuation">{</span>
+        <span class="token property">for_each</span> <span class="token punctuation">=</span> capacity_reservation_specification.value.capacity_reservation_target <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>capacity_reservation_specification.value.capacity_reservation_target<span class="token punctuation">]</span>
+
+        <span class="token keyword">content</span> <span class="token punctuation">{</span>
+          <span class="token property">capacity_reservation_id</span>                 <span class="token punctuation">=</span> capacity_reservation_target.value.capacity_reservation_id
+          <span class="token property">capacity_reservation_resource_group_arn</span> <span class="token punctuation">=</span> capacity_reservation_target.value.capacity_reservation_resource_group_arn
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;cpu_options&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_cpu_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_cpu_options<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">amd_sev_snp</span>      <span class="token punctuation">=</span> cpu_options.value.amd_sev_snp
+      <span class="token property">core_count</span>       <span class="token punctuation">=</span> cpu_options.value.core_count
+      <span class="token property">threads_per_core</span> <span class="token punctuation">=</span> cpu_options.value.threads_per_core
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;credit_specification&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_credit_specification <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_credit_specification<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">cpu_credits</span> <span class="token punctuation">=</span> credit_specification.value.cpu_credits
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;ebs_block_device&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_ebs_block_device <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : var.instance_ebs_block_device
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">device_name</span>           <span class="token punctuation">=</span> ebs_block_device.value.device_name
+      <span class="token property">delete_on_termination</span> <span class="token punctuation">=</span> ebs_block_device.value.delete_on_termination
+      <span class="token property">encrypted</span>             <span class="token punctuation">=</span> ebs_block_device.value.encrypted
+      <span class="token property">iops</span>                  <span class="token punctuation">=</span> ebs_block_device.value.iops
+      <span class="token property">kms_key_id</span>            <span class="token punctuation">=</span> ebs_block_device.value.kms_key_id
+      <span class="token property">snapshot_id</span>           <span class="token punctuation">=</span> ebs_block_device.value.snapshot_id
+      <span class="token property">tags</span>                  <span class="token punctuation">=</span> ebs_block_device.value.tags
+      <span class="token property">tags_all</span>              <span class="token punctuation">=</span> ebs_block_device.value.tags_all
+      <span class="token property">throughput</span>            <span class="token punctuation">=</span> ebs_block_device.value.throughput
+      <span class="token property">volume_size</span>           <span class="token punctuation">=</span> ebs_block_device.value.volume_size
+      <span class="token property">volume_type</span>           <span class="token punctuation">=</span> ebs_block_device.value.volume_type
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;enclave_options&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_enclave_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_enclave_options<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">enabled</span> <span class="token punctuation">=</span> enclave_options.value.enabled
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;ephemeral_block_device&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_ephemeral_block_device <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : var.instance_ephemeral_block_device
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">device_name</span>  <span class="token punctuation">=</span> ephemeral_block_device.value.device_name
+      <span class="token property">no_device</span>    <span class="token punctuation">=</span> ephemeral_block_device.value.no_device
+      <span class="token property">virtual_name</span> <span class="token punctuation">=</span> ephemeral_block_device.value.virtual_name
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;instance_market_options&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_instance_market_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_instance_market_options<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">market_type</span> <span class="token punctuation">=</span> instance_market_options.value.market_type
+
+      dynamic <span class="token string">&quot;spot_options&quot;</span> <span class="token punctuation">{</span>
+        <span class="token property">for_each</span> <span class="token punctuation">=</span> instance_market_options.value.spot_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>instance_market_options.value.spot_options<span class="token punctuation">]</span>
+
+        <span class="token keyword">content</span> <span class="token punctuation">{</span>
+          <span class="token property">instance_interruption_behavior</span> <span class="token punctuation">=</span> spot_options.value.instance_interruption_behavior
+          <span class="token property">max_price</span>                      <span class="token punctuation">=</span> spot_options.value.max_price
+          <span class="token property">spot_instance_type</span>             <span class="token punctuation">=</span> spot_options.value.spot_instance_type
+          <span class="token property">valid_until</span>                    <span class="token punctuation">=</span> spot_options.value.valid_until
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;launch_template&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_launch_template <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_launch_template<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">id</span>      <span class="token punctuation">=</span> launch_template.value.id
+      <span class="token property">name</span>    <span class="token punctuation">=</span> launch_template.value.name
+      <span class="token property">version</span> <span class="token punctuation">=</span> launch_template.value.version
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;maintenance_options&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_maintenance_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_maintenance_options<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">auto_recovery</span> <span class="token punctuation">=</span> maintenance_options.value.auto_recovery
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;metadata_options&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_metadata_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_metadata_options<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">http_endpoint</span>               <span class="token punctuation">=</span> metadata_options.value.http_endpoint
+      <span class="token property">http_protocol_ipv6</span>          <span class="token punctuation">=</span> metadata_options.value.http_protocol_ipv6
+      <span class="token property">http_put_response_hop_limit</span> <span class="token punctuation">=</span> metadata_options.value.http_put_response_hop_limit
+      <span class="token property">http_tokens</span>                 <span class="token punctuation">=</span> metadata_options.value.http_tokens
+      <span class="token property">instance_metadata_tags</span>      <span class="token punctuation">=</span> metadata_options.value.instance_metadata_tags
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;network_interface&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_network_interface <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : var.instance_network_interface
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">device_index</span>          <span class="token punctuation">=</span> network_interface.value.device_index
+      <span class="token property">network_interface_id</span>  <span class="token punctuation">=</span> network_interface.value.network_interface_id
+      <span class="token property">delete_on_termination</span> <span class="token punctuation">=</span> network_interface.value.delete_on_termination
+      <span class="token property">network_card_index</span>    <span class="token punctuation">=</span> network_interface.value.network_card_index
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;private_dns_name_options&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_private_dns_name_options <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_private_dns_name_options<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">enable_resource_name_dns_a_record</span>    <span class="token punctuation">=</span> private_dns_name_options.value.enable_resource_name_dns_a_record
+      <span class="token property">enable_resource_name_dns_aaaa_record</span> <span class="token punctuation">=</span> private_dns_name_options.value.enable_resource_name_dns_aaaa_record
+      <span class="token property">hostname_type</span>                        <span class="token punctuation">=</span> private_dns_name_options.value.hostname_type
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;root_block_device&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_root_block_device <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_root_block_device<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">delete_on_termination</span> <span class="token punctuation">=</span> root_block_device.value.delete_on_termination
+      <span class="token property">encrypted</span>             <span class="token punctuation">=</span> root_block_device.value.encrypted
+      <span class="token property">iops</span>                  <span class="token punctuation">=</span> root_block_device.value.iops
+      <span class="token property">kms_key_id</span>            <span class="token punctuation">=</span> root_block_device.value.kms_key_id
+      <span class="token property">tags</span>                  <span class="token punctuation">=</span> root_block_device.value.tags
+      <span class="token property">tags_all</span>              <span class="token punctuation">=</span> root_block_device.value.tags_all
+      <span class="token property">throughput</span>            <span class="token punctuation">=</span> root_block_device.value.throughput
+      <span class="token property">volume_size</span>           <span class="token punctuation">=</span> root_block_device.value.volume_size
+      <span class="token property">volume_type</span>           <span class="token punctuation">=</span> root_block_device.value.volume_type
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  dynamic <span class="token string">&quot;timeouts&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.instance_timeouts <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.instance_timeouts<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">create</span> <span class="token punctuation">=</span> timeouts.value.create
+      <span class="token property">delete</span> <span class="token punctuation">=</span> timeouts.value.delete
+      <span class="token property">read</span>   <span class="token punctuation">=</span> timeouts.value.read
+      <span class="token property">update</span> <span class="token punctuation">=</span> timeouts.value.update
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Similarly, variables such as <code>instance_ami</code> (AMI ID), <code>instance_type</code> (instance type), <code>instance_tags</code>, etc., will appear in <code>variables.tf</code>, and <code>main.tf</code> will have an <code>aws_instance</code> resource block where attributes are mapped to the aforementioned variables. Through these variable names, we can also appreciate <code>newres</code>&apos;s naming style: <strong><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span>_<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>attribute</span><span class="token punctuation">&gt;</span></span></code></strong>, making variable meanings clear and avoiding conflicts. If you wish to package all inputs into a single variable object, you can also add the <code>-u</code> parameter to the command to test the effect.</p>
+<p><strong>Special Handling for AzAPI</strong>:</p>
+<p>AzAPI is a new Terraform Provider developed and maintained by Microsoft in recent years for invoking the Azure Resource Management API. Unlike the AzureRM Provider, AzAPI mainly encapsulates calls to the Azure API. It is more similar to Bicep and is much more dynamic, as it does not require waiting for the Provider development team to create corresponding Resource logic&#x2014;you can construct resource blocks yourself by reading the API definition. <code>newres</code> handles AzAPI specially. For example, running the following command:</p>
+<pre class="language-"><code class="lang-shell">newres <span class="token parameter variable">-r</span> azapi_resource --azapi-resource-type<span class="token operator">=</span><span class="token string">&quot;Microsoft.CognitiveServices/accounts@2024-10-01&quot;</span> <span class="token parameter variable">-dir</span> <span class="token builtin class-name">.</span>
+</code></pre>
+<p>The resulting Terraform code is:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azapi_resource&quot;</span></span> <span class="token string">&quot;this&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">location</span>  <span class="token punctuation">=</span> var.resource_location
+  <span class="token property">name</span>      <span class="token punctuation">=</span> var.resource_name
+  <span class="token property">parent_id</span> <span class="token punctuation">=</span> var.resource_parent_id
+  <span class="token property">type</span>      <span class="token punctuation">=</span> <span class="token string">&quot;Microsoft.CognitiveServices/accounts@2024-10-01&quot;</span>
+  <span class="token property">body</span>      <span class="token punctuation">=</span> var.resource_body
+  <span class="token property">tags</span>      <span class="token punctuation">=</span> var.resource_tags
+
+  dynamic <span class="token string">&quot;identity&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">for_each</span> <span class="token punctuation">=</span> var.resource_identity <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">[</span><span class="token punctuation">]</span> : <span class="token punctuation">[</span>var.resource_identity<span class="token punctuation">]</span>
+
+    <span class="token keyword">content</span> <span class="token punctuation">{</span>
+      <span class="token property">type</span> <span class="token punctuation">=</span> identity.value.type
+
+      dynamic <span class="token string">&quot;userAssignedIdentities&quot;</span> <span class="token punctuation">{</span>
+        <span class="token property">for_each</span> <span class="token punctuation">=</span> identity.value.userAssignedIdentities <span class="token punctuation">=</span><span class="token punctuation">=</span> null ? <span class="token punctuation">{</span><span class="token punctuation">}</span> : identity.value.userAssignedIdentities
+
+        <span class="token keyword">content</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The key highlight is the generated <code>var.resource_body</code>:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">variable<span class="token type variable"> &quot;resource_body&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">type</span> <span class="token punctuation">=</span> object(<span class="token punctuation">{</span>
+    <span class="token property">kind</span> <span class="token punctuation">=</span> optional(string)
+    <span class="token property">properties</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+      <span class="token property">allowedFqdnList</span>               <span class="token punctuation">=</span> optional(list(string))
+      <span class="token property">customSubDomainName</span>           <span class="token punctuation">=</span> optional(string)
+      <span class="token property">disableLocalAuth</span>              <span class="token punctuation">=</span> optional(bool)
+      <span class="token property">dynamicThrottlingEnabled</span>      <span class="token punctuation">=</span> optional(bool)
+      <span class="token property">migrationToken</span>                <span class="token punctuation">=</span> optional(string)
+      <span class="token property">publicNetworkAccess</span>           <span class="token punctuation">=</span> optional(string)
+      <span class="token property">restore</span>                       <span class="token punctuation">=</span> optional(bool)
+      <span class="token property">restrictOutboundNetworkAccess</span> <span class="token punctuation">=</span> optional(bool)
+      <span class="token property">amlWorkspace</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+        <span class="token property">identityClientId</span> <span class="token punctuation">=</span> optional(string)
+        <span class="token property">resourceId</span>       <span class="token punctuation">=</span> optional(string)
+      <span class="token punctuation">}</span>))
+      <span class="token property">apiProperties</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+        <span class="token property">aadClientId</span>                    <span class="token punctuation">=</span> optional(string)
+        <span class="token property">aadTenantId</span>                    <span class="token punctuation">=</span> optional(string)
+        <span class="token property">eventHubConnectionString</span>       <span class="token punctuation">=</span> optional(string)
+        <span class="token property">qnaAzureSearchEndpointId</span>       <span class="token punctuation">=</span> optional(string)
+        <span class="token property">qnaAzureSearchEndpointKey</span>      <span class="token punctuation">=</span> optional(string)
+        <span class="token property">qnaRuntimeEndpoint</span>             <span class="token punctuation">=</span> optional(string)
+        <span class="token property">statisticsEnabled</span>              <span class="token punctuation">=</span> optional(bool)
+        <span class="token property">storageAccountConnectionString</span> <span class="token punctuation">=</span> optional(string)
+        <span class="token property">superUser</span>                      <span class="token punctuation">=</span> optional(string)
+        <span class="token property">websiteName</span>                    <span class="token punctuation">=</span> optional(string)
+      <span class="token punctuation">}</span>))
+      <span class="token property">encryption</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+        <span class="token property">keySource</span> <span class="token punctuation">=</span> optional(string)
+        <span class="token property">keyVaultProperties</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+          <span class="token property">identityClientId</span> <span class="token punctuation">=</span> optional(string)
+          <span class="token property">keyName</span>          <span class="token punctuation">=</span> optional(string)
+          <span class="token property">keyVaultUri</span>      <span class="token punctuation">=</span> optional(string)
+          <span class="token property">keyVersion</span>       <span class="token punctuation">=</span> optional(string)
+        <span class="token punctuation">}</span>))
+      <span class="token punctuation">}</span>))
+      <span class="token property">locations</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+        <span class="token property">routingMethod</span> <span class="token punctuation">=</span> optional(string)
+        <span class="token property">regions</span> <span class="token punctuation">=</span> optional(list(object(<span class="token punctuation">{</span>
+          <span class="token property">customsubdomain</span> <span class="token punctuation">=</span> string
+          <span class="token property">name</span>            <span class="token punctuation">=</span> string
+          <span class="token property">value</span>           <span class="token punctuation">=</span> number
+        <span class="token punctuation">}</span>)))
+      <span class="token punctuation">}</span>))
+      <span class="token property">networkAcls</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+        <span class="token property">bypass</span>        <span class="token punctuation">=</span> optional(string)
+        <span class="token property">defaultAction</span> <span class="token punctuation">=</span> optional(string)
+        <span class="token property">ipRules</span> <span class="token punctuation">=</span> optional(list(object(<span class="token punctuation">{</span>
+          <span class="token property">value</span> <span class="token punctuation">=</span> string
+        <span class="token punctuation">}</span>)))
+        <span class="token property">virtualNetworkRules</span> <span class="token punctuation">=</span> optional(list(object(<span class="token punctuation">{</span>
+          <span class="token property">id</span>                               <span class="token punctuation">=</span> string
+          <span class="token property">ignoreMissingVnetServiceEndpoint</span> <span class="token punctuation">=</span> bool
+          <span class="token property">state</span>                            <span class="token punctuation">=</span> string
+        <span class="token punctuation">}</span>)))
+      <span class="token punctuation">}</span>))
+      <span class="token property">raiMonitorConfig</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+        <span class="token property">adxStorageResourceId</span> <span class="token punctuation">=</span> optional(string)
+        <span class="token property">identityClientId</span>     <span class="token punctuation">=</span> optional(string)
+      <span class="token punctuation">}</span>))
+      <span class="token property">userOwnedStorage</span> <span class="token punctuation">=</span> optional(list(object(<span class="token punctuation">{</span>
+        <span class="token property">identityClientId</span> <span class="token punctuation">=</span> string
+        <span class="token property">resourceId</span>       <span class="token punctuation">=</span> string
+      <span class="token punctuation">}</span>)))
+    <span class="token punctuation">}</span>))
+    <span class="token property">sku</span> <span class="token punctuation">=</span> optional(object(<span class="token punctuation">{</span>
+      <span class="token property">capacity</span> <span class="token punctuation">=</span> optional(number)
+      <span class="token property">family</span>   <span class="token punctuation">=</span> optional(string)
+      <span class="token property">name</span>     <span class="token punctuation">=</span> string
+      <span class="token property">size</span>     <span class="token punctuation">=</span> optional(string)
+      <span class="token property">tier</span>     <span class="token punctuation">=</span> optional(string)
+    <span class="token punctuation">}</span>))
+  <span class="token punctuation">}</span>)
+  <span class="token property">nullable</span>    <span class="token punctuation">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>newres</code> maps the API request structure of the resource into an <code>object</code> type input variable block, greatly accelerating the process for users to write correct <code>azapi_resource</code> blocks.</p>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.10.1.3. Summary</h2>
+<p><strong>Conclusion:</strong> Using <code>newres</code> is very intuitive: Install -&gt; Run Command -&gt; View Results. For Terraform beginners, this tool helps quickly understand the elements required for a complete resource configuration; for experienced engineers, it saves a lot of mechanical work, allowing them to focus on architectural design and parameter decisions. In the practice of large-scale module governance, <code>newres</code> has demonstrated its value&#x2014;acting as both a standard setter (since the tool&apos;s output is the standard) and an efficient assistant. Therefore, if you are developing Terraform modules, especially in scenarios involving many resources and variables, you might want to incorporate <code>newres</code> into your workflow. It will greatly simplify your module development process.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="yorbox.html" class="navigation navigation-prev " aria-label="Previous page: yorbox">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="conftest.html" class="navigation navigation-next " aria-label="Next page: conftest">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"newres","level":"1.6.10","depth":2,"next":{"title":"conftest","level":"1.6.11","depth":2,"path":"toolchain/conftest.md","ref":"toolchain/conftest.md","articles":[]},"previous":{"title":"yorbox","level":"1.6.9","depth":2,"path":"toolchain/yorbox.md","ref":"toolchain/yorbox.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/newres.md","mtime":"2026-01-07T06:59:45.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

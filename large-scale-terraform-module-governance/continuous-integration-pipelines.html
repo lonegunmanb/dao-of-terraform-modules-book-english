@@ -1,0 +1,1115 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Continuous Integration Pipelines · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="maintaining-global-pipeline-consistency.html" />
+    
+    
+    <link rel="prev" href="unified-repository-permission-system.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="one-module-one-repository.html">
+            
+                <a href="one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="semantic-versioning.html">
+            
+                <a href="semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="maintaining-consistent-repository-content.html">
+            
+                <a href="maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="unified-repository-permission-system.html">
+            
+                <a href="unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.5" data-path="continuous-integration-pipelines.html">
+            
+                <a href="continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="maintaining-global-pipeline-consistency.html">
+            
+                <a href="maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="pipeline-execution-context.html">
+            
+                <a href="pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="change-management.html">
+            
+                <a href="change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="pipeline-security-considerations.html">
+            
+                <a href="pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Continuous Integration Pipelines</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#continuous-integration-pipelines"><b>1.4.5.1. </b>Continuous Integration Pipelines</a></li><ul><li><span class="title-icon "></span><a href="#reusable-workflows-and-composite-actions"><b>1.4.5.1.1. </b>Reusable Workflows and Composite Actions</a></li><ul><li><span class="title-icon "></span><a href="#reusable-workflows"><b>1.4.5.1.1.1. </b>Reusable Workflows</a></li><li><span class="title-icon "></span><a href="#composite-actions"><b>1.4.5.1.1.2. </b>Composite Actions</a></li></ul><li><span class="title-icon "></span><a href="#centralized-actions-repository"><b>1.4.5.1.2. </b>Centralized Actions Repository</a></li><li><span class="title-icon "></span><a href="#case-studies-centralized-management-of-github-actions-workflows-for-terraform-modules"><b>1.4.5.1.3. </b>Case Studies: Centralized Management of GitHub Actions Workflows for Terraform Modules</a></li><ul><li><span class="title-icon "></span><a href="#cloud-posses-centralized-workflow-management"><b>1.4.5.1.3.1. </b>Cloud Posse&apos;s Centralized Workflow Management</a></li><li><span class="title-icon "></span><a href="#azure-verified-modules-scaffold-project"><b>1.4.5.1.3.2. </b>Azure Verified Modules&apos; Scaffold Project</a></li></ul></ul></ul></div><a href="#continuous-integration-pipelines" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="continuous-integration-pipelines"><a name="continuous-integration-pipelines" class="anchor-navigation-ex-anchor" href="#continuous-integration-pipelines"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1. Continuous Integration Pipelines</h1>
+<p>Currently, <a href="https://martinfowler.com/articles/continuousIntegration.html" target="_blank">Continuous Integration pipelines</a> have become a standard configuration for many software projects. They serve as the foundation for advancing what we refer to as large-scale Terraform module governance. Without continuous integration pipelines, we cannot enforce that all modules adhere to the various standards and specifications we have established.</p>
+<p>There are many excellent Continuous Integration (CI) solutions available on the market. Considering that the Terraform Registry syncs Terraform modules from GitHub repositories by default, and that <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a> itself is a very mature and widely used pipeline solution, this book will focus primarily on GitHub Actions.</p>
+<p>Intuitively, we might utilize various mature Actions to stitch together a simple pipeline, for example:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Terraform CI
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">pull_request</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">terraform</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> Terraform Validation and Planning
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout code
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v4
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Set up Terraform
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> hashicorp/setup<span class="token punctuation">-</span>terraform@v3
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Terraform Validate
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> terraform validate
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Terraform Plan for each example
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          has_error=false</span>
+
+          if <span class="token punctuation">[</span> <span class="token tag">!</span> <span class="token punctuation">-</span>d &quot;examples&quot; <span class="token punctuation">]</span>; then
+            echo &quot;No &apos;examples&apos; folder found.&quot;
+            exit 0
+          fi
+
+          cd examples
+
+          for d in <span class="token important">*/;</span> do
+            if <span class="token punctuation">[</span> <span class="token punctuation">-</span>d &quot;$d&quot; <span class="token punctuation">]</span>; then
+              if ls &quot;$d&quot;/<span class="token important">*.tf</span> <span class="token punctuation">&gt;</span> /dev/null 2<span class="token punctuation">&gt;</span><span class="token important">&amp;1;</span> then
+                echo &quot;==<span class="token punctuation">&gt;</span> Checking $d&quot;
+                cd &quot;$d&quot; <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token punctuation">{</span> echo &quot;Failed to enter directory $d&quot;; has_error=true; cd ..; continue; <span class="token punctuation">}</span>
+
+                terraform init <span class="token punctuation">-</span>input=false <span class="token punctuation">|</span><span class="token punctuation">|</span> has_error=true
+                terraform plan <span class="token punctuation">-</span>input=false <span class="token punctuation">|</span><span class="token punctuation">|</span> has_error=true
+
+                cd ..
+              else
+                echo &quot;No Terraform configuration files found in $d<span class="token punctuation">,</span> skipping.&quot;
+              fi
+            fi
+          done
+
+          cd ..
+
+          if <span class="token punctuation">[</span> &quot;$has_error&quot; = true <span class="token punctuation">]</span>; then
+            echo &quot;At least one &apos;examples&apos; folder failed.&quot;
+            exit 1
+          fi
+
+          echo &quot;All &apos;examples&apos; folders passed.&quot;
+          exit 0
+</code></pre>
+<p>The workflow above might essentially function when maintaining a single Terraform module code repository. However, when we need to maintain hundreds of module repositories simultaneously, this method exposes the following issues:</p>
+<ul>
+<li><strong>Duplicate Maintenance:</strong> Every time the workflow logic needs updating, it must be manually modified in all repositories. The workload is enormous and error-prone.</li>
+<li><strong>Consistency Issues:</strong> Manual updates may lead to inconsistent workflow versions across different repositories, increasing maintenance difficulty.</li>
+<li><strong>Poor Scalability:</strong> It is difficult to quickly introduce new features or best practices because they need to be implemented one by one in all repositories.</li>
+</ul>
+<p>Imagine if we decide to add a check before <code>terraform init</code> to confirm that all Terraform code has been correctly formatted; we would need to submit the same change to hundreds of code repositories, which would be a terrible experience.</p>
+<h2 id="reusable-workflows-and-composite-actions"><a name="reusable-workflows-and-composite-actions" class="anchor-navigation-ex-anchor" href="#reusable-workflows-and-composite-actions"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.1. Reusable Workflows and Composite Actions</h2>
+<p>GitHub Actions provides two mechanisms to achieve workflow reuse and modularity:</p>
+<h3 id="reusable-workflows"><a name="reusable-workflows" class="anchor-navigation-ex-anchor" href="#reusable-workflows"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.1.1. Reusable Workflows</h3>
+<p>Reusable workflows allow us to define an entire workflow as an independent YAML file and reference it in other workflows using the <code>uses</code> keyword. This enables multiple repositories to share the same workflow definition, achieving centralized management.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li><strong>Centralized Management:</strong> All workflow logic is centralized in one repository, making it easy to maintain and update.</li>
+<li><strong>Reduce Duplication:</strong> Avoid copying the same workflow code across multiple repositories.</li>
+<li><strong>Version Control:</strong> Workflow versions can be controlled via Git tags or branches, ensuring different projects use compatible versions.</li>
+</ul>
+<p><strong>Usage:</strong></p>
+<ol>
+<li>Create a reusable workflow file in a repository (e.g., <code>.github/workflows/terraform.yml</code>) and add the <code>workflow_call</code> trigger to the <code>on</code> field.</li>
+<li>In the workflows of other repositories, reference this reusable workflow using the <code>uses</code> keyword, for example:</li>
+</ol>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">terraform</span><span class="token punctuation">:</span>
+    <span class="token key atrule">uses</span><span class="token punctuation">:</span> org<span class="token punctuation">-</span>name/repo<span class="token punctuation">-</span>name/.github/workflows/terraform.yml@v1
+    <span class="token key atrule">secrets</span><span class="token punctuation">:</span> inherit
+</code></pre>
+<p>In this way, all repositories referencing this workflow will automatically use the latest definition, simplifying maintenance work.</p>
+<h3 id="composite-actions"><a name="composite-actions" class="anchor-navigation-ex-anchor" href="#composite-actions"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.1.2. Composite Actions</h3>
+<p>Composite actions allow us to combine multiple steps into a single custom action that can be called within the steps of a workflow. This is very useful for encapsulating common step combinations, such as Terraform initialization, formatting checks, and validation.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li><strong>Modularity:</strong> Combine common steps into one action for easy reuse.</li>
+<li><strong>Simplify Workflows:</strong> Calling composite actions makes workflow files more concise.</li>
+<li><strong>Easy to Maintain:</strong> Updating the logic of a composite action automatically affects all workflows referencing it.</li>
+</ul>
+<p><strong>Usage:</strong></p>
+<ol>
+<li>Create a composite action directory in the repository (e.g., <code>.github/actions/terraform-setup</code>), and create an <code>action.yml</code> file inside it to define the inputs and steps of the action.</li>
+<li>In a workflow, call this composite action using the <code>uses</code> keyword, for example:</li>
+</ol>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">steps</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> ./.github/actions/terraform<span class="token punctuation">-</span>setup
+</code></pre>
+<p>Through this approach, we can encapsulate common operations into modules for reuse by multiple workflows, improving workflow maintainability and consistency.</p>
+<h2 id="centralized-actions-repository"><a name="centralized-actions-repository" class="anchor-navigation-ex-anchor" href="#centralized-actions-repository"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.2. Centralized Actions Repository</h2>
+<p>If we simply save the definition YAML files for reusable workflows and composite actions in every Terraform module&apos;s code repository, we haven&apos;t actually improved anything; every update still requires upgrading hundreds of code repositories simultaneously. We can adopt a centralized management strategy by storing reusable workflows and composite actions in a dedicated repository. Thus, all module repositories can reference these centrally managed workflows, achieving a unified CI/CD process.</p>
+<h2 id="case-studies-centralized-management-of-github-actions-workflows-for-terraform-modules"><a name="case-studies-centralized-management-of-github-actions-workflows-for-terraform-modules" class="anchor-navigation-ex-anchor" href="#case-studies-centralized-management-of-github-actions-workflows-for-terraform-modules"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.3. Case Studies: Centralized Management of GitHub Actions Workflows for Terraform Modules</h2>
+<p>When maintaining Terraform modules at scale, centrally managing GitHub Actions workflows can significantly improve efficiency and consistency. The following are two organizational cases adopting a centralized management strategy:</p>
+<h3 id="cloud-posses-centralized-workflow-management"><a name="cloud-posses-centralized-workflow-management" class="anchor-navigation-ex-anchor" href="#cloud-posses-centralized-workflow-management"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.3.1. Cloud Posse&apos;s Centralized Workflow Management</h3>
+<p>Cloud Posse centrally manages the reusable GitHub Actions workflows within its organization through the <a href="https://github.com/cloudposse/github-actions-workflows" target="_blank">cloudposse/github-actions-workflows</a> repository. These workflows cover various stages from build and test to deployment, available for reference by multiple repositories, ensuring the consistency and maintainability of the CI/CD process.</p>
+<p>Additionally, Cloud Posse provides the <a href="https://github.com/cloudposse/github-actions-workflows-terraform-module" target="_blank">cloudposse/github-actions-workflows-terraform-module</a> repository, specifically designed for managing workflows for Terraform modules. By referencing these centrally managed workflows in module repositories, Cloud Posse achieves workflow standardization and centralized maintenance.</p>
+<h3 id="azure-verified-modules-scaffold-project"><a name="azure-verified-modules-scaffold-project" class="anchor-navigation-ex-anchor" href="#azure-verified-modules-scaffold-project"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.5.1.3.2. Azure Verified Modules&apos; Scaffold Project</h3>
+<p>Azure Verified Modules provides the <a href="https://github.com/Azure/avm-terraform-governance" target="_blank">Azure/avm-terraform-governance</a> project as a template for Terraform modules, containing standard GitHub Actions workflows, Makefiles, and scripts. Developers(Microsoft FTE only) can quickly create new module repositories based on this <a href="https://azure.github.io/Azure-Verified-Modules/contributing/terraform/terraform-contribution-flow/repository-creation-process/" target="_blank">tutorial</a>, ensuring consistency in project structure and workflows.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="unified-repository-permission-system.html" class="navigation navigation-prev " aria-label="Previous page: Unified Repository Permission System">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="maintaining-global-pipeline-consistency.html" class="navigation navigation-next " aria-label="Next page: Maintaining Global Pipeline Consistency">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Continuous Integration Pipelines","level":"1.4.5","depth":2,"next":{"title":"Maintaining Global Pipeline Consistency","level":"1.4.6","depth":2,"path":"large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.md","ref":"large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.md","articles":[]},"previous":{"title":"Unified Repository Permission System","level":"1.4.4","depth":2,"path":"large-scale-terraform-module-governance/unified-repository-permission-system.md","ref":"large-scale-terraform-module-governance/unified-repository-permission-system.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"large-scale-terraform-module-governance/continuous-integration-pipelines.md","mtime":"2026-01-07T06:06:51.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

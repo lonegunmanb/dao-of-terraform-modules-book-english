@@ -1,0 +1,1301 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>End-to-End Testing · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="code-style-checking.html" />
+    
+    
+    <link rel="prev" href="unit-testing.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="unit-testing.html">
+            
+                <a href="unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2" data-path="end-to-end-testing.html">
+            
+                <a href="end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="code-style-checking.html">
+            
+                <a href="code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="compliance-testing.html">
+            
+                <a href="compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >End-to-End Testing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#end-to-end-testing"><b>1.5.2.1. </b>End-to-End Testing</a></li><ul><li><span class="title-icon "></span><a href="#what-is-end-to-end-testing"><b>1.5.2.1.1. </b>What is End-to-End Testing?</a></li><li><span class="title-icon "></span><a href="#why-choose-terratest"><b>1.5.2.1.2. </b>Why Choose Terratest?</a></li><ul><li><span class="title-icon "></span><a href="#advantages-of-terratest"><b>1.5.2.1.2.1. </b>Advantages of Terratest</a></li><li><span class="title-icon "></span><a href="#typical-terratest-structure"><b>1.5.2.1.2.2. </b>Typical Terratest Structure</a></li></ul><li><span class="title-icon "></span><a href="#azures-terraform-module-test-helper-tool"><b>1.5.2.1.3. </b>Azure&apos;s terraform-module-test-helper Tool</a></li><ul><li><span class="title-icon "></span><a href="#the-rune2etest-function"><b>1.5.2.1.3.1. </b>The RunE2ETest Function</a></li></ul><li><span class="title-icon "></span><a href="#parallelization-of-e2e-tests-and-global-configuration-management"><b>1.5.2.1.4. </b>Parallelization of E2E Tests and Global Configuration Management</a></li><ul><li><span class="title-icon "></span><a href="#strategy-for-parallel-testing"><b>1.5.2.1.4.1. </b>Strategy for Parallel Testing</a></li><li><span class="title-icon "></span><a href="#global-configuration-and-teardown-mechanism"><b>1.5.2.1.4.2. </b>Global Configuration and Teardown Mechanism</a></li><li><span class="title-icon "></span><a href="#best-practice-recommendations"><b>1.5.2.1.4.3. </b>Best Practice Recommendations</a></li></ul><li><span class="title-icon "></span><a href="#challenges-from-configuration-drift"><b>1.5.2.1.5. </b>Challenges from Configuration Drift</a></li><li><span class="title-icon "></span><a href="#the-initandplanandidempotentateasymode-function-in-terraform-module-test-helper"><b>1.5.2.1.6. </b>The initAndPlanAndIdempotentAtEasyMode Function in terraform-module-test-helper</a></li><ul><li><span class="title-icon "></span><a href="#function-input"><b>1.5.2.1.6.1. </b>Function Input</a></li><li><span class="title-icon "></span><a href="#function-implementation-logic-analysis"><b>1.5.2.1.6.2. </b>Function Implementation Logic Analysis</a></li><li><span class="title-icon "></span><a href="#when-should-breaking-change-tests-be-skipped"><b>1.5.2.1.6.3. </b>When Should Breaking Change Tests Be Skipped?</a></li><li><span class="title-icon "></span><a href="#application-in-continuous-integration"><b>1.5.2.1.6.4. </b>Application in Continuous Integration</a></li></ul><li><span class="title-icon "></span><a href="#summary"><b>1.5.2.1.7. </b>Summary</a></li></ul></ul></div><a href="#end-to-end-testing" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="end-to-end-testing"><a name="end-to-end-testing" class="anchor-navigation-ex-anchor" href="#end-to-end-testing"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1. End-to-End Testing</h1>
+<p>In the process of large-scale maintenance and governance of Terraform modules, End-to-End (E2E) testing is a critical link for ensuring the quality of infrastructure code. This chapter will delve into how to use <a href="https://terratest.gruntwork.io/" target="_blank">Terratest</a> and the Azure <a href="https://github.com/Azure/terraform-module-test-helper" target="_blank"><code>terraform-module-test-helper</code></a> tool to conduct comprehensive end-to-end testing on Terraform modules.</p>
+<h2 id="what-is-end-to-end-testing"><a name="what-is-end-to-end-testing" class="anchor-navigation-ex-anchor" href="#what-is-end-to-end-testing"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.1. What is End-to-End Testing?</h2>
+<p>End-to-end testing is a testing method that simulates the actual deployment process, designed to verify that the entire infrastructure deployment meets expectations. Unlike unit testing or integration testing, end-to-end testing focuses on the overall behavior of the system, ensuring that various components work together correctly in a real operating environment.</p>
+<p>In the context of Terraform, end-to-end testing typically involves the following steps:</p>
+<ol>
+<li><strong>Deploy Test Environment</strong>: Use Terraform to deploy the module into an isolated test environment.</li>
+<li><strong>Validate Deployment Results</strong> (Optional): Verify the functionality and configuration of resources through actual operations (such as network connection tests, API calls, etc.).</li>
+<li><strong>Clean Up Test Environment</strong>: After testing is complete, destroy all deployed resources to ensure the environment is kept clean.</li>
+</ol>
+<p>This testing method helps developers discover potential issues before pushing code to the production environment, thereby reducing risk.</p>
+<h2 id="why-choose-terratest"><a name="why-choose-terratest" class="anchor-navigation-ex-anchor" href="#why-choose-terratest"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.2. Why Choose Terratest?</h2>
+<p>Terratest is an open-source testing framework developed by <a href="https://www.gruntwork.io/" target="_blank">GruntWork</a> based on the Go language, designed specifically for Infrastructure as Code (IaC) tools like Terraform. It offers rich functionality, supporting the automated deployment, validation, and destruction of infrastructure resources.</p>
+<h3 id="advantages-of-terratest"><a name="advantages-of-terratest" class="anchor-navigation-ex-anchor" href="#advantages-of-terratest"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.2.1. Advantages of Terratest</h3>
+<ul>
+<li><strong>Automated Testing Workflow</strong>: Terratest can automatically execute commands like <code>terraform init</code>, <code>apply</code>, and <code>destroy</code>, simplifying the testing process.</li>
+<li><strong>Flexible Validation Mechanism</strong>: By writing test logic in Go, complex validation operations can be implemented, such as API calls, port checks, etc.</li>
+<li><strong>Integration Test Stage Control</strong>: Using the <code>test_structure</code> module, tests can be divided into multiple stages, facilitating debugging and reuse.</li>
+</ul>
+<h3 id="typical-terratest-structure"><a name="typical-terratest-structure" class="anchor-navigation-ex-anchor" href="#typical-terratest-structure"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.2.2. Typical Terratest Structure</h3>
+<p>A typical Terratest test file usually includes the following structure:</p>
+<pre class="language-"><code class="lang-go"><span class="token keyword">package</span> test
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">&quot;testing&quot;</span>
+
+    <span class="token string">&quot;[github.com/gruntwork-io/terratest/modules/terraform](https://github.com/gruntwork-io/terratest/modules/terraform)&quot;</span>
+    test_structure <span class="token string">&quot;[github.com/gruntwork-io/terratest/modules/test-structure](https://github.com/gruntwork-io/terratest/modules/test-structure)&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">TestTerraformModule</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    t<span class="token punctuation">.</span><span class="token function">Parallel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// Set test directory</span>
+    exampleDir <span class="token operator">:=</span> <span class="token string">&quot;../examples/basic&quot;</span>
+
+    <span class="token comment">// Deploy stage</span>
+    test_structure<span class="token punctuation">.</span><span class="token function">RunTestStage</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token string">&quot;deploy&quot;</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        terraformOptions <span class="token operator">:=</span> <span class="token operator">&amp;</span>terraform<span class="token punctuation">.</span>Options<span class="token punctuation">{</span>
+            TerraformDir<span class="token punctuation">:</span> exampleDir<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        test_structure<span class="token punctuation">.</span><span class="token function">SaveTerraformOptions</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> exampleDir<span class="token punctuation">,</span> terraformOptions<span class="token punctuation">)</span>
+        terraform<span class="token punctuation">.</span><span class="token function">InitAndApply</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> terraformOptions<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// Validate stage</span>
+    test_structure<span class="token punctuation">.</span><span class="token function">RunTestStage</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token string">&quot;validate&quot;</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        terraformOptions <span class="token operator">:=</span> test_structure<span class="token punctuation">.</span><span class="token function">LoadTerraformOptions</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> exampleDir<span class="token punctuation">)</span>
+        output <span class="token operator">:=</span> terraform<span class="token punctuation">.</span><span class="token function">Output</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> terraformOptions<span class="token punctuation">,</span> <span class="token string">&quot;resource_id&quot;</span><span class="token punctuation">)</span>
+        <span class="token comment">// Add validation logic, e.g., checking if the resource exists</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token comment">// Teardown stage</span>
+    test_structure<span class="token punctuation">.</span><span class="token function">RunTestStage</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token string">&quot;destroy&quot;</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        terraformOptions <span class="token operator">:=</span> test_structure<span class="token punctuation">.</span><span class="token function">LoadTerraformOptions</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> exampleDir<span class="token punctuation">)</span>
+        terraform<span class="token punctuation">.</span><span class="token function">Destroy</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> terraformOptions<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Through the structure above, developers can clearly divide the test into various stages, making it easier to maintain and extend.</p>
+<h2 id="azures-terraform-module-test-helper-tool"><a name="azures-terraform-module-test-helper-tool" class="anchor-navigation-ex-anchor" href="#azures-terraform-module-test-helper-tool"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.3. Azure&apos;s terraform-module-test-helper Tool</h2>
+<p>In the development of Azure Terraform modules, <code>terraform-module-test-helper</code> is a Go library specifically designed to simplify end-to-end testing. It encapsulates common testing logic provided by Terratest and, combined with the structure of Azure Verified Modules, offers a higher level of abstraction, reducing testing complexity.</p>
+<h3 id="the-rune2etest-function"><a name="the-rune2etest-function" class="anchor-navigation-ex-anchor" href="#the-rune2etest-function"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.3.1. The RunE2ETest Function</h3>
+<p><code>RunE2ETest</code> is the core function in this library for executing end-to-end tests. Its typical usage is as follows:</p>
+<pre class="language-"><code class="lang-go"><span class="token keyword">func</span> <span class="token function">TestExample</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    test_helper<span class="token punctuation">.</span><span class="token function">RunE2ETest</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> <span class="token string">&quot;../../&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;examples/startup&quot;</span><span class="token punctuation">,</span> terraform<span class="token punctuation">.</span>Options<span class="token punctuation">{</span>
+        Upgrade<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">,</span> output test_helper<span class="token punctuation">.</span>TerraformOutput<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Add validation logic, e.g., checking if the output meets expectations</span>
+        resourceID<span class="token punctuation">,</span> ok <span class="token operator">:=</span> output<span class="token punctuation">[</span><span class="token string">&quot;resource_id&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+        assert<span class="token punctuation">.</span><span class="token function">True</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> ok<span class="token punctuation">)</span>
+        assert<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> resourceID<span class="token punctuation">,</span> <span class="token string">&quot;/subscriptions/&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This function accepts the root path of the module, the subdirectory of the example code, Terraform configuration options, and a callback function for validating the output. It automatically executes <code>terraform init</code>, <code>apply</code>, and <code>destroy</code>, and calls the callback function for verification after deployment.</p>
+<h2 id="parallelization-of-e2e-tests-and-global-configuration-management"><a name="parallelization-of-e2e-tests-and-global-configuration-management" class="anchor-navigation-ex-anchor" href="#parallelization-of-e2e-tests-and-global-configuration-management"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.4. Parallelization of E2E Tests and Global Configuration Management</h2>
+<p>In the process of large-scale maintenance and governance of Terraform modules, the efficiency and stability of end-to-end testing are paramount. GitHub Actions has a <a href="https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration#usage-limits" target="_blank">crucial limit</a>: the execution time limit for all jobs is 6 hours. If we test all examples serially, timeouts will occur when there are many examples or execution is time-consuming. To speed up testing and ensure environmental consistency, we have adopted a parallel testing strategy and introduced a global configuration management mechanism.</p>
+<h3 id="strategy-for-parallel-testing"><a name="strategy-for-parallel-testing" class="anchor-navigation-ex-anchor" href="#strategy-for-parallel-testing"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.4.1. Strategy for Parallel Testing</h3>
+<p>In AVM (Azure Verified Modules) projects, each module usually contains multiple usage examples located in different subdirectories under the <code>examples/</code> directory. To improve testing efficiency, we utilize the matrix strategy of GitHub Actions to assign an independent Runner instance for each example to conduct parallel testing.</p>
+<p>The specific process is as follows:</p>
+<ol>
+<li><strong>Get List of Examples</strong>: First, execute a task named <code>get-examples</code> to scan the <code>examples/</code> directory and identify subdirectories containing <code>.tf</code> files.</li>
+<li><strong>Generate Test Matrix</strong>: Pass the identified list of subdirectories as output to subsequent test tasks to form the GitHub Actions matrix configuration.</li>
+<li><strong>Execute Tests in Parallel</strong>: For each example in the matrix, GitHub Actions will start an independent Job and use the <code>terraform-module-test-helper</code> tool to execute the test.</li>
+</ol>
+<p>This parallel testing strategy significantly shortens the total testing time and improves test coverage and efficiency.</p>
+<h3 id="global-configuration-and-teardown-mechanism"><a name="global-configuration-and-teardown-mechanism" class="anchor-navigation-ex-anchor" href="#global-configuration-and-teardown-mechanism"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.4.2. Global Configuration and Teardown Mechanism</h3>
+<p>Before executing multiple test tasks in parallel, global configuration of the test environment may be required, such as resetting certain global resources or setting shared environment variables. To this end, we introduced global <code>setup</code> and <code>teardown</code> mechanisms to ensure the consistency and cleanliness of the test environment.</p>
+<h4 id="global-setup"><a name="global-setup" class="anchor-navigation-ex-anchor" href="#global-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Global Setup</h4>
+<p>Before executing tests, GitHub Actions checks if a <code>setup.sh</code> script exists in the <code>examples/</code> directory. If it exists, a Job named <code>globalsetup</code> is executed to run the script and complete the necessary global configuration.</p>
+<h4 id="global-teardown"><a name="global-teardown" class="anchor-navigation-ex-anchor" href="#global-teardown"><i class="fa fa-link" aria-hidden="true"></i></a>Global Teardown</h4>
+<p>After tests are completed, GitHub Actions checks if a <code>teardown.sh</code> script exists in the <code>examples/</code> directory. If it exists, a Job named <code>globalteardown</code> is executed to run the script and clean up global resources created during the testing process.</p>
+<p>By placing global cleanup operations in an independent Job and setting dependencies, we ensure that cleanup operations are performed after all test tasks are completed, keeping the environment clean.</p>
+<h3 id="best-practice-recommendations"><a name="best-practice-recommendations" class="anchor-navigation-ex-anchor" href="#best-practice-recommendations"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.4.3. Best Practice Recommendations</h3>
+<p>When implementing parallel testing and global configuration management, it is recommended to follow these best practices:</p>
+<ul>
+<li><strong>Idempotency</strong>: Ensure that <code>setup.sh</code> and <code>teardown.sh</code> scripts are idempotent, meaning multiple executions produce no side effects.</li>
+<li><strong>Error Handling</strong>: For API instability phenomena known to occur in certain tests, automatic retries can be set up using Retryable Errors provided by Terratest. Retryable Errors should be saved in the example code in <a href="https://terragrunt.gruntwork.io/docs/features/runtime-control/#errors" target="_blank">Terragrunt configuration format</a>, alerting users that running this example may encounter retryable errors, and automatic retries can be achieved via <code>terragrunt</code> combined with our provided configuration files.</li>
+<li><strong>Resource Isolation</strong>: In parallel testing, ensure that each test task uses independent resources to avoid resource conflicts.</li>
+<li><strong>Logging</strong>: Add detailed logging in scripts and tests to facilitate troubleshooting and debugging.</li>
+</ul>
+<p>By following the above best practices, the reliability and maintainability of end-to-end testing can be further enhanced.</p>
+<h2 id="challenges-from-configuration-drift"><a name="challenges-from-configuration-drift" class="anchor-navigation-ex-anchor" href="#challenges-from-configuration-drift"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.5. Challenges from Configuration Drift</h2>
+<p>In the maintenance and governance of large-scale Terraform modules, ensuring infrastructure configuration consistency is vital. Configuration Drift can lead to security vulnerabilities, compliance issues, and runtime errors. Therefore, integrating drift detection mechanisms into end-to-end testing has become a key step in guaranteeing infrastructure stability.</p>
+<p>Below, we will continue to delve into the <code>e2etest.go</code> and <code>upgradetest.go</code> files in the Azure official Terraform module test library <a href="https://github.com/Azure/terraform-module-test-helper" target="_blank">terraform-module-test-helper</a>, analyzing how functions like <code>RunE2ETest</code> and <code>initAndPlanAndIdempotentAtEasyMode</code> implement automated drift detection to ensure example code maintains configuration consistency after deployment.</p>
+<p>Configuration drift refers to the difference between the actual state of deployed infrastructure and the expected state recorded in the Terraform state file (<code>terraform.tfstate</code>). This difference can be caused by the following reasons:</p>
+<ul>
+<li><strong>Manual Changes</strong>: Operations personnel or developers directly modifying resource configurations in the cloud platform console.</li>
+<li><strong>External System Intervention</strong>: Other automation tools or scripts modifying resources.</li>
+<li><strong>Automatic Resource Changes</strong>: Certain resources automatically adjusting configurations during operation, such as changes in the number of instances in an auto-scaling group.</li>
+</ul>
+<p>These drifts can cause inconsistency between infrastructure and code definitions, increasing the risk of failure. Therefore, timely detection and remediation of drift is an important measure to ensure stable system operation.</p>
+<p>In Terraform Module maintenance work, we use a test subscription without external system intervention, and this subscription is solely used for Terraform Module test maintenance. Thus, it is naturally unaffected by reasons <code>1</code> and <code>2</code>, but we need additional test validation to ensure our modules are not affected by reason <code>3</code>.</p>
+<h2 id="the-initandplanandidempotentateasymode-function-in-terraform-module-test-helper"><a name="the-initandplanandidempotentateasymode-function-in-terraform-module-test-helper" class="anchor-navigation-ex-anchor" href="#the-initandplanandidempotentateasymode-function-in-terraform-module-test-helper"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.6. The initAndPlanAndIdempotentAtEasyMode Function in terraform-module-test-helper</h2>
+<p>In the <a href="https://github.com/Azure/terraform-module-test-helper/blob/95d8e8211cf2036a9defbe58190f39486e967b7f/upgradetest.go" target="_blank"><code>upgradetest.go</code> file</a>, the <code>initAndPlanAndIdempotentAtEasyMode</code> function is used to simplify the module initialization, planning, and idempotency verification process. Its core logic includes:</p>
+<ul>
+<li><strong>Initialize Terraform Environment</strong>: Execute <code>terraform init</code> to ensure the environment is ready.</li>
+<li><strong>Generate Execution Plan</strong>: Run <code>terraform plan</code> to generate a resource change plan.</li>
+<li><strong>Idempotency Verification</strong>: Run <code>terraform plan</code> multiple times to ensure that the plan results remain consistent without code changes, verifying the module&apos;s idempotency.</li>
+</ul>
+<p>Through these steps, the function ensures that the module does not introduce unexpected changes during multiple applications, enhancing the module&apos;s stability and reliability. The following is the function definition used to determine whether there is configuration drift in the plan obtained by executing the <code>plan</code> command immediately after <code>apply</code>:</p>
+<pre class="language-"><code class="lang-go"><span class="token keyword">func</span> <span class="token function">noChange</span><span class="token punctuation">(</span>changes <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">*</span>tfjson<span class="token punctuation">.</span>ResourceChange<span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>changes<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> linq<span class="token punctuation">.</span><span class="token function">From</span><span class="token punctuation">(</span>changes<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> i<span class="token punctuation">.</span><span class="token punctuation">(</span>linq<span class="token punctuation">.</span>KeyValue<span class="token punctuation">)</span><span class="token punctuation">.</span>Value
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">All</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+        change <span class="token operator">:=</span> i<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>tfjson<span class="token punctuation">.</span>ResourceChange<span class="token punctuation">)</span><span class="token punctuation">.</span>Change
+        <span class="token keyword">if</span> change <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> change<span class="token punctuation">.</span>Actions <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> change<span class="token punctuation">.</span>Actions<span class="token punctuation">.</span><span class="token function">NoOp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The purpose of this function is to determine whether the Terraform resource change collection (<code>changes</code>) indicates &quot;no configuration changes&quot; (i.e., no configuration drift).</p>
+<h3 id="function-input"><a name="function-input" class="anchor-navigation-ex-anchor" href="#function-input"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.6.1. Function Input</h3>
+<p>The <code>changes</code> parameter is a map where the key is the unique identifier of the resource and the value is the corresponding <code>tfjson.ResourceChange</code> object. This represents the resource change details parsed by Terraform after executing <code>terraform plan</code>.</p>
+<h3 id="function-implementation-logic-analysis"><a name="function-implementation-logic-analysis" class="anchor-navigation-ex-anchor" href="#function-implementation-logic-analysis"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.6.2. Function Implementation Logic Analysis</h3>
+<p>The logic of the function is divided into two main parts:</p>
+<h4 id="fast-path-check"><a name="fast-path-check" class="anchor-navigation-ex-anchor" href="#fast-path-check"><i class="fa fa-link" aria-hidden="true"></i></a>Fast Path Check</h4>
+<p>First check:</p>
+<pre class="language-"><code class="lang-go"><span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>changes<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>When <code>changes</code> is empty (i.e., there are no changes to any resources), the function immediately returns <code>true</code>, indicating no drift.</li>
+</ul>
+<h4 id="in-depth-check-of-each-resource-change"><a name="in-depth-check-of-each-resource-change" class="anchor-navigation-ex-anchor" href="#in-depth-check-of-each-resource-change"><i class="fa fa-link" aria-hidden="true"></i></a>In-depth Check of Each Resource Change</h4>
+<p>If there are resource change records (i.e., <code>len(changes) != 0</code>), a more in-depth check is performed:</p>
+<pre class="language-"><code class="lang-go"><span class="token keyword">return</span> linq<span class="token punctuation">.</span><span class="token function">From</span><span class="token punctuation">(</span>changes<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> i<span class="token punctuation">.</span><span class="token punctuation">(</span>linq<span class="token punctuation">.</span>KeyValue<span class="token punctuation">)</span><span class="token punctuation">.</span>Value
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">All</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+    change <span class="token operator">:=</span> i<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>tfjson<span class="token punctuation">.</span>ResourceChange<span class="token punctuation">)</span><span class="token punctuation">.</span>Change
+    <span class="token keyword">if</span> change <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> change<span class="token punctuation">.</span>Actions <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> change<span class="token punctuation">.</span>Actions<span class="token punctuation">.</span><span class="token function">NoOp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>If the change entries satisfy the following conditions:</p>
+<ol>
+<li>If <code>ResourceChange.Change</code> is <code>nil</code>, it indicates no specific change content (safely returns <code>true</code>).
+```go
+if change == nil {
+ return true
+}</li>
+</ol>
+<pre class="language-"><code>
+
+2. If `ResourceChange.Change.Actions` is `nil`, it indicates Terraform detected no actions, which can also be viewed as no change (safely returns `true`).
+```go
+if change.Actions == nil {
+    return true
+}
+</code></pre><ol>
+<li>If <code>ResourceChange.Change.Actions.NoOp()</code> returns <code>true</code>, it indicates that the current resource explicitly shows no action in the Terraform execution plan (i.e., no create, update, or delete operations). This is the most critical part of judging configuration drift:
+```go
+return change.Actions.NoOp()</li>
+</ol>
+<pre class="language-"><code>
+
+
+* Only when **all** resources satisfy one of the three conditions above will it return `true` overall. If any resource has actual change operations (such as `create`, `update`, `delete`, etc.), `NoOp()` will return `false`, causing the entire function to return `false`, indicating the presence of configuration drift.
+
+### Explanation of Terraform&apos;s `NoOp()` Method
+
+`NoOp()` is a method defined in the official Terraform library, indicating whether there are no actual actions in the plan:
+
+* When `Actions` is `[&quot;no-op&quot;]` (explicitly no operation), `NoOp()` returns `true`.
+* If other actions exist (e.g., `&quot;create&quot;`, `&quot;update&quot;`, `&quot;delete&quot;`), it returns `false`.
+
+Therefore, `change.Actions.NoOp()` can accurately identify whether the resource has undergone actual changes.
+
+### Why Not Write End-to-End Tests Using Terraform&apos;s Native Test Framework and Commands?
+
+Terratest is chosen because when writing test code in Go, functionality tests can be performed against the created infrastructure, such as accessing an HTTP service to see if the expected return value is received. The Terraform native test framework can only verify if the Terraform plan or state meets expectations and cannot execute other custom validation logic.
+
+Of course, if we only need to verify the Terraform state file, using the native test framework is acceptable. The issue with Terratest is that writing tests requires mastery of the Go language, and not all module maintainers have mastered Go.
+
+## Breaking Change Detection Tests in Terraform Module Upgrades
+
+In the maintenance and governance of Terraform modules, ensuring module stability and backward compatibility is crucial. especially in the management of large-scale modules, any untested breaking change can have severe impacts on multiple projects relying on that module. Therefore, establishing an effective breaking change detection testing mechanism becomes a key link in guaranteeing module quality.
+
+### Definition and Impact of Breaking Changes
+
+Breaking Changes refer to changes that cause the configurations of existing module users to fail to work properly. These changes may include:
+
+* Removing or renaming existing input or output variables;
+* Modifying key attributes of resources, causing resources to be destroyed and recreated;
+* Changing the default behavior or dependencies of resources;
+* Modifying the file structure or path of the module, affecting how the module is referenced.
+
+According to the principles of [Semantic Versioning](../large-scale-terraform-module-governance/semantic-versioning.md), breaking changes are only allowed during a Major Version upgrade. Therefore, introducing breaking changes in a Minor Version or Patch Version violates version control conventions and may cause users to encounter configuration errors or resource interruptions unknowingly.
+
+### Strategies for Detecting Breaking Changes
+
+To discover breaking changes in time during the module upgrade process, the following strategies can be adopted:
+
+1. **Version Comparison Testing**: Identify potential breaking changes by comparing the behavioral differences between the current module version and the previous stable version.
+2. **Automated Test Integration**: Incorporate automated testing steps into the Continuous Integration (CI) process to ensure every commit undergoes thorough validation.
+
+### How to Implement Breaking Change Detection
+
+The following is the code implementing breaking change detection in the `terraform-module-test-helper` library:
+
+```go
+func moduleUpgrade(t *T, owner string, repo string, moduleFolderRelativeToRoot string, newModulePath string, opts terraform.Options, currentMajorVer int) error {
+    if currentMajorVer == 0 {
+        return SkipV0Error
+    }
+    latestTag, err := getLatestTag(owner, repo, currentMajorVer)
+    if err != nil {
+        return err
+    }
+    if semver.Major(latestTag) == &quot;v0&quot; {
+        return SkipV0Error
+    }
+    tmpDirForTag, err := cloneGithubRepo(owner, repo, &amp;latestTag)
+    if err != nil {
+        return err
+    }
+
+    fullTerraformModuleFolder := filepath.Join(tmpDirForTag, moduleFolderRelativeToRoot)
+
+    exists := files.FileExists(fullTerraformModuleFolder)
+    if !exists {
+        return CannotTestError
+    }
+    tmpTestDir := test_structure.CopyTerraformFolderToTemp(t, tmpDirForTag, moduleFolderRelativeToRoot)
+    defer func() {
+        _ = os.RemoveAll(filepath.Clean(tmpTestDir))
+    }()
+    return diffTwoVersions(t, opts, tmpTestDir, newModulePath)
+}
+
+func diffTwoVersions(t *T, opts terraform.Options, originTerraformDir string, newModulePath string) error {
+    opts.TerraformDir = originTerraformDir
+    defer destroy(t, opts)
+    initAndApply(t, &amp;opts)
+    overrideModuleSourceToCurrentPath(t, originTerraformDir, newModulePath)
+    return initAndPlanAndIdempotentAtEasyMode(t, opts)
+}
+</code></pre><ol>
+<li><strong>Get Version Number of Previous Stable Version</strong>: Retrieve the module&apos;s latest stable version tag via the GitHub API as a comparison baseline.</li>
+<li><strong>Clone Code of Specified Version</strong>: Use the <a href="https://github.com/hashicorp/go-getter" target="_blank"><code>go-getter</code></a> tool to clone the specified version of the module code to a local temporary directory.</li>
+<li><strong>Execute Terraform Plan</strong>: Inside the cloned module directory, execute <code>terraform init</code> and <code>terraform apply</code> to ensure the current configuration is usable.</li>
+<li><strong>Replace Module Source Path</strong>: Replace the module reference path with the local path of the current development version to simulate a module upgrade scenario.</li>
+<li><strong>Execute Terraform Plan Again</strong>: Execute <code>terraform plan</code> and analyze the output results to determine if there are resource destruction and recreation operations.</li>
+<li><strong>Result Judgment and Reporting</strong>: If resource destruction and recreation are detected, and the current version number has not undergone a major version upgrade, it is marked as a breaking change, blocking the merge of this change.</li>
+</ol>
+<h3 id="when-should-breaking-change-tests-be-skipped"><a name="when-should-breaking-change-tests-be-skipped" class="anchor-navigation-ex-anchor" href="#when-should-breaking-change-tests-be-skipped"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.6.3. When Should Breaking Change Tests Be Skipped?</h3>
+<p>Breaking change tests should be skipped in the following specific situations:</p>
+<ol>
+<li>When the current module&apos;s major version is still at <code>v0</code>, the module is considered to be in an exploratory phase, and requiring the avoidance of all breaking changes is impractical.</li>
+<li>When the next new version we intend to release is a major version update. In this case, we aim to accommodate as many breaking changes as possible in a single update; this is arguably the only window of opportunity to introduce breaking changes.</li>
+</ol>
+<h3 id="application-in-continuous-integration"><a name="application-in-continuous-integration" class="anchor-navigation-ex-anchor" href="#application-in-continuous-integration"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.6.4. Application in Continuous Integration</h3>
+<p>Integrating the above detection mechanism into the continuous integration process allows for automated detection of breaking changes. The specific steps are as follows:</p>
+<ol>
+<li><strong>CI Trigger Conditions</strong>: Trigger the breaking change detection test on every commit or Pull Request.</li>
+<li><strong>Environment Preparation</strong>: Set necessary environment variables in the CI environment, such as <code>GITHUB_TOKEN</code>, <code>PREVIOUS_MAJOR_VERSION</code>, etc.</li>
+<li><strong>Execute Test Script</strong>: Run the breaking change detection test script to automatically complete version comparison, plan execution, and result analysis.</li>
+<li><strong>Result Feedback</strong>: Based on the test results, decide whether to allow the current change to be merged or prompt the developer to perform a major version upgrade.</li>
+</ol>
+<p>Through the strategies and practices above, breaking changes can be effectively detected and prevented, improving the stability and reliability of Terraform modules and ensuring the continued healthy operation of infrastructure.</p>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.5.2.1.7. Summary</h2>
+<p>End-to-end testing is not only a key line of defense for ensuring Terraform module quality but also the core mechanism for achieving &quot;automated reliability&quot; in large-scale module governance. This chapter centered around two tools, Terratest and <code>terraform-module-test-helper</code>, explaining how to build a complete E2E testing framework, implement parallel testing of examples, and achieve configuration drift detection and breaking change monitoring capabilities.</p>
+<p>With Terratest, we saw the flexibility and programmability of verifying infrastructure behavior via the Go language, allowing us to validate the actual deployment effects of modules from a perspective closest to the user. With Azure&apos;s <code>terraform-module-test-helper</code> tool, through encapsulated functions like <code>RunE2ETest</code> and <code>initAndPlanAndIdempotentAtEasyMode</code>, we can automate and standardize the module testing process and implement it within daily CI workflows.</p>
+<p>Through parallel testing strategies and the design of global setup/teardown mechanisms, we significantly reduced testing duration and enhanced test controllability, avoiding the timeout risks associated with serial execution. In actual production maintenance, configuration drift detection and breaking change testing further strengthen the robustness of our modules against environmental evolution and version upgrades.</p>
+<p>In short, <strong>a Terraform module without end-to-end testing cannot be trusted for use in a production environment</strong>. Especially when the number of modules reaches dozens or hundreds, end-to-end testing serves not just as a quality assurance mechanism, but as a fundamental asset for maintaining scalable and long-term sustainable infrastructure.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="unit-testing.html" class="navigation navigation-prev " aria-label="Previous page: Unit Testing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="code-style-checking.html" class="navigation navigation-next " aria-label="Next page: Code Style Checking">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"End-to-End Testing","level":"1.5.2","depth":2,"next":{"title":"Code Style Checking","level":"1.5.3","depth":2,"path":"testing-and-validation/code-style-checking.md","ref":"testing-and-validation/code-style-checking.md","articles":[]},"previous":{"title":"Unit Testing","level":"1.5.1","depth":2,"path":"testing-and-validation/unit-testing.md","ref":"testing-and-validation/unit-testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"testing-and-validation/end-to-end-testing.md","mtime":"2026-01-07T07:27:37.419Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

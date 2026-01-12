@@ -1,0 +1,1104 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>grept · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="modtm.html" />
+    
+    
+    <link rel="prev" href="conftest.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >grept</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#grept"><b>1.6.12.1. </b>grept</a></li><ul><li><span class="title-icon "></span><a href="#purpose-and-background-of-grept"><b>1.6.12.1.1. </b>Purpose and Background of grept</a></li><li><span class="title-icon "></span><a href="#how-to-use-grept"><b>1.6.12.1.2. </b>How to Use grept</a></li><li><span class="title-icon "></span><a href="#real-world-analysis-with-examples"><b>1.6.12.1.3. </b>Real-World Analysis with Examples</a></li><li><span class="title-icon "></span><a href="#grept-code-samples"><b>1.6.12.1.4. </b>grept Code Samples</a></li><li><span class="title-icon "></span><a href="#the-significance-of-grept-in-governance-frameworks"><b>1.6.12.1.5. </b>The Significance of grept in Governance Frameworks</a></li></ul></ul></div><a href="#grept" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="grept"><a name="grept" class="anchor-navigation-ex-anchor" href="#grept"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.12.1. grept</h1>
+<p>When managing Terraform modules at scale, we often need to ensure that every module repository adheres to unified specifications and best practices. The open-source tool <strong>grept</strong> from Azure was created for this very purpose. <code>grept</code> (named after <strong>Go REPository linTer</strong>) is a linting tool designed for repository governance. It parses configuration files, checks repository contents against predefined rules, and automatically generates modification plans or applies changes directly. Below, we will delve into the background and purpose of <code>grept</code>, its specific usage (combined with practical examples), and its critical role in a module governance framework.</p>
+<h2 id="purpose-and-background-of-grept"><a name="purpose-and-background-of-grept" class="anchor-navigation-ex-anchor" href="#purpose-and-background-of-grept"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.12.1.1. Purpose and Background of grept</h2>
+<p>As the number of Terraform modules grows, maintaining consistency in structure and content across all module repositories becomes increasingly difficult. Manually checking each repository for complete files (such as ensuring the correct LICENSE, README, CI configuration, etc.) or urging maintainers to update template files themselves is not only time-consuming and laborious but also prone to oversight. <strong>grept</strong> emerged to solve these pain points.</p>
+<p>The design philosophy of <code>grept</code> is to <strong>ensure code repositories adhere to established standards through automation</strong>. Inspired by tools like <a href="https://github.com/todogroup/repolinter" target="_blank">RepoLinter</a>, it offers highly extensible repository <strong>linting</strong> capabilities. For the governance of Azure Terraform modules, <code>grept</code> provides a way to define rules centrally: we can stipulate in a central configuration which files, content, and settings must exist in all module repositories, and <code>grept</code> performs batch checks. This approach significantly reduces the burden on maintainers and guarantees the consistency of module repositories and the quality of the codebase.</p>
+<p>In the Azure Verified Modules (AVM) project, <code>grept</code> has become a key component of the governance process. The Azure team stores all validation rules centrally in the <a href="https://github.com/Azure/Azure-Verified-Modules-Grept" target="_blank"><strong>Azure-Verified-Modules-Grept</strong> repository</a>, and <code>grept</code> uses these configurations to scan individual module repositories. For instance, AVM defines <strong>files that need to be synchronized with the template repository</strong> for resource module repositories, such as LICENSE, code specification files, CI workflows, etc. With <code>grept</code>, the presence and content of these files can be automatically verified. Once a module repository lacks these files or falls behind in version, <code>grept</code> flags it and proposes a fix.</p>
+<p>In summary, <code>grept</code> <strong>enables us to govern dozens or hundreds of Terraform module repositories in a standardized and repeatable manner</strong>, solving the problems of error-prone manual checks and difficulty in scaling. It ensures that every repository meets predefined compliance requirements, thereby maintaining consistency and high quality across repositories.</p>
+<h2 id="how-to-use-grept"><a name="how-to-use-grept" class="anchor-navigation-ex-anchor" href="#how-to-use-grept"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.12.1.2. How to Use grept</h2>
+<p>From a user perspective, the usage process of <code>grept</code> is similar to the &quot;plan&quot; and &quot;apply&quot; phases of Infrastructure as Code tools like Terraform. We can define repository governance rules by writing <strong>HCL configuration files</strong> (with the extension <code>.grept.hcl</code>), and then run grept to check and apply these rules. Let&apos;s break down its usage into several aspects:</p>
+<p><strong>1. Preparing the grept Configuration</strong>: <code>grept</code> configuration uses HCL syntax and consists of three main components: <strong>data</strong>, <strong>rule</strong>, and <strong>fix</strong>.</p>
+<ul>
+<li><strong>data blocks</strong> are used to collect necessary information. This can be reading file/directory information from the local repository or fetching data over the network. For example, you can use the built-in <code>http</code> data source to fetch file content from a remote URL, or use the <code>github_repository_teams</code> data source to get a list of teams for a GitHub repository.</li>
+<li><strong>rule blocks</strong> define specific check conditions; each rule corresponds to a constraint that must be met. grept has built-in rule types such as <code>dir_exist</code> (checks if a directory exists), <code>file_hash</code> (checks if file hashes match), and <code>must_be_true</code> (custom check rules). A typical usage of a rule is to reference data collected by <code>data</code> blocks to make a judgment.</li>
+<li><strong>fix blocks</strong> define the actions to take when a rule is not met. A <code>fix</code> references a corresponding <code>rule</code> (via <code>rule_ids</code>) and executes when the rule fails. For example, a <code>local_file</code> type fix can replace the content of a missing or non-compliant local file, and a <code>git_ignore</code> fix can automatically add specified entries to <code>.gitignore</code>. Through the combination of <code>rule</code> and <code>fix</code>, <code>grept</code> can not only &quot;discover&quot; problems but also &quot;fix&quot; them automatically.</li>
+</ul>
+<p><strong>2. Writing Rule Examples</strong>: Let&apos;s illustrate how to write a configuration with a concrete example. Suppose we want to ensure that every module repository contains a standard MIT LICENSE file and that its content matches the official template. We can write the following <code>grept</code> configuration (excerpted from the actual rules of Azure Verified Modules):</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">data <span class="token type variable">&quot;http&quot;</span></span> <span class="token string">&quot;mit_license&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">url</span> <span class="token punctuation">=</span> <span class="token string">&quot;[https://raw.githubusercontent.com/Azure/terraform-azurerm-avm-template/main/LICENSE](https://raw.githubusercontent.com/Azure/terraform-azurerm-avm-template/main/LICENSE)&quot;</span>
+<span class="token punctuation">}</span>
+
+rule <span class="token string">&quot;file_hash&quot;</span> <span class="token string">&quot;license&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">glob</span> <span class="token punctuation">=</span> <span class="token string">&quot;LICENSE&quot;</span>
+  <span class="token property">hash</span> <span class="token punctuation">=</span> sha1(data.http.mit_license.response_body)
+<span class="token punctuation">}</span>
+
+fix <span class="token string">&quot;local_file&quot;</span> <span class="token string">&quot;license&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">rule_ids</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span>rule.file_hash.license.id<span class="token punctuation">]</span>
+  <span class="token property">paths</span>    <span class="token punctuation">=</span> <span class="token punctuation">[</span>rule.file_hash.license.glob<span class="token punctuation">]</span>
+  <span class="token property">content</span>  <span class="token punctuation">=</span> data.http.mit_license.response_body
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The above configuration consists of three parts: <code>data.http.mit_license</code> fetches the standard MIT license text from a remote source; <code>rule.file_hash.license</code> calculates the hash of the <code>LICENSE</code> file in the current repository and compares it with the hash of the template content; <code>fix.local_file.license</code> specifies that if the rule fails (meaning the current repository LICENSE does not exist or the content does not match), the template text is written to the local LICENSE file. Through these blocks, <code>grept</code> can automatically check and fix the license file, keeping it synchronized with the standard template.</p>
+<p>Similarly, we can write rules for other specifications that need enforcement, such as: verifying that the <code>.gitignore</code> file contains necessary ignore items and automatically adding them if missing; checking if the repository has CI/CD workflow configuration files and ensuring their content matches the latest template; checking for the existence of a code owners (<code>CODEOWNERS</code>) file and that it includes the correct teams/personnel, etc. The rich data sources and fix actions provided by <code>grept</code> make these checks relatively simple. For example, you can use <code>data.git_ignore</code> to get the current <code>.gitignore</code> list and combine it with <code>fix.git_ignore</code> to append entries automatically. All logic can be expressed in declarative HCL; we just need to write the rule configuration in advance.</p>
+<p><strong>3. Running grept plan</strong>: After writing the configuration, you can use <code>grept</code> to check the target repository. Execute <code>grept plan [configuration folder path]</code> in the command line. <code>grept</code> will load all configuration files ending in <code>.grept.hcl</code> in that directory and then analyze the current repository against the rules. Note that <code>[configuration folder path]</code> can be a local path or a remote reference (such as a Git repository address); <code>grept</code> supports loading remote configurations via <a href="https://github.com/hashicorp/go-getter" target="_blank">HashiCorp go-getter</a> syntax. This means we can host governance rules centrally in a repository and reference that remote path directly when using it, which is exactly what Azure Verified Modules does.</p>
+<p>After executing <code>grept plan</code>, the tool will output a &quot;plan&quot;. If all rules pass, <code>grept</code> will report something like <strong>&quot;All rule checks successful, nothing to do.&quot;</strong>. If any rules are not met, grept will list the changes that need to be made. For example, it might point out that certain files are missing or contents do not match, and how it intends to fix these issues. This plan allows us to clearly understand what does not meet the specifications before actual modifications are made.</p>
+<p><strong>4. Running grept apply</strong>: After confirming the plan, we can execute <code>grept apply [configuration folder path]</code> to implement the changes. The <code>apply</code> command will make the necessary alterations to the repository according to the plan generated in the previous step. By default, <code>grept</code> may ask for confirmation before applying each fix, but we can use the <code>-a</code> or <code>--auto</code> parameter to enable <strong>auto-approval</strong>, allowing for batch application of all fixes without intrusion. When all fixes are successfully completed, <code>grept</code> will output a message like <strong>&quot;Plan applied successfully.&quot;</strong>. After this step, the repository is automatically updated to a state that complies with all rules.</p>
+<h2 id="real-world-analysis-with-examples"><a name="real-world-analysis-with-examples" class="anchor-navigation-ex-anchor" href="#real-world-analysis-with-examples"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.12.1.3. Real-World Analysis with Examples</h2>
+<p>To understand the usage of <code>grept</code> more intuitively, let&apos;s analyze the workflow of <code>grept</code> in Azure Terraform module governance with a real-world scenario. The Azure Verified Modules project uses a centralized grept configuration (stored in the <a href="https://github.com/Azure/Azure-Verified-Modules-Grept" target="_blank">Azure-Verified-Modules-Grept</a> repository) to govern numerous module repositories. Let&apos;s take &quot;Template File Synchronization&quot; as an example to see how grept helps us solve problems in practice.</p>
+<p><strong>Scenario: Template File Synchronization</strong>. Azure officially provides a Terraform module template repository (<a href="https://github.com/Azure/terraform-azurerm-avm-template" target="_blank">terraform-azurerm-avm-template</a>), which contains the standard files and configurations that a module repository should have. Over time, the template may be updated (e.g., adding more robust GitHub Actions workflow files or adjusting the README format), while existing module repositories may not keep up with these changes in time. In the traditional approach, we would need to manually notify each module maintainer to update repository files or send PRs to modify them one by one, which is extremely inefficient at scale. With <code>grept</code>, this process can be drastically simplified.</p>
+<p><strong>grept Check</strong>: In the central configuration, we have written corresponding rules for all critical template files. The LICENSE rule shown earlier is one such example. Another example is that we have rules to ensure every repository has the latest GitHub Actions workflow configuration file (e.g., <code>.github/workflows/ci.yaml</code>). The method is similar to the LICENSE: download the content of the corresponding file in the template repository via <code>data &quot;http&quot;</code>, compare the hash value of the target repository file using <code>rule &quot;file_hash&quot;</code>, and trigger <code>fix &quot;local_file&quot;</code> to update the file content if it doesn&apos;t match. For files that need to be added entirely, the rule can be designed to consider non-existence as a failure, and then the <code>fix</code> executes the addition.</p>
+<p>AVM has currently integrated <code>grept</code> into the CI pipeline and Pre-Commit. For every Pull Request submitted, the pipeline runs <code>grept</code>, and subsequently checks if <code>git status</code> returns any file changes. If it does, the pipeline run is blocked. Since <code>grept</code> has already determined the remediation steps based on the configuration for every discrepancy, users only need to run <code>make pre-commit</code> before submitting to fix the issues.</p>
+<h2 id="grept-code-samples"><a name="grept-code-samples" class="anchor-navigation-ex-anchor" href="#grept-code-samples"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.12.1.4. grept Code Samples</h2>
+<p>Similar to Terraform, <code>grept</code> also supports <code>for_each</code> to implement multi-instance declarations, as shown in the following example:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">locals</span> <span class="token punctuation">{</span>
+  <span class="token property">synced_files</span> <span class="token punctuation">=</span> toset(<span class="token punctuation">[</span>
+    <span class="token string">&quot;_footer.md&quot;</span>,
+    <span class="token string">&quot;.github/CODEOWNERS&quot;</span>,
+    <span class="token string">&quot;.github/ISSUE_TEMPLATE/avm_module_issue.yml&quot;</span>,
+    <span class="token string">&quot;.github/ISSUE_TEMPLATE/avm_question_feedback.yml&quot;</span>,
+    <span class="token string">&quot;.github/ISSUE_TEMPLATE/config.yml&quot;</span>,
+    <span class="token string">&quot;.github/PULL_REQUEST_TEMPLATE.md&quot;</span>,
+    <span class="token string">&quot;.github/policies/avmrequiredfiles.yml&quot;</span>,
+    <span class="token string">&quot;.github/policies/eventResponder.yml&quot;</span>,
+    <span class="token string">&quot;.github/policies/scheduledSearches.yml&quot;</span>,
+    <span class="token string">&quot;.github/workflows/e2e.yml&quot;</span>,
+    <span class="token string">&quot;.github/workflows/linting.yml&quot;</span>,
+    <span class="token string">&quot;.github/workflows/version-check.yml&quot;</span>,
+    <span class="token string">&quot;.terraform-docs.yml&quot;</span>,
+    <span class="token string">&quot;avm.bat&quot;</span>,
+    <span class="token string">&quot;CODE_OF_CONDUCT.md&quot;</span>,
+    <span class="token string">&quot;CONTRIBUTING.md&quot;</span>,
+    <span class="token string">&quot;examples/.terraform-docs.yml&quot;</span>,
+    <span class="token string">&quot;LICENSE&quot;</span>,
+    <span class="token string">&quot;Makefile&quot;</span>,
+    <span class="token string">&quot;SECURITY.md&quot;</span>,
+    <span class="token string">&quot;.editorconfig&quot;</span>,
+  <span class="token punctuation">]</span>)
+<span class="token punctuation">}</span>
+
+<span class="token keyword">data <span class="token type variable">&quot;http&quot;</span></span> <span class="token string">&quot;synced_files&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> local.synced_files
+
+  <span class="token property">request_headers</span> <span class="token punctuation">=</span> merge(<span class="token punctuation">{</span><span class="token punctuation">}</span>, local.common_http_headers)
+  <span class="token property">url</span>             <span class="token punctuation">=</span> <span class="token string">&quot;<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">local</span><span class="token punctuation">.</span><span class="token type variable">url_prefix</span><span class="token punctuation">}</span></span>/<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>each<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span>&quot;</span>
+<span class="token punctuation">}</span>
+
+rule <span class="token string">&quot;file_hash&quot;</span> <span class="token string">&quot;synced_files&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> local.synced_files
+
+  <span class="token property">glob</span> <span class="token punctuation">=</span> each.value
+  <span class="token property">hash</span> <span class="token punctuation">=</span> sha1(data.http.synced_files<span class="token punctuation">[</span>each.value<span class="token punctuation">]</span>.response_body)
+<span class="token punctuation">}</span>
+
+fix <span class="token string">&quot;local_file&quot;</span> <span class="token string">&quot;synced_files&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> local.synced_files
+
+  <span class="token property">rule_ids</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span>rule.file_hash.synced_files<span class="token punctuation">[</span>each.value<span class="token punctuation">]</span>.id<span class="token punctuation">]</span>
+  <span class="token property">paths</span>    <span class="token punctuation">=</span> <span class="token punctuation">[</span>each.value<span class="token punctuation">]</span>
+  <span class="token property">content</span>  <span class="token punctuation">=</span> data.http.synced_files<span class="token punctuation">[</span>each.value<span class="token punctuation">]</span>.response_body
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Through <code>for_each</code>, we can conveniently reuse code blocks to perform checks and synchronization for every file listed in <code>local.synced_files</code>. <code>grept</code> intentionally maintains compatibility with most of Terraform&apos;s syntax; you can use almost all of Terraform&apos;s built-in functions, as well as <code>locals</code>, <code>variable</code> blocks, and so on.</p>
+<p>Similar to <a href="https://lonegunmanb.github.io/introduction-terraform/6.Terraform%E5%91%BD%E4%BB%A4%E8%A1%8C/5.console.html" target="_blank">Terraform&apos;s <code>console</code> command</a>, <code>grept</code> also provides a <code>console</code> command, allowing users to debug various expressions in the code.</p>
+<h2 id="the-significance-of-grept-in-governance-frameworks"><a name="the-significance-of-grept-in-governance-frameworks" class="anchor-navigation-ex-anchor" href="#the-significance-of-grept-in-governance-frameworks"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.12.1.5. The Significance of grept in Governance Frameworks</h2>
+<p>Introducing <code>grept</code> into the Terraform module governance framework brings a qualitative improvement. Its significance is mainly reflected in the following aspects:</p>
+<ul>
+<li><strong>Standardization and Consistency</strong>: With <code>grept</code>, we can enforce unified repository specifications across the entire organization. All module repositories are constrained by the same set of <code>grept</code> rules, meaning that whoever creates or maintains a module must meet the same requirements. Standards no longer just sit in documentation; they are implemented as automated checks and remediation measures. This standardization greatly improves consistency, and module consumers benefit from the unified structure and processes.</li>
+<li><strong>Automated Verification and Correction</strong>: After translating governance requirements into code, <code>grept</code> can automatically and continuously verify whether repositories meet the requirements and propose correction plans immediately upon deviation. Compared to periodic manual repository audits, <code>grept</code> offers higher <strong>timeliness</strong> and <strong>accuracy</strong>. Moreover, due to its auto-fix capability, many issues are corrected without human intervention. As seen in the AVM project practice, the central workflow of <code>grept</code> scans and fixes repositories according to plan, ensuring that &quot;drift&quot; is continuously governed.</li>
+<li><strong>Scalable Management</strong>: While manual management might be feasible for a few modules, it is almost unimaginable for dozens or hundreds of module repositories without the help of automated tools. <code>grept</code> supports performing the same check operations on <strong>any number of repositories</strong> by writing the configuration once. This means that as the number of modules grows, the governance workload does not increase linearly&#x2014;new modules just need to apply the existing rules. This scalability is crucial, allowing the governance framework to handle the expansion of the module library with ease.</li>
+<li><strong>Reduced Maintenance Costs</strong>: After using <code>grept</code>, the burden on module maintainers is actually reduced. Because many repository-level requirements are gated and preliminarily fixed by automated tools, maintainers do not need to memorize every detail of the specifications. Once there is non-compliance, they receive a PR reminder initiated by <code>grept</code>; all they need to do is review and merge. This essentially automates the &quot;find problem -&gt; solve problem&quot; flow, significantly reducing the cost of human communication and back-and-forth. Additionally, this allows the AVM central management team to quickly add and maintain Terraform configuration code that all AVM Terraform modules must have, for example, adding Telemetry collection code to all modules.</li>
+<li><strong>Centralized Management and Evolution of Governance Rules</strong>: <code>grept</code> configurations are stored centrally and version-managed, allowing us to easily update governance rules and track changes. When new specifications (such as security compliance requirements or changes in company policy) need to be introduced, we only need to update the central <code>grept</code> configuration and let the tool run once, and all modules will receive the update. The mention that AVM is rolling out new <code>grept</code> rules for repository settings is also implemented gradually through this centralized configuration modification. This model ensures the <strong>flexibility</strong> and <strong>continuous improvement</strong> capability of the governance framework.</li>
+<li><strong>Syntax Highly Compatible with Terraform</strong>: <code>grept</code> was deliberately designed to be highly compatible with Terraform syntax, so that technical personnel proficient in Terraform can very easily master the writing of <code>grept</code> policies.</li>
+</ul>
+<p>In conclusion, <code>grept</code> <strong>plays the role of an automated supervisor and fixer</strong> in the large-scale governance of Terraform modules. Whether it is synchronizing file content or adjusting repository settings, as long as we define the standards and write the rules in advance, <code>grept</code> can execute these checks and modifications for us repeatedly and continuously. In the practice of large-scale module governance, it significantly reduces labor costs and avoids omissions caused by inconsistent manual operations. It transforms what used to be tedious manual work into an automated process, making governance work <strong>more precise, efficient, and sustainable</strong>. The successful experience of Azure Verified Modules shows that repository governance implemented through <code>grept</code> gives us higher confidence in the quality and specification of module libraries. When module repositories maintain consistency in structure and process and constantly conform to the latest standards, the reliability and maintainability of the entire module ecosystem are enhanced. The concept of &quot;Governance as Code&quot; embodied by <code>grept</code> will undoubtedly become an important trend and practice direction for large-scale infrastructure module management in the future.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="conftest.html" class="navigation navigation-prev " aria-label="Previous page: conftest">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="modtm.html" class="navigation navigation-next " aria-label="Next page: modtm">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"grept","level":"1.6.12","depth":2,"next":{"title":"modtm","level":"1.6.13","depth":2,"path":"toolchain/modtm.md","ref":"toolchain/modtm.md","articles":[]},"previous":{"title":"conftest","level":"1.6.11","depth":2,"path":"toolchain/conftest.md","ref":"toolchain/conftest.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/grept.md","mtime":"2026-01-07T06:26:57.061Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

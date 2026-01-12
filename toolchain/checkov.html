@@ -1,0 +1,1245 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>checkov · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="yor.html" />
+    
+    
+    <link rel="prev" href="tflint.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >checkov</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#checkov"><b>1.6.7.1. </b>Checkov</a></li><ul><li><span class="title-icon "></span><a href="#features-and-use-cases"><b>1.6.7.1.1. </b>Features and Use Cases</a></li><li><span class="title-icon "></span><a href="#why-we-might-need-checkov"><b>1.6.7.1.2. </b>Why We (Might) Need Checkov</a></li><li><span class="title-icon "></span><a href="#installation-and-local-usage"><b>1.6.7.1.3. </b>Installation and Local Usage</a></li><li><span class="title-icon "></span><a href="#integration-into-cicd-pipelines"><b>1.6.7.1.4. </b>Integration into CI/CD Pipelines</a></li><ul><li><span class="title-icon "></span><a href="#integration-in-github-actions"><b>1.6.7.1.4.1. </b>Integration in GitHub Actions</a></li></ul></ul></ul></div><a href="#checkov" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="checkov"><a name="checkov" class="anchor-navigation-ex-anchor" href="#checkov"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.7.1. Checkov</h1>
+<p>Checkov is an open-source static analysis tool developed by Bridgecrew and now part of the Palo Alto Networks Prisma Cloud platform. It specializes in security checks for <strong>Infrastructure as Code</strong> (IaC). By scanning configuration code prior to cloud resource deployment, it detects insecure configurations and compliance risks in a timely manner. Simply put, Checkov parses template code (such as Terraform) to identify potential misconfigurations or vulnerabilities <strong>before resources are actually deployed</strong>, acting as a &quot;security gatekeeper&quot; for cloud environments. As a practical application of the <strong>Policy-as-Code</strong> philosophy, Checkov codifies a series of security best practices and compliance requirements into policies, automating the comparison and inspection of infrastructure code. With its extensive built-in rule library and high extensibility, Checkov plays a crucial role in the DevSecOps ecosystem&#x2014;it seamlessly integrates into development and CI/CD workflows, helping teams <strong>enforce security policies</strong> during the development phase and preventing risks from reaching later environments.</p>
+<h2 id="features-and-use-cases"><a name="features-and-use-cases" class="anchor-navigation-ex-anchor" href="#features-and-use-cases"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.7.1.1. Features and Use Cases</h2>
+<p>As a static analysis tool positioned for IaC frameworks like Terraform, Checkov provides comprehensive security and compliance scanning capabilities. Its primary use case is the <strong>static inspection</strong> of Terraform template code to uncover security vulnerabilities, misconfigurations, and policy violations at the configuration level. Specifically, it includes:</p>
+<ul>
+<li><strong>Security Best Practices Checks</strong>: It comes with over a thousand built-in security baseline rules for cloud environments like AWS, Azure, and GCP. Examples include ensuring encryption is enabled for storage buckets, databases are not exposed to the public internet, and password policies meet requirements. Checkov compares Terraform configurations against these industry best practices, highlighting non-compliant areas and offering suggestions for improvement.</li>
+<li><strong>Compliance Scanning</strong>: It supports mapping code against compliance standards such as CIS benchmarks, PCI-DSS, GDPR, and other common specifications. With these checks, teams can identify configurations that violate compliance requirements early on (e.g., disabled audit logging, insufficient retention periods), ensuring infrastructure adheres to regulatory and internal company policies.</li>
+<li><strong>Policy Violation Detection</strong>: Beyond industry standards, Checkov can also execute organization-specific policy checks. For instance, requiring all resources to be tagged or prohibiting the use of certain insecure instance types. By writing <strong>custom rules</strong> (supporting policies written in Python or YAML), enterprises can solidify internal standards into automated checks.</li>
+<li><strong>Secrets Scanning</strong>: It checks Terraform code for plaintext credentials or sensitive data. Checkov utilizes regular expressions, keyword matching, and entropy algorithms to detect leaks such as AWS keys, private keys, and database passwords within the code. This helps prevent credential leakage and hardcoded sensitive information in configurations.</li>
+<li><strong>Context-Aware Analysis</strong>: Leveraging a graph-based relationship engine, Checkov goes beyond checking individual resources to execute <strong>context-aware</strong> policies based on relationships between resources. For example, it can assess the risk of a security group rule being too permissive specifically when applied to an instance in a public subnet. This graph-based analysis makes inspections smarter and covers more complex scenarios.</li>
+<li><strong>Multi-Framework Support</strong>: Although this section focuses on Terraform, Checkov actually supports various common IaC frameworks, including Terraform Plan, CloudFormation, Kubernetes YAML, Helm, Serverless, and more. This means teams can use the same tool for security scanning regardless of the template language adopted (cross-cloud policy details are omitted here). This multi-platform compatibility makes Checkov a universal tool in the cloud-native infrastructure code security domain.</li>
+<li><strong>Rich Reporting</strong>: Checkov supports outputting scan results in multiple formats for both human and system consumption. In addition to the default CLI console output, it can generate <strong>JSON</strong> reports, <strong>JUnit XML</strong> test reports, <strong>SARIF</strong> files, and GitHub-flavored Markdown. These diverse output forms facilitate integration with other systems: for example, using JUnit output for CI platform parsing and display, or SARIF output to upload results to code hosting platforms for security analysis views.</li>
+</ul>
+<p>Through these features, Checkov is able to perform a comprehensive static analysis of Terraform modules and configurations. During the scan, it lists every detected issue, including the violated rule ID, severity level, affected resources, and corresponding remediation guidance. For each violation, Checkov typically provides a reference link or description explaining how to fix it (hints can be disabled via the <code>--no-guide</code> argument). This series of static checks does not require actual cloud resource deployment, making it fast and broad in coverage, providing teams with timely feedback and remediation suggestions.</p>
+<h2 id="why-we-might-need-checkov"><a name="why-we-might-need-checkov" class="anchor-navigation-ex-anchor" href="#why-we-might-need-checkov"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.7.1.2. Why We (Might) Need Checkov</h2>
+<p>In large teams and complex projects, introducing IaC static scanning tools like Checkov is vital for Terraform module governance. Here is an explanation of its value from several perspectives:</p>
+<ul>
+<li><strong>Security Assurance for Module Reuse</strong>: Terraform encourages code reuse through modules. However, if a widely reused module contains configuration flaws, it can lead to identical security risks appearing across numerous environments. Using Checkov allows for the automatic scanning of module code <strong>at the time of publication or integration</strong>, detecting insecure settings early (e.g., a module not enforcing encryption or exposing default ports). This way, organizations can fix hidden dangers before promoting the module for reuse, ensuring that shared modules are secure and reliable across all projects. From a governance perspective, Checkov establishes a <strong>quality gate</strong> for modules, preventing bad configurations from spreading.</li>
+<li><strong>Team Collaboration and Standardization</strong>: In scenarios where multiple people collaborate on Terraform code, different members may have inconsistent understanding and execution of security best practices. Checkov provides a unified standard for automated checks, acting as a &quot;code auditor&quot; that never overlooks details. Every time code is submitted, Checkov audits it against the same standards, ensuring everyone follows the same security and compliance baselines. This reduces the burden and subjective differences of manual Code Reviews, allowing new members to immediately know which configurations do not meet team standards. By institutionalizing security rules into a tool, team collaboration becomes smoother, and the style and quality of infrastructure code become more consistent.</li>
+<li><strong>Reducing Cloud Configuration Risks</strong>: Configuration errors are one of the main causes of cloud environment security incidents. Many disasters stem from simple mistakes, such as overly permissive storage bucket permissions, disabled logging, or network ports exposed to the public internet. Checkov&apos;s role is to capture these misconfigurations <strong>before risks turn into consequences</strong> and stop them from entering the deployment process. This &quot;Shift Left&quot; security approach significantly reduces the probability of cloud environments suffering attacks or violations. Compared to discovering issues afterwards through cloud monitoring or penetration testing, proactive static scanning is not only more efficient and cost-effective but also avoids the potential losses caused by exposing misconfigurations in production environments. In short, Checkov moves the cloud security defense line forward, providing critical support for module governance and overall infrastructure security.</li>
+</ul>
+<p>It is worth mentioning that the philosophy embodied by Checkov is &quot;<strong>Prevention is better than cure</strong>.&quot; By performing checks before deployment, teams can follow best practices and security policies, avoiding the high cost of fixing configuration vulnerabilities later. The sooner issues are found and fixed, the more time and resources are saved&#x2014;Checkov is the sharp tool for practicing this philosophy.</p>
+<h2 id="installation-and-local-usage"><a name="installation-and-local-usage" class="anchor-navigation-ex-anchor" href="#installation-and-local-usage"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.7.1.3. Installation and Local Usage</h2>
+<p>Checkov is implemented in Python, so a Python 3.7+ runtime environment is required (Terraform code itself is recommended to be version 0.12+). Installation is quite simple and can be completed via the Python package manager <code>pip</code> in most cases:</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># Install Checkov using pip (Cross-platform)</span>
+pip <span class="token function">install</span> checkov
+</code></pre>
+<p>Or:</p>
+<pre class="language-"><code class="lang-bash">pip3 <span class="token function">install</span> checkov
+</code></pre>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># (Optional) Install Checkov using Homebrew (macOS)</span>
+brew <span class="token function">install</span> checkov
+</code></pre>
+<p>For environments where direct installation is not convenient (such as CI servers), official Docker images are also provided to run Checkov. No installation is needed; simply pull the image and run the command, for example:</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># Run Checkov using the official Docker image to scan the current directory</span>
+<span class="token function">docker</span> pull bridgecrew/checkov
+<span class="token function">docker</span> run <span class="token parameter variable">--rm</span> <span class="token parameter variable">-v</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>:/iac&quot;</span> bridgecrew/checkov <span class="token parameter variable">-d</span> /iac <span class="token parameter variable">--framework</span> terraform
+</code></pre>
+<p>The above command executes Checkov inside a container, mounting the current working directory into it and scanning the Terraform configurations within.</p>
+<p>Once installed, you can use the <code>checkov</code> command via the command line to scan Terraform templates. The <strong>basic usage</strong> is very intuitive; you can scan an entire Terraform configuration project by specifying a directory, or point to a specific file:</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># Scan all Terraform configuration files in a specific directory</span>
+checkov <span class="token parameter variable">--directory</span> /path/to/terraform/code
+
+<span class="token comment"># Scan a single Terraform file</span>
+checkov <span class="token parameter variable">--file</span> /path/to/example.tf
+</code></pre>
+<p>After executing the above commands, Checkov will parse the Terraform templates and run built-in policies against every resource configuration found. The scan results will be output to the terminal, including <strong>passed</strong> checks and <strong>failed</strong> checks. For failed items, Checkov displays the rule <strong>ID</strong>, the name and type of the violating resource, a brief description of the issue, and suggested remediation measures or reference links.</p>
+<p>Here is an example from <a href="https://github.com/bridgecrewio/terragoat" target="_blank">TerraGoat</a>, a sample repository designed for researching Terraform security configuration issues:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">resource <span class="token type variable">&quot;azurerm_managed_disk&quot;</span></span> <span class="token string">&quot;example&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">name</span>                 <span class="token punctuation">=</span> <span class="token string">&quot;terragoat-disk-<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">environment</span><span class="token punctuation">}</span></span>&quot;</span>
+  <span class="token property">location</span>             <span class="token punctuation">=</span> var.location
+  <span class="token property">resource_group_name</span>  <span class="token punctuation">=</span> azurerm_resource_group.example.name
+  <span class="token property">storage_account_type</span> <span class="token punctuation">=</span> <span class="token string">&quot;Standard_LRS&quot;</span>
+  <span class="token property">create_option</span>        <span class="token punctuation">=</span> <span class="token string">&quot;Empty&quot;</span>
+  <span class="token property">disk_size_gb</span>         <span class="token punctuation">=</span> <span class="token number">1</span>
+  <span class="token keyword">encryption_settings</span> <span class="token punctuation">{</span>
+    <span class="token property">enabled</span> <span class="token punctuation">=</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">git_commit</span>           <span class="token punctuation">=</span> <span class="token string">&quot;d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0&quot;</span>
+    <span class="token property">git_file</span>             <span class="token punctuation">=</span> <span class="token string">&quot;terraform/azure/storage.tf&quot;</span>
+    <span class="token property">git_last_modified_at</span> <span class="token punctuation">=</span> <span class="token string">&quot;2020-06-16 14:46:24&quot;</span>
+    <span class="token property">git_last_modified_by</span> <span class="token punctuation">=</span> <span class="token string">&quot;nimrodkor@gmail.com&quot;</span>
+    <span class="token property">git_modifiers</span>        <span class="token punctuation">=</span> <span class="token string">&quot;nimrodkor&quot;</span>
+    <span class="token property">git_org</span>              <span class="token punctuation">=</span> <span class="token string">&quot;bridgecrewio&quot;</span>
+    <span class="token property">git_repo</span>             <span class="token punctuation">=</span> <span class="token string">&quot;terragoat&quot;</span>
+    <span class="token property">yor_trace</span>            <span class="token punctuation">=</span> <span class="token string">&quot;d17da7b3-f1c5-4723-9f77-d1b9069459c7&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">resource <span class="token type variable">&quot;azurerm_storage_account&quot;</span></span> <span class="token string">&quot;example&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">name</span>                     <span class="token punctuation">=</span> <span class="token string">&quot;tgsa<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">var</span><span class="token punctuation">.</span><span class="token type variable">environment</span><span class="token punctuation">}</span></span><span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>random_integer<span class="token punctuation">.</span>rnd_int<span class="token punctuation">.</span>result<span class="token punctuation">}</span></span>&quot;</span>
+  <span class="token property">resource_group_name</span>      <span class="token punctuation">=</span> azurerm_resource_group.example.name
+  <span class="token property">location</span>                 <span class="token punctuation">=</span> azurerm_resource_group.example.location
+  <span class="token property">account_tier</span>             <span class="token punctuation">=</span> <span class="token string">&quot;Standard&quot;</span>
+  <span class="token property">account_replication_type</span> <span class="token punctuation">=</span> <span class="token string">&quot;GRS&quot;</span>
+  <span class="token keyword">queue_properties</span> <span class="token punctuation">{</span>
+    <span class="token keyword">logging</span> <span class="token punctuation">{</span>
+      <span class="token property">delete</span>                <span class="token punctuation">=</span> <span class="token boolean">false</span>
+      <span class="token property">read</span>                  <span class="token punctuation">=</span> <span class="token boolean">false</span>
+      <span class="token property">write</span>                 <span class="token punctuation">=</span> <span class="token boolean">true</span>
+      <span class="token property">version</span>               <span class="token punctuation">=</span> <span class="token string">&quot;1.0&quot;</span>
+      <span class="token property">retention_policy_days</span> <span class="token punctuation">=</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">hour_metrics</span> <span class="token punctuation">{</span>
+      <span class="token property">enabled</span>               <span class="token punctuation">=</span> <span class="token boolean">true</span>
+      <span class="token property">include_apis</span>          <span class="token punctuation">=</span> <span class="token boolean">true</span>
+      <span class="token property">version</span>               <span class="token punctuation">=</span> <span class="token string">&quot;1.0&quot;</span>
+      <span class="token property">retention_policy_days</span> <span class="token punctuation">=</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">minute_metrics</span> <span class="token punctuation">{</span>
+      <span class="token property">enabled</span>               <span class="token punctuation">=</span> <span class="token boolean">true</span>
+      <span class="token property">include_apis</span>          <span class="token punctuation">=</span> <span class="token boolean">true</span>
+      <span class="token property">version</span>               <span class="token punctuation">=</span> <span class="token string">&quot;1.0&quot;</span>
+      <span class="token property">retention_policy_days</span> <span class="token punctuation">=</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">git_commit</span>           <span class="token punctuation">=</span> <span class="token string">&quot;5c6b5d60a8aa63a5d37e60f15185d13a967f0542&quot;</span>
+    <span class="token property">git_file</span>             <span class="token punctuation">=</span> <span class="token string">&quot;terraform/azure/storage.tf&quot;</span>
+    <span class="token property">git_last_modified_at</span> <span class="token punctuation">=</span> <span class="token string">&quot;2021-05-02 10:06:10&quot;</span>
+    <span class="token property">git_last_modified_by</span> <span class="token punctuation">=</span> <span class="token string">&quot;nimrodkor@users.noreply.github.com&quot;</span>
+    <span class="token property">git_modifiers</span>        <span class="token punctuation">=</span> <span class="token string">&quot;Adin.Ermie/nimrodkor&quot;</span>
+    <span class="token property">git_org</span>              <span class="token punctuation">=</span> <span class="token string">&quot;bridgecrewio&quot;</span>
+    <span class="token property">git_repo</span>             <span class="token punctuation">=</span> <span class="token string">&quot;terragoat&quot;</span>
+    <span class="token property">yor_trace</span>            <span class="token punctuation">=</span> <span class="token string">&quot;23861ff4-c42d-495e-80ac-776c74035f43&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">resource <span class="token type variable">&quot;azurerm_storage_account_network_rules&quot;</span></span> <span class="token string">&quot;test&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">resource_group_name</span>  <span class="token punctuation">=</span> azurerm_resource_group.example.name
+  <span class="token property">storage_account_name</span> <span class="token punctuation">=</span> azurerm_storage_account.example.name
+
+  <span class="token property">default_action</span> <span class="token punctuation">=</span> <span class="token string">&quot;Deny&quot;</span>
+  <span class="token property">ip_rules</span>       <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">]</span>
+  <span class="token property">bypass</span>         <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Metrics&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>WARNING!!</strong> This example is intentionally set up to contain multiple security issues to test the policy library of strategy checking tools. Please <strong>DO NOT</strong> do this in a production environment!!</p>
+<p>Let&apos;s try scanning this file with Checkov:</p>
+<pre class="language-"><code class="lang-shell">/workspaces/terragoat/terraform/azure <span class="token punctuation">(</span>master<span class="token punctuation">)</span> $ checkov <span class="token parameter variable">--file</span> storage.tf 
+<span class="token punctuation">[</span> terraform framework <span class="token punctuation">]</span>: <span class="token number">100</span>%<span class="token operator">|</span>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;<span class="token operator">|</span><span class="token punctuation">[</span><span class="token number">1</span>/1<span class="token punctuation">]</span>, Current File <span class="token assign-left variable">Scanned</span><span class="token operator">=</span>storage.tf
+<span class="token punctuation">[</span> secrets framework <span class="token punctuation">]</span>: <span class="token number">100</span>%<span class="token operator">|</span>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;<span class="token operator">|</span><span class="token punctuation">[</span><span class="token number">1</span>/1<span class="token punctuation">]</span>, Current File <span class="token assign-left variable">Scanned</span><span class="token operator">=</span>storage.tf
+
+       _               _
+   ___<span class="token operator">|</span> <span class="token operator">|</span>__   ___  ___<span class="token operator">|</span> <span class="token operator">|</span> _______   __
+  / __<span class="token operator">|</span> <span class="token string">&apos;_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   &lt; (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.439 
+
+terraform scan results:
+
+Passed checks: 5, Failed checks: 14, Skipped checks: 0
+
+Check: CKV_AZURE_36: &quot;Ensure &apos;</span>Trusted Microsoft Services<span class="token string">&apos; is enabled for Storage Account access&quot;
+        PASSED for resource: azurerm_storage_account.example
+        File: /storage.tf:23-60
+        Guide: [https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/enable-trusted-microsoft-services-for-storage-account-access](https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/enable-trusted-microsoft-services-for-storage-account-access)
+Check: CKV_AZURE_3: &quot;Ensure that &apos;</span>enable_https_traffic_only&apos; is enabled<span class="token string">&quot;
+        PASSED for resource: azurerm_storage_account.example
+        File: /storage.tf:23-60
+        Guide: [https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-3](https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-3)
+Check: CKV_AZURE_206: &quot;</span>Ensure that Storage Accounts use replication<span class="token string">&quot;
+        PASSED for resource: azurerm_storage_account.example
+        File: /storage.tf:23-60
+        Guide: [https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-206](https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-206)
+Check: CKV_AZURE_244: &quot;</span>Avoid the use of <span class="token builtin class-name">local</span> <span class="token function">users</span> <span class="token keyword">for</span> Azure Storage unless necessary<span class="token string">&quot;
+        PASSED for resource: azurerm_storage_account.example
+        File: /storage.tf:23-60
+        Guide: [https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-244](https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-244)
+Check: CKV_AZURE_35: &quot;</span>Ensure default network access rule <span class="token keyword">for</span> Storage Accounts is <span class="token builtin class-name">set</span> to deny<span class="token string">&quot;
+        PASSED for resource: azurerm_storage_account_network_rules.test
+        File: /storage.tf:62-69
+        Guide: [https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/set-default-network-access-rule-for-storage-accounts-to-deny](https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/set-default-network-access-rule-for-storage-accounts-to-deny)
+Check: CKV_AZURE_251: &quot;</span>Ensure Azure Virtual Machine disks are configured without public network access<span class="token string">&quot;
+        FAILED for resource: azurerm_managed_disk.example
+        File: /storage.tf:1-21
+
+                1  | resource &quot;</span>azurerm_managed_disk<span class="token string">&quot; &quot;</span>example<span class="token string">&quot; {
+                2  |   name                 = &quot;</span>terragoat-disk-<span class="token variable">${var.environment}</span><span class="token string">&quot;
+                3  |   location             = var.location
+                4  |   resource_group_name  = azurerm_resource_group.example.name
+                5  |   storage_account_type = &quot;</span>Standard_LRS<span class="token string">&quot;
+                6  |   create_option        = &quot;</span>Empty<span class="token string">&quot;
+                7  |   disk_size_gb         = 1
+                8  |   encryption_settings {
+                9  |     enabled = false
+                10 |   }
+                11 |   tags = {
+                12 |     git_commit           = &quot;</span>d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0<span class="token string">&quot;
+                13 |     git_file             = &quot;</span>terraform/azure/storage.tf<span class="token string">&quot;
+                14 |     git_last_modified_at = &quot;</span><span class="token number">2020</span>-06-16 <span class="token number">14</span>:46:24<span class="token string">&quot;
+                15 |     git_last_modified_by = &quot;</span>nimrodkor@gmail.com<span class="token string">&quot;
+                16 |     git_modifiers        = &quot;</span>nimrodkor<span class="token string">&quot;
+                17 |     git_org              = &quot;</span>bridgecrewio<span class="token string">&quot;
+                18 |     git_repo             = &quot;</span>terragoat<span class="token string">&quot;
+                19 |     yor_trace            = &quot;</span>d17da7b3-f1c5-4723-9f77-d1b9069459c7&quot;
+                <span class="token number">20</span> <span class="token operator">|</span>   <span class="token punctuation">}</span>
+                <span class="token number">21</span> <span class="token operator">|</span> <span class="token punctuation">}</span>
+<span class="token punctuation">..</span>.
+</code></pre>
+<p>We can see which checks passed, which failed, the description of failed rules, and information about the code blocks triggering the failures.</p>
+<p>The Checkov CLI provides rich arguments to customize scanning behavior:</p>
+<ul>
+<li>Use <code>-d</code> or <code>--directory</code> to recursively scan a directory, or <code>-f</code>/<code>--file</code> to target a single file. If unspecified, it scans the current directory by default.</li>
+<li>Use the <code>--check</code> argument to <strong>run only specified rule checks</strong>, for example, to check only specific rule IDs:
+```bash
+checkov --directory . --check CKV_AWS_20,CKV_AWS_57</li>
+</ul>
+<pre class="language-"><code>
+
+The above example will only run checks for rules *CKV_AWS_20* and *CKV_AWS_57*, useful for focusing on specific issues.
+* Conversely, use the `--skip-check` argument to **skip certain checks**:
+```bash
+checkov -d . --skip-check CKV_AWS_20
+</code></pre><p>This will ignore rule <em>CKV_AWS_20</em> during the scan. This is useful for skipping rules that are not applicable to the team due to special circumstances. The <code>--skip-check</code> and <code>--check</code> arguments also support specifying risk level keywords (<code>HIGH</code>, <code>MEDIUM</code>, etc.) to filter high or medium risk issues.</p>
+<ul>
+<li>Use <code>-o</code>/<code>--output</code> to specify the output format, e.g., <code>-o json</code> for JSON, <code>-o junitxml</code> to generate JUnit XML reports for CI consumption, or <code>-o sarif</code> to generate SARIF format for code scanning platforms. You can also save results to a file using <code>--output-file-path</code>.</li>
+<li>By default, if any check fails, the Checkov process will end with a non-zero exit code, which can be used by scripts or CI to determine <strong>scan failure</strong>. If you wish to not fail the process even if violations are found, use the <code>--soft-fail</code> argument to set the exit code to <code>0</code>. This is useful during initial implementation or trial runs to avoid blocking teamwork due to scan failures.</li>
+<li>Checkov also allows managing arguments centrally via a configuration file. You can create a <code>config.yaml</code> containing the above command-line options (e.g., directory to scan, checks to skip, output format) and load it at runtime using <code>--config-file config.yaml</code>. With the <code>--create-config</code> argument, you can even automatically generate a configuration file template based on given command-line options for further customization.</li>
+</ul>
+<p>In addition to manual execution, integrating Checkov into developers&apos; daily workflows significantly improves efficiency. In local development environments, <strong>Git hooks (pre-commit)</strong> are a common integration method. Through Git&apos;s pre-commit hooks, Checkov checks can be automatically executed when a developer commits code, blocking code that does not meet policies from entering the repository. The implementation involves using the open-source pre-commit framework and adding the Checkov hook configuration provided by Bridgecrew. For example, add <code>.pre-commit-config.yaml</code> to the project root directory:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">-</span> <span class="token key atrule">repo</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>https<span class="token punctuation">:</span>//github.com/bridgecrewio/checkov.git<span class="token punctuation">]</span>(https<span class="token punctuation">:</span>//github.com/bridgecrewio/checkov.git)
+  <span class="token key atrule">rev</span><span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span> <span class="token comment"># change to tag or sha</span>
+  <span class="token key atrule">hooks</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">id</span><span class="token punctuation">:</span> checkov
+      <span class="token comment"># - id: checkov_container</span>
+      <span class="token comment"># - id: checkov_diff</span>
+      <span class="token comment"># - id: checkov_diff_container</span>
+      <span class="token comment"># - id: checkov_secrets</span>
+      <span class="token comment"># - id: checkov_secrets_container</span>
+</code></pre>
+<p>Then execute <code>pre-commit install --install-hooks</code> to install the hook. Thereafter, every time <strong>git commit</strong> is run, Checkov will automatically scan the changed Terraform files; if there are any failed checks, it will reject the commit and report the issues, enabling developers to fix them before committing. Through this mechanism, security checks are invisibly integrated into the daily coding process, reducing the chance of discovering problems later. It is worth noting that Checkov also provides a VS Code editor extension, which can <strong>scan in real-time</strong> and provide inline security suggestions while developing Terraform files. Whether using the IDE plugin or Git hooks, local integration ensures issues are discovered and resolved at the <strong>earliest opportunity</strong>, improving module code quality.</p>
+<h2 id="integration-into-cicd-pipelines"><a name="integration-into-cicd-pipelines" class="anchor-navigation-ex-anchor" href="#integration-into-cicd-pipelines"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.7.1.4. Integration into CI/CD Pipelines</h2>
+<p>Integrating Checkov into Continuous Integration/Continuous Deployment (CI/CD) pipelines allows for setting <strong>automated security gates</strong> before code merging and deployment. Below is an introduction on how to embed Checkov into mainstream CI/CD platforms.</p>
+<h3 id="integration-in-github-actions"><a name="integration-in-github-actions" class="anchor-navigation-ex-anchor" href="#integration-in-github-actions"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.7.1.4.1. Integration in GitHub Actions</h3>
+<p>GitHub Actions provides a convenient mechanism to incorporate Checkov into workflows. Bridgecrew has released a ready-made Checkov Action that can be directly used to scan Terraform code. With this Action, we don&apos;t need to install the environment ourselves; configuration is very simple. For example, add a new workflow <code>.github/workflows/checkov.yml</code>:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> Checkov
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> master
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build</span><span class="token punctuation">:</span>
+
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Set up Python 3.8
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>python@v4
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">python-version</span><span class="token punctuation">:</span> <span class="token number">3.8</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Test with Checkov
+        <span class="token key atrule">id</span><span class="token punctuation">:</span> checkov
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> bridgecrewio/checkov<span class="token punctuation">-</span>action@master
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">directory</span><span class="token punctuation">:</span> example/examplea
+          <span class="token key atrule">framework</span><span class="token punctuation">:</span> terraform
+</code></pre>
+<p>The above configuration runs a <code>Checkov</code> job every time a Pull Request is submitted: it first checks out the code, then uses the official Checkov Action to perform the scan. We specify via parameters to scan the Terraform configuration within the <code>example/examplea</code> directory of the current repository. <strong>The execution effect</strong> is: if Checkov detects any failed rules, the Action will mark the check as failed, causing the GitHub PR check status to turn &#x274C; and preventing insecure configuration changes from being merged. Developers can see which checks failed on the Pull Request page and click for details to understand the specific violating resources and reasons. With GitHub Actions, integrating security scanning into the code review process achieves <strong>automated security auditing</strong> for every change. Additionally, Checkov supports outputting SARIF format combined with GitHub Code Scanning, allowing scan results to appear in the repository&apos;s security tab, further enhancing visibility (requires separate configuration to upload SARIF).</p>
+<p>As seen from the above example, simply adding a step to execute <code>checkov</code> in the pipeline and configuring its parameters and report format is sufficient. When the scan finds issues, failing the pipeline (or blocking the merge) realizes continuous governance of Terraform modules. In large projects, these CI integration configurations can be templated or centrally managed so that all projects within the organization can easily use the same security scanning standards. Continuous automated checks can significantly raise the security baseline of Terraform modules, and when combined with the previously mentioned local scanning methods, truly form a comprehensive <strong>module governance</strong> process from development to deployment, ensuring that every step of Infrastructure as Code is safeguarded by security.</p>
+<p><strong>In summary</strong>, Bridgecrew&apos;s Checkov tool provides powerful support for Terraform module governance. From local scanning during the developer&apos;s coding phase to automated auditing in CI pipelines, Checkov deeply integrates security and compliance checks into the Terraform module lifecycle. With it, teams can confidently reuse modules on a large scale while maintaining control over cloud environment risks. In the practice of module governance, introducing Checkov not only improves efficiency but also significantly enhances the security and reliability of infrastructure code, escorting the enterprise&apos;s cloud infrastructure.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tflint.html" class="navigation navigation-prev " aria-label="Previous page: tflint">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="yor.html" class="navigation navigation-next " aria-label="Next page: yor">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"checkov","level":"1.6.7","depth":2,"next":{"title":"yor","level":"1.6.8","depth":2,"path":"toolchain/yor.md","ref":"toolchain/yor.md","articles":[]},"previous":{"title":"tflint","level":"1.6.6","depth":2,"path":"toolchain/tflint.md","ref":"toolchain/tflint.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/checkov.md","mtime":"2026-01-07T07:17:39.750Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

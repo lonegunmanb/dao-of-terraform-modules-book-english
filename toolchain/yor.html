@@ -1,0 +1,1088 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>yor · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="yorbox.html" />
+    
+    
+    <link rel="prev" href="checkov.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >yor</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#bridgecrew-yor"><b>1.6.8.1. </b>BridgeCrew Yor</a></li><ul><li><span class="title-icon "></span><a href="#governance-pain-points-why-yor-is-needed"><b>1.6.8.1.1. </b>Governance Pain Points: Why Yor is Needed?</a></li><li><span class="title-icon "></span><a href="#executive-order-14028-and-sbom-yor-supports-supply-chain-transparency"><b>1.6.8.1.2. </b>Executive Order 14028 and SBOM: Yor Supports Supply Chain Transparency</a></li><li><span class="title-icon "></span><a href="#using-yor-methods-configuration-and-commands"><b>1.6.8.1.3. </b>Using Yor: Methods, Configuration, and Commands</a></li><li><span class="title-icon "></span><a href="#tag-injection-example-before-and-after-terraform-module"><b>1.6.8.1.4. </b>Tag Injection Example: Before and After Terraform Module</a></li><li><span class="title-icon "></span><a href="#pros-and-cons"><b>1.6.8.1.5. </b>Pros and Cons</a></li></ul></ul></div><a href="#bridgecrew-yor" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="bridgecrew-yor"><a name="bridgecrew-yor" class="anchor-navigation-ex-anchor" href="#bridgecrew-yor"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.8.1. BridgeCrew Yor</h1>
+<p><strong>Yor</strong> is an open-source Infrastructure as Code (IaC) auto-tagging tool developed by Bridgecrew (acquired by Palo Alto Networks). It automatically adds consistent and meaningful tags to cloud resources in templates such as Terraform, AWS CloudFormation, and Serverless Framework. These tags contain information about resource ownership and change tracking, such as the team or person who owns the code, unique resource identifiers, etc. The basic principle of Yor is to inject tag metadata into each infrastructure resource block at the <strong>code level</strong>, and then these tags are passed to the actual cloud resources when the resources are deployed to the cloud, enabling information carrying and tracking from &quot;code to cloud&quot;. Through this &quot;code-as-tags&quot; approach, Yor provides a unified tagging strategy for infrastructure.</p>
+<p>Yor can be used as a GitHub Action, a pre-commit hook, or a standalone command-line tool, making it easy to integrate into developers&apos; existing CI/CD workflows. When developers commit code to the repository, Yor automatically adds tags to the modified IaC template fragments; these tags are passed from the template file to the deployed cloud resources without manual intervention by the developer. The <strong>result</strong> is that developers do not need to perform tedious manual tagging work, but security and operations teams can obtain consistent and accurate resource tags for auditing and management.</p>
+<h2 id="governance-pain-points-why-yor-is-needed"><a name="governance-pain-points-why-yor-is-needed" class="anchor-navigation-ex-anchor" href="#governance-pain-points-why-yor-is-needed"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.8.1.1. Governance Pain Points: Why Yor is Needed?</h2>
+<p>In large Terraform modules and multi-cloud environments, achieving consistent resource tag naming and ownership marking is a common governance challenge. In the past, cloud providers and teams often had different tagging standards, posing challenges for <strong>cost allocation</strong>, <strong>access control</strong>, <strong>operational support</strong>, and <strong>security auditing</strong>. Traditionally, manually adding tags to each infrastructure resource is cumbersome and error-prone, and it is difficult to ensure consistency across teams and projects. When a security misconfiguration or cloud resource anomaly occurs, the lack of unified tags makes it difficult to locate the responsible person and the source of the problem.</p>
+<p>Yor was created to address these <strong>governance and traceability</strong> pain points. Barak Schoster, Chief Architect at Palo Alto Networks, <a href="https://www.paloaltonetworks.com/company/press/2021/announcing-the-new-open-source-project-yor--dynamic-and-automated-cloud-infrastructure-tagging" target="_blank">pointed out</a> that effective infrastructure tagging is critical for tracking costs, access rights, operations, and cloud security, but previously it was a completely manual process with inconsistent standards. By <strong>automating and standardizing</strong> tagging, Yor provides visibility and traceability from IaC configurations to production cloud resources. Specifically:</p>
+<ul>
+<li><strong>Comprehensive Ownership Tracking</strong>: Yor adds a series of tag information to each resource block by default, including the Git repository organization, repository name, IaC definition file name, hash and time of the last modification commit, list of modifiers, and a unique tracking identifier <code>yor_trace</code>. This information allows cloud resources to be directly mapped to the code and developers that generated them. For example, if a configuration error occurs in the runtime environment, the unique ID <code>yor_trace</code> on the resource can be used to trace back to the specific resource definition in the codebase. Similarly, tags such as <code>git_last_modified_by</code> on the resource can determine the person and time of the last code modification. This enables security teams to quickly find the responsible developer and collaborate to fix the problem.</li>
+<li><strong>Consistent Cost and Permission Tagging</strong>: Yor automatically inherits and supplements existing environment and business tags, ensuring that all resources are tagged with a unified format, facilitating financial cost allocation analysis and operations teams setting resource grouping and access control based on tags. A unified tagging system acts like a common language across teams, allowing different departments (development, operations, security) to quickly identify resource ownership and purpose based on tags, thereby improving collaboration efficiency.</li>
+<li><strong>Reducing Human Error</strong>: With Yor, developers no longer need to remember and manually add various tagging standards, reducing the possibility of omissions and spelling errors. Yor automatically inserts standardized tags when code is committed, greatly reducing situations where tags are incomplete or inaccurate due to human factors. This not only improves governance but also reduces the burden on engineers, allowing them to focus on core business logic rather than trivial tagging work.</li>
+</ul>
+<p>In short, Yor automates the previously tedious and error-prone <strong>cloud resource tagging process</strong>, bringing every module of the infrastructure under traceable governance, achieving <strong>unified identification and accountability tracing of resources in large-scale environments</strong>.</p>
+<h2 id="executive-order-14028-and-sbom-yor-supports-supply-chain-transparency"><a name="executive-order-14028-and-sbom-yor-supports-supply-chain-transparency" class="anchor-navigation-ex-anchor" href="#executive-order-14028-and-sbom-yor-supports-supply-chain-transparency"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.8.1.2. Executive Order 14028 and SBOM: Yor Supports Supply Chain Transparency</h2>
+<p><a href="https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity" target="_blank"><strong>Executive Order 14028</strong></a> (issued in May 2021) focuses on improving the nation&apos;s cybersecurity. One of its core requirements is that federal agencies must obtain a <em>Software Bill of Materials</em> (SBOM) for the software when purchasing software to improve the transparency and controllability of the software supply chain. An SBOM typically refers to a machine-readable list that details all components, libraries, and modules contained in a software product and their origins. Through an SBOM, users can track software components and identify vulnerabilities within them, thereby strengthening supply chain risk management. Executive Order 14028 makes SBOM a mandatory requirement for US federal government software procurement. This move reflects the government&apos;s high regard for <strong>software component transparency</strong> after experiencing the SolarWinds supply chain attack and the Log4j vulnerability incident.</p>
+<p>Although Yor targets Infrastructure as Code rather than traditional application software, the <strong>code-to-cloud resource tracking</strong> it achieves is similar in purpose to the supply chain visibility that SBOM aims to achieve. SBOM focuses on the list of software components, while in the cloud infrastructure field, we also need to know &quot;who created which cloud components, through which code, and when&quot;. The tags automatically injected by Yor provide exactly this &quot;infrastructure bill of materials&quot; information:</p>
+<ul>
+<li>Tags like <code>yor_trace</code> provide a traceable identity for each infrastructure resource, which can be seen as a bill of materials item at the infrastructure level.</li>
+<li>Tags like <code>git_org</code>/<code>git_repo</code>/<code>git_commit</code> reveal the code source and version behind each resource, just like an SBOM lists the versions of software dependency components.</li>
+<li>With this metadata, an organization can compile a &quot;resource bill of materials&quot; for its IaC deployment, clearly knowing which code modules constitute its cloud environment and where the latest changes came from, so as to quickly locate the affected infrastructure parts when vulnerabilities or compliance requirements arise.</li>
+</ul>
+<p>For example, one of the software supply chain security measures required by Executive Order 14028 is timely response to known component vulnerabilities. If a version of a Terraform module is found to have security risks, using Yor tags, operations and security teams can search for all resources with the corresponding <code>git_commit</code> or <code>yor_trace</code> on the cloud, quickly find the list of affected resources, and take remedial measures. This is similar to the principle of SBOM helping to locate software components affected by a certain vulnerability. It can be said that Yor introduces <strong>supply chain traceability capabilities</strong> to Infrastructure as Code: realizing the link &quot;from running resources back to source code&quot; at the cloud infrastructure level, providing support for meeting the requirements of Executive Order 14028 on software component transparency.</p>
+<p>Of course, Yor itself is not an SBOM generation tool, and the focus of the two is different. SBOM focuses more on dependency transparency at the software package and library level, while Yor focuses on <strong>deployment transparency at the infrastructure level</strong>. But in the context of DevSecOps, the two complement each other: Yor ensures that every infrastructure change is traceable, and this powerful traceability is exactly one of the elements needed for a secure supply chain. This also allows organizations to more confidently answer questions like &quot;where do our cloud infrastructure components come from and who maintains them&quot; during the implementation of Executive Order 14028. Overall, Yor improves the auditability and <strong>inventory</strong> level of infrastructure code, helping organizations meet compliance requirements including SBOM and strengthen their own supply chain security.</p>
+<h2 id="using-yor-methods-configuration-and-commands"><a name="using-yor-methods-configuration-and-commands" class="anchor-navigation-ex-anchor" href="#using-yor-methods-configuration-and-commands"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.8.1.3. Using Yor: Methods, Configuration, and Commands</h2>
+<p><strong>Basic Usage:</strong> Yor provides a command-line interface for scanning directories and batch tagging IaC templates within them. After installation, simply run a command like this to apply tags:</p>
+<pre class="language-"><code class="lang-bash">yor tag <span class="token parameter variable">--directory</span> ./terraform/
+</code></pre>
+<p>The above command adds preset tags to all Terraform configuration files in the <code>./terraform/</code> directory. Yor enables all built-in tags by default (including <code>yor_trace</code> tracking ID, all Git history related tags, etc.) as well as user-defined custom tags. If you need to apply only a certain type of tag or skip certain tags, you can use command-line options to control it. For example:</p>
+<ul>
+<li>Skip specific tags: <code>yor tag --directory terraform/ --skip-tags git_last_modified_by,yor_trace</code> will skip adding <code>yor_trace</code> and <code>git_last_modified_by</code> tags. Wildcards are supported to skip a group of tags, such as <code>--skip-tags git*</code> to skip all Git information related tags.</li>
+<li>Apply only specific tag groups: <code>yor tag --tag-group git --directory ./terraform/</code> will only add the Git information related tag group, and not other types of tags. Similarly, there are built-in &quot;tracing&quot; tag groups available for selection.</li>
+</ul>
+<p><strong>Integration Methods:</strong> In practice, Yor is often integrated into CI/CD workflows or developer toolchains to achieve continuous automated injection of tags. Common integration methods include:</p>
+<ul>
+<li><strong>Pre-commit Hook:</strong> Configure Yor as a pre-commit hook for the code repository to ensure that tags are automatically added to modified IaC files before each developer commits code. The configuration method is to add a Yor hook in the project&apos;s <code>.pre-commit-config.yaml</code>, making it execute the <code>yor tag</code> command on Terraform files. In this way, tag injection is completed at the time of commit, and the commit record will reflect the addition of tags.</li>
+<li><strong>CI Platform Integration:</strong> Yor provides GitHub Action and GitLab CI templates that can run in Pull Requests or pipelines. For example, using the official <code>bridgecrewio/yor-action</code> in GitHub Actions allows Yor tagging to be automatically executed before every PR creation or merge. In GitLab CI, a Yor step can also be added to the pipeline to automatically submit changes with tag updates every time code is merged. This ensures that the main branch code always keeps tags up-to-date and consistent.</li>
+<li><strong>Docker and Local CLI:</strong> If you do not want to install Yor directly on the local machine, you can also use the official Docker image to run it. Run <code>docker run -v <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>local</span> <span class="token attr-name">IaC</span> <span class="token attr-name">directory</span><span class="token punctuation">&gt;</span></span>:/data bridgecrew/yor tag --directory /data</code> to execute tag addition in the container. For one-time large-scale tagging of existing configurations, you can also run the <code>yor tag</code> command locally and commit the results via Git. Yor also supports <code>--dry-run</code> mode to preview which tags will be added without actually modifying files, facilitating review of changes before actual application.</li>
+</ul>
+<p><strong>Configuration and Extension:</strong> In addition to <strong>built-in tags</strong> (such as the aforementioned <code>yor_trace</code> and Git information), Yor also allows users to customize additional tagging strategies to meet specific organizational governance needs. Extension methods include:</p>
+<ul>
+<li><strong>Simple Tags via Environment Variables:</strong> By setting the environment variable <code>YOR_SIMPLE_TAGS</code>, static key-value pair tags can be injected for all resources at once. For example:</li>
+</ul>
+<pre class="language-"><code class="lang-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">YOR_SIMPLE_TAGS</span><span class="token operator">=</span><span class="token string">&apos;{&quot;team&quot;: &quot;devops&quot;, &quot;env&quot;: &quot;prod&quot;}&apos;</span>
+yor tag --tag-groups simple <span class="token parameter variable">--directory</span> terraform/dev/
+</code></pre>
+<p>This will add <code>team=devops</code> and <code>env=prod</code> tags to each resource. Suitable for scenarios where you want to add organization-level tags (such as department, environment) uniformly without repeating them in the code every time.</p>
+<ul>
+<li><strong>Golang Plugin Extension:</strong> For more advanced customization, Yor allows writing custom Tagger plugins using the Go language to implement complex tag generation logic, and then compiling them into Yor for execution. This is suitable for secondary development of Yor, or tagging schemes not yet supported by Bridgecrew officially.</li>
+<li><strong>Inline Annotation Skipping:</strong> In addition to skipping specified tags or directories via the command line, developers can also add special comments in the template code to skip tag injection for certain resources (for example, adding a specific comment in the Terraform configuration to identify that this resource does not need Yor tagging). This provides flexibility for the few resources that do not wish to be automatically tagged.</li>
+</ul>
+<p>Through the above various configuration and extension mechanisms, Yor can adapt to the requirements of different teams and achieve <strong>flexible customization of tagging strategies</strong>. For example, an organization can pre-stipulate that all resources must be tagged with <code>cost_center</code> and solidify the rule in the Yor configuration, so that developers will automatically get tags that meet organizational requirements regardless of which project or module they deploy resources in, without the need for manual checks.</p>
+<h2 id="tag-injection-example-before-and-after-terraform-module"><a name="tag-injection-example-before-and-after-terraform-module" class="anchor-navigation-ex-anchor" href="#tag-injection-example-before-and-after-terraform-module"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.8.1.4. Tag Injection Example: Before and After Terraform Module</h2>
+<p>To more intuitively understand the effect of Yor&apos;s automatic tagging, here is a <strong>Terraform code example</strong> showing the difference before and after using Yor. Suppose we have a Terraform module that defines a cloud resource and only contains basic environment tags beforehand:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token comment"># Terraform module snippet before Yor tagging</span>
+<span class="token keyword">module<span class="token type variable"> &quot;remote_module&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">source</span>  <span class="token punctuation">=</span> <span class="token string">&quot;Azure/avm-res-resources-resourcegroup/azurerm&quot;</span>
+  <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">env</span> <span class="token punctuation">=</span> var.env
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In the code above, <code>tags</code> only defines the environment tag <code>env</code>. Now we run <code>yor tag</code> to automatically tag it, and Yor will inject multiple new tag key-value pairs into the code:</p>
+<pre class="language-"><code class="lang-hcl"><span class="token comment"># Terraform module snippet after Yor tagging (Yor automatically injected extra tags)</span>
+<span class="token keyword">module<span class="token type variable"> &quot;remote_module&quot; </span></span><span class="token punctuation">{</span>
+  <span class="token property">source</span>  <span class="token punctuation">=</span> <span class="token string">&quot;Azure/avm-res-resources-resourcegroup/azurerm&quot;</span>
+  <span class="token property">tags</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    <span class="token property">env</span>                  <span class="token punctuation">=</span> var.env
+    <span class="token property">yor_trace</span>            <span class="token punctuation">=</span> <span class="token string">&quot;d835d6de-7aa7-4a1e-bbe5-8f5ee206e1d0&quot;</span>
+    <span class="token property">git_repo</span>             <span class="token punctuation">=</span> <span class="token string">&quot;example&quot;</span>
+    <span class="token property">git_org</span>              <span class="token punctuation">=</span> <span class="token string">&quot;bridgecrewio&quot;</span>
+    <span class="token property">git_file</span>             <span class="token punctuation">=</span> <span class="token string">&quot;applyTag.md&quot;</span>
+    <span class="token property">git_commit</span>           <span class="token punctuation">=</span> <span class="token string">&quot;COMMITHASH&quot;</span>
+    <span class="token property">git_modifiers</span>        <span class="token punctuation">=</span> <span class="token string">&quot;bana/gandalf&quot;</span>
+    <span class="token property">git_last_modified_at</span> <span class="token punctuation">=</span> <span class="token string">&quot;2021-01-08 00:00:00&quot;</span>
+    <span class="token property">git_last_modified_by</span> <span class="token punctuation">=</span> <span class="token string">&quot;bana@bridgecrew.io&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>As shown above, Yor added a series of tags with the <code>git_*</code> prefix and a unique <code>yor_trace</code> tag to the module&apos;s <code>tags</code> field. These tags record <strong>code source and change history</strong>: Git repository organization and name, file path where the resource definition is located, hash value of the last commit, identifiers of all developers who modified the resource, last modification time, and modifier email, etc. Through these tags, you can directly see on the cloud platform&apos;s resource tag interface <strong>which project</strong>, <strong>which file</strong>, <strong>when</strong>, and by <strong>whom</strong> was modified to create this cloud resource. Yor determines which lines of code were changed in the last Git commit by analyzing Git Blame information, identifying which Terraform blocks were involved, and then writing Git version information into the code in the form of Tags.</p>
+<p>It is worth noting that new tags added by Yor <strong>will not overwrite</strong> existing tags (like <code>env</code> in the example remains unchanged), but supplement extra information. Developers can still define business-related tags (such as Name, Environment, etc.) in the code, and Yor is only responsible for injecting tracking and ownership tags, achieving <strong>compatibility with existing tagging systems</strong>. These additional tags will be applied to the actual cloud resources along with the Terraform module, allowing operations personnel to see the same information in the cloud console, thereby achieving <strong>two-way traceability</strong> between code and cloud resources. For example, if operations personnel discover an unfiled resource on the cloud, they can trace back to the corresponding code repository and module location just by checking information like <code>yor_trace</code> or <code>git_repo</code> in its tags, greatly shortening troubleshooting and positioning time.</p>
+<p>Through Yor&apos;s tag injection, the Terraform module in the above example not only defines the resource functionally but also <strong>implicitly records metadata</strong>, effectively attaching &quot;who created it, where, and when&quot; to the infrastructure itself. This practice strengthens Terraform module governance: in a large-scale environment composed of hundreds or thousands of modules and resources, the origin and development of every resource can be traced. As industry comments say, tags automatically added by Yor &quot;simplify the process of connecting active cloud resources back to the code that created them,&quot; significantly improving the visibility of cloud resource management.</p>
+<h2 id="pros-and-cons"><a name="pros-and-cons" class="anchor-navigation-ex-anchor" href="#pros-and-cons"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.8.1.5. Pros and Cons</h2>
+<p>As an open-source project, Yor has received considerable attention and feedback in the infrastructure and DevOps communities since its launch. <strong>Overall, the community&apos;s evaluation of Yor is positive</strong>, believing that it fills a gap in IaC governance, but also puts forward some suggestions for improvement and considerations.</p>
+<p><strong>Positive Reviews:</strong> Many Terraform users and cloud architects view Yor as a &quot;sharp weapon&quot; for automated tag management. It significantly simplifies the management process of cloud resource tags and greatly improves resource manageability and traceability through an automated tagging system. Community articles point out that Yor can be seamlessly integrated into mainstream IaC platforms, providing powerful tag management functions for development and operations teams without changing existing workflows. This feature makes cross-team collaboration easier&#x2014;tags become a unified language, and people with different functions can quickly obtain the information they need from them, reducing communication costs. In addition, Yor supports user-defined tagging rules, which is praised for its high flexibility and ability to meet the specific needs of different organizations. Many users share the experience that it was very difficult to promote consistent tagging strategies in large-scale environments in the past, but after introducing Yor, not only was a lot of manual time saved, but human errors were also reduced, achieving &quot;continuous tag compliance&quot;. In actual operation scenarios, Yor helps teams locate responsible persons and relevant code faster when alerts occur, greatly shortening fault response time. <a href="https://devops.com/best-practices-for-aws-tagging-with-yor/" target="_blank">Community blogs</a> also list Yor as one of the excellent tools for practicing AWS best tagging strategies, recognizing its value in providing <strong>consistency and traceability</strong> in multi-cloud and complex environments. Looking at GitHub open-source community indicators, the Yor project has active contributors and user base (regular issue discussions and improvement submissions), showing the industry&apos;s strong interest in automated tagging governance.</p>
+<p><strong>Negative Reviews and Deficiencies:</strong> Despite its prominent advantages, some users also pointed out areas that need attention when using Yor in practice. First, some people worry that <strong>inserting a large number of tags into the code may cause a decline in code readability</strong>. For large Terraform codebases with many resource blocks, automatically injected tag lines will significantly increase the number of file lines, &quot;polluting&quot; the original code structure to some extent. However, some users also reported that Yor is relatively restrained when injecting tags and does not interfere excessively with the original configuration, as long as the tag part is folded during review, the impact is not significant. This is a matter of opinion, but can be partially mitigated through Yor&apos;s <strong>skip mechanism</strong>: teams can configure skipping certain modules or certain tags injection to avoid unnecessary information filling the code. Secondly, <strong>the integration cost of introducing new tools</strong> is also a focus of discussion. For teams with mature processes, adding Yor requires time to adjust CI processes, train developers to use pre-commit, etc. Some teams were initially cautious about adding automatic commit tags to the pipeline, worrying that it might affect existing review processes (for example, automatically generated tag commits might intersect with manual commits). To this end, practitioners suggest enabling Yor&apos;s <code>--dry-run</code> mode in the pilot phase or applying it only to specific projects, and gradually promoting it to gain team approval.</p>
+<p>Another problem with Yor is that for open source reusable Terraform modules, tags added via Yor cannot be opted out by the module user. This can be troublesome for teams with more complex restrictions on resource tags.</p>
+<p>Some community members also mentioned the issue of project maintenance activity: Yor&apos;s functions have gradually improved since its release, but the update frequency has decreased in certain periods, and the processing speed of raised Issues is not as expected. This has raised doubts about the long-term maintainability of the project, and some people have begun to explore alternatives with similar functions (such as env0&apos;s Terratag tool). For example, Terratag focuses on batch tagging of Terraform code, but lacks Yor&apos;s cross-framework support and rich tracking information advantages. Yor&apos;s multi-cloud multi-framework support and Git traceability tag functions are still its unique selling points, but the community also hopes to see Yor continue to iterate, support newer IaC types (such as Kubernetes native manifests, Pulumi, etc.), and provide richer documentation and use cases.</p>
+<p>In addition, if you want to use Yor to add tags within tags, you will need two Git commits. The first is the user&apos;s change to the code, and the second is Yor modifying the tag information based on the previous version information and then committing. If we run Yor automatically through a CI platform, it will require permission to directly modify the code and Push to the trunk, which is prohibited in some projects with strict control over change processes.</p>
+<p>In general, <strong>Yor&apos;s advantages</strong> are very obvious in the community&apos;s view: it lowers the threshold for implementing tag governance in large-scale environments, improves resource traceability, and helps teams achieve a higher level of infrastructure visibility and compliance. <strong>Its disadvantages</strong> mainly focus on some extra overhead brought by the tool itself, such as increased code verbosity, introduction of process complexity, and possible incomplete coverage for specific scenarios. These deficiencies can often be mitigated through configuration and process adjustments. As more and more organizations realize the importance of tags in cloud governance, the automated tagging solution represented by Yor is gaining widespread recognition. The community expects that in future developments, Yor can continue to evolve, absorb feedback, and further improve its functions, making it play a more indispensable role in large-scale Terraform module governance.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="checkov.html" class="navigation navigation-prev " aria-label="Previous page: checkov">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="yorbox.html" class="navigation navigation-next " aria-label="Next page: yorbox">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"yor","level":"1.6.8","depth":2,"next":{"title":"yorbox","level":"1.6.9","depth":2,"path":"toolchain/yorbox.md","ref":"toolchain/yorbox.md","articles":[]},"previous":{"title":"checkov","level":"1.6.7","depth":2,"path":"toolchain/checkov.md","ref":"toolchain/checkov.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/yor.md","mtime":"2026-01-07T07:46:05.244Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

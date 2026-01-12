@@ -1,0 +1,1257 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>tflint · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="checkov.html" />
+    
+    
+    <link rel="prev" href="avmfix.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >tflint</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#tflint"><b>1.6.6.1. </b>tflint</a></li><ul><li><span class="title-icon "></span><a href="#key-features-and-scenarios"><b>1.6.6.1.1. </b>Key Features and Scenarios</a></li><li><span class="title-icon "></span><a href="#is-terraforms-built-in-validation-not-enough"><b>1.6.6.1.2. </b>Is Terraform&apos;s Built-in Validation Not Enough?</a></li><li><span class="title-icon "></span><a href="#how-to-use-tflint"><b>1.6.6.1.3. </b>How to Use tflint</a></li><ul><li><span class="title-icon "></span><a href="#installation"><b>1.6.6.1.3.1. </b>Installation</a></li><li><span class="title-icon "></span><a href="#quick-start"><b>1.6.6.1.3.2. </b>Quick Start</a></li><li><span class="title-icon "></span><a href="#advanced-usage"><b>1.6.6.1.3.3. </b>Advanced Usage</a></li></ul><li><span class="title-icon "></span><a href="#calling-tflint-in-avm"><b>1.6.6.1.4. </b>Calling tflint in AVM</a></li><li><span class="title-icon "></span><a href="#summary"><b>1.6.6.1.5. </b>Summary</a></li></ul></ul></div><a href="#tflint" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="tflint"><a name="tflint" class="anchor-navigation-ex-anchor" href="#tflint"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1. tflint</h1>
+<p><code>tflint</code> is an extensible, plugin-based static analysis tool (Linter) for Terraform code, designed to help developers and platform teams improve the quality, security, and consistency of Terraform configurations in Infrastructure as Code (IaC) practices. Through multiple plugin mechanisms, <code>tflint</code> supports linting rules for mainstream cloud platforms (such as AWS, Azure, GCP) as well as the Terraform language itself, enabling the discovery of configuration errors, potential risks, and non-standard usage. It provides an automated foundation for teams to enforce governance policies, best practices, and compliance checks.</p>
+<p>In large-scale Terraform module governance scenarios, <code>tflint</code> acts as a &quot;gatekeeper&quot;: it automatically detects common configuration errors (such as unused variables, deprecated resource usage, missing <code>tags</code> on resources, etc.), enforces naming and structural conventions, identifies security and cost risks in time, thereby significantly reducing code review burden, improving delivery efficiency, and reducing the probability of production incidents.</p>
+<h2 id="key-features-and-scenarios"><a name="key-features-and-scenarios" class="anchor-navigation-ex-anchor" href="#key-features-and-scenarios"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.1. Key Features and Scenarios</h2>
+<p>The design of <code>tflint</code> fully considers flexibility and extensibility. Its core features include:</p>
+<ul>
+<li><strong>Multi-cloud support and rich rule plugins</strong>: <code>tflint</code> supports specialized rules for major public cloud resources like AWS, Azure, and GCP through plugin mechanisms, automatically validates instance types, resource attributes, default values, etc. It can not only detect syntax-level issues but also perform deep validation based on actual cloud service constraints.</li>
+<li><strong>Terraform language rules</strong>: Built-in support for Terraform language specification checks, including identifying deprecated syntax, unused declarations, variable assignment issues, etc., helping teams maintain clean and maintainable code.</li>
+<li><strong>Custom extension capabilities</strong>: Users can extend rules through custom plugins or Rego Policy files to implement enterprise-specific compliance requirements or organizational best practices.</li>
+<li><strong>Enforcement of naming conventions and best practices</strong>: Through rule plugins and configurations, <code>tflint</code> can enforce resource naming, variable naming, and other conventions, effectively supporting standardized governance in large-scale multi-team collaboration.</li>
+<li><strong>Integration with CI/CD and development toolchain</strong>: <code>tflint</code> supports execution in various environments including local development, GitHub Actions, Docker containers, etc., facilitating governance implementation in automated processes such as PR checks and continuous integration pipelines.</li>
+</ul>
+<p><code>tflint</code> is particularly suitable for the following scenarios:</p>
+<ul>
+<li>Standardization and compliance governance of enterprise-level infrastructure code</li>
+<li>Quality assurance of Terraform code in multi-team, multi-project collaboration</li>
+<li>Automated code review and &quot;Shift Left&quot; security best practices</li>
+<li>Preventive validation of cloud platform resource configuration and cost risk control</li>
+</ul>
+<h2 id="is-terraforms-built-in-validation-not-enough"><a name="is-terraforms-built-in-validation-not-enough" class="anchor-navigation-ex-anchor" href="#is-terraforms-built-in-validation-not-enough"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.2. Is Terraform&apos;s Built-in Validation Not Enough?</h2>
+<p>With the popularization of Infrastructure as Code and the widespread application of Terraform in cloud-native infrastructure management, organizations face multiple challenges including module reuse, team collaboration, and compliance management. Although Terraform itself has built-in validation mechanisms such as <code>terraform validate</code> and <code>terraform plan</code>, they primarily focus on syntax and basic semantic levels, making it difficult to cover the complex rules and best practice constraints required for enterprise-level governance.</p>
+<p><code>tflint</code> complements the shortcomings of official tools. It can:</p>
+<ul>
+<li>Automatically expose errors and non-standard usage early in code writing, reducing later rework costs</li>
+<li>Unify team code style and structure, improving module reusability and maintainability</li>
+<li>Automatically detect resource types, parameter validity, variable usage, and other business rules, preventing production incidents</li>
+<li>Support custom enterprise-internal rules, effectively supporting compliance and security requirements implementation</li>
+</ul>
+<p>In short, <code>tflint</code> is like <a href="https://golangci-lint.run/" target="_blank"><code>golangci-lint</code></a>, helping us locate code that is syntactically correct but may cause other problems or has been marked as deprecated.</p>
+<h2 id="how-to-use-tflint"><a name="how-to-use-tflint" class="anchor-navigation-ex-anchor" href="#how-to-use-tflint"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.3. How to Use tflint</h2>
+<h3 id="installation"><a name="installation" class="anchor-navigation-ex-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.3.1. Installation</h3>
+<p><code>tflint</code> supports multi-platform installation. Common methods are as follows:</p>
+<ul>
+<li><strong>Linux</strong>:</li>
+</ul>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> <span class="token parameter variable">-s</span> https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh <span class="token operator">|</span> <span class="token function">bash</span>
+</code></pre>
+<ul>
+<li><strong>macOS</strong>:</li>
+</ul>
+<pre class="language-"><code class="lang-bash">brew <span class="token function">install</span> tflint
+</code></pre>
+<ul>
+<li><strong>Windows</strong>:</li>
+</ul>
+<pre class="language-"><code class="lang-cmd">choco <span class="token function">install</span> tflint
+</code></pre>
+<ul>
+<li><strong>Docker Container</strong>:</li>
+</ul>
+<pre class="language-"><code class="lang-bash"><span class="token function">docker</span> run <span class="token parameter variable">--rm</span> <span class="token parameter variable">-v</span> <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>:/data <span class="token parameter variable">-t</span> ghcr.io/terraform-linters/tflint
+</code></pre>
+<p>Additionally, <code>tflint</code> also supports automated integration through GitHub Actions:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Lint
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> master <span class="token punctuation">]</span>
+  <span class="token key atrule">pull_request</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">tflint</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> $
+
+    <span class="token key atrule">strategy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">matrix</span><span class="token punctuation">:</span>
+        <span class="token key atrule">os</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>ubuntu<span class="token punctuation">-</span>latest<span class="token punctuation">,</span> macos<span class="token punctuation">-</span>latest<span class="token punctuation">,</span> windows<span class="token punctuation">-</span>latest<span class="token punctuation">]</span>
+
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v4
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout source code
+
+    <span class="token punctuation">...</span>
+
+    <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> terraform<span class="token punctuation">-</span>linters/setup<span class="token punctuation">-</span>tflint@v4
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup TFLint
+      <span class="token key atrule">with</span><span class="token punctuation">:</span>
+        <span class="token key atrule">tflint_version</span><span class="token punctuation">:</span> v0.52.0
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Show version
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> tflint <span class="token punctuation">-</span><span class="token punctuation">-</span>version
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Init TFLint
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> tflint <span class="token punctuation">-</span><span class="token punctuation">-</span>init
+      <span class="token key atrule">env</span><span class="token punctuation">:</span>
+        <span class="token comment"># https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting</span>
+        <span class="token key atrule">GITHUB_TOKEN</span><span class="token punctuation">:</span> $
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Run TFLint
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> tflint <span class="token punctuation">-</span>f compact
+</code></pre>
+<h3 id="quick-start"><a name="quick-start" class="anchor-navigation-ex-anchor" href="#quick-start"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.3.2. Quick Start</h3>
+<p><strong>Initialize configuration file</strong></p>
+<p>Create a <code>.tflint.hcl</code> file in the project root directory to define required plugins and rules. For example:</p>
+<pre class="language-"><code class="lang-hcl">plugin <span class="token string">&quot;terraform&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">enabled</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+  <span class="token property">preset</span>  <span class="token punctuation">=</span> <span class="token string">&quot;recommended&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>For cloud platforms, you can combine with corresponding plugins:</p>
+<pre class="language-"><code class="lang-hcl">plugin <span class="token string">&quot;aws&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">enabled</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+  <span class="token property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;0.19.0&quot;</span>
+  <span class="token property">source</span>  <span class="token punctuation">=</span> <span class="token string">&quot;github.com/terraform-linters/tflint-ruleset-aws&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Install plugins</strong></p>
+<pre class="language-"><code class="lang-bash">tflint <span class="token parameter variable">--init</span>
+</code></pre>
+<p>Similar to Terraform, <code>tflint</code> also implements a plugin mechanism using HashiCorp&apos;s <a href="https://github.com/hashicorp/go-plugin" target="_blank"><code>go-plugin</code></a>. The <code>source</code> in the <code>plugin &quot;aws&quot;</code> section above indicates where to download the plugin. Therefore, similar to Terraform, before running the <code>tflint</code> command, you need to first run <code>tflint --init</code> to download the plugins.</p>
+<p><strong>Code inspection</strong></p>
+<p>Execute directly in the project root directory:</p>
+<pre class="language-"><code class="lang-bash">tflint
+</code></pre>
+<p><code>tflint</code> will scan all Terraform code in the current directory and output all discovered issues. It supports rich command-line parameters to customize behavior, such as recursive scanning, multiple output formats (json, junit, sarif, etc.), specifying configuration files, auto-fixing certain issues, etc.</p>
+<p><strong>Integrate into CI/CD</strong></p>
+<p>You can integrate <code>tflint</code> into development and deployment pipelines through official GitHub Actions, Makefile, shell scripts, or Docker containers to ensure that every code change is subject to automated checks.</p>
+<h3 id="advanced-usage"><a name="advanced-usage" class="anchor-navigation-ex-anchor" href="#advanced-usage"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.3.3. Advanced Usage</h3>
+<ul>
+<li>Support for enabling/disabling rules, plugin customization, variable file specification, multi-directory recursive scanning, etc.</li>
+<li>You can view detailed logs through environment variable <code>TFLINT_LOG=debug</code> to assist with debugging and troubleshooting.</li>
+</ul>
+<h2 id="calling-tflint-in-avm"><a name="calling-tflint-in-avm" class="anchor-navigation-ex-anchor" href="#calling-tflint-in-avm"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.4. Calling tflint in AVM</h2>
+<p>AVM provides the following script:</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+
+<span class="token function-name function">set_tflint_config</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">env_var</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">override_file</span><span class="token operator">=</span><span class="token variable">$2</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">default_url</span><span class="token operator">=</span><span class="token variable">$3</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">download_file</span><span class="token operator">=</span><span class="token variable">$4</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">merged_file</span><span class="token operator">=</span><span class="token variable">$5</span>
+
+  <span class="token comment"># Always download the file from GitHub</span>
+  <span class="token function">curl</span> <span class="token parameter variable">-H</span> <span class="token string">&apos;Cache-Control: no-cache, no-store&apos;</span> <span class="token parameter variable">-sSL</span> <span class="token string">&quot;<span class="token variable">$default_url</span>&quot;</span> <span class="token parameter variable">-o</span> <span class="token string">&quot;<span class="token variable">$download_file</span>&quot;</span>
+
+  <span class="token comment"># Check if the override file exists</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;<span class="token variable">$override_file</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token comment"># If it does, merge the override file and the downloaded file</span>
+    hclmerge <span class="token parameter variable">-1</span> <span class="token string">&quot;<span class="token variable">$override_file</span>&quot;</span> <span class="token parameter variable">-2</span> <span class="token string">&quot;<span class="token variable">$download_file</span>&quot;</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;<span class="token variable">$merged_file</span>&quot;</span>
+    <span class="token comment"># Set the environment variable to the path of the merged file</span>
+    <span class="token builtin class-name">export</span> <span class="token variable">$env_var</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$merged_file</span>&quot;</span>
+  <span class="token keyword">else</span>
+    <span class="token comment"># If it doesn&apos;t, set the environment variable to the path of the downloaded file</span>
+    <span class="token builtin class-name">export</span> <span class="token variable">$env_var</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">$download_file</span>&quot;</span>
+  <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+set_tflint_config <span class="token string">&quot;TFLINT_CONFIG&quot;</span> <span class="token string">&quot;avm.tflint.override.hcl&quot;</span> <span class="token string">&quot;https://raw.githubusercontent.com/Azure/tfmod-scaffold/main/avm.tflint.hcl&quot;</span> <span class="token string">&quot;avm.tflint.hcl&quot;</span> <span class="token string">&quot;avm.tflint.merged.hcl&quot;</span>
+set_tflint_config <span class="token string">&quot;TFLINT_MODULE_CONFIG&quot;</span> <span class="token string">&quot;avm.tflint_module.override.hcl&quot;</span> <span class="token string">&quot;https://raw.githubusercontent.com/Azure/tfmod-scaffold/main/avm.tflint_module.hcl&quot;</span> <span class="token string">&quot;avm.tflint_module.hcl&quot;</span> <span class="token string">&quot;avm.tflint_module.merged.hcl&quot;</span>
+set_tflint_config <span class="token string">&quot;TFLINT_EXAMPLE_CONFIG&quot;</span> <span class="token string">&quot;avm.tflint_example.override.hcl&quot;</span> <span class="token string">&quot;https://raw.githubusercontent.com/Azure/tfmod-scaffold/main/avm.tflint_example.hcl&quot;</span> <span class="token string">&quot;avm.tflint_example.hcl&quot;</span> <span class="token string">&quot;avm.tflint_example.merged.hcl&quot;</span>
+
+<span class="token assign-left variable">configPathRoot</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/<span class="token variable">$TFLINT_CONFIG</span>
+<span class="token assign-left variable">configPathModule</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/<span class="token variable">$TFLINT_MODULE_CONFIG</span>
+<span class="token assign-left variable">configPathExample</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/<span class="token variable">$TFLINT_EXAMPLE_CONFIG</span>
+
+<span class="token function-name function">run_tflint</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">dir</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">config</span><span class="token operator">=</span><span class="token variable">$2</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">moduleType</span><span class="token operator">=</span><span class="token variable">$3</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">currentDir</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>
+
+  <span class="token builtin class-name">cd</span> <span class="token variable">$dir</span>
+
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Running tflint for <span class="token variable">$moduleType</span> <span class="token variable">$dir</span>&quot;</span>
+
+  tflint <span class="token parameter variable">--init</span> <span class="token parameter variable">--config</span><span class="token operator">=</span><span class="token variable">$config</span>
+  tflint <span class="token parameter variable">--config</span><span class="token operator">=</span><span class="token variable">$config</span> --minimum-failure-severity<span class="token operator">=</span>warning
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">result</span><span class="token operator">=</span><span class="token variable">$?</span>
+
+  <span class="token builtin class-name">cd</span> <span class="token variable">$currentDir</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$result</span> <span class="token parameter variable">-ne</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;------------------------------------------------&quot;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;&quot;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;The <span class="token variable">$moduleType</span> <span class="token variable">$dir</span> contains terraform blocks that do not comply with tflint requirements.&quot;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;&quot;</span>
+    <span class="token builtin class-name">return</span> <span class="token number">1</span>
+  <span class="token keyword">fi</span>
+
+  <span class="token builtin class-name">return</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-eo</span> pipefail
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Copy module to temp dir...&quot;</span>
+<span class="token assign-left variable">RND</span><span class="token operator">=</span><span class="token string">&quot;<span class="token environment constant">$RANDOM</span>&quot;</span>
+<span class="token assign-left variable">TMPDIR</span><span class="token operator">=</span><span class="token string">&quot;/tmp/avmtester<span class="token variable">$RND</span>&quot;</span>
+<span class="token function">cp</span> <span class="token parameter variable">-r</span> <span class="token builtin class-name">.</span> <span class="token string">&quot;<span class="token variable">$TMPDIR</span>&quot;</span>
+<span class="token builtin class-name">cd</span> <span class="token string">&quot;<span class="token variable">$TMPDIR</span>&quot;</span>
+
+<span class="token comment"># clean up terraform files</span>
+<span class="token function">find</span> <span class="token parameter variable">-type</span> d <span class="token parameter variable">-name</span> .terraform <span class="token parameter variable">-print0</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token parameter variable">-0</span> <span class="token function">rm</span> <span class="token parameter variable">-rf</span>
+<span class="token function">find</span> <span class="token parameter variable">-type</span> f <span class="token parameter variable">-name</span> .terraform.lock.hcl <span class="token parameter variable">-print0</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token parameter variable">-0</span> <span class="token function">rm</span> <span class="token parameter variable">-rf</span>
+<span class="token function">find</span> <span class="token parameter variable">-type</span> f <span class="token parameter variable">-name</span> <span class="token string">&apos;terraform.tfstate*&apos;</span> <span class="token parameter variable">-print0</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token parameter variable">-0</span> <span class="token function">rm</span> <span class="token parameter variable">-rf</span>
+<span class="token builtin class-name">set</span> +eo pipefail
+
+<span class="token assign-left variable">has_error</span><span class="token operator">=</span>false
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking that root module complies with tflint requirements...&quot;</span>
+run_tflint <span class="token builtin class-name">.</span> <span class="token variable">$configPathRoot</span> <span class="token string">&quot;root module&quot;</span>
+<span class="token assign-left variable">result</span><span class="token operator">=</span><span class="token variable">$?</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$result</span> <span class="token parameter variable">-ne</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking that sub modules comply with tflint requirements...&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;modules&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; No modules folder, skip lint module code&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">cd</span> modules
+  <span class="token assign-left variable">dirs</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+
+  <span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$dirs</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    run_tflint <span class="token variable">$d</span> <span class="token variable">$configPathModule</span> <span class="token string">&quot;sub module&quot;</span>
+    <span class="token assign-left variable">result</span><span class="token operator">=</span><span class="token variable">$?</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$result</span> <span class="token parameter variable">-ne</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+    <span class="token keyword">fi</span>
+  <span class="token keyword">done</span>
+
+  <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking that examples comply with tflint requirements...&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;examples&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; No examples folder, skip lint example code&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">cd</span> examples
+  <span class="token assign-left variable">dirs</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+
+  <span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$dirs</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    run_tflint <span class="token variable">$d</span> <span class="token variable">$configPathExample</span> <span class="token string">&quot;example&quot;</span>
+    <span class="token assign-left variable">result</span><span class="token operator">=</span><span class="token variable">$?</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$result</span> <span class="token parameter variable">-ne</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+    <span class="token keyword">fi</span>
+  <span class="token keyword">done</span>
+
+  <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+<span class="token keyword">fi</span>
+
+<span class="token keyword">if</span> <span class="token variable">${has_error}</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;------------------------------------------------&quot;</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;&quot;</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;The preceding files contain terraform blocks that do not comply with tflint requirements.&quot;</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;&quot;</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">exit</span> <span class="token number">0</span>
+</code></pre>
+<p>It&apos;s important to note that AVM checks three types of Terraform code with <code>tflint</code>: module code, <code>examples</code> code, and sub-module <code>modules</code> code. Different checking strategies can be specified for these three types of code. For example, we believe that <code>examples</code> code does not need to enforce all <code>output</code> blocks declaring a <code>description</code>. AVM provides a default <code>avm.tflint_example.hcl</code> which defines:</p>
+<pre class="language-"><code class="lang-hcl">rule <span class="token string">&quot;terraform_documented_outputs&quot;</span> <span class="token punctuation">{</span>
+  <span class="token property">enabled</span> <span class="token punctuation">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>If module maintainers want to make some adjustments based on the default rule configuration, for example, if we want to allow <code>output</code> blocks in the current module code without declaring a <code>description</code> (this is strongly discouraged), we can add a file named <code>avm.tflint.override.hcl</code> in the current module repository containing the <code>terraform_documented_outputs</code> block declared above. The AVM CI pipeline will merge the configuration in this <code>override.hcl</code> file into the default configuration when running (the script uses the tool <a href="https://github.com/lonegunmanb/hclmerge" target="_blank"><code>hclmerge</code></a>).</p>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.6.1.5. Summary</h2>
+<p><code>tflint</code> is an indispensable automated tool for large-scale Terraform module governance. It combines a flexible plugin extension mechanism, rich rule sets, and highly customizable checking capabilities, significantly improving the quality, security, and team collaboration efficiency of infrastructure code. Whether for single projects or enterprise-level multi-team governance, <code>tflint</code> provides solid support for standardization, compliance, and efficient delivery of Terraform code.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="avmfix.html" class="navigation navigation-prev " aria-label="Previous page: avmfix">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="checkov.html" class="navigation navigation-next " aria-label="Next page: checkov">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"tflint","level":"1.6.6","depth":2,"next":{"title":"checkov","level":"1.6.7","depth":2,"path":"toolchain/checkov.md","ref":"toolchain/checkov.md","articles":[]},"previous":{"title":"avmfix","level":"1.6.5","depth":2,"path":"toolchain/avmfix.md","ref":"toolchain/avmfix.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/tflint.md","mtime":"2026-01-07T07:10:03.200Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

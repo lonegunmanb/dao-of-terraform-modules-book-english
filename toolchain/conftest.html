@@ -1,0 +1,1269 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>conftest · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="grept.html" />
+    
+    
+    <link rel="prev" href="newres.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >conftest</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#conftest"><b>1.6.11.1. </b>Conftest</a></li><ul><li><span class="title-icon "></span><a href="#practical-application-of-conftest-in-terraform-scenarios"><b>1.6.11.1.1. </b>Practical application of Conftest in Terraform scenarios</a></li><li><span class="title-icon "></span><a href="#integration-of-conftest-in-avm"><b>1.6.11.1.2. </b>Integration of Conftest in AVM</a></li><li><span class="title-icon "></span><a href="#makefile-integration-avmmakefile"><b>1.6.11.1.3. </b>Makefile Integration (avmmakefile)</a></li><li><span class="title-icon "></span><a href="#github-actions-workflow-integration-test-examples-templateyml"><b>1.6.11.1.4. </b>GitHub Actions Workflow Integration (test-examples-template.yml)</a></li><li><span class="title-icon "></span><a href="#policy-library-avm"><b>1.6.11.1.5. </b>policy-library-avm</a></li><ul><li><span class="title-icon "></span><a href="#azure-proactive-resiliency-library-v2-aprl-for-short"><b>1.6.11.1.5.1. </b>Azure-Proactive-Resiliency-Library-v2 (aprl for short)</a></li><li><span class="title-icon "></span><a href="#avmsec-azure-verified-module-security-ruleset"><b>1.6.11.1.5.2. </b>avmsec (Azure Verified Module Security Ruleset)</a></li><li><span class="title-icon "></span><a href="#using-conftest-to-check-policies-against-terraform-plan-files"><b>1.6.11.1.5.3. </b>Using Conftest to check policies against Terraform plan files</a></li><li><span class="title-icon "></span><a href="#creating-exceptions-for-policy-checks"><b>1.6.11.1.5.4. </b>Creating Exceptions for Policy Checks</a></li></ul><li><span class="title-icon "></span><a href="#summary"><b>1.6.11.1.6. </b>Summary</a></li></ul></ul></div><a href="#conftest" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="conftest"><a name="conftest" class="anchor-navigation-ex-anchor" href="#conftest"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1. Conftest</h1>
+<p>With the prevalence of Infrastructure as Code (IaC), ensuring configuration compliance and policy consistency in large-scale Terraform module governance has become a significant challenge. Conftest was born in this context as a <strong>Policy-as-Code</strong> tool. It is a command-line tool for writing tests against structured configuration data, relying on the Rego policy language provided by the CNCF open-source project <a href="https://www.openpolicyagent.org/" target="_blank">Open Policy Agent (OPA)</a>. Simply put, Conftest allows us to write <strong>policy tests</strong> for configuration files (such as Terraform module code, Kubernetes configurations, Tekton Pipeline definitions, etc.) to automatically check if configurations meet predefined policy requirements before deployment. By integrating compliance policies into code testing, Conftest acts as a &quot;gatekeeper&quot; in infrastructure governance, helping teams discover non-compliant configurations before deployment and avoiding bringing hidden dangers into the production environment.</p>
+<p>I have already given a relatively systematic introduction to the Rego rule language in <a href="https://xie.infoq.cn/article/c053620f2f0165de7846d83b8" target="_blank">Rego 101 Chinese Tutorial</a>, so this book will not repeat the details of Rego.</p>
+<p><strong>Why do we need Conftest?</strong> In IaC scenarios, developers can write and modify Terraform configuration code very quickly, leading to frequent and large-scale configuration changes. Without effective compliance review mechanisms, resource configurations that do not meet security or specification requirements are likely to appear. For example, an infrastructure created by a Terraform configuration might miss necessary encryption settings or open network ports that should not be open. Finding such issues through manual code review alone is not only time-consuming and labor-intensive but also difficult to guarantee no omissions.</p>
+<p>Conftest provides an automated solution: we can write organizational compliance requirements and best practices into <strong>executable policy code</strong>, and run these policy checks automatically with the tool every time the Terraform configuration changes. Once a configuration violating the policy is detected, Conftest will immediately issue a failure report, preventing non-compliant code from advancing to subsequent stages. In this way, Conftest shifts compliance checks left, enabling &quot;early prevention and early detection&quot; before code merge or deployment, significantly reducing the burden of human review and providing <strong>consistent policy guardrails</strong> for large-scale infrastructure code.</p>
+<h2 id="practical-application-of-conftest-in-terraform-scenarios"><a name="practical-application-of-conftest-in-terraform-scenarios" class="anchor-navigation-ex-anchor" href="#practical-application-of-conftest-in-terraform-scenarios"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.1. Practical application of Conftest in Terraform scenarios</h2>
+<p>Conftest works very flexibly with Terraform. The typical process involves using Terraform to generate a parsable plan file, and then using Conftest to test it against policy rules. Here is a basic workflow integrated with Terraform:</p>
+<p><strong>Generate Terraform execution plan JSON file</strong>: First, run the Terraform plan command to export the infrastructure change plan as a JSON format file. For example:</p>
+<pre class="language-"><code class="lang-shell">terraform init <span class="token operator">&amp;&amp;</span> terraform plan <span class="token parameter variable">-out</span><span class="token operator">=</span>tfplan.binary
+terraform show <span class="token parameter variable">-json</span> tfplan.binary <span class="token operator">&gt;</span> tfplan.json
+</code></pre>
+<p>Through <code>terraform plan</code> and <code>terraform show -json</code>, we obtain detailed structured data output of the current Terraform changes. This <code>tfplan.json</code> file contains all information about resources that Terraform plans to create, modify, or destroy, providing basic data for policy checks.</p>
+<p><strong>Write policy tests (Rego files)</strong>: Before starting testing, we need to write Rego rule files that represent compliance policies. For example, we can formulate a policy prohibiting <strong>the use of unapproved Terraform modules</strong> or <strong>mandating that resources include specific tags</strong>, or perhaps, <strong>all newly created AWS S3 buckets must have encryption and versioning enabled</strong>, otherwise returning a violation and breaking the pipeline. Although a deep understanding of Rego syntax helps in writing complex policies, in general cases, we can quickly get started writing these rules by borrowing from community examples without needing to master Rego.</p>
+<p><strong>Run Conftest for policy checking</strong>: With the Terraform plan JSON and policy files, we can use Conftest to test whether the configuration is compliant. Execute the command:</p>
+<pre class="language-"><code class="lang-shell">conftest <span class="token builtin class-name">test</span> <span class="token parameter variable">-p</span> /path/to/policy/dir tfplan.json
+</code></pre>
+<p>Here, the <code>-p</code> parameter specifies the directory where policy files are located (by default, Conftest also searches for <code>.rego</code> policy files in the <code>policy</code> subdirectory of the current directory). Conftest will read the contents of <code>tfplan.json</code>, apply all policy rules we defined, and report every non-compliance. Example output result:</p>
+<pre class="language-"><code class="lang-text">FAIL - tfplan.json - Module terraform-azurerm-compute.git?ref=tags/v0.1 is not in allowed range.
+</code></pre>
+<p>The hypothetical output above indicates that the test failed because the Terraform plan used a module version that is not allowed. For the same <code>tfplan.json</code> file, if we correct the configuration to comply with group policies and run the test again, we should get a result where all tests pass, for example:</p>
+<pre class="language-"><code class="lang-text">1 tests, 1 passed, 0 warnings, 0 failures, 0 exceptions
+</code></pre>
+<p>Through such feedback, we can clearly know which parts violate the policy and what modifications need to be made in the Terraform configuration.</p>
+<p>By practicing Conftest, we embed compliance policy verification into the Terraform module development process. This not only <strong>automates</strong> many tasks that originally required manual inspection but also makes policy execution <strong>consistent and traceable</strong>. Especially in scenarios with a large number of modules and multi-person collaboration, Conftest helps teams ensure that Terraform modules written by anyone follow the same security and specification guidelines.</p>
+<p>In actual projects, we can integrate Conftest into the CI/CD pipeline to achieve continuous policy checking. For example:</p>
+<ul>
+<li><strong>Automatic review in Pull Request stage</strong>: When someone submits a Pull Request for Terraform configuration, run <code>terraform plan</code> in CI and test the generated plan with Conftest. If the policy check fails, code merging is blocked. This is equivalent to automated code review, saving time for manual item-by-item inspection.</li>
+<li><strong>Integration with deployment process</strong>: Add a Conftest step in the pipeline before formal deployment to ensure that only Terraform plans passing all policy tests can execute <code>terraform apply</code>. This adds insurance to the production environment, preventing non-compliant changes from being deployed online.</li>
+<li><strong>Cooperation with existing tools</strong>: If the team uses Terraform automation tools like <a href="https://portal.cloud.hashicorp.com/" target="_blank">HCP Terraform</a> or <a href="https://www.runatlantis.io/" target="_blank">Atlantis</a>, they can be configured to call Conftest for policy verification after each plan. This way, the entire process from code submission, review to deployment is guarded by policies, truly achieving <strong>end-to-end compliance</strong> for infrastructure changes.</li>
+</ul>
+<h2 id="integration-of-conftest-in-avm"><a name="integration-of-conftest-in-avm" class="anchor-navigation-ex-anchor" href="#integration-of-conftest-in-avm"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.2. Integration of Conftest in AVM</h2>
+<p>AVM (Azure Verified Modules) uses the Conftest tool to automate compliance and policy checking in module pipelines. Specifically, AVM implements policy verification for Terraform modules through three parts: script encapsulation, Makefile integration, and GitHub Actions workflows.</p>
+<ul>
+<li><strong>Script Encapsulation and Execution (<code>conftest.sh</code>)</strong></li>
+</ul>
+<p>AVM provides a dedicated script <a href="https://github.com/Azure/tfmod-scaffold/blob/main/avm_scripts/conftest.sh" target="_blank"><code>conftest.sh</code></a>, which encapsulates the process of executing Conftest tests on modules:</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-e</span>
+
+<span class="token assign-left variable">has_error</span><span class="token operator">=</span>false
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;examples&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;No \<span class="token variable"><span class="token variable">`</span>examples<span class="token punctuation">\</span><span class="token variable">`</span></span> folder found.&quot;</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">cd</span> examples
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token keyword">if</span> <span class="token function">ls</span> <span class="token string">&quot;<span class="token variable">$d</span>&quot;</span>/*.tf <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">cd</span> <span class="token string">&quot;<span class="token variable">$d</span>&quot;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Checking <span class="token variable">$d</span>&quot;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;.e2eignore&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Skipping <span class="token variable">$d</span> due to .e2eignore file&quot;</span>
+      <span class="token builtin class-name">cd</span> - <span class="token operator">&gt;</span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+      <span class="token builtin class-name">continue</span>
+    <span class="token keyword">fi</span>
+
+    <span class="token comment"># run pre.sh if it exists</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;./pre.sh&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Running pre.sh&quot;</span>
+      <span class="token function">chmod</span> +x ./pre.sh
+      ./pre.sh
+    <span class="token keyword">fi</span>
+
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Initializing Terraform...&quot;</span>
+    terraform init <span class="token parameter variable">-input</span><span class="token operator">=</span>false
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Running Terraform plan...&quot;</span>
+    terraform plan <span class="token parameter variable">-input</span><span class="token operator">=</span>false <span class="token parameter variable">-out</span><span class="token operator">=</span>tfplan.binary
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Converting Terraform plan to JSON...&quot;</span>
+    terraform show <span class="token parameter variable">-json</span> tfplan.binary <span class="token operator">&gt;</span> tfplan.json
+
+    <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ./policy/default_exceptions
+    <span class="token function">curl</span> <span class="token parameter variable">-sS</span> <span class="token parameter variable">-o</span> ./policy/default_exceptions/avmsec_exceptions.rego https://raw.githubusercontent.com/Azure/policy-library-avm/refs/heads/main/policy/avmsec/avm_exceptions.rego.bak
+
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;exceptions&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 <span class="token parameter variable">-p</span> policy/aprl <span class="token parameter variable">-p</span> policy/default_exceptions <span class="token parameter variable">-p</span> exceptions tfplan.json <span class="token operator">||</span> <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+      conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/avmsec <span class="token parameter variable">-p</span> policy/avmsec <span class="token parameter variable">-p</span> policy/default_exceptions <span class="token parameter variable">-p</span> exceptions tfplan.json <span class="token operator">||</span> <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+    <span class="token keyword">else</span>
+      conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 <span class="token parameter variable">-p</span> policy/aprl <span class="token parameter variable">-p</span> policy/default_exceptions tfplan.json <span class="token operator">||</span> <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+      conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/avmsec <span class="token parameter variable">-p</span> policy/avmsec <span class="token parameter variable">-p</span> policy/default_exceptions tfplan.json <span class="token operator">||</span> <span class="token assign-left variable">has_error</span><span class="token operator">=</span>true
+    <span class="token keyword">fi</span>
+
+    <span class="token comment"># run post.sh if it exists</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">&quot;./post.sh&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Running post.sh&quot;</span>
+      <span class="token function">chmod</span> +x ./post.sh
+      ./post.sh
+    <span class="token keyword">fi</span>
+
+    <span class="token builtin class-name">cd</span> - <span class="token operator">&gt;</span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+  <span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$has_error</span>&quot;</span> <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;At least one \<span class="token variable"><span class="token variable">`</span>examples<span class="token punctuation">\</span><span class="token variable">`</span></span> folder failed.&quot;</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;All \<span class="token variable"><span class="token variable">`</span>examples<span class="token punctuation">\</span><span class="token variable">`</span></span> folders passed.&quot;</span>
+<span class="token builtin class-name">exit</span> <span class="token number">0</span>
+</code></pre>
+<p>For each example under <code>examples</code>, this script runs Terraform commands to generate a plan file in JSON format, and then runs the check rules defined in <a href="https://github.com/Azure/policy-library-avm" target="_blank"><code>policy-library-avm</code></a> against the plan.</p>
+<p>Note that if the module maintainer decides to skip checking certain rules for a specific sample code, they can create an <code>exceptions</code> folder in that sample directory and define ignore rules in Rego within it, for example:</p>
+<pre class="language-"><code class="lang-rego"><span class="token keyword">package</span> Azure_Proactive_Resiliency_Library_v2
+
+<span class="token keyword">import</span> rego<span class="token punctuation">.</span>v1
+
+exception contains rules if <span class="token punctuation">{</span>
+  rules <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;storage_accounts_are_zone_or_region_redundant&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This configuration can skip the <code>use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer</code> and <code>storage_accounts_are_zone_or_region_redundant</code> rules within <code>Azure_Proactive_Resiliency_Library_v2</code>.</p>
+<h2 id="makefile-integration-avmmakefile"><a name="makefile-integration-avmmakefile" class="anchor-navigation-ex-anchor" href="#makefile-integration-avmmakefile"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.3. Makefile Integration (avmmakefile)</h2>
+<p>AVM&apos;s pipeline provides a standardized execution interface through a Makefile:</p>
+<pre class="language-"><code class="lang-makefile"><span class="token builtin-target builtin">.PHONY</span><span class="token punctuation">:</span> conftest
+<span class="token target symbol">conftest</span><span class="token punctuation">:</span>
+    <span class="token operator">@</span>bash ./avm_scripts/conftest.sh
+</code></pre>
+<p>By defining a target named <code>conftest</code>, developers only need to execute the <code>make conftest</code> command to trigger compliance checks.</p>
+<h2 id="github-actions-workflow-integration-test-examples-templateyml"><a name="github-actions-workflow-integration-test-examples-templateyml" class="anchor-navigation-ex-anchor" href="#github-actions-workflow-integration-test-examples-templateyml"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.4. GitHub Actions Workflow Integration (test-examples-template.yml)</h2>
+<p>AVM seamlessly integrates Conftest into the CI pipeline, as reflected in the definition of the <a href="https://github.com/Azure/terraform-azurerm-avm-template/blob/main/.github/workflows/test-examples-template.yml" target="_blank"><code>test-examples-template.yml</code></a> file:</p>
+<pre class="language-"><code class="lang-yaml">
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">conftest</span><span class="token punctuation">:</span>
+    <span class="token key atrule">if</span><span class="token punctuation">:</span> github.event.pull_request.head.repo.fork == false
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span> test
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 <span class="token comment">#v4.2.2</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Conftest
+        <span class="token key atrule">env</span><span class="token punctuation">:</span>
+          <span class="token key atrule">TF_IN_AUTOMATION</span><span class="token punctuation">:</span> <span class="token number">1</span>
+          <span class="token key atrule">TF_VAR_enable_telemetry</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+          <span class="token key atrule">SECRETS_CONTEXT</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> toJson(secrets) <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">VARS_CONTEXT</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> toJson(vars) <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_TENANT_ID</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ARM_TENANT_ID <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_TENANT_ID_OVERRIDE</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ARM_TENANT_ID_OVERRIDE <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_SUBSCRIPTION_ID</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ARM_SUBSCRIPTION_ID <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_SUBSCRIPTION_ID_OVERRIDE</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ARM_SUBSCRIPTION_ID_OVERRIDE <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_CLIENT_ID</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ARM_CLIENT_ID <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_CLIENT_ID_OVERRIDE</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ARM_CLIENT_ID_OVERRIDE <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">ARM_USE_OIDC</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          set -e</span>
+
+          export REMOTE_SCRIPT=&quot;https<span class="token punctuation">:</span>//raw.githubusercontent.com/Azure/tfmod<span class="token punctuation">-</span>scaffold/main/avm_scripts&quot;
+          <span class="token key atrule">curl -H &apos;Cache-Control</span><span class="token punctuation">:</span> no<span class="token punctuation">-</span>cache<span class="token punctuation">,</span> no<span class="token punctuation">-</span>store&apos; <span class="token punctuation">-</span>sSL &quot;$REMOTE_SCRIPT/prepare<span class="token punctuation">-</span>credential.sh&quot; <span class="token punctuation">-</span>o prepare<span class="token punctuation">-</span>credential.sh
+          source ./prepare<span class="token punctuation">-</span>credential.sh
+          docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>rm <span class="token punctuation">-</span>v /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock <span class="token punctuation">-</span>v $(pwd)<span class="token punctuation">:</span>/src <span class="token punctuation">-</span>w /src <span class="token punctuation">-</span>e TF_IN_AUTOMATION <span class="token punctuation">-</span>e TF_VAR_enable_telemetry <span class="token punctuation">-</span>e AVM_MOD_PATH=/src <span class="token punctuation">-</span>e AVM_EXAMPLE=$<span class="token punctuation">{</span><span class="token punctuation">{</span> matrix.example <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">-</span>e ARM_SUBSCRIPTION_ID <span class="token punctuation">-</span>e ARM_TENANT_ID <span class="token punctuation">-</span>e ARM_CLIENT_ID <span class="token punctuation">-</span>e ARM_OIDC_REQUEST_TOKEN <span class="token punctuation">-</span>e ARM_OIDC_REQUEST_URL <span class="token punctuation">-</span>e ARM_USE_OIDC=true <span class="token punctuation">-</span><span class="token punctuation">-</span>env<span class="token punctuation">-</span>file &lt;(env <span class="token punctuation">|</span> grep TF_VAR_ <span class="token punctuation">|</span> grep <span class="token punctuation">-</span>v &apos; &quot;TF_VAR_&apos;) mcr.microsoft.com/azterraform<span class="token punctuation">:</span>latest make conftest
+</code></pre>
+<p>This task first configures the required permissions (valid permissions are needed to create Terraform plan files) and then runs <code>make conftest</code>.</p>
+<p>Through this pipeline implementation, Conftest policy checking is automatically integrated into the module submission check process. Every time a PR is submitted or pushed, after review by module maintainers, <code>terraform plan</code> can be run, and then policy checks are executed against the change plan, ensuring that the module always meets the organization&apos;s compliance standards and security requirements.</p>
+<h2 id="policy-library-avm"><a name="policy-library-avm" class="anchor-navigation-ex-anchor" href="#policy-library-avm"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.5. policy-library-avm</h2>
+<p><a href="http://github.com/Azure/policy-library-avm" target="_blank"><code>policy-library-avm</code></a> is the inspection policy library currently maintained and executed by AVM. It is designed to inspect both AzureRM and AzAPI resources simultaneously (all rules provide corresponding implementations for both providers).</p>
+<p>Currently, this rule library consists of two sub-libraries:</p>
+<h3 id="azure-proactive-resiliency-library-v2-aprl-for-short"><a name="azure-proactive-resiliency-library-v2-aprl-for-short" class="anchor-navigation-ex-anchor" href="#azure-proactive-resiliency-library-v2-aprl-for-short"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.5.1. Azure-Proactive-Resiliency-Library-v2 (aprl for short)</h3>
+<p><strong>Positioning</strong>: This rule package focuses on improving the reliability and resilience of Azure resources, aiming to help users build highly available and fault-tolerant infrastructure.</p>
+<p><strong>Rule Features</strong>:</p>
+<ul>
+<li>Covers best practices for multiple Azure services such as network, storage, and compute.</li>
+<li>Ensures resource configuration meets high availability and disaster recovery requirements.</li>
+<li>Clear rule organization structure, classified by service and provider (such as <code>azurerm</code> and <code>azapi</code>).</li>
+</ul>
+<p><strong>Example Rule</strong>:</p>
+<ul>
+<li>Requires the use of NAT Gateway instead of Load Balancer outbound rules in production environments to enhance network reliability.</li>
+</ul>
+<pre class="language-"><code class="lang-rego"><span class="token keyword">package</span> Azure_Proactive_Resiliency_Library_v2
+
+<span class="token keyword">import</span> rego<span class="token punctuation">.</span>v1
+
+deny_use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer contains reason if <span class="token punctuation">{</span>
+    resource <span class="token operator">:=</span> <span class="token function"><span class="token namespace">data</span><span class="token punctuation">.</span><span class="token namespace">utils</span><span class="token punctuation">.</span>resource</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">&quot;azurerm_lb_outbound_rule&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">_</span><span class="token punctuation">]</span>
+    reason <span class="token operator">:=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">&quot;Azure-Proactive-Resiliency-Library-v2/use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer: &apos;%s&apos; `azurerm_lb_outbound_rule` must not be used for production workloads: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>resource<span class="token punctuation">.</span>address<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this code, <code>package Azure_Proactive_Resiliency_Library_v2</code> indicates that this rule belongs to the package <code>Azure_Proactive_Resiliency_Library_v2</code> (Rego code is typically organized by package). <code>deny_use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer</code> has the <code>deny_</code> prefix, indicating that failure of this rule will trigger a <strong>violation</strong> rather than a <em>warning</em>. The name of the rule is <code>use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer</code>.</p>
+<h3 id="avmsec-azure-verified-module-security-ruleset"><a name="avmsec-azure-verified-module-security-ruleset" class="anchor-navigation-ex-anchor" href="#avmsec-azure-verified-module-security-ruleset"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.5.2. avmsec (Azure Verified Module Security Ruleset)</h3>
+<p><strong>Positioning</strong>: This rule package focuses on the security of Azure Verified Modules (AVM), ensuring module configurations comply with security best practices.</p>
+<p><strong>Rule Features</strong>:</p>
+<ul>
+<li>Covers security configurations in multiple aspects such as authentication, encryption, and network security.</li>
+<li>Rules are divided into four severity levels: <code>high</code>, <code>medium</code>, <code>low</code>, and <code>info</code>, allowing users to apply them selectively according to needs.</li>
+<li>Inspired by <a href="https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azure-general-policies" target="_blank">BridgeCrew&apos;s Checkov built-in rules</a>, combining industry security best practices.</li>
+</ul>
+<p><strong>Example Rule</strong>:</p>
+<ul>
+<li>Ensures that the <code>admin</code> account for Azure Container Registry is disabled:</li>
+</ul>
+<pre class="language-"><code class="lang-rego"><span class="token keyword">package</span> avmsec
+
+<span class="token keyword">import</span> rego<span class="token punctuation">.</span>v1
+
+<span class="token function">valid_azurerm_container_registry_admin_account_disabled</span><span class="token punctuation">(</span>resource<span class="token punctuation">)</span> if <span class="token punctuation">{</span>
+    resource<span class="token punctuation">.</span>values<span class="token punctuation">.</span>admin_enabled <span class="token operator">==</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">valid_azurerm_container_registry_admin_account_disabled</span><span class="token punctuation">(</span>resource<span class="token punctuation">)</span> if <span class="token punctuation">{</span>
+    <span class="token keyword">not</span> resource<span class="token punctuation">.</span>values<span class="token punctuation">.</span>admin_enabled <span class="token operator">==</span> resource<span class="token punctuation">.</span>values<span class="token punctuation">.</span>admin_enabled
+<span class="token punctuation">}</span>
+
+deny_AVM_SEC_137 contains reason if <span class="token punctuation">{</span>
+    resource <span class="token operator">:=</span> <span class="token function"><span class="token namespace">data</span><span class="token punctuation">.</span><span class="token namespace">utils</span><span class="token punctuation">.</span>resource</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">&quot;azurerm_container_registry&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">_</span><span class="token punctuation">]</span>
+    <span class="token keyword">not</span> <span class="token function">valid_azurerm_container_registry_admin_account_disabled</span><span class="token punctuation">(</span>resource<span class="token punctuation">)</span>
+
+    reason <span class="token operator">:=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">&quot;avmsec/AVM_SEC_137: Ensure ACR admin account is disabled %s, https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/ACRAdminAccountDisabled.py&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>resource<span class="token punctuation">.</span>address<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="using-conftest-to-check-policies-against-terraform-plan-files"><a name="using-conftest-to-check-policies-against-terraform-plan-files" class="anchor-navigation-ex-anchor" href="#using-conftest-to-check-policies-against-terraform-plan-files"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.5.3. Using Conftest to check policies against Terraform plan files</h3>
+<p>To use Conftest to check policies against Terraform plan files, follow these steps:</p>
+<ol>
+<li><strong>Generate JSON representation of Terraform plan file</strong>:</li>
+</ol>
+<pre class="language-"><code class="lang-bash">terraform plan <span class="token parameter variable">-out</span><span class="token operator">=</span>tfplan.binary
+terraform show <span class="token parameter variable">-json</span> tfplan.binary <span class="token operator">&gt;</span> tfplan.json
+</code></pre>
+<p>This will generate a file named <code>tfplan.json</code> containing detailed information about the Terraform plan.</p>
+<ol>
+<li><p><strong>Run policy check with Conftest</strong>:</p>
+</li>
+<li><p><strong>Check all policies</strong>:</p>
+</li>
+</ol>
+<pre class="language-"><code class="lang-bash">conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy tfplan.json
+</code></pre>
+<p>This command will apply all policies to check the <code>tfplan.json</code> file.</p>
+<ul>
+<li><strong>Check only APRL policies</strong>:</li>
+</ul>
+<pre class="language-"><code class="lang-bash">conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 tfplan.json
+</code></pre>
+<p>This command will apply only APRL policies to check the <code>tfplan.json</code> file.</p>
+<ul>
+<li><strong>Check only avmsec policies</strong>:</li>
+</ul>
+<pre class="language-"><code class="lang-bash">conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/avmsec tfplan.json
+</code></pre>
+<p>This command will apply only avmsec policies to check the <code>tfplan.json</code> file.</p>
+<h3 id="creating-exceptions-for-policy-checks"><a name="creating-exceptions-for-policy-checks" class="anchor-navigation-ex-anchor" href="#creating-exceptions-for-policy-checks"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.5.4. Creating Exceptions for Policy Checks</h3>
+<p>In some cases, you may need to create exceptions for specific policies to temporarily bypass certain rule checks. This can be achieved by creating an <code>exception.rego</code> file. For example, to exclude the rule named <code>&quot;configure_aks_default_node_pool_zones&quot;</code>, you can create a file with the following content:</p>
+<pre class="language-"><code class="lang-rego"><span class="token keyword">package</span> Azure_Proactive_Resiliency_Library_v2
+
+<span class="token keyword">import</span> rego<span class="token punctuation">.</span>v1
+
+exception contains rules if <span class="token punctuation">{</span>
+  rules <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;configure_aks_default_node_pool_zones&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Then, use the following command to apply the policy check including the exception file:</p>
+<pre class="language-"><code class="lang-bash">conftest <span class="token builtin class-name">test</span> --all-namespaces <span class="token parameter variable">--update</span> git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 <span class="token parameter variable">-p</span> policy <span class="token parameter variable">-p</span> exception.rego tfplan.json
+</code></pre>
+<p>For the <code>avmsec</code> policy package, you can create exceptions based on severity levels. For example, to apply only <code>high</code> severity level policies, you can create an <code>exception.rego</code> file with the following content:</p>
+<pre class="language-"><code class="lang-rego"><span class="token keyword">package</span> avmsec
+
+<span class="token keyword">import</span> rego<span class="token punctuation">.</span>v1
+
+<span class="token comment"># Skip all policies except high severity</span>
+exception contains rules if <span class="token punctuation">{</span>
+  rules <span class="token operator">=</span> rules_below_high
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Then, use a similar command to apply the policy check including the exception file.</p>
+<h2 id="summary"><a name="summary" class="anchor-navigation-ex-anchor" href="#summary"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.11.1.6. Summary</h2>
+<p>In conclusion, Conftest tightly integrates policies with code, providing strong support for Terraform module governance. In large-scale infrastructure code practices, using tools like Conftest can significantly improve the efficiency and reliability of compliance checks. It transforms complex compliance requirements into executable tests in a straightforward way, allowing engineers to get immediate feedback and correct issues during daily development. Through continuous policy-as-code practices, we not only consolidate the security and standardization of infrastructure but also establish a scalable and automated <strong>defense system</strong> for enterprise Terraform module governance. This way, as our infrastructure footprint continues to expand, we can still follow rules and move forward steadily.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="newres.html" class="navigation navigation-prev " aria-label="Previous page: newres">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="grept.html" class="navigation navigation-next " aria-label="Next page: grept">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"conftest","level":"1.6.11","depth":2,"next":{"title":"grept","level":"1.6.12","depth":2,"path":"toolchain/grept.md","ref":"toolchain/grept.md","articles":[]},"previous":{"title":"newres","level":"1.6.10","depth":2,"path":"toolchain/newres.md","ref":"toolchain/newres.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/conftest.md","mtime":"2026-01-07T07:20:37.471Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

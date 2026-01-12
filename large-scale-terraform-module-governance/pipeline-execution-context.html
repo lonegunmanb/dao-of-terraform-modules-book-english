@@ -1,0 +1,1142 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Pipeline Execution Context · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="change-management.html" />
+    
+    
+    <link rel="prev" href="maintaining-global-pipeline-consistency.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="one-module-one-repository.html">
+            
+                <a href="one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="semantic-versioning.html">
+            
+                <a href="semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="maintaining-consistent-repository-content.html">
+            
+                <a href="maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="unified-repository-permission-system.html">
+            
+                <a href="unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="continuous-integration-pipelines.html">
+            
+                <a href="continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="maintaining-global-pipeline-consistency.html">
+            
+                <a href="maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.7" data-path="pipeline-execution-context.html">
+            
+                <a href="pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="change-management.html">
+            
+                <a href="change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="pipeline-security-considerations.html">
+            
+                <a href="pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Pipeline Execution Context</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#consistent-pipeline-execution-context"><b>1.4.7.1. </b>Consistent Pipeline Execution Context</a></li><ul><li><span class="title-icon "></span><a href="#consistent-containerized-development-environment"><b>1.4.7.1.1. </b>Consistent Containerized Development Environment</a></li><li><span class="title-icon "></span><a href="#practical-suggestions"><b>1.4.7.1.2. </b>Practical Suggestions</a></li></ul></ul></div><a href="#consistent-pipeline-execution-context" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="consistent-pipeline-execution-context"><a name="consistent-pipeline-execution-context" class="anchor-navigation-ex-anchor" href="#consistent-pipeline-execution-context"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.7.1. Consistent Pipeline Execution Context</h1>
+<p>In the governance of large-scale Terraform Modules, we perform a series of checks within the continuous delivery pipeline, such as code formatting, TFLint, etc. We encourage developers submitting code changes to the module to run these checks locally before formally submitting a Pull Request, and we provide a set of accompanying tools to help developers easily automate tasks like code formatting.</p>
+<p>We sometimes encounter consistency issues between the continuous integration pipeline and the local development environment. For example, a test might fail during the Pull Request check but cannot be reproduced locally, or no matter how tools are used locally to fix it, it consistently fails to pass the pipeline checks.</p>
+<p>How can we ensure that the versions of various tools used in the continuous delivery pipeline are consistent with those in the developer&apos;s local environment?</p>
+<h2 id="consistent-containerized-development-environment"><a name="consistent-containerized-development-environment" class="anchor-navigation-ex-anchor" href="#consistent-containerized-development-environment"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.7.1.1. Consistent Containerized Development Environment</h2>
+<p>One approach is to use a containerized development environment. By providing a pre-configured Docker image containing all necessary tools (such as Terraform, TFLint, Pre-commit, etc.), we can ensure that the environment used by developers locally is completely identical to the CI/CD pipeline.</p>
+<p>Azure&apos;s <a href="https://github.com/Azure/avm-terraform-governance" target="_blank">avm-terraform-governance</a> project provides <a href="https://github.com/Azure/avm-terraform-governance/tree/main/container" target="_blank">Dockerfile</a> to build such an image. Additionally, it provides a script named <code>avm</code> to simplify the process for developers using this container locally:</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-e</span>
+
+<span class="token function-name function">usage</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;Usage: avm &lt;make target&gt;&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># We need to do this because bash doesn&apos;t like it when a script is updated in place.</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token variable">${AVM_SCRIPT_FORKED}</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># If AVM_SCRIPT_FORKED is not set, we are running the script from the original repository</span>
+  <span class="token comment"># Set AVM_SCRIPT_FORKED to true to avoid running this block again</span>
+  <span class="token builtin class-name">export</span> <span class="token assign-left variable">AVM_SCRIPT_FORKED</span><span class="token operator">=</span>true
+
+  <span class="token comment"># Make a copy of this script in the current directory</span>
+  <span class="token comment"># and run that copy.</span>
+  <span class="token function">cp</span> <span class="token string">&quot;<span class="token variable">$0</span>&quot;</span> .avm
+  <span class="token function">chmod</span> +x .avm
+  <span class="token builtin class-name">exec</span> ./.avm <span class="token string">&quot;<span class="token variable">$@</span>&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># Default values for environment variables</span>
+<span class="token assign-left variable">CONTAINER_RUNTIME</span><span class="token operator">=</span><span class="token variable">${CONTAINER_RUNTIME<span class="token operator">:-</span>&quot;docker&quot;}</span>
+<span class="token assign-left variable">CONTAINER_IMAGE</span><span class="token operator">=</span><span class="token variable">${CONTAINER_IMAGE<span class="token operator">:-</span>&quot;mcr.microsoft.com<span class="token operator">/</span>azterraform<span class="token operator">:</span>avm-latest&quot;}</span>
+<span class="token assign-left variable">CONTAINER_PULL_POLICY</span><span class="token operator">=</span><span class="token variable">${CONTAINER_PULL_POLICY<span class="token operator">:-</span>&quot;always&quot;}</span>
+<span class="token assign-left variable">AVM_MAKEFILE_REF</span><span class="token operator">=</span><span class="token variable">${AVM_MAKEFILE_REF<span class="token operator">:-</span>&quot;main&quot;}</span>
+<span class="token assign-left variable">AVM_PORCH_REF</span><span class="token operator">=</span><span class="token variable">${AVM_PORCH_REF<span class="token operator">:-</span>&quot;main&quot;}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">command</span> <span class="token parameter variable">-v</span> <span class="token string">&quot;<span class="token variable">${CONTAINER_RUNTIME}</span>&quot;</span><span class="token variable">)</span></span>&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">${AVM_IN_CONTAINER}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Error: <span class="token variable">${CONTAINER_RUNTIME}</span> is not installed. Please install <span class="token variable">${CONTAINER_RUNTIME}</span> first.&quot;</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Error: Please provide a make target. See https://github.com/Azure/avm-terraform-governance/blob/main/Makefile for available targets.&quot;</span>
+    <span class="token builtin class-name">echo</span>
+    usage
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># Check if AZURE_CONFIG_DIR is set, if not, set it to ~/.azure</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">${AZURE_CONFIG_DIR}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">AZURE_CONFIG_DIR</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${<span class="token environment constant">HOME</span>}</span>/.azure&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># Check if AZURE_CONFIG_DIR exists, if it does, mount it to the container</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-d</span> <span class="token string">&quot;<span class="token variable">${AZURE_CONFIG_DIR}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">AZURE_CONFIG_MOUNT</span><span class="token operator">=</span><span class="token string">&quot;-v <span class="token variable">${AZURE_CONFIG_DIR}</span>:/home/runtimeuser/.azure&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># If the host Docker socket exists, mount it into the container so the container can talk to the host docker daemon</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-S</span> /var/run/docker.sock <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">DOCKER_SOCK_MOUNT</span><span class="token operator">=</span><span class="token string">&quot;-v /var/run/docker.sock:/var/run/docker.sock&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># If we are in GitHub Copilot Coding Agent, we need to mount the SSL certificates from the host</span>
+<span class="token assign-left variable">SSL_CERT_MOUNTS</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">${COPILOT_AGENT_ACTION}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># Mount host&apos;s CA bundle to container&apos;s expected paths</span>
+  <span class="token assign-left variable">SSL_CERT_MOUNTS</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${SSL_CERT_MOUNTS}</span> -v /etc/ssl/certs/ca-certificates.crt:/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem:ro&quot;</span>
+  <span class="token assign-left variable">SSL_CERT_MOUNTS</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${SSL_CERT_MOUNTS}</span> -v /etc/ssl/certs/ca-certificates.crt:/etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt:ro&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># New: allow overriding TUI behavior with PORCH_FORCE_TUI and PORCH_NO_TUI environment variables.</span>
+<span class="token comment"># - If PORCH_FORCE_TUI is set, force TUI and interactive mode (even in GH Actions).</span>
+<span class="token comment"># - If PORCH_NO_TUI is set, explicitly disable TUI.</span>
+<span class="token comment"># - Otherwise, fallback to previous behavior: enable TUI only when not in GitHub Actions and NO_COLOR is not set.</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">${PORCH_FORCE_TUI}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">TUI</span><span class="token operator">=</span><span class="token string">&quot;--tui&quot;</span>
+  <span class="token assign-left variable">DOCKER_INTERACTIVE</span><span class="token operator">=</span><span class="token string">&quot;-it&quot;</span>
+  <span class="token builtin class-name">export</span> <span class="token assign-left variable">FORCE_COLOR</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">${PORCH_NO_TUI}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># Explicitly disable TUI and interactive flags</span>
+  <span class="token assign-left variable">TUI</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+  <span class="token assign-left variable">DOCKER_INTERACTIVE</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token comment"># If we are not in GitHub Actions and NO_COLOR is not set, we want to use TUI and interactive mode</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">${GITHUB_RUN_ID}</span>&quot;</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">${NO_COLOR}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">TUI</span><span class="token operator">=</span><span class="token string">&quot;--tui&quot;</span>
+    <span class="token assign-left variable">DOCKER_INTERACTIVE</span><span class="token operator">=</span><span class="token string">&quot;-it&quot;</span>
+    <span class="token builtin class-name">export</span> <span class="token assign-left variable">FORCE_COLOR</span><span class="token operator">=</span><span class="token number">1</span>
+  <span class="token keyword">fi</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># if AVM_PORCH_BASE_URL is set, we want to add it to the make command</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;<span class="token variable">${AVM_PORCH_BASE_URL}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">PORCH_BASE_URL_MAKE_ADD</span><span class="token operator">=</span><span class="token string">&quot;PORCH_BASE_URL=<span class="token variable">${AVM_PORCH_BASE_URL}</span>&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># Check if we are running in a container</span>
+<span class="token comment"># If we are then just run make directly</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">&quot;<span class="token variable">${AVM_IN_CONTAINER}</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token variable">${CONTAINER_RUNTIME}</span> run <span class="token punctuation">\</span>
+    <span class="token parameter variable">--pull</span> <span class="token string">&quot;<span class="token variable">${CONTAINER_PULL_POLICY}</span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">--user</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> <span class="token parameter variable">-u</span><span class="token variable">)</span></span>:<span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> <span class="token parameter variable">-g</span><span class="token variable">)</span></span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">--rm</span> <span class="token punctuation">\</span>
+    <span class="token variable">${DOCKER_INTERACTIVE}</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">-v</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>&quot;</span>:/src <span class="token punctuation">\</span>
+    <span class="token variable">${AZURE_CONFIG_MOUNT<span class="token operator">:-</span>}</span> <span class="token punctuation">\</span>
+    <span class="token variable">${DOCKER_SOCK_MOUNT<span class="token operator">:-</span>}</span> <span class="token punctuation">\</span>
+    <span class="token variable">${SSL_CERT_MOUNTS<span class="token operator">:-</span>}</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> ARM_CLIENT_ID <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> ARM_OIDC_REQUEST_TOKEN <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> ARM_OIDC_REQUEST_URL <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> ARM_SUBSCRIPTION_ID <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> ARM_TENANT_ID <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> ARM_USE_OIDC <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> FORCE_COLOR <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> GITHUB_TOKEN <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> NO_COLOR <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> PORCH_LOG_LEVEL <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> <span class="token assign-left variable">TF_IN_AUTOMATION</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+    --env-file <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">env</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&apos;^TF_VAR_&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">\</span>
+    --env-file <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">env</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&apos;^AVM_&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">\</span>
+    <span class="token string">&quot;<span class="token variable">${CONTAINER_IMAGE}</span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token function">make</span> <span class="token punctuation">\</span>
+    <span class="token assign-left variable">TUI</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${TUI}</span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token assign-left variable">AVM_MAKEFILE_REF</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${AVM_MAKEFILE_REF}</span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token string">&quot;<span class="token variable">${PORCH_BASE_URL_MAKE_ADD}</span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token assign-left variable">AVM_PORCH_REF</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${AVM_PORCH_REF}</span>&quot;</span> <span class="token punctuation">\</span>
+    <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token function">make</span> <span class="token assign-left variable">TUI</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${TUI}</span>&quot;</span> <span class="token assign-left variable">AVM_MAKEFILE_REF</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${AVM_MAKEFILE_REF}</span>&quot;</span> <span class="token variable">${PORCH_BASE_URL_MAKE_ADD}</span> <span class="token assign-left variable">AVM_PORCH_REF</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${AVM_PORCH_REF}</span>&quot;</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<p>The advantages of using a containerized development environment include:</p>
+<ul>
+<li><strong>Environment Consistency</strong>: Avoids the &quot;works on my machine&quot; problem.</li>
+<li><strong>Quick Onboarding</strong>: New developers can quickly set up a development environment consistent with the team.</li>
+<li><strong>Easy Integration</strong>: Containers can be seamlessly integrated into existing CI/CD pipelines.</li>
+</ul>
+<p>In the AVM continuous integration pipeline, commands in various stages are mostly executed through this Docker container. This ensures that the tools actually invoked in the pipeline are consistent with the versions used locally by the developers.</p>
+<h2 id="practical-suggestions"><a name="practical-suggestions" class="anchor-navigation-ex-anchor" href="#practical-suggestions"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.7.1.2. Practical Suggestions</h2>
+<p>Regardless of the method chosen, it is necessary to regularly update the container image to ensure it includes the latest tools and best practices.</p>
+<p>Through the methods mentioned above, we can effectively ensure consistency between the local development environment and the CI/CD pipeline, thereby improving team collaboration efficiency and code quality.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="maintaining-global-pipeline-consistency.html" class="navigation navigation-prev " aria-label="Previous page: Maintaining Global Pipeline Consistency">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="change-management.html" class="navigation navigation-next " aria-label="Next page: Change Management">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Pipeline Execution Context","level":"1.4.7","depth":2,"next":{"title":"Change Management","level":"1.4.8","depth":2,"path":"large-scale-terraform-module-governance/change-management.md","ref":"large-scale-terraform-module-governance/change-management.md","articles":[]},"previous":{"title":"Maintaining Global Pipeline Consistency","level":"1.4.6","depth":2,"path":"large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.md","ref":"large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"large-scale-terraform-module-governance/pipeline-execution-context.md","mtime":"2026-01-07T06:06:51.985Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

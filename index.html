@@ -1,0 +1,1116 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="terraform-module-anatomy/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="terraform-module-anatomy/">
+            
+                <a href="terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="terraform-module-anatomy/locals.html">
+            
+                <a href="terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="terraform-module-anatomy/modules.html">
+            
+                <a href="terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="terraform-module-anatomy/examples.html">
+            
+                <a href="terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="terraform-module-anatomy/tests.html">
+            
+                <a href="terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="how-to-design-a-terraform-module/">
+            
+                <a href="how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="large-scale-terraform-module-governance/">
+            
+                <a href="large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="testing-and-validation/">
+            
+                <a href="testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="testing-and-validation/unit-testing.html">
+            
+                <a href="testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="testing-and-validation/end-to-end-testing.html">
+            
+                <a href="testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="testing-and-validation/code-style-checking.html">
+            
+                <a href="testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="testing-and-validation/compliance-testing.html">
+            
+                <a href="testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="toolchain/">
+            
+                <a href="toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="toolchain/terraform.html">
+            
+                <a href="toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="toolchain/tfenv.html">
+            
+                <a href="toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="toolchain/terraform-docs.html">
+            
+                <a href="toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="toolchain/terrafmt.html">
+            
+                <a href="toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="toolchain/avmfix.html">
+            
+                <a href="toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="toolchain/tflint.html">
+            
+                <a href="toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="toolchain/checkov.html">
+            
+                <a href="toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="toolchain/yor.html">
+            
+                <a href="toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="toolchain/yorbox.html">
+            
+                <a href="toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="toolchain/newres.html">
+            
+                <a href="toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="toolchain/conftest.html">
+            
+                <a href="toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="toolchain/grept.html">
+            
+                <a href="toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="toolchain/modtm.html">
+            
+                <a href="toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="toolchain/mapotf.html">
+            
+                <a href="toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="toolchain/trivy.html">
+            
+                <a href="toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="epilogue/">
+            
+                <a href="epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#preface"><b>1.1.1. </b>Preface</a></li><ul><li><span class="title-icon "></span><a href="#what-is-a-terraform-module"><b>1.1.1.1. </b>What is a Terraform Module</a></li><li><span class="title-icon "></span><a href="#what-is-azure-verified-module"><b>1.1.1.2. </b>What is Azure Verified Module</a></li><li><span class="title-icon "></span><a href="#starting-from-the-big-mud-ball"><b>1.1.1.3. </b>Starting from the Big Mud Ball</a></li><li><span class="title-icon "></span><a href="#multi-layer-monolithic-terraform"><b>1.1.1.4. </b>Multi-layer Monolithic Terraform</a></li><li><span class="title-icon "></span><a href="#further-modular-decomposition"><b>1.1.1.5. </b>Further Modular Decomposition</a></li><li><span class="title-icon "></span><a href="#how-to-obtain-these-modules"><b>1.1.1.6. </b>How to Obtain These Modules</a></li><li><span class="title-icon "></span><a href="#target-audience-of-this-book"><b>1.1.1.7. </b>Target Audience of This Book</a></li><li><span class="title-icon "></span><a href="#conclusion"><b>1.1.1.8. </b>Conclusion</a></li><li><span class="title-icon "></span><a href="#&#x9A6C;&#x9A70;-exclusion-clause"><b>1.1.1.9. </b>&#x9A6C;&#x9A70; Exclusion Clause</a></li></ul></ul></div><a href="#preface" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="preface"><a name="preface" class="anchor-navigation-ex-anchor" href="#preface"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. Preface</h1>
+<p>It has been more than four years since I started writing the <a href="https://lonegunmanb.github.io/introduction-terraform" target="_blank">Terraform Tutorial</a>. During these four years, many things have happened, and both HashiCorp and Terraform have undergone numerous changes. I have primarily worked on the Terraform Module ecosystem during this period, and have increasingly realized that modules are the most important part of the Terraform ecosystem. After much consideration, I decided to compile the experiences and lessons accumulated over these years into a book to help subsequent developers, especially Chinese developers, better use Terraform.</p>
+<h2 id="what-is-a-terraform-module"><a name="what-is-a-terraform-module" class="anchor-navigation-ex-anchor" href="#what-is-a-terraform-module"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.1. What is a Terraform Module</h2>
+<p>Terraform modules are independent Infrastructure as Code snippets that abstract the underlying complexity of infrastructure deployment. Terraform users can accelerate IaC adoption through pre-built configuration code and lower the barrier to entry. Therefore, module authors should strive to follow code best practices such as clear code structure and the DRY (&quot;Don&apos;t Repeat Yourself&quot;) principle.</p>
+<p>Essentially, a Terraform Module is a directory containing multiple Terraform configuration files, typically used to encapsulate a group of related resources and configurations for reuse and sharing. Modules help users better organize and manage Terraform code, improving code readability and maintainability.</p>
+<p><strong>Important Note</strong>: This book assumes readers are already familiar with basic Terraform usage skills and will not elaborate on these foundational concepts.</p>
+<h2 id="what-is-azure-verified-module"><a name="what-is-azure-verified-module" class="anchor-navigation-ex-anchor" href="#what-is-azure-verified-module"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.2. What is Azure Verified Module</h2>
+<p><a href="https://aka.ms/avm" target="_blank">Azure Verified Modules (AVM)</a> is an official open-source project launched by Microsoft, aimed at establishing unified standards for Infrastructure as Code (IaC) modules and improving the consistency, reliability, and maintainability of Azure resource deployment.</p>
+<p>AVM provides predefined, reusable IaC modules developed and supported by Microsoft, applicable to both Bicep and Terraform. These modules follow Microsoft&apos;s best practices and architectural specifications (such as the <a href="https://learn.microsoft.com/en-us/azure/well-architected/" target="_blank">Well-Architected Framework, WAF</a>), helping users quickly and securely deploy Azure resources and architectural patterns.</p>
+<p>Its core advantages include:</p>
+<ul>
+<li><strong>Standardization and Consistency</strong>: All modules follow unified structure and coding standards, ensuring deployment consistency.</li>
+<li><strong>Official Microsoft Support</strong>: Developed and maintained by Microsoft officially, providing long-term support and regular updates.</li>
+<li><strong>Cross-language Support</strong>: Currently supports Bicep and Terraform, with potential expansion to more IaC tools in the future.</li>
+<li><strong>Compliance and Best Practices</strong>: Modules align with WAF and security benchmarks, ensuring deployment security and compliance.</li>
+<li><strong>Automated Documentation and Testing</strong>: Built-in automatic documentation generation and comprehensive testing, improving module usability and reliability.</li>
+</ul>
+<p>I am one of core developers of AVM and have been involved in development and governance work since the project&apos;s inception. The experiences, lessons, and standards summarized in this book come from AVM.</p>
+<p><strong>Important Note</strong>: All rules, policies and experiences introduced in this book are my personal opinions and <strong>DO NOT</strong> represent the official opinions of the AVM team or Microsoft. If readers find content that differs from AVM standards or disagree with certain viewpoints, please do not consider them as viewpoints of AVM or Microsoft. <strong>This book is a work with a strong personal style</strong>, and all viewpoints represent only my personal opinions.</p>
+<p><strong>Important Note</strong>: This book will introduce some tools we have used or are currently using. Due to my limited capabilities and the rapid iterative evolution of the Infrastructure as Code community, if readers find that some content in the tools section is inconsistent with official documentation or encounters errors during use, please don&apos;t doubt, it is most likely my mistake or AVM have more breaking changes. Please submit relevant issues to notify me for corrections. Thank you in advance.</p>
+<h2 id="starting-from-the-big-mud-ball"><a name="starting-from-the-big-mud-ball" class="anchor-navigation-ex-anchor" href="#starting-from-the-big-mud-ball"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.3. Starting from the Big Mud Ball</h2>
+<p>Typically, tutorials for Terraform beginners often put all demonstration code in a single <code>main.tf</code> file, or slightly more formally, present a structure like this:</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">.</span>
+&#x251C;&#x2500;&#x2500; main.tf
+&#x251C;&#x2500;&#x2500; outputs.tf
+&#x2514;&#x2500;&#x2500; variables.tf
+</code></pre>
+<p>This approach of writing the entire infrastructure in a single <code>main.tf</code> file is fine for demonstrating functionality or teaching beginners, but in production environments, this would result in excessively long files that are hare for a code review. So a slightly more complex module structure could look like this:</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">.</span>
+&#x251C;&#x2500;&#x2500; Makefile
+&#x251C;&#x2500;&#x2500; README.md
+&#x251C;&#x2500;&#x2500; chefignore
+&#x251C;&#x2500;&#x2500; db.tf
+&#x251C;&#x2500;&#x2500; gateway.tf
+&#x251C;&#x2500;&#x2500; images
+&#x2502;    &#x2514;&#x2500;&#x2500; diagram.png
+&#x251C;&#x2500;&#x2500; kitchen.tf
+&#x251C;&#x2500;&#x2500; main.tf
+&#x251C;&#x2500;&#x2500; securitygroup.tf
+&#x251C;&#x2500;&#x2500; subnet.tf
+&#x251C;&#x2500;&#x2500; terraform.tfvars
+&#x251C;&#x2500;&#x2500; variables.tf
+&#x2514;&#x2500;&#x2500; vpc.tf
+</code></pre>
+<p>By storing resources in independent files categorized by type, individual code files don&apos;t become too long, and the cohesion of code files is improved.</p>
+<p>However, even this approach still has certain problems:</p>
+<ol>
+<li>The stack is too large, managing too many resources, and each <code>plan</code> and <code>apply</code> execution takes a long time</li>
+<li>The blast radius is too large&#x2014;if you make a mistake, such as accidentally executing <code>destroy</code>, or passing a wrong value to a variable assigned to a force-new argument, the entire infrastructure could be wiped out</li>
+</ol>
+<h2 id="multi-layer-monolithic-terraform"><a name="multi-layer-monolithic-terraform" class="anchor-navigation-ex-anchor" href="#multi-layer-monolithic-terraform"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.4. Multi-layer Monolithic Terraform</h2>
+<p>Let&apos;s assume a simple cloud application composited by three layers: VPC, MySQL database, and stateless App. We design the project structure like this:</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">.</span>
+&#x251C;&#x2500;&#x2500; app
+&#x2502;   &#x251C;&#x2500;&#x2500; main.tf
+&#x2502;   &#x251C;&#x2500;&#x2500; outputs.tf
+&#x2502;   &#x251C;&#x2500;&#x2500; terraform.tfstate
+&#x2502;   &#x2514;&#x2500;&#x2500; variables.tf
+&#x251C;&#x2500;&#x2500; mysql
+&#x2502;   &#x251C;&#x2500;&#x2500; main.tf
+&#x2502;   &#x251C;&#x2500;&#x2500; outputs.tf
+&#x2502;   &#x251C;&#x2500;&#x2500; terraform.tfstate
+&#x2502;   &#x2514;&#x2500;&#x2500; variables.tf
+&#x2514;&#x2500;&#x2500; vpc
+    &#x251C;&#x2500;&#x2500; main.tf
+    &#x251C;&#x2500;&#x2500; outputs.tf
+    &#x251C;&#x2500;&#x2500; terraform.tfstate
+    &#x2514;&#x2500;&#x2500; variables.tf
+</code></pre>
+<p>Unlike the initial big mud ball, this time we split the infrastructure into 3 folders for separate management, with resources written to three independent state files. This way, each time we make changes, we only deal with resources in that layer, which can reduce the execution time of <code>plan</code> and <code>apply</code> operations and reduce the blast radius of our mistakes.</p>
+<p>However, we still put all database resources under management in one state file. If operational errors occur, we might delete all database resources, leading to data loss.</p>
+<h2 id="further-modular-decomposition"><a name="further-modular-decomposition" class="anchor-navigation-ex-anchor" href="#further-modular-decomposition"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.5. Further Modular Decomposition</h2>
+<pre class="language-"><code class="lang-shell">&#x2514;&#x2500;&#x2500; live
+    &#x251C;&#x2500;&#x2500; prod
+    &#x2502;   &#x251C;&#x2500;&#x2500; app
+    &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+    &#x2502;   &#x251C;&#x2500;&#x2500; mysql
+    &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+    &#x2502;   &#x2514;&#x2500;&#x2500; vpc
+    &#x2502;       &#x2514;&#x2500;&#x2500; main.tf
+    &#x251C;&#x2500;&#x2500; qa
+    &#x2502;   &#x251C;&#x2500;&#x2500; app
+    &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+    &#x2502;   &#x251C;&#x2500;&#x2500; mysql
+    &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+    &#x2502;   &#x2514;&#x2500;&#x2500; vpc
+    &#x2502;       &#x2514;&#x2500;&#x2500; main.tf
+    &#x2514;&#x2500;&#x2500; stage
+    &#x2502;   &#x251C;&#x2500;&#x2500; app
+    &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+    &#x2502;   &#x251C;&#x2500;&#x2500; mysql
+    &#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+    &#x2502;   &#x2514;&#x2500;&#x2500; vpc
+    &#x2502;       &#x2514;&#x2500;&#x2500; main.tf
+    &#x2514;&#x2500;&#x2500; modules
+        &#x251C;&#x2500;&#x2500; app
+        &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+        &#x251C;&#x2500;&#x2500; mysql
+        &#x2502;   &#x2514;&#x2500;&#x2500; main.tf
+        &#x2514;&#x2500;&#x2500; vpc
+            &#x2514;&#x2500;&#x2500; main.tf
+</code></pre>
+<p>We further decomposed based on deployment environment dimensions, dividing into three environments: <code>prod</code>, <code>qa</code>, and <code>stage</code>. Each environment contains three modules: <code>app</code>, <code>mysql</code>, and <code>vpc</code>. The sub-modules under each environment all reference the same modules in the <code>modules</code> directory, allowing us to deploy similar infrastructure in different environments with identical deployment code but potentially different parameters, avoiding code duplication. We can first apply changes to the <code>qa</code> environment, and after verification, gradually promote them to the <code>prod</code> environment, achieving gradual infrastructure deployment.</p>
+<p>In actual production environments, the above structure can be further divided by region. We can divide by deployment regions such as <code>us-east-1</code>, <code>us-west-2</code>, or by different cloud service providers such as <code>aws</code>, <code>azure</code>, <code>gcp</code>, further reducing the blast radius.</p>
+<p>All the infrastructure deployment code we describe here is for a specific online service, such as an online payment service for an e-commerce platform. We can put this code in a Git repository named <code>payment-service</code>. An enterprise might have dozens, hundreds, or even thousands of such repositories, corresponding to the infrastructure of various internal services. Based on such large-scale Terraform Module structures, GitOps can be implemented: all changes to infrastructure are completed through Pull (Merge) Requests. Repository administrators, who are also service owners, review changes by examining code modifications and Terraform Plans generated by CI pipelines. If they agree to the changes, they merge the change request, and the pipeline automatically executes the audited changes.</p>
+<p>Such management might seem complex, but it truly ensures that all infrastructure changes, regardless of size, are reviewed and have version control records. If issues occur, Terraform&apos;s capabilities ensure we can roll back to the most recent known correct state (of course, to prevent data loss, we need to do a lot of additional design work when designing modules).</p>
+<h2 id="how-to-obtain-these-modules"><a name="how-to-obtain-these-modules" class="anchor-navigation-ex-anchor" href="#how-to-obtain-these-modules"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.6. How to Obtain These Modules</h2>
+<p>In the above examples, we described two different Terraform project structure styles in an extremely simplified process, from chaotic big mud balls to a large number of clear hierarchical modular matrices. So how can we obtain the modules that make up this matrix? This is the purpose of this book: from how to build a module, how to maintain a module, to how to build and maintain multiple modules at scale, and finally how to promote modular Terraform code in enterprises. Terraform reusable modules are <a href="large-scale-terraform-module-governance/one-module-one-repository.html">somewhat different</a> from many common open-source projects and require some special governance methods.</p>
+<h2 id="target-audience-of-this-book"><a name="target-audience-of-this-book" class="anchor-navigation-ex-anchor" href="#target-audience-of-this-book"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.7. Target Audience of This Book</h2>
+<p>Readers who already have some understanding of Terraform and can proficiently use Terraform to create and manage infrastructure. If you want to further understand how to use Terraform modules to optimize your infrastructure management framework, or want to learn how to maintain a large number of proprietary Terraform modules at scale, then this book is prepared for you.</p>
+<h2 id="conclusion"><a name="conclusion" class="anchor-navigation-ex-anchor" href="#conclusion"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.8. Conclusion</h2>
+<p>Let me put it this way: the <strong>only</strong> correct way to use Terraform to manage infrastructure is to break down massive infrastructure into such modular structures. We can put this modular code in Git repositories and manage it using GitOps methods. This way, we can deploy similar infrastructure in different environments, avoid code duplication, and achieve gradual infrastructure deployment. I have seen many teams consider using Terraform as an execution tool, with other tools, such as a GUI graphical tool, generating Terraform and HCL or JSON code, which is then executed by Terraform. This approach is an anti-pattern because Terraform Modules have many considerations in terms of usage, maintenance, and design, which is what this book hopes to discuss.</p>
+<h2 id="&#x9A6C;&#x9A70;-exclusion-clause"><a name="&#x9A6C;&#x9A70;-exclusion-clause" class="anchor-navigation-ex-anchor" href="#&#x9A6C;&#x9A70;-exclusion-clause"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1.9. &#x9A6C;&#x9A70; Exclusion Clause</h2>
+<p>This e-book is published under the <a href="https://github.com/lonegunmanb/introduction-terraform/blob/gh-pages/LICENSE" target="_blank">CC-BY-SA-4.0 license</a>. Readers may freely read, quote, or use the content of this e-book within the scope permitted by this agreement, except for the following circumstances:</p>
+<ol>
+<li>The specific individual entity named &quot;&#x9A6C;&#x9A70;&quot; is prohibited from reading, quoting, or copying the content of this e-book</li>
+<li>Opening or saving the content of this book or offline copies on any device owned by the specific individual entity named &quot;&#x9A6C;&#x9A70;&quot; is prohibited</li>
+<li>The specific individual entity named &quot;&#x9A6C;&#x9A70;&quot; is prohibited from printing, transcribing the content of this book, or possessing non-digital copies of this book&apos;s content (including but not limited to books, handwritten copies, photographs, etc.)</li>
+<li>Opening or saving the content of this e-book or offline copies on any electronic device owned by enterprises or organizations that have employment relationships, equity relationships, or are associated with direct relatives of the specific individual entity named &quot;&#x9A6C;&#x9A70;&quot; is prohibited</li>
+</ol>
+<p>All of the above circumstances will be considered infringement. If a reader is named &quot;&#x9A6C;&#x9A70;&quot; but is unsure whether they are the specific &quot;&#x9A6C;&#x9A70;&quot; individual entity prohibited by this clause, they may submit an issue in the <a href="https://github.com/lonegunmanb/dao-of-terraform-modules-book-english" target="_blank">book&apos;s GitHub repository</a> to confirm with the author.</p>
+<p>Forking and re-creation of this e-book follow the relevant provisions of the CC-BY-SA-4.0 License, but removal of this clause content is not permitted.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="terraform-module-anatomy/" class="navigation navigation-next navigation-unique" aria-label="Next page: Terraform Module Anatomy">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Terraform Module Anatomy","level":"1.2","depth":1,"path":"terraform-module-anatomy/index.md","ref":"terraform-module-anatomy/index.md","articles":[{"title":"main.tf","level":"1.2.1","depth":2,"path":"terraform-module-anatomy/terraform-resource-files.md","ref":"terraform-module-anatomy/terraform-resource-files.md","articles":[]},{"title":"variables.tf","level":"1.2.2","depth":2,"path":"terraform-module-anatomy/terraform-input-variables.md","ref":"terraform-module-anatomy/terraform-input-variables.md","articles":[]},{"title":"outputs.tf","level":"1.2.3","depth":2,"path":"terraform-module-anatomy/terraform-output-values.md","ref":"terraform-module-anatomy/terraform-output-values.md","articles":[]},{"title":"terraform.tf","level":"1.2.4","depth":2,"path":"terraform-module-anatomy/terraform-configuration.md","ref":"terraform-module-anatomy/terraform-configuration.md","articles":[]},{"title":"local blocks","level":"1.2.5","depth":2,"path":"terraform-module-anatomy/locals.md","ref":"terraform-module-anatomy/locals.md","articles":[]},{"title":"Local sub-modules","level":"1.2.6","depth":2,"path":"terraform-module-anatomy/modules.md","ref":"terraform-module-anatomy/modules.md","articles":[]},{"title":"README","level":"1.2.7","depth":2,"path":"terraform-module-anatomy/readme-documentation.md","ref":"terraform-module-anatomy/readme-documentation.md","articles":[]},{"title":"examples directory","level":"1.2.8","depth":2,"path":"terraform-module-anatomy/examples.md","ref":"terraform-module-anatomy/examples.md","articles":[]},{"title":"tests directory","level":"1.2.9","depth":2,"path":"terraform-module-anatomy/tests.md","ref":"terraform-module-anatomy/tests.md","articles":[]},{"title":"Continuous Integration Pipeline Code","level":"1.2.10","depth":2,"path":"terraform-module-anatomy/ci-pipeline-code.md","ref":"terraform-module-anatomy/ci-pipeline-code.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"README.md","mtime":"2026-01-07T06:06:51.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

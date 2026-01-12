@@ -1,0 +1,1053 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>trivy · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../epilogue/" />
+    
+    
+    <link rel="prev" href="mapotf.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >trivy</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#trivy"><b>1.6.15.1. </b>Trivy</a></li><ul><li><span class="title-icon "></span><a href="#why-choose-trivy"><b>1.6.15.1.1. </b>Why Choose Trivy</a></li><li><span class="title-icon "></span><a href="#container-image-scanning-and-dockerfile-checks"><b>1.6.15.1.2. </b>Container Image Scanning and Dockerfile Checks</a></li><li><span class="title-icon "></span><a href="#hardcoded-credentials-secret-scanning"><b>1.6.15.1.3. </b>Hardcoded Credentials (Secret) Scanning</a></li><li><span class="title-icon "></span><a href="#terraform-misconfiguration-detection"><b>1.6.15.1.4. </b>Terraform Misconfiguration Detection</a></li><li><span class="title-icon "></span><a href="#practical-examples"><b>1.6.15.1.5. </b>Practical Examples</a></li></ul></ul></div><a href="#trivy" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="trivy"><a name="trivy" class="anchor-navigation-ex-anchor" href="#trivy"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.15.1. Trivy</h1>
+<p>This toolchain section introduces many tools used by AVM for module maintenance and governance. As mentioned in the <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">Pipeline Execution Context</a>, to provide a consistent development experience between the CI/CD pipeline and the developer&apos;s local environment, we have built a container image containing all the tools we use, ensuring that the tools used by developers are consistent with those in the pipeline. However, these tools themselves are composed of a large number of third-party open-source libraries, which may expose high-risk security vulnerabilities over time. As a critical part of supply chain security, ensuring that all tool dependencies are secure is also a problem that AVM must address.</p>
+<p><a href="https://trivy.dev/docs/latest/guide/" target="_blank">Trivy</a> is an open-source security scanning tool developed by the <a href="https://www.aquasec.com/" target="_blank">Aqua Security</a> team, focusing on detecting known vulnerabilities and misconfigurations in <strong>container images, file systems, and code repositories</strong>. It supports various scanning targets, including container images, file systems, Git repositories, Kubernetes configurations, cloud platform infrastructure (such as AWS), etc., and can quickly identify operating system vulnerabilities, dependency library vulnerabilities, misconfigurations, and sensitive information leaks. Trivy is known for its fast scanning speed, ease of integration, and real-time updates of its vulnerability database. It is widely used in security monitoring for CI/CD pipelines, local development environments, and image registries. Its architecture includes modules for image parsing, vulnerability databases, policy execution, and report generation, supporting rich output formats (such as JSON, SARIF, JUnit, etc.) and compatible with mainstream security orchestration tools. In short, Trivy is comprehensive, easy to get started with, and is a commonly used unified scanning platform in DevSecOps scenarios.</p>
+<h2 id="why-choose-trivy"><a name="why-choose-trivy" class="anchor-navigation-ex-anchor" href="#why-choose-trivy"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.15.1.1. Why Choose Trivy</h2>
+<ul>
+<li><p><strong>Multi-dimensional Scanning Capability</strong>: Trivy combines three major functions: vulnerability scanning, configuration scanning, and secret scanning. In a single scan, it can check for image vulnerabilities (OS and language dependency libraries), check for configuration misuse (IaC, Dockerfile, K8s, etc.), and find hardcoded credentials. For example, it can directly scan a Git repository <code>trivy repo https://github.com/example/project</code> to detect vulnerabilities, configurations, and key exposures within it, or scan the local file system or remote container images.</p>
+</li>
+<li><p><strong>Timely Database Updates</strong>: Trivy integrates multiple vulnerability data sources (such as NVD, security databases of various Linux distributions and language ecosystems) and provides an incremental update mechanism. The vulnerability database can be quickly synchronized via <code>trivy db update</code>, ensuring that scanning results cover the latest CVEs in a timely manner. This design saves developers from downloading the full new database every time, saving network bandwidth (saving about 98% of the update volume).</p>
+</li>
+<li><p><strong>Easy to Integrate and Automate</strong>: Trivy has ready-made integration solutions on different CI/CD platforms. For example, GitHub Actions can use the official <code>aquasecurity/trivy-action</code>, Azure DevOps Pipeline has corresponding Trivy tasks, and GitLab CI can directly add Trivy commands in YAML. Its command-line arguments are flexible, allowing settings for scanning levels, output formats, exit codes, etc., facilitating automated pipeline processing of scanning results. In addition, Trivy also supports ignoring certain known but unfixable vulnerabilities through <code>.trivyignore</code> files, thereby avoiding blocking CI pipelines.</p>
+</li>
+<li><p><strong>Lightweight Local Usage</strong>: A single Trivy binary file can be deployed on a development machine or build server. It caches indexes during scanning without needing to start a service, supporting offline environments. Even without an internet connection, local scanning can be performed as long as the vulnerability database image is downloaded in advance. The convenient installation and deployment methods allow teams to quickly implement and maintain consistent security check processes.</p>
+</li>
+</ul>
+<h2 id="container-image-scanning-and-dockerfile-checks"><a name="container-image-scanning-and-dockerfile-checks" class="anchor-navigation-ex-anchor" href="#container-image-scanning-and-dockerfile-checks"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.15.1.2. Container Image Scanning and Dockerfile Checks</h2>
+<p>One of the most common scenarios for Trivy is to scan <strong>container images</strong> containing a large number of Terraform tools or dependencies for vulnerabilities. For example, the image may have Terraform CLI, Az CLI, Python/Ruby, and other language dependencies installed, or even the toolchain used to build Terraform Modules. These images are often large in size and contain rich software packages, making them prone to legacy vulnerabilities. Using Trivy can quickly identify vulnerabilities and outdated components in images. For example:</p>
+<pre class="language-"><code class="lang-bash">trivy image <span class="token parameter variable">--format</span> table <span class="token parameter variable">--severity</span> HIGH,CRITICAL avmrunner
+</code></pre>
+<p>The command above will scan the specified image, reporting only high-risk and critical vulnerabilities, and output the report in a table format. In a CI/CD pipeline, this command can be placed after the image build step. Once vulnerabilities exceeding the threshold are detected, the pipeline fails, forcing developers to fix them as soon as possible. Trivy&apos;s GitHub Action task has built-in caching mechanisms for updating the database, ensuring that the database is the latest downloaded during scanning, avoiding frequent downloads that affect speed.</p>
+<p>For configuration and best practice issues in <strong>Dockerfiles</strong>, Trivy can also check them through configuration scanning (<code>trivy config</code>). For example, you can scan the Dockerfile in the project directory:</p>
+<pre class="language-"><code class="lang-bash">trivy config ./Dockerfile
+</code></pre>
+<p>This command will detect common security errors in the Dockerfile (such as not specifying a base image tag, using privilege escalation parameters, etc.) and output the test results. In fact, Trivy&apos;s <code>config</code> mode supports scanning various IaC files (Terraform, Kubernetes, Helm, Dockerfile, etc.), automatically matching corresponding rules for detection. In practice, Dockerfile checks can be performed before image building, or vulnerability detection can be performed on the generated image after building, forming a double guarantee before and after. By incorporating Trivy image scanning into CI, the team can ensure that every pushed image undergoes unified security assessment and audit records, improving the consistency and traceability of automated processes.</p>
+<h2 id="hardcoded-credentials-secret-scanning"><a name="hardcoded-credentials-secret-scanning" class="anchor-navigation-ex-anchor" href="#hardcoded-credentials-secret-scanning"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.15.1.3. Hardcoded Credentials (Secret) Scanning</h2>
+<p>A major feature of Trivy is that <strong>Secrets scanning</strong> is enabled by default, capable of detecting hardcoded keys, tokens, or password strings in container images, file systems, or Git repositories. It matches common sensitive information patterns based on a series of built-in rules, such as AWS Access Keys, GCP Service Accounts, GitHub/Slack/SMTP API tokens, etc. For example, when executing:</p>
+<pre class="language-"><code class="lang-bash">trivy fs /path/to/terraform/project
+</code></pre>
+<h2 id="terraform-misconfiguration-detection"><a name="terraform-misconfiguration-detection" class="anchor-navigation-ex-anchor" href="#terraform-misconfiguration-detection"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.15.1.4. Terraform Misconfiguration Detection</h2>
+<p>For Infrastructure as Code (IaC) configurations like Terraform, Trivy also provides <strong>built-in best practice detection</strong> capabilities. Using the <code>trivy config</code> command, you can scan Terraform files in the project directory, compare defined resource configurations with security baseline rules, and mark configurations that do not meet best practices. Trivy includes multiple policies by default, covering common security checks in fields like Docker, Kubernetes, Terraform, CloudFormation, etc. For instance, it identifies risks in Terraform such as unspecified resource versions, unused security parameters, exposing unnecessary permissions, etc.; in environments like AWS/GCP/Azure, it can also detect compliance with norms like CIS security baselines (e.g., AWS IAM least privilege, S3 unencrypted, etc.).</p>
+<p>In addition, users can use the Open Policy Agent (OPA) Rego language to customize rules, encoding organizational compliance standards or business requirements into scanning. For example, custom rules can be written to require all <code>azure_storage_account</code> resources to enable encryption, or all Kubernetes controllers to use Pod security policies. These custom rules, combined with Trivy&apos;s <code>--config</code> parameter, can take effect during <code>trivy config</code>, allowing for early detection locally or during the PR stage.</p>
+<p>It is <strong>very important to discover configuration risks early</strong> in the Terraform module development process. It is best to scan with Trivy while writing code locally to avoid submitting insecure configurations to the central repository. In the CI/CD pipeline, it can be set to block merge requests when Trivy detects medium-to-high risk violations. Combined with module example code testing, developers can ensure that every submitted Terraform code has undergone automated checks, thereby reducing the probability of configuration vulnerabilities in the production environment.</p>
+<p>In Azure Verified Modules, since we already use <a href="conftest.html"><code>conftest</code></a> with <a href="https://github.com/Azure/policy-library-avm" target="_blank"><code>policy-library-avm</code></a>, we do not repeat Trivy&apos;s Terraform detection capabilities.</p>
+<h2 id="practical-examples"><a name="practical-examples" class="anchor-navigation-ex-anchor" href="#practical-examples"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.15.1.5. Practical Examples</h2>
+<p>In actual projects, Trivy often appears as an automated inspection tool. For example, the official Azure &quot;Terraform Module Scaffold&quot; project (<strong>Azure Verified Terraform Module Scaffold</strong>) integrates Trivy into its GitHub Actions pipeline. In its <code>.github/workflows/check.yml</code>, Trivy scanning is run after every image build to check for vulnerabilities in the image and configuration issues in Terraform code, and the results are reported in the CI interface. Similarly, many teams also add Trivy steps in the &quot;pre-commit&quot; or &quot;continuous integration&quot; stages of their projects, outputting scanning results in the form of comments or summary reports, ensuring that container security policies and Terraform configuration audit processes are automatically executed consistently. Through these practices, the <strong>consistency and traceability</strong> of the entire code review process can be achieved, making security checks part of the daily development process rather than a patch job done afterwards.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Docker Build Test
+  <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+    docker build $(sh build-arg-helper.sh version.env) -t localrunner .</span>
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Run Trivy vulnerability scanner
+  <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token key atrule">TRIVY_DB_REPOSITORY</span><span class="token punctuation">:</span> <span class="token string">&apos;ghcr.io/aquasecurity/trivy-db,public.ecr.aws/aquasecurity/trivy-db&apos;</span>
+    <span class="token key atrule">TRIVY_JAVA_DB_REPOSITORY</span><span class="token punctuation">:</span> <span class="token string">&apos;ghcr.io/aquasecurity/trivy-java-db,public.ecr.aws/aquasecurity/trivy-java-db&apos;</span>
+  <span class="token key atrule">uses</span><span class="token punctuation">:</span> aquasecurity/trivy<span class="token punctuation">-</span>action@master
+  <span class="token key atrule">with</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image-ref</span><span class="token punctuation">:</span> <span class="token string">&apos;localrunner&apos;</span>
+    <span class="token key atrule">format</span><span class="token punctuation">:</span> <span class="token string">&apos;table&apos;</span>
+    <span class="token key atrule">exit-code</span><span class="token punctuation">:</span> <span class="token string">&apos;1&apos;</span>
+    <span class="token key atrule">severity</span><span class="token punctuation">:</span> <span class="token string">&apos;CRITICAL,HIGH&apos;</span>
+    <span class="token key atrule">trivyignores</span><span class="token punctuation">:</span> <span class="token string">&apos;.trivyignore&apos;</span>
+    <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token string">&apos;120m&apos;</span>
+    <span class="token key atrule">scanners</span><span class="token punctuation">:</span> <span class="token string">&apos;vuln&apos;</span>
+</code></pre>
+<p>In the example above, if any critical or high-level vulnerabilities (CRITICAL, HIGH) are detected in the image, <code>trivy image</code> will terminate the process with a non-zero exit code, triggering a CI error warning.</p>
+<p>Any violations will be marked in Trivy&apos;s output, which CI can use as a basis for check failure. We can also set up scheduled tasks to check the latest Dockerfile weekly, ensuring that newly published vulnerabilities can be fixed as soon as possible. In short, by unifying Trivy adoption across various stages of building and testing, engineering teams can establish a complete automated governance process to efficiently deal with security challenges in large-scale Terraform module development.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mapotf.html" class="navigation navigation-prev " aria-label="Previous page: mapotf">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../epilogue/" class="navigation navigation-next " aria-label="Next page: Epilogue">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"trivy","level":"1.6.15","depth":2,"next":{"title":"Epilogue","level":"1.7","depth":1,"path":"epilogue/index.md","ref":"epilogue/index.md","articles":[]},"previous":{"title":"mapotf","level":"1.6.14","depth":2,"path":"toolchain/mapotf.md","ref":"toolchain/mapotf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/trivy.md","mtime":"2026-01-12T06:16:35.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

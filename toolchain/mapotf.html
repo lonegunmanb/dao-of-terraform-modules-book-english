@@ -1,0 +1,1116 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>mapotf · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="trivy.html" />
+    
+    
+    <link rel="prev" href="modtm.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >mapotf</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#mapotf-a-terraform-metaprogramming-tool"><b>1.6.14.1. </b>mapotf: A Terraform Metaprogramming Tool</a></li><ul><li><span class="title-icon "></span><a href="#roles-and-functions-of-mapotf"><b>1.6.14.1.1. </b>Roles and Functions of mapotf</a></li><li><span class="title-icon "></span><a href="#usage"><b>1.6.14.1.2. </b>Usage</a></li><li><span class="title-icon "></span><a href="#integration-with-pre-commit-and-application-in-avm"><b>1.6.14.1.3. </b>Integration with Pre-commit and Application in AVM</a></li><li><span class="title-icon "></span><a href="#real-world-application-scenarios"><b>1.6.14.1.4. </b>Real-World Application Scenarios</a></li></ul></ul></div><a href="#mapotf-a-terraform-metaprogramming-tool" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="mapotf-a-terraform-metaprogramming-tool"><a name="mapotf-a-terraform-metaprogramming-tool" class="anchor-navigation-ex-anchor" href="#mapotf-a-terraform-metaprogramming-tool"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.14.1. mapotf: A Terraform Metaprogramming Tool</h1>
+<p>In large-scale Infrastructure as Code (IaC) projects, teams often face the challenge of <strong>how to uniformly manage and modify Terraform configurations</strong>. Examples include adding <a href="modtm.html"><code>modtm</code></a> calls to all modules, modifying tags sent to <code>modtm</code>, or mandating minimum versions for AzureRM / AzAPI Providers. Certain limitations within Terraform itself can also lead to awkward scenarios in daily use. For instance, some users wish to enable <code>ignore_changes</code> on resources within a Terraform module to ignore drifts in specific attributes, but Terraform currently does not support using variables within lifecycle arguments like <code>ignore_changes</code>. This means open-source module developers cannot use parameterization to flexibly meet different users&apos; needs for attribute ignoring. Furthermore, different module developers might independently implement <strong>common design patterns</strong> (such as creating private endpoints for databases or configuring logging for storage buckets), resulting in slight variations across modules. If a <strong>unified pattern library</strong> existed, module authors wouldn&apos;t need to search for examples or tutorials everywhere; they could simply apply the shared patterns.</p>
+<p>To address these pain points, the Microsoft Azure team released an open-source tool named <code>mapotf</code>. <strong><code>mapotf</code> stands for &quot;MetA PrOgramming for TerraForm&quot;.</strong> As the name suggests, it aims to provide a metaprogramming mechanism for Terraform, allowing for <strong>programmatic modifications</strong> to Terraform configurations. Simply put, <code>mapotf</code> is a metaprogramming tool used in conjunction with Terraform. With <code>mapotf</code>, developers and platform engineering teams can <strong>dynamically generate, modify, or remove Terraform configurations</strong> without directly altering the source code, thereby satisfying scenarios where Terraform&apos;s native capabilities are limited.</p>
+<h2 id="roles-and-functions-of-mapotf"><a name="roles-and-functions-of-mapotf" class="anchor-navigation-ex-anchor" href="#roles-and-functions-of-mapotf"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.14.1.1. Roles and Functions of mapotf</h2>
+<p>The core idea of <code>mapotf</code> is to treat Terraform configurations as objects that can be matched and rewritten, applying changes in batches through <strong>declarative rules</strong>. <code>mapotf</code> provides two main types of blocks: <strong>Data Sources (<code>data</code>)</strong> and <strong>Transforms (<code>transform</code>)</strong>. Users define specific <code>data</code> blocks in a <code>mapotf</code> configuration file (written in HCL) to <strong>match</strong> certain target elements within the Terraform configuration; they then define how to <strong>rewrite</strong> these matched parts via <code>transform</code> blocks. During the transformation phase, <code>mapotf</code> supports various operations, such as <strong>in-place updates</strong> of existing attribute values, <strong>insertion</strong> of new resources or blocks, and <strong>deletion</strong> of specified configuration fragments. All of this is automatically handled by the <code>mapotf</code> engine based on the configuration rules, effectively providing an intelligent &quot;find and replace&quot; mechanism for Terraform configurations.</p>
+<p>Through such metaprogramming capabilities, <code>mapotf</code> enables many powerful use cases:</p>
+<ul>
+<li><p><strong>Supporting customizations natively unsupported by Terraform</strong>: addressing the previously mentioned <code>ignore_changes</code> scenario, <code>mapotf</code> can dynamically add the required <code>ignore_changes</code> attributes to resource blocks without changing the module source code, thus bypassing Terraform&apos;s limitations. As the <code>mapotf</code> author mentioned in a related Terraform Issue: &quot;Through metaprogramming, we can customize and modify any configuration in the root module and dependent modules.&quot; This allows module authors to provide an <strong>optional external patch</strong>, letting users apply it as needed. For example, some users employ custom Azure Policies or AWS Config to automatically correct resources, causing resource attributes to be modified by the platform and resulting in drift. With <code>mapotf</code>, different users can define their own lists of attributes to ignore, without the module having to hardcode for every possibility.</p>
+</li>
+<li><p><strong>Promoting common patterns and best practices</strong>: <code>mapotf</code> can serve as a <strong>pattern library</strong> tool. For common architectural requirements (such as adding monitoring diagnostics to specific resources, configuring private links, etc.), platform teams can pre-write <code>mapotf</code> configurations to encapsulate these proven patterns. When designing modules, developers do not need to implement these patterns from scratch; they simply reference the corresponding <code>mapotf</code> configuration when needed to automatically apply the pattern to the module. This reduces repetitive work and ensures consistency across different modules. For example, different enterprises and teams might all try to write modules containing Azure Storage Account services. Regardless of how the module is implemented, they might all need to add a Private Endpoint for the Storage Account. In this case, we can write a <code>mapotf</code> configuration to match <code>azurerm_storage_account</code> resource blocks in the code and generate the corresponding Private Endpoint resources for them.</p>
+</li>
+<li><p><strong>Centralized Governance</strong>: For Terraform modules used on a large scale within an organization, <code>mapotf</code> provides a means to <strong>apply changes centrally</strong>. Platform governance teams (DevOps/SRE) can maintain a set of <code>mapotf</code> rules to uniformly adjust all modules in bulk. For example, requiring all module resources to add a specific tag, or inserting an extra resource for auditing/telemetry. With <code>mapotf</code>, such changes can be executed automatically across multiple modules at once without manually modifying each module one by one, greatly improving governance efficiency.</p>
+</li>
+<li><p><strong>Batch Upgrade of Module Configurations</strong>: When underlying Cloud Providers release major version updates for their Terraform Providers, they often introduce breaking changes, forcing module code to be adjusted. <code>mapotf</code> is highly effective in this regard. By writing a set of rules mapping old configurations to new requirements, <code>mapotf</code> can <strong>automatically refactor Terraform configurations</strong> to comply with the upgrade guide of the new Provider version. For instance, in the case of upgrading the AzureRM Provider from 3.x to 4.x, one can write corresponding <code>mapotf</code> upgrade code to batch process resource attribute renaming, field deletions, etc. A practical tool in this area is <a href="https://github.com/lonegunmanb/TerraformConfigWelder" target="_blank"><strong>TerraformConfigWelder</strong></a>, which utilizes the <code>mapotf</code> configuration mechanism to perform Provider upgrade transformations. In other words, <code>mapotf</code> provides &quot;batch scaffolding&quot; functionality for module maintainers, allowing for quick completion and reduced risk of error when large-scale mechanical replacements are needed (e.g., when a Provider drops support for a field).</p>
+</li>
+</ul>
+<p>To summarize <code>mapotf</code> more vividly: If a Terraform Module is a set of reusable Terraform configurations, then <code>mapotf</code> is a set of reusable <em>change patterns</em> for Terraform code.</p>
+<h2 id="usage"><a name="usage" class="anchor-navigation-ex-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.14.1.2. Usage</h2>
+<p><strong>Installing mapotf</strong> is very simple and can be done via the Go command to get the latest version:</p>
+<pre class="language-"><code class="lang-bash">go <span class="token function">install</span> github.com/Azure/mapotf@latest
+</code></pre>
+<p>Once installed, <code>mapotf</code> works as a command-line tool. It operates as a wrapper around Terraform and does not replace Terraform&apos;s own functionality. The typical workflow for <code>mapotf</code> is as follows:</p>
+<ol>
+<li><strong>Prepare mapotf Configuration</strong>: Users need to provide the &quot;metaprogramming&quot; code for <code>mapotf</code>. This can be a local folder or a reference to a configuration directory in a remote Git repository. The <code>--mptf-dir</code> parameter specifies the configuration source. For example, Azure provides some official example configuration repositories that can be referenced directly via Git URL. These configuration files are written in standard HCL syntax, containing several <code>data</code> blocks and corresponding <code>transform</code> blocks that define the targets to match and the transformation instructions.</li>
+<li><strong>Execute Transformation (transform)</strong>: <code>mapotf</code> mainly provides two execution modes:</li>
+<li><strong>Apply Immediately (<code>apply</code>)</strong>: Using the <code>mapotf apply</code> command executes the transformation and immediately calls <code>terraform apply</code> to deploy the changes. In this mode, <code>mapotf</code> first downloads and loads the specified configuration rules, backs up the current Terraform files, modifies the current Terraform files (e.g., inserting or updating code snippets), and then automatically triggers Terraform&apos;s Plan and Apply operations, redirecting Stdout and Stderr to the Terraform process. After the Terraform process ends, it restores the Terraform files to their pre-transformation state and deletes the backup files.</li>
+<li><strong>Transform Only (<code>transform</code>)</strong>: Using the <code>mapotf transform</code> command only executes the code transformation without invoking the subsequent Terraform deployment. <code>mapotf</code> keeps the modified Terraform files and generates a backup copy (extension <code>.tf.mptfbackup</code>) for each changed file for user reference or rollback. In this mode, users can review the code differences themselves, then manually execute <code>terraform plan/apply</code> to apply them. If issues are found, <code>mapotf reset</code> can quickly restore the files. Once the changes are confirmed as necessary and correct, <code>mapotf clean-backup</code> can be used to clear all backup files, keeping the codebase clean.</li>
+</ol>
+<ol>
+<li><strong>View and Verify Changes</strong>: After the transformation is executed, whether in <code>apply</code> or <code>transform</code> mode, <code>mapotf</code> will reflect the results directly in the Terraform code. For example, in the AKS cluster example mentioned earlier, <code>mapotf</code> adds the <code>microsoft_defender[0].log_analytics_workspace_id</code> attribute to the <code>ignore_changes</code> list in the lifecycle configuration of the <code>azurerm_kubernetes_cluster</code> resource. Users can open the corresponding <code>.tf</code> file to see these new configurations inserted, while the original content is backed up in <code>.tf.mptfbackup</code> files. Only when the user confirms the execution of the Terraform deployment (or saves the changes) do these modifications truly take effect. If one chooses not to apply halfway through (e.g., answering &quot;no&quot; during <code>mapotf apply</code>), <code>mapotf</code> automatically restores all files and deletes backups, ensuring the codebase is not left in an unexpected intermediate state.</li>
+</ol>
+<p>In this way, <code>mapotf</code> <strong>automates</strong> operations that would otherwise require manual editing of Terraform code. Developers can use it as an <strong>assistive tool during development</strong> to adjust configurations temporarily as needed, or integrate it into <strong>CI/CD pipelines</strong> to execute standardized transformations in bulk. It is worth noting that since <code>mapotf</code> directly modifies Terraform configuration files, the resulting changes should be included in version control and reviewed to ensure modifications to the infrastructure are traceable and expected. Also, <code>mapotf</code>&apos;s changes to Terraform are not limited to <code>.tf</code> files in the current folder; by setting the <code>-r</code> parameter, it recursively transforms all involved Terraform module code, allowing users to dynamically customize third-party open-source module code.</p>
+<h2 id="integration-with-pre-commit-and-application-in-avm"><a name="integration-with-pre-commit-and-application-in-avm" class="anchor-navigation-ex-anchor" href="#integration-with-pre-commit-and-application-in-avm"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.14.1.3. Integration with Pre-commit and Application in AVM</h2>
+<p><code>mapotf</code> can not only be executed manually by developers but also integrates well into <strong>code management workflows</strong>. For instance, in the Azure Verified Modules (AVM) module development framework, <code>mapotf</code> is used as part of the pre-commit step to <strong>automatically apply prescribed configuration transformations</strong> before developers commit code. The <a href="https://github.com/Azure/tfmod-scaffold" target="_blank">Terraform Module Scaffold (tfmod-scaffold)</a> provided by Azure includes a pre-commit hook script that calls <code>mapotf</code> to execute centrally defined transformation rules. The process is as follows:</p>
+<ul>
+<li>When a developer prepares to commit AVM module code, the pre-commit script runs <code>mapotf transform</code>, pointing to a set of remote rules maintained by AVM (stored in the <code>avm_mapotf/pre_commit</code> directory). These rules cover <strong>unified changes</strong> required by AVM for all modules, such as the implantation of Telemetry code and consistency adjustments for module/Provider versions. By hosting rules centrally, the AVM team can update these transformation logics in the central repository, and all modules will automatically fetch and apply the latest rules the next time pre-commit is executed, ensuring immediate enforcement of governance policies.</li>
+<li>After applying transformations, <code>mapotf</code> calls <a href="avmfix.html"><code>avmfix</code></a> for further processing, and then uses <code>mapotf clean-backup</code> to remove backup files. Cleaning backups is necessary because, in a pre-commit scenario, the transformed code is intended to be committed directly to the repository, so redundant backup files are not needed. The entire process is transparent to the developer&#x2014;unless the rules cause code changes that haven&apos;t been staged, in which case the pre-commit check will report an error asking to re-add the modified files. This mechanism ensures that <strong>every committed code has been standardized by `mapotf</strong>`.</li>
+</ul>
+<p>In the governance of Azure Verified Modules, <code>mapotf</code> plays a <strong>core role</strong>:</p>
+<ul>
+<li><strong>Telemetry Implantation</strong>: Every AVM Terraform module needs to include a special deployment (like <code>main.telemetry.tf</code>) to identify the deployment of that module. This GUID-identified telemetry allows Microsoft to count module usage frequency without collecting specific resource content, complying with privacy requirements. To ensure all modules correctly include Telemetry deployment and maintain consistency, the AVM team uses <code>mapotf</code> to uniformly insert or update this code. When the Telemetry mechanism needs adjustment (e.g., changing the GUID generation method or adding fields), simply updating the <code>mapotf</code> rule applies it to all modules in bulk, achieving a <strong>&quot;change once, effective everywhere&quot;</strong> effect without manually editing each module.</li>
+<li><strong>Unified Provider Upgrade</strong>: When Providers like AzureRM release major version updates, AVM requires all official modules to follow suit to leverage new features and maintain support. With <code>mapotf</code>, the AVM team can publish corresponding transformation rules to <strong>uniformly upgrade module configurations</strong>. These rules can cover: modifying version constraints in <code>required_providers</code>, replacing deprecated resource types or attributes, and adjusting internal module logic to be compatible with the new version. For example, migrating from AzureRM 3.x to 4.x requires replacing several resource names and parameters; <code>mapotf</code> upgrade rules perform batch replacements and deletions on module code according to official guidelines. Module maintainers simply run the pre-commit or a dedicated upgrade script to automatically complete most of the renovation work, followed by manual verification of the few parts that cannot be handled automatically. This centralized upgrade approach significantly reduces communication costs and the probability of errors associated with decentralized maintenance.</li>
+</ul>
+<p>Overall, <code>mapotf</code> provides a <strong>centralized control, decentralized execution</strong> mechanism within the Azure Verified Modules ecosystem: governors define rules centrally, and each module executes rules via <code>mapotf</code> in its own codebase, implementing standard distribution and enforcement. This greatly enhances the platform team&apos;s control over the module ecosystem while retaining the flexibility of module development.</p>
+<h2 id="real-world-application-scenarios"><a name="real-world-application-scenarios" class="anchor-navigation-ex-anchor" href="#real-world-application-scenarios"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.14.1.4. Real-World Application Scenarios</h2>
+<p>Combined with some examples, we can further understand the practical uses of <code>mapotf</code>:</p>
+<ul>
+<li><strong>Customization of Attribute Changes (<code>ignore_changes</code>)</strong>: In the <a href="https://github.com/lonegunmanb/mapotf_demo/tree/main/ignore_changes" target="_blank"><code>mapotf_demo/ignore_changes</code></a> example, it demonstrates how <code>mapotf</code> dynamically adds <code>ignore_changes</code> settings to Terraform resources to ignore variations in specific attributes.</li>
+</ul>
+<pre class="language-"><code class="lang-hcl"><span class="token keyword">data <span class="token type variable">&quot;resource&quot;</span></span> <span class="token string">&quot;resource_group&quot;</span> <span class="token punctuation">{</span>
+    <span class="token property">resource_type</span> <span class="token punctuation">=</span> <span class="token string">&quot;azurerm_resource_group&quot;</span>
+<span class="token punctuation">}</span>
+
+transform <span class="token string">&quot;update_in_place&quot;</span> <span class="token keyword">resource_group_ignore_changes</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> try(data.resource.resource_group.result.azurerm_resource_group, <span class="token punctuation">{</span><span class="token punctuation">}</span>)
+  <span class="token property">target_block_address</span> <span class="token punctuation">=</span> each.value.mptf.block_address
+  <span class="token keyword">asstring</span> <span class="token punctuation">{</span>
+    <span class="token keyword">lifecycle</span> <span class="token punctuation">{</span>
+      <span class="token property">ignore_changes</span> <span class="token punctuation">=</span> <span class="token string">&quot;[\ntags, <span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token function">trimprefix</span><span class="token punctuation">(</span><span class="token function">try</span><span class="token punctuation">(</span>each<span class="token punctuation">.</span>value<span class="token punctuation">.</span>lifecycle<span class="token punctuation">.</span><span class="token number">0.</span>ignore_changes<span class="token punctuation">,</span> <span class="token string">&quot;[\n]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;[&quot;</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span>&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This code matches <code>resource</code> blocks of type <code>azurerm_resource_group</code> and dynamically adds <code>tags</code> to the <code>ignore_changes</code> list.</p>
+<p>This corresponds to the aforementioned scenario: certain infrastructure settings are automatically modified by external policies. If not ignored, Terraform tries to correct them every plan. With <code>mapotf</code>, users can append configurations to ignore these attributes as needed without modifying the module source code. For instance, in the Azure AKS module example, <code>mapotf</code> successfully added <code>microsoft_defender[0].log_analytics_workspace_id</code> to the AKS cluster resource&apos;s <code>ignore_changes</code> list. This allows module users to conveniently avoid meaningless Terraform resource updates, thereby accommodating configuration drift caused by custom enterprise policies.</p>
+<ul>
+<li><strong>Massive Module Governance Transformation</strong>: In the <a href="https://github.com/lonegunmanb/mapotf_demo/tree/main/massive_terraform_module_governing" target="_blank"><code>mapotf_demo/massive_terraform_module_governing</code></a> example, we can see how <code>mapotf</code> is used to <strong>batch adjust code across multiple modules</strong>.</li>
+</ul>
+<pre class="language-"><code class="lang-hcl">data <span class="token string">&quot;resource&quot;</span> <span class="token keyword">azapi_resource</span> <span class="token punctuation">{</span>
+  <span class="token property">resource_type</span> <span class="token punctuation">=</span> <span class="token string">&quot;azapi_resource&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">locals</span> <span class="token punctuation">{</span>
+  <span class="token property">azapi_resource_blocks</span> <span class="token punctuation">=</span> data.resource.azapi_resource.result.azapi_resource
+  <span class="token property">azapi_resource_map</span>    <span class="token punctuation">=</span> <span class="token punctuation">{</span> for _, block in local.azapi_resource_blocks : <span class="token property">block.mptf.block_address</span> <span class="token punctuation">=</span>&gt; block <span class="token punctuation">}</span>
+  <span class="token property">payload</span> <span class="token punctuation">=</span> jsonencode(<span class="token punctuation">{</span>
+    <span class="token property">avm</span> <span class="token punctuation">=</span> <span class="token string">&quot;true&quot;</span>
+  <span class="token punctuation">}</span>)
+  <span class="token property">compact_payload</span> <span class="token punctuation">=</span> replace(replace(replace(replace(local.payload, <span class="token string">&quot; &quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\n&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\r&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\t&quot;</span>, <span class="token string">&quot;&quot;</span>)
+  <span class="token property">create_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    for address, block in local.azapi_resource_map :
+    <span class="token property">address</span> <span class="token punctuation">=</span>&gt; try(replace(replace(replace(replace(block.create_headers, <span class="token string">&quot; &quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\n&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\r&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\t&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;&quot;</span>)
+  <span class="token punctuation">}</span>
+  <span class="token property">delete_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    for address, block in local.azapi_resource_map :
+    <span class="token property">address</span> <span class="token punctuation">=</span>&gt; try(replace(replace(replace(replace(block.delete_headers, <span class="token string">&quot; &quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\n&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\r&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\t&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;&quot;</span>)
+  <span class="token punctuation">}</span>
+  <span class="token property">read_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    for address, block in local.azapi_resource_map :
+    <span class="token property">address</span> <span class="token punctuation">=</span>&gt; try(replace(replace(replace(replace(block.read_headers, <span class="token string">&quot; &quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\n&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\r&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\t&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;&quot;</span>)
+  <span class="token punctuation">}</span>
+  <span class="token property">update_headers</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span>
+    for address, block in local.azapi_resource_map :
+    <span class="token property">address</span> <span class="token punctuation">=</span>&gt; try(replace(replace(replace(replace(block.update_headers, <span class="token string">&quot; &quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\n&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\r&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;\t&quot;</span>, <span class="token string">&quot;&quot;</span>), <span class="token string">&quot;&quot;</span>)
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+transform <span class="token string">&quot;update_in_place&quot;</span> <span class="token keyword">headers</span> <span class="token punctuation">{</span>
+  <span class="token property">for_each</span> <span class="token punctuation">=</span> local.azapi_resource_map
+
+  <span class="token property">target_block_address</span> <span class="token punctuation">=</span> each.key
+  <span class="token keyword">asstring</span> <span class="token punctuation">{</span>
+    <span class="token property">create_headers</span> <span class="token punctuation">=</span> try(strcontains(local.create_headers<span class="token punctuation">[</span>each.key<span class="token punctuation">]</span>, local.compact_payload), <span class="token boolean">false</span>) ? each.value.create_headers : try(each.value.create_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> <span class="token string">&quot;&quot;</span> || each.value.create_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> null, <span class="token boolean">true</span>) ? local.payload : <span class="token string">&quot;merge(<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>each<span class="token punctuation">.</span>value<span class="token punctuation">.</span>create_headers<span class="token punctuation">}</span></span>, <span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">local</span><span class="token punctuation">.</span><span class="token type variable">payload</span><span class="token punctuation">}</span></span>)&quot;</span>
+    <span class="token property">delete_headers</span> <span class="token punctuation">=</span> try(strcontains(local.delete_headers<span class="token punctuation">[</span>each.key<span class="token punctuation">]</span>, local.compact_payload), <span class="token boolean">false</span>) ? each.value.delete_headers : try(each.value.delete_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> <span class="token string">&quot;&quot;</span> || each.value.delete_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> null, <span class="token boolean">true</span>) ? local.payload : <span class="token string">&quot;merge(<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>each<span class="token punctuation">.</span>value<span class="token punctuation">.</span>delete_headers<span class="token punctuation">}</span></span>, <span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">local</span><span class="token punctuation">.</span><span class="token type variable">payload</span><span class="token punctuation">}</span></span>)&quot;</span>
+    <span class="token property">read_headers</span>   <span class="token punctuation">=</span> try(strcontains(local.read_headers<span class="token punctuation">[</span>each.key<span class="token punctuation">]</span>, local.compact_payload), <span class="token boolean">false</span>) ? each.value.read_headers : try(each.value.read_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> <span class="token string">&quot;&quot;</span> || each.value.read_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> null, <span class="token boolean">true</span>) ? local.payload : <span class="token string">&quot;merge(<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>each<span class="token punctuation">.</span>value<span class="token punctuation">.</span>read_headers<span class="token punctuation">}</span></span>, <span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">local</span><span class="token punctuation">.</span><span class="token type variable">payload</span><span class="token punctuation">}</span></span>)&quot;</span>
+    <span class="token property">update_headers</span> <span class="token punctuation">=</span> try(strcontains(local.update_headers<span class="token punctuation">[</span>each.key<span class="token punctuation">]</span>, local.compact_payload), <span class="token boolean">false</span>) ? each.value.update_headers : try(each.value.update_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> <span class="token string">&quot;&quot;</span> || each.value.update_headers <span class="token punctuation">=</span><span class="token punctuation">=</span> null, <span class="token boolean">true</span>) ? local.payload : <span class="token string">&quot;merge(<span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span>each<span class="token punctuation">.</span>value<span class="token punctuation">.</span>update_headers<span class="token punctuation">}</span></span>, <span class="token interpolation"><span class="token punctuation">$</span><span class="token punctuation">{</span><span class="token keyword">local</span><span class="token punctuation">.</span><span class="token type variable">payload</span><span class="token punctuation">}</span></span>)&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The code above matches all resource blocks of the <a href="https://registry.terraform.io/providers/Azure/azapi/latest/docs" target="_blank">AzAPI Provider</a>, dynamically configuring the <code>create_headers</code> / <code>delete_headers</code> / <code>read_headers</code> / <code>update_headers</code> attributes. By tracking these attributes, Azure officials can identify which requests sent to the Azure API originate from AVM modules, including specifically which modules and versions.</p>
+<p>Assuming an organization requires all official modules to add a standard configuration (like the previously mentioned Telemetry deployment or a unified tagging policy), <code>mapotf</code> can insert the corresponding snippet into each module&apos;s code via a single command, achieving a &quot;one-click bulk change&quot;. This demonstrates <code>mapotf</code>&apos;s value in <strong>module governance</strong>: whether it&apos;s a dozen or hundreds of modules, they can undergo unified transformation through centrally defined rules, avoiding the time consumption and potential omissions of manual modification.</p>
+<ul>
+<li><strong>Major Provider Upgrade Transformation</strong>: The <a href="https://github.com/lonegunmanb/mapotf_demo/tree/main/terraform_provider_major_upgrade" target="_blank"><code>mapotf_demo/terraform_provider_major_upgrade</code></a> example demonstrates the process of <code>mapotf</code> assisting in Terraform Provider version upgrades. When migrating modules from an old version of a Provider to a new one, <code>mapotf</code>, in conjunction with tools like <code>TerraformConfigWelder</code>, systematically replaces and adjusts module code according to the upgrade guide. For example, when the AzureRM Provider version jumps, attribute names of certain resource blocks might change, or legacy parameters might need deletion. By using pre-written <code>mapotf</code> transformation rules, these replacement/deletion operations can be executed automatically (running <code>mapotf transform --mptf-dir git::https://github.com/lonegunmanb/TerraformConfigWelder.git//azurerm/v3_v4 --tf-dir .</code>), leaving the developer with only a small amount of manual checking. Real-world cases prove that using <code>mapotf</code> for upgrade renovations can automate tedious repetitive work, significantly reducing the time required for upgrades.</li>
+</ul>
+<p>In the <code>mapotf</code> examples given above, we can see that, similar to <a href="grept.html"><code>grept</code></a>, <code>mapotf</code> is deliberately designed to be highly compatible with Terraform syntax. Proficient Terraform users can easily master <code>mapotf</code> syntax in a short time and begin metaprogramming.</p>
+<p>In summary, as a metaprogramming tool for Terraform, <code>mapotf</code> offers unique value <strong>to Terraform users, module developers, and platform governance teams</strong>. for ordinary users, it provides a way to <strong>extend Terraform capabilities</strong>, meeting special needs (like ignoring configuration drift) with temporary adjustments. For module developers, <code>mapotf</code> is a powerful tool to <strong>enhance module flexibility</strong>, allowing complex or optional logic to reside outside the module and be applied by users on demand, lightening the burden on the module itself. Finally, for DevOps / SRE teams responsible for platform governance, <code>mapotf</code> is a great helper for <strong>centralized control</strong>, enabling the rapid distribution of global consistency requirements (such as telemetry, upgrades, security policies) without interrupting the autonomous evolution of individual modules.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="modtm.html" class="navigation navigation-prev " aria-label="Previous page: modtm">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="trivy.html" class="navigation navigation-next " aria-label="Next page: trivy">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"mapotf","level":"1.6.14","depth":2,"next":{"title":"trivy","level":"1.6.15","depth":2,"path":"toolchain/trivy.md","ref":"toolchain/trivy.md","articles":[]},"previous":{"title":"modtm","level":"1.6.13","depth":2,"path":"toolchain/modtm.md","ref":"toolchain/modtm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/mapotf.md","mtime":"2026-01-07T07:27:57.179Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

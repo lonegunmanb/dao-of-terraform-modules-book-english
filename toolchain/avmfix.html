@@ -1,0 +1,1111 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>avmfix · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="tflint.html" />
+    
+    
+    <link rel="prev" href="terrafmt.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../large-scale-terraform-module-governance/">
+            
+                <a href="../large-scale-terraform-module-governance/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                <a href="../large-scale-terraform-module-governance/one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                <a href="../large-scale-terraform-module-governance/semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                <a href="../large-scale-terraform-module-governance/unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                <a href="../large-scale-terraform-module-governance/continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                <a href="../large-scale-terraform-module-governance/maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../large-scale-terraform-module-governance/change-management.html">
+            
+                <a href="../large-scale-terraform-module-governance/change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                <a href="../large-scale-terraform-module-governance/pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="terraform.html">
+            
+                <a href="terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tfenv.html">
+            
+                <a href="tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="terraform-docs.html">
+            
+                <a href="terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="terrafmt.html">
+            
+                <a href="terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.5" data-path="avmfix.html">
+            
+                <a href="avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="tflint.html">
+            
+                <a href="tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="checkov.html">
+            
+                <a href="checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="yor.html">
+            
+                <a href="yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="yorbox.html">
+            
+                <a href="yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="newres.html">
+            
+                <a href="newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="conftest.html">
+            
+                <a href="conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="grept.html">
+            
+                <a href="grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="modtm.html">
+            
+                <a href="modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="mapotf.html">
+            
+                <a href="mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="trivy.html">
+            
+                <a href="trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >avmfix</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#avmfix"><b>1.6.5.1. </b>avmfix</a></li><ul><li><span class="title-icon "></span><a href="#purpose-and-features"><b>1.6.5.1.1. </b>Purpose and Features</a></li><li><span class="title-icon "></span><a href="#why-is-avmfix-needed"><b>1.6.5.1.2. </b>Why is avmfix needed?</a></li><li><span class="title-icon "></span><a href="#how-to-use-avmfix"><b>1.6.5.1.3. </b>How to Use avmfix</a></li><li><span class="title-icon "></span><a href="#supported-providers"><b>1.6.5.1.4. </b>Supported Providers</a></li><li><span class="title-icon "></span><a href="#notes"><b>1.6.5.1.5. </b>Notes</a></li><li><span class="title-icon "></span><a href="#application-of-avmfix-in-avm-ci-pipelines"><b>1.6.5.1.6. </b>Application of avmfix in AVM CI Pipelines</a></li></ul></ul></div><a href="#avmfix" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="avmfix"><a name="avmfix" class="anchor-navigation-ex-anchor" href="#avmfix"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1. avmfix</h1>
+<p><code>avmfix</code> is designed to help you ensure that our Terraform modules comply with the <a href="https://azure.github.io/Azure-Verified-Modules/specs/tf/" target="_blank">Azure Verified Modules (AVM) specifications</a>. The <code>avmfix</code> tool analyzes our Terraform code, identifies deviations from AVM specifications, and automatically applies fixes to meet the required standards.</p>
+<h2 id="purpose-and-features"><a name="purpose-and-features" class="anchor-navigation-ex-anchor" href="#purpose-and-features"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1.1. Purpose and Features</h2>
+<p>The primary purpose of <code>avmfix</code> is to automate the process of remediating Terraform code to make modules compliant with AVM specifications. It addresses common issues such as:</p>
+<ul>
+<li><strong>Sorting within blocks</strong>: Ensuring attributes within <code>resource</code> and <code>data</code> blocks are correctly ordered according to AVM specifications.</li>
+<li><strong>Variable definitions</strong>: Enforcing the correct order for defining variables, as outlined in the specifications.</li>
+<li><strong>Output arrangement</strong>: Arranging <code>output</code> blocks in alphabetical order.</li>
+<li><strong>Moving blocks</strong>: Relocating <code>variable</code> and <code>output</code> blocks that are declared in the wrong files to <code>variables.tf</code> and <code>outputs.tf</code>, respectively.</li>
+<li><strong>Removing unnecessary declarations</strong>: Deleting redundant declarations for input variables and output values, such as <code>nullable = true</code> and <code>sensitive = false</code>.</li>
+<li><strong>Sorting <code>local</code> blocks</strong>: Arranging <code>local</code> blocks in alphabetical order.</li>
+<li><strong>Sorting in <code>moved</code> blocks</strong>: Ensuring the <code>from</code> attribute is placed before the <code>to</code> attribute.</li>
+<li><strong><code>module</code> block fixes</strong>: Sorting top-level variables. Note that nested fields within <code>object</code> types will not be sorted.</li>
+</ul>
+<p>By automating these fixes, <code>avmfix</code> reduces the manual effort required to maintain high-quality, compliant Terraform modules.</p>
+<h2 id="why-is-avmfix-needed"><a name="why-is-avmfix-needed" class="anchor-navigation-ex-anchor" href="#why-is-avmfix-needed"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1.2. Why is avmfix needed?</h2>
+<p>Maintaining compliance with AVM specifications is crucial for ensuring the consistency, reliability, and best practices of Terraform modules. The specifications provide guidelines for directory structure, naming conventions, documentation standards, and code organization. Adhering to these guidelines enhances the maintainability and credibility of the modules.</p>
+<p>However, manually enforcing these standards can be time-consuming and error-prone. We aim to avoid debates regarding code formatting and simplify this process by automatically identifying and correcting common issues, allowing you to focus on the more complex aspects of module development.</p>
+<h2 id="how-to-use-avmfix"><a name="how-to-use-avmfix" class="anchor-navigation-ex-anchor" href="#how-to-use-avmfix"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1.3. How to Use avmfix</h2>
+<p><strong>Installation</strong>:</p>
+<p>Install <code>avmfix</code> using the <code>go install</code> command:</p>
+<pre class="language-"><code class="lang-bash">go <span class="token function">install</span> github.com/lonegunmanb/avmfix@latest
+</code></pre>
+<p>This command downloads the latest version of <code>avmfix</code> and installs it into your Go workspace.</p>
+<p><strong>Running the Tool</strong>:</p>
+<p>To use <code>avmfix</code>, open a shell or terminal and run the following command:</p>
+<pre class="language-"><code class="lang-shell">avmfix <span class="token parameter variable">-folder</span> /path/to/your/terraform/module
+</code></pre>
+<p>Replace <code>/path/to/your/terraform/module</code> with the actual path to the directory containing your Terraform module.</p>
+<p><strong>Analyzing and Applying Fixes</strong>:</p>
+<p>The tool analyzes the specified directory and automatically applies fixes for any issues identified in the specifications. If the process completes successfully, you will see the message &quot;DirectoryAutoFix completed successfully.&quot; If an error occurs, the tool will display an error message.</p>
+<p><strong>Manual Intervention</strong>:</p>
+<p>Please remember that <code>avmfix</code> may not be able to resolve all issues automatically. Some problems may require manual intervention. Regularly review your Terraform modules and update them according to AVM specifications to maintain high-quality modules.</p>
+<h2 id="supported-providers"><a name="supported-providers" class="anchor-navigation-ex-anchor" href="#supported-providers"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1.4. Supported Providers</h2>
+<p><code>avmfix</code> currently supports variable block description generation for the following providers:</p>
+<ul>
+<li>Alibaba Cloud (<code>alicloud</code>)</li>
+<li>AWS (<code>aws</code>)</li>
+<li>AWS Cloud Control (<code>awscc</code>)</li>
+<li>AzAPI (<code>azapi</code>)</li>
+<li>Azure Active Directory (<code>azuread</code>)</li>
+<li>AzureRM (<code>azurerm</code>)</li>
+<li>Google Cloud Platform (<code>google</code>)</li>
+<li>Helm (<code>helm</code>)</li>
+<li>Kubernetes (<code>kubernetes</code>)</li>
+<li>Local (<code>local</code>)</li>
+<li>Modtm (<code>modtm</code>)</li>
+<li>Null (<code>null</code>)</li>
+<li>Random (<code>random</code>)</li>
+<li>Template (<code>template</code>)</li>
+<li>Time (<code>time</code>)</li>
+<li>Tls (<code>tls</code>)</li>
+</ul>
+<p>It also supports fixes for <code>ephemeral</code> resource blocks.</p>
+<h2 id="notes"><a name="notes" class="anchor-navigation-ex-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1.5. Notes</h2>
+<p>While <code>avmfix</code> can automate many common fixes, it is not a substitute for a thorough understanding of the AVM specifications. Regularly review your Terraform modules and manually resolve any issues that the tool cannot handle automatically.</p>
+<p><code>avmfix</code> includes built-in Schema information for supported Providers, but this information is stored as static JSON strings within the source code. Therefore, we need to update the <code>avmfix</code> version periodically to ensure that the version currently in use contains the Schemas for the latest possible Provider versions.</p>
+<p>By incorporating <code>avmfix</code> into our Terraform workflow, we can significantly reduce the effort required to maintain AVM compliance and ensure the quality and consistency of our Terraform modules.</p>
+<h2 id="application-of-avmfix-in-avm-ci-pipelines"><a name="application-of-avmfix-in-avm-ci-pipelines" class="anchor-navigation-ex-anchor" href="#application-of-avmfix-in-avm-ci-pipelines"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.5.1.6. Application of avmfix in AVM CI Pipelines</h2>
+<p>AVM provides the following script, which can execute automatic format fixes on Terraform code within modules:</p>
+<pre class="language-"><code class="lang-shell"><span class="token shebang important">#!/usr/bin/env bash</span>
+avmfix <span class="token parameter variable">-folder</span> <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>&quot;</span>
+
+<span class="token assign-left variable">examples</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> ./examples <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$examples</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; Autofix in <span class="token variable">$d</span>&quot;</span> <span class="token operator">&amp;&amp;</span> avmfix <span class="token parameter variable">-folder</span> <span class="token string">&quot;<span class="token variable">$d</span>&quot;</span>
+<span class="token keyword">done</span>
+
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> modules <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;==&gt; Warning - no modules directory found&quot;</span>
+<span class="token keyword">else</span>
+  <span class="token assign-left variable">modules</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">find</span> ./modules <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-mindepth</span> <span class="token number">1</span> <span class="token parameter variable">-type</span> d<span class="token variable">)</span></span>
+  <span class="token keyword">for</span> <span class="token for-or-select variable">d</span> <span class="token keyword">in</span> <span class="token variable">$modules</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;===&gt; Autofix in <span class="token variable">$d</span>&quot;</span> <span class="token operator">&amp;&amp;</span> avmfix <span class="token parameter variable">-folder</span> <span class="token string">&quot;<span class="token variable">$d</span>&quot;</span>
+  <span class="token keyword">done</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">exit</span> <span class="token number">0</span>
+</code></pre>
+<p>This script is executed when we run <code>make pre-commit</code> or <code>make autofix</code>.</p>
+<p>The AVM GitHub Actions pipeline definition includes the following check:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">author</span><span class="token punctuation">:</span> AVM
+<span class="token key atrule">name</span><span class="token punctuation">:</span> avmfix
+<span class="token key atrule">description</span><span class="token punctuation">:</span> Ensures that avmfix has been run.
+
+<span class="token key atrule">runs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">using</span><span class="token punctuation">:</span> composite
+  <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> run avmfix
+      <span class="token key atrule">shell</span><span class="token punctuation">:</span> bash
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+        docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform make autofix</span>
+
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> detect changes
+      <span class="token key atrule">shell</span><span class="token punctuation">:</span> bash
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+        if [ -z &quot;$(git status -s)&quot; ]; then
+          echo &quot;No changes detected&quot;
+          exit 0
+        else
+          echo &quot;AVMfix changes detected, please run:&quot;
+          echo &quot;&gt; docker run --rm -v $(pwd):/src -w /src mcr.microsoft.com/azterraform make pre-commit&quot;
+          echo &quot;... or if you have the avm helper script installed:&quot;
+          echo &quot;&gt; ./avm pre-commit&quot;
+          echo &quot;&gt; avm.bat pre-commit (on Windows)&quot;
+          echo
+          echo &quot;Then commit and push the changes&quot;
+          exit 1
+        fi</span>
+</code></pre>
+<p>For submitted Pull Requests, we run <code>make autofix</code> on the branch and subsequently check if any files have changed to determine whether the code in the Pull Request has been properly formatted by <code>avmfix</code>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="terrafmt.html" class="navigation navigation-prev " aria-label="Previous page: terrafmt">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="tflint.html" class="navigation navigation-next " aria-label="Next page: tflint">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"avmfix","level":"1.6.5","depth":2,"next":{"title":"tflint","level":"1.6.6","depth":2,"path":"toolchain/tflint.md","ref":"toolchain/tflint.md","articles":[]},"previous":{"title":"terrafmt","level":"1.6.4","depth":2,"path":"toolchain/terrafmt.md","ref":"toolchain/terrafmt.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"toolchain/avmfix.md","mtime":"2026-01-07T07:17:05.790Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+

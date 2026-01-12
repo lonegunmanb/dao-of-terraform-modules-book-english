@@ -1,0 +1,1165 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Pipeline Security Considerations · The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="大可不加冰">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../testing-and-validation/" />
+    
+    
+    <link rel="prev" href="change-management.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../terraform-module-anatomy/">
+            
+                <a href="../terraform-module-anatomy/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Terraform Module Anatomy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                <a href="../terraform-module-anatomy/terraform-resource-files.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    main.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                <a href="../terraform-module-anatomy/terraform-input-variables.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    variables.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../terraform-module-anatomy/terraform-output-values.html">
+            
+                <a href="../terraform-module-anatomy/terraform-output-values.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    outputs.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../terraform-module-anatomy/terraform-configuration.html">
+            
+                <a href="../terraform-module-anatomy/terraform-configuration.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    terraform.tf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../terraform-module-anatomy/locals.html">
+            
+                <a href="../terraform-module-anatomy/locals.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    local blocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../terraform-module-anatomy/modules.html">
+            
+                <a href="../terraform-module-anatomy/modules.html">
+            
+                    
+                        <b>1.2.6.</b>
+                    
+                    Local sub-modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../terraform-module-anatomy/readme-documentation.html">
+            
+                <a href="../terraform-module-anatomy/readme-documentation.html">
+            
+                    
+                        <b>1.2.7.</b>
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../terraform-module-anatomy/examples.html">
+            
+                <a href="../terraform-module-anatomy/examples.html">
+            
+                    
+                        <b>1.2.8.</b>
+                    
+                    examples directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../terraform-module-anatomy/tests.html">
+            
+                <a href="../terraform-module-anatomy/tests.html">
+            
+                    
+                        <b>1.2.9.</b>
+                    
+                    tests directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                <a href="../terraform-module-anatomy/ci-pipeline-code.html">
+            
+                    
+                        <b>1.2.10.</b>
+                    
+                    Continuous Integration Pipeline Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../how-to-design-a-terraform-module/">
+            
+                <a href="../how-to-design-a-terraform-module/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    How to Design a Terraform Module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/resource-modules.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    Resource Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/pattern-modules.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    Pattern Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                <a href="../how-to-design-a-terraform-module/utility-modules.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    Utility Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                <a href="../how-to-design-a-terraform-module/module-comparison.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    Module Comparison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                <a href="../how-to-design-a-terraform-module/user-managed-key.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    AVM Interface: User Managed Key
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Large-Scale Terraform Module Governance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="one-module-one-repository.html">
+            
+                <a href="one-module-one-repository.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    One Module, One Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="semantic-versioning.html">
+            
+                <a href="semantic-versioning.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Semantic Versioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="maintaining-consistent-repository-content.html">
+            
+                <a href="maintaining-consistent-repository-content.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Maintaining Consistent Repository Content
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="unified-repository-permission-system.html">
+            
+                <a href="unified-repository-permission-system.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Unified Repository Permission System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="continuous-integration-pipelines.html">
+            
+                <a href="continuous-integration-pipelines.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Continuous Integration Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="maintaining-global-pipeline-consistency.html">
+            
+                <a href="maintaining-global-pipeline-consistency.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Maintaining Global Pipeline Consistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="pipeline-execution-context.html">
+            
+                <a href="pipeline-execution-context.html">
+            
+                    
+                        <b>1.4.7.</b>
+                    
+                    Pipeline Execution Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="change-management.html">
+            
+                <a href="change-management.html">
+            
+                    
+                        <b>1.4.8.</b>
+                    
+                    Change Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.9" data-path="pipeline-security-considerations.html">
+            
+                <a href="pipeline-security-considerations.html">
+            
+                    
+                        <b>1.4.9.</b>
+                    
+                    Pipeline Security Considerations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../testing-and-validation/">
+            
+                <a href="../testing-and-validation/">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    Testing and Validation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../testing-and-validation/unit-testing.html">
+            
+                <a href="../testing-and-validation/unit-testing.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Unit Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../testing-and-validation/end-to-end-testing.html">
+            
+                <a href="../testing-and-validation/end-to-end-testing.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    End-to-End Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../testing-and-validation/code-style-checking.html">
+            
+                <a href="../testing-and-validation/code-style-checking.html">
+            
+                    
+                        <b>1.5.3.</b>
+                    
+                    Code Style Checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../testing-and-validation/compliance-testing.html">
+            
+                <a href="../testing-and-validation/compliance-testing.html">
+            
+                    
+                        <b>1.5.4.</b>
+                    
+                    Compliance Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../toolchain/">
+            
+                <a href="../toolchain/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Toolchain
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../toolchain/terraform.html">
+            
+                <a href="../toolchain/terraform.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    terraform
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../toolchain/tfenv.html">
+            
+                <a href="../toolchain/tfenv.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    tfenv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../toolchain/terraform-docs.html">
+            
+                <a href="../toolchain/terraform-docs.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    terraform-docs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../toolchain/terrafmt.html">
+            
+                <a href="../toolchain/terrafmt.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    terrafmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../toolchain/avmfix.html">
+            
+                <a href="../toolchain/avmfix.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    avmfix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../toolchain/tflint.html">
+            
+                <a href="../toolchain/tflint.html">
+            
+                    
+                        <b>1.6.6.</b>
+                    
+                    tflint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../toolchain/checkov.html">
+            
+                <a href="../toolchain/checkov.html">
+            
+                    
+                        <b>1.6.7.</b>
+                    
+                    checkov
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../toolchain/yor.html">
+            
+                <a href="../toolchain/yor.html">
+            
+                    
+                        <b>1.6.8.</b>
+                    
+                    yor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../toolchain/yorbox.html">
+            
+                <a href="../toolchain/yorbox.html">
+            
+                    
+                        <b>1.6.9.</b>
+                    
+                    yorbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../toolchain/newres.html">
+            
+                <a href="../toolchain/newres.html">
+            
+                    
+                        <b>1.6.10.</b>
+                    
+                    newres
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../toolchain/conftest.html">
+            
+                <a href="../toolchain/conftest.html">
+            
+                    
+                        <b>1.6.11.</b>
+                    
+                    conftest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../toolchain/grept.html">
+            
+                <a href="../toolchain/grept.html">
+            
+                    
+                        <b>1.6.12.</b>
+                    
+                    grept
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../toolchain/modtm.html">
+            
+                <a href="../toolchain/modtm.html">
+            
+                    
+                        <b>1.6.13.</b>
+                    
+                    modtm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../toolchain/mapotf.html">
+            
+                <a href="../toolchain/mapotf.html">
+            
+                    
+                        <b>1.6.14.</b>
+                    
+                    mapotf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../toolchain/trivy.html">
+            
+                <a href="../toolchain/trivy.html">
+            
+                    
+                        <b>1.6.15.</b>
+                    
+                    trivy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../epilogue/">
+            
+                <a href="../epilogue/">
+            
+                    
+                        <b>1.7.</b>
+                    
+                    Epilogue
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Pipeline Security Considerations</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#pipeline-security-considerations"><b>1.4.9.1. </b>Pipeline Security Considerations</a></li><ul><li><span class="title-icon "></span><a href="#potential-attack-surfaces"><b>1.4.9.1.1. </b>Potential Attack Surfaces</a></li><li><span class="title-icon "></span><a href="#two-types-of-automated-checks"><b>1.4.9.1.2. </b>Two Types of Automated Checks</a></li><ul><li><span class="title-icon "></span><a href="#why-relying-solely-on-a-private-non-public-pipeline-is-insufficient"><b>1.4.9.1.2.1. </b>Why Relying Solely on a Private, Non-Public Pipeline Is Insufficient</a></li></ul><li><span class="title-icon "></span><a href="#github-actions-environments"><b>1.4.9.1.3. </b>GitHub Actions Environments</a></li><li><span class="title-icon "></span><a href="#which-authentication-method-should-be-used-for-terraform-module-testing"><b>1.4.9.1.4. </b>Which Authentication Method Should Be Used for Terraform Module Testing?</a></li><li><span class="title-icon "></span><a href="#openid-connect-oidc-authentication"><b>1.4.9.1.5. </b>OpenID-Connect (OIDC) Authentication</a></li><ul><li><span class="title-icon "></span><a href="#testing-process-for-pull-requests-from-forked-repositories"><b>1.4.9.1.5.1. </b>Testing Process for Pull Requests from Forked Repositories</a></li></ul><li><span class="title-icon "></span><a href="#two-tier-cloud-account-system"><b>1.4.9.1.6. </b>Two-Tier Cloud Account System</a></li><ul><li><span class="title-icon "></span><a href="#the-control-plane---data-plane-concept"><b>1.4.9.1.6.1. </b>The &quot;Control Plane - Data Plane&quot; Concept</a></li><li><span class="title-icon "></span><a href="#operational-mechanism"><b>1.4.9.1.6.2. </b>Operational Mechanism</a></li><li><span class="title-icon "></span><a href="#key-considerations"><b>1.4.9.1.6.3. </b>Key Considerations</a></li></ul><li><span class="title-icon "></span><a href="#additional-thoughts-other-aspects-of-pipeline-security"><b>1.4.9.1.7. </b>Additional Thoughts: Other Aspects of Pipeline Security</a></li><ul><li><span class="title-icon "></span><a href="#use-only-trusted-third-party-github-actions"><b>1.4.9.1.7.1. </b>Use Only Trusted Third-Party GitHub Actions</a></li><li><span class="title-icon "></span><a href="#pin-third-party-action-versions-using-git-commit-hashes"><b>1.4.9.1.7.2. </b>Pin Third-Party Action Versions Using Git Commit Hashes</a></li><li><span class="title-icon "></span><a href="#minimize-dependencies-and-reference-only-trusted-terraform-modules"><b>1.4.9.1.7.3. </b>Minimize Dependencies and Reference Only Trusted Terraform Modules</a></li><li><span class="title-icon "></span><a href="#regularly-audit-and-update-dependencies"><b>1.4.9.1.7.4. </b>Regularly Audit and Update Dependencies</a></li></ul></ul></ul></div><a href="#pipeline-security-considerations" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="pipeline-security-considerations"><a name="pipeline-security-considerations" class="anchor-navigation-ex-anchor" href="#pipeline-security-considerations"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1. Pipeline Security Considerations</h1>
+<p>In the governance of large-scale Terraform modules, we typically execute a series of automated tests within the pipeline, such as verifying code validity or running <code>terraform plan</code> to check if example code executes successfully. The critical aspect of these tests is that they must connect to real cloud environments&#x2014;such as Azure, AWS, or GCP&#x2014;since the module&apos;s full functionality can only be verified when executed on actual cloud platforms.</p>
+<p>However, this introduces a risk point distinctly different from traditional software component development: <strong>cloud resource access credentials</strong>. For the pipeline to function, we must configure credentials that grant access to cloud accounts. If these credentials are leaked or abused, the consequences are severe, potentially leading to the malicious creation, modification, or even deletion of cloud resources, resulting in direct financial loss and security risks.</p>
+<p>This issue is particularly prominent in <strong>open-source projects</strong>. Open source means our code repositories are public; anyone can view the code or even submit Pull Requests. An attacker could submit a piece of carefully crafted malicious code. Once combined with the sensitive credentials on our pipeline for execution, they could leverage our pipeline permissions to perform malicious operations on cloud resources.</p>
+<p>This lies the greatest challenge of pipeline security: <strong>How do we ensure automated tests run smoothly while preventing credential abuse?</strong> Compared to traditional software projects, the pipelines for Terraform modules are essentially running tests while &quot;carrying the keys to the cloud,&quot; and if those keys fall into the wrong hands, the losses would be catastrophic. Therefore, we must design pipeline security mechanisms with extreme caution, ensuring that even if an ordinary open-source contributor submits code, they never have the opportunity to access our sensitive credentials.</p>
+<h2 id="potential-attack-surfaces"><a name="potential-attack-surfaces" class="anchor-navigation-ex-anchor" href="#potential-attack-surfaces"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.1. Potential Attack Surfaces</h2>
+<p>In the pipelines of open-source Terraform modules, attackers may exploit the following attack surfaces to obtain or abuse cloud platform access credentials:</p>
+<ul>
+<li><strong>Malicious Pull Request Injection</strong>: Attackers submit Pull Requests containing malicious Terraform configurations or scripts, attempting to execute them in unreviewed pipelines to access sensitive credentials.</li>
+<li><strong>Supply Chain Attacks</strong>: Leveraging tampered third-party GitHub Action plugins or dependencies to execute malicious code within the pipeline.</li>
+<li><strong>Workflow Configuration Tampering</strong>: Attackers may attempt to modify GitHub Actions workflow files (e.g., <code>.github/workflows/*.yml</code>) to bypass existing security measures. For instance, they might change trigger conditions, permission settings, or referenced third-party Actions to execute sensitive operations without authorization.</li>
+<li><strong>Unprotected Environment Variables</strong>: Storing sensitive information in unprotected environment variables within the pipeline, which attackers can obtain via logs or other methods.</li>
+<li><strong>Lack of Approval Mechanisms for Sensitive Operations</strong>: Failing to set manual approval for sensitive operations like <code>terraform plan</code> or <code>terraform apply</code> in the pipeline, allowing unreviewed code to directly access cloud platform resources.</li>
+<li><strong>Attempting to Create and Persist Resources for Further Attacks</strong>: Terraform module testing naturally involves creating resources in the cloud. The key is <em>what</em> resources are created and whether they are destroyed after testing. Potential attackers might attempt to create malicious resources directly&#x2014;such as servers for crypto mining, or high-privilege accounts and corresponding credentials&#x2014;to control our test accounts even after the test concludes.</li>
+</ul>
+<h2 id="two-types-of-automated-checks"><a name="two-types-of-automated-checks" class="anchor-navigation-ex-anchor" href="#two-types-of-automated-checks"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.2. Two Types of Automated Checks</h2>
+<p>The checks we execute in Continuous Integration (CI) pipelines can generally be categorized into two types:</p>
+<ul>
+<li><p><strong>Credential-Free Automated Checks</strong>: Examples include code formatting (<code>terraform fmt</code>) and static analysis tools (such as <code>tflint</code>, <code>tfsec</code>). These tasks do not rely on any cloud platform access credentials, so they can run automatically when a Pull Request (PR) is created without human intervention.</p>
+</li>
+<li><p><strong>Sensitive Operations Requiring Credentials</strong>: Examples include running <code>terraform plan</code> or <code>terraform apply</code>. These operations require access to real cloud environments and must use valid cloud platform credentials. In open-source projects, automatically executing these operations in unreviewed PRs can lead to credential leakage or malicious exploitation, causing serious consequences.</p>
+</li>
+</ul>
+<h3 id="why-relying-solely-on-a-private-non-public-pipeline-is-insufficient"><a name="why-relying-solely-on-a-private-non-public-pipeline-is-insufficient" class="anchor-navigation-ex-anchor" href="#why-relying-solely-on-a-private-non-public-pipeline-is-insufficient"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.2.1. Why Relying Solely on a Private, Non-Public Pipeline Is Insufficient</h3>
+<p>We see some open-source projects adopting a strategy where they maintain a publicly visible pipeline for credential-free automated checks in the open repository, while maintaining a non-public testing pipeline in a private environment for sensitive operations requiring credentials (e.g., executing <code>terraform apply</code> to test <code>examples</code>). This method <strong>does not</strong> thoroughly solve the risk because attackers can still use various covert means to inject malicious code into the testing process to steal our credentials. Sometimes, they don&apos;t even need to submit code changes to complete the attack; for example, by poisoning the supply chain and waiting for us to automatically execute the tampered dependency code in subsequent automated tests. A case in point is the <a href="https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised" target="_blank">StepSecurity report regarding <code>tj-actions/changed-files</code></a>.</p>
+<p>We must assume that the attacker&apos;s code has already penetrated the test environment and has accessed all secrets used for testing.</p>
+<h2 id="github-actions-environments"><a name="github-actions-environments" class="anchor-navigation-ex-anchor" href="#github-actions-environments"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.3. GitHub Actions Environments</h2>
+<p>To address this issue, GitHub Actions provides <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deployment" target="_blank"><strong>Environments</strong></a>, allowing us to configure deployment protection rules for specific tasks. By setting environment protection rules, we can achieve the following goals:</p>
+<ul>
+<li><strong>Manual Approval</strong>: Require specific reviewers to manually approve before executing sensitive operations.</li>
+<li><strong>Restricted Secrets</strong>: Allow access to specific secrets only within specific environments, preventing unreviewed changes from accessing credentials.</li>
+</ul>
+<p>For example, we can configure an environment named <code>test</code> for <code>terraform apply</code> operations and require approval from at least one reviewer. This way, even if someone submits a malicious PR, they cannot execute sensitive operations without approval, thus protecting the security of the cloud environment.</p>
+<figure id="fig1.4.9.1"><img src="https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png" alt="Test tasks will not run automatically without approval from at least one administrator"><figcaption>Figure 1.4.9.1 - Test tasks will not run automatically without approval from at least one administrator</figcaption></figure>
+<figure id="fig1.4.9.2"><img src="https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png" alt="Remember to configure the environment settings to require approval from reviewers before deployment"><figcaption>Figure 1.4.9.2 - Remember to configure the environment settings to require approval from reviewers before deployment</figcaption></figure>
+<h2 id="which-authentication-method-should-be-used-for-terraform-module-testing"><a name="which-authentication-method-should-be-used-for-terraform-module-testing" class="anchor-navigation-ex-anchor" href="#which-authentication-method-should-be-used-for-terraform-module-testing"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.4. Which Authentication Method Should Be Used for Terraform Module Testing?</h2>
+<p>When interacting with public clouds, Terraform often needs to provide credentials representing an identity to successfully call APIs after authentication. Taking Azure as an example, it supports the following authentication methods:</p>
+<ul>
+<li><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli" target="_blank">Authenticating via Azure CLI</a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/managed_service_identity" target="_blank">Authenticating via Managed Identity</a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_certificate" target="_blank">Authenticating via Service Principal and Client Certificate</a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret" target="_blank">Authenticating via Service Principal and Client Secret</a></li>
+</ul>
+<p><strong>It must be emphasized that all the above authentication methods are incorrect. Please do not use them in your open-source projects.</strong></p>
+<h2 id="openid-connect-oidc-authentication"><a name="openid-connect-oidc-authentication" class="anchor-navigation-ex-anchor" href="#openid-connect-oidc-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.5. OpenID-Connect (OIDC) Authentication</h2>
+<p>To date, the <strong>only</strong> known secure method for authentication in Terraform module testing is using OpenID-Connect. Both <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html#cli-configure-role-oidc" target="_blank">AWS</a> and <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_oidc" target="_blank">Azure</a> support this authentication method. Once OIDC is configured, a credential can only be successfully retrieved within the specified environment of the specified GitHub repository, and that credential cannot function in other repositories or outside that environment.</p>
+<h3 id="testing-process-for-pull-requests-from-forked-repositories"><a name="testing-process-for-pull-requests-from-forked-repositories" class="anchor-navigation-ex-anchor" href="#testing-process-for-pull-requests-from-forked-repositories"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.5.1. Testing Process for Pull Requests from Forked Repositories</h3>
+<p>Since GitHub&apos;s OIDC mechanism <strong>does not support invoking cloud identity authentication in Forked repositories</strong>, this means Pull Requests (PRs) submitted by external contributors <strong>cannot directly use OIDC credentials on the pipeline to connect to the cloud platform</strong>, preventing the completion of full end-to-end tests (such as running <code>terraform plan</code> to check if example code can truly be deployed to the cloud).</p>
+<p>To solve this problem, we adopt a branching strategy:</p>
+<ul>
+<li><strong>Contributor Submits PR</strong>: When an external contributor submits code, only credential-free checks are triggered, such as <code>terraform fmt</code>, <code>tflint</code>, and other static checks, ensuring basic code quality.</li>
+<li><strong>Maintainer Merges to Release Branch</strong>: Once the preliminary review is passed, the module maintainer merges the PR into a dedicated <code>release</code> branch in the main repository. Since this branch resides in the main repository, its pipeline possesses full OIDC permissions.</li>
+<li><strong>Execute End-to-End Tests</strong>: In the <code>release</code> branch, the pipeline runs end-to-end tests requiring real cloud credentials, such as <code>terraform plan</code>, ensuring the module executes correctly in a real environment.</li>
+<li><strong>Merge to Main Branch After Confirmation</strong>: Only after tests pass is the code finally merged into the <code>main</code> branch, completing the release.</li>
+</ul>
+<pre class="language-"><code class="lang-text">&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Contributor submits PR       &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Module Maintainer reviews PR,&#x2502;
+&#x2502; checks for malicious code or &#x2502;
+&#x2502; workflow changes             &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Create release branch (sugg.&#x2502;
+&#x2502; name: release/&lt;desc&gt;)       &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Edit PR, change target branch&#x2502;
+&#x2502; to the new release branch    &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Wait for PR checks, verify &#x2502;
+&#x2502; code, merge to release br. &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Create new PR from release &#x2502;
+&#x2502; branch to main branch      &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; Trigger E2E tests, owner   &#x2502;
+&#x2502; approves test run          &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+             &#x2502;
+             &#x25BC;
+&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502; E2E Tests Passed?          &#x2502;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+        &#x2502;            &#x2502;
+        &#x25BC;            &#x25BC;
+  Yes, merge to    No, investigate 
+     main           failure
+        &#x2502;            &#x2502;
+        &#x25BC;            &#x25BC;
+  Process End    &#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+                 &#x2502; Collaborate w/ user to&#x2502;
+                 &#x2502; fix or fix in release &#x2502;
+                 &#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+</code></pre>
+<p>The most common attack vector is tampering with Actions workflow definitions within a Pull Request to bypass our established review processes and run malicious code directly in a sensitive environment to steal credentials. This dual Pull Request process <strong>ensures that all tests must undergo strict approval by maintainers before execution, combining automated checks with manual review to minimize risk to the greatest extent.</strong> Interested readers can read the relevant content in the AVM specification <a href="https://azure.github.io/Azure-Verified-Modules/contributing/terraform/terraform-contribution-flow/#53-release-branch-and-run-end-to-end-tests-owner" target="_blank">here</a>.</p>
+<h2 id="two-tier-cloud-account-system"><a name="two-tier-cloud-account-system" class="anchor-navigation-ex-anchor" href="#two-tier-cloud-account-system"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.6. Two-Tier Cloud Account System</h2>
+<p>Potential attackers might attempt to create resources during testing that are not automatically destroyed by <code>terraform destroy</code>, allowing them to continue abusing these resources after the test ends. A typical method for this type of attack is using <code>null_resource</code> + <code>local-exec</code> to execute native cloud platform commands (e.g., Azure CLI) to create resources outside the Terraform state file. These &quot;escaped&quot; resources are neither destroyed during <code>terraform destroy</code> nor easily detected through normal Terraform state checks. For example, attackers might:</p>
+<ul>
+<li>Create hidden high-privilege accounts or access keys;</li>
+<li>Deploy virtual machines for crypto mining;</li>
+<li>Leave backdoor programs or continuously running tasks to re-intrude in the future.</li>
+</ul>
+<p>Even if we configure periodic cleanup tasks in the test environment to automatically destroy resources that have timed out, the cleanup logic itself could be sabotaged or bypassed by malicious code. This is especially true if the cleanup logic runs within the same test account, where an attacker could use existing permissions to disable or counter the cleanup tasks. This leads to a deeper security question: <strong>How do we effectively prevent the test account from being &quot;persistently compromised&quot;?</strong></p>
+<h3 id="the-control-plane---data-plane-concept"><a name="the-control-plane---data-plane-concept" class="anchor-navigation-ex-anchor" href="#the-control-plane---data-plane-concept"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.6.1. The &quot;Control Plane - Data Plane&quot; Concept</h3>
+<p>To counter this threat, we must introduce the classic &quot;Control Plane&quot; and &quot;Data Plane&quot; separation concept from cloud security. Key design points include:</p>
+<ul>
+<li><strong>Control Plane Account (High Privilege)</strong>: This account is primarily used for operations and oversight, possessing full permissions over the test environment, including monitoring, resource auditing, anomaly detection, and forced cleanup. It does not directly participate in the pipeline execution, so it is not exposed in the pipeline&apos;s credentials and is not directly threatened by malicious code in the pipeline.</li>
+<li><strong>Data Plane Account (Low Privilege)</strong>: This is the account used by the pipeline when executing tests. Its permissions are strictly limited:</li>
+<li>Allowed to operate only within specific Resource Groups/Projects/Subscriptions;</li>
+<li>Prohibited from creating high-privilege identities (e.g., new Service Principals, Users, or Role Assignments);</li>
+<li>Subject to resource quota limits (e.g., maximum VM count, prohibition of GPU instances, etc.).</li>
+</ul>
+<h3 id="operational-mechanism"><a name="operational-mechanism" class="anchor-navigation-ex-anchor" href="#operational-mechanism"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.6.2. Operational Mechanism</h3>
+<p>In this architecture, all pipeline test operations occur under the &quot;Data Plane Account.&quot; Even if an attacker creates residual resources via malicious code, these resources remain fully visible to the &quot;Control Plane Account.&quot; The Control Plane Account periodically executes:</p>
+<ul>
+<li><strong>Resource Inventory</strong>: Performs a full scan of resources in the Data Plane Account to identify timed-out or abnormal resources;</li>
+<li><strong>Privilege Escalation Detection</strong>: Checks for high-risk operations outside the whitelist, such as IAM changes;</li>
+<li><strong>Forced Destruction</strong>: Cleans up all resources violating security policies to ensure the test environment remains &quot;unpolluted.&quot;</li>
+</ul>
+<p>This two-tier system provides a &quot;safety net for the worst-case scenario&quot;: even if the pipeline is compromised, the impact is confined to the low-privilege scope, preventing the attacker from achieving persistent occupation or causing widespread damage.</p>
+<h3 id="key-considerations"><a name="key-considerations" class="anchor-navigation-ex-anchor" href="#key-considerations"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.6.3. Key Considerations</h3>
+<ul>
+<li><strong>Account Independence</strong>: Credentials for the Control Plane Account must be strictly kept secret and must forbidden from appearing in pipelines or public environments; ideally, they should be held and operated only by the security team.</li>
+<li><strong>Defense in Depth</strong>: Even if the Data Plane Account is compromised, the attacker cannot pivot laterally to other accounts or escalate privileges.</li>
+<li><strong>Resource Auditing</strong>: Enable cloud provider automated auditing tools (such as Azure Policy + Defender) wherever possible to automatically trigger violation alerts.</li>
+</ul>
+<h2 id="additional-thoughts-other-aspects-of-pipeline-security"><a name="additional-thoughts-other-aspects-of-pipeline-security" class="anchor-navigation-ex-anchor" href="#additional-thoughts-other-aspects-of-pipeline-security"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.7. Additional Thoughts: Other Aspects of Pipeline Security</h2>
+<p>Beyond protecting cloud platform credentials, we must also focus on the security of the pipeline itself, especially when using third-party components and modules. Here are some key security practice recommendations:</p>
+<h3 id="use-only-trusted-third-party-github-actions"><a name="use-only-trusted-third-party-github-actions" class="anchor-navigation-ex-anchor" href="#use-only-trusted-third-party-github-actions"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.7.1. Use Only Trusted Third-Party GitHub Actions</h3>
+<p>When introducing third-party GitHub Actions into your workflow, ensure their source is trustworthy. Prioritize the following types of Actions:</p>
+<ul>
+<li>Actions maintained officially by GitHub.</li>
+<li>Actions with the GitHub Verified Publisher badge (blue checkmark).</li>
+<li>Actions maintained by well-known organizations or active communities.</li>
+</ul>
+<p>For unfamiliar Actions, it is recommended to review the code first to ensure it contains no malicious code or insecure operations.</p>
+<h3 id="pin-third-party-action-versions-using-git-commit-hashes"><a name="pin-third-party-action-versions-using-git-commit-hashes" class="anchor-navigation-ex-anchor" href="#pin-third-party-action-versions-using-git-commit-hashes"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.7.2. Pin Third-Party Action Versions Using Git Commit Hashes</h3>
+<p>To prevent third-party Actions from being maliciously updated or having their tags tampered with, it is recommended to use Git commit hashes (commit SHA) in your workflows to lock specific versions. For example:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 <span class="token comment">#v4.2.2</span>
+</code></pre>
+<p>This practice ensures that every workflow run uses verified code versions, reducing the risk of supply chain attacks.</p>
+<h3 id="minimize-dependencies-and-reference-only-trusted-terraform-modules"><a name="minimize-dependencies-and-reference-only-trusted-terraform-modules" class="anchor-navigation-ex-anchor" href="#minimize-dependencies-and-reference-only-trusted-terraform-modules"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.7.3. Minimize Dependencies and Reference Only Trusted Terraform Modules</h3>
+<p>In module development, follow the principle of minimal dependencies to avoid introducing unnecessary external modules. For modules that must be used, ensure their sources are trusted and regularly review their updates.</p>
+<p>Furthermore, it is recommended to use version control for modules, employing Semantic Versioning, and explicitly specifying the version ranges of dependent modules and providers in the <code>versions.tf</code> file to prevent issues caused by incompatible updates.</p>
+<p>The AVM specification mandates that AVM module code is only allowed to reference other AVM modules.</p>
+<h3 id="regularly-audit-and-update-dependencies"><a name="regularly-audit-and-update-dependencies" class="anchor-navigation-ex-anchor" href="#regularly-audit-and-update-dependencies"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.9.1.7.4. Regularly Audit and Update Dependencies</h3>
+<p>Regularly use tools (such as <code>dependabot</code>) to check and update project dependencies, including GitHub Actions, Terraform modules, and Providers. Apply security patches in a timely manner to fix known vulnerabilities and maintain project security and stability.</p>
+<p>By implementing the above security practices, you can further strengthen pipeline security protection, reduce potential risks, and ensure stability and security when governing large-scale Terraform modules.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="change-management.html" class="navigation navigation-prev " aria-label="Previous page: Change Management">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../testing-and-validation/" class="navigation navigation-next " aria-label="Next page: Testing and Validation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Pipeline Security Considerations","level":"1.4.9","depth":2,"next":{"title":"Testing and Validation","level":"1.5","depth":1,"path":"testing-and-validation/index.md","ref":"testing-and-validation/index.md","articles":[{"title":"Unit Testing","level":"1.5.1","depth":2,"path":"testing-and-validation/unit-testing.md","ref":"testing-and-validation/unit-testing.md","articles":[]},{"title":"End-to-End Testing","level":"1.5.2","depth":2,"path":"testing-and-validation/end-to-end-testing.md","ref":"testing-and-validation/end-to-end-testing.md","articles":[]},{"title":"Code Style Checking","level":"1.5.3","depth":2,"path":"testing-and-validation/code-style-checking.md","ref":"testing-and-validation/code-style-checking.md","articles":[]},{"title":"Compliance Testing","level":"1.5.4","depth":2,"path":"testing-and-validation/compliance-testing.md","ref":"testing-and-validation/compliance-testing.md","articles":[]}]},"previous":{"title":"Change Management","level":"1.4.8","depth":2,"path":"large-scale-terraform-module-governance/change-management.md","ref":"large-scale-terraform-module-governance/change-management.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","prism-themes","fontsettings","sharing","-lunr","-search","search-pro","livereload","image-captions","sitemap-general","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"],"lang":{"shell":"bash","cmd":"bash"}},"livereload":{},"search-pro":{},"sitemap-general":{"prefix":"https://lonegunmanb.github.io/dao-of-terraform-modules-book-en/"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"prism-themes":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"image-captions":{"caption":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"大可不加冰","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.1","level":"1.4.9","list_caption":"Figure: Test tasks will not run automatically without approval from at least one administrator","alt":"Test tasks will not run automatically without approval from at least one administrator","nro":1,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250503_01.png","index":1,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Test tasks will not run automatically without approval from at least one administrator","attributes":{},"skip":false,"key":"1.4.9.1"},{"backlink":"large-scale-terraform-module-governance/pipeline-security-considerations.html#fig1.4.9.2","level":"1.4.9","list_caption":"Figure: Remember to configure the environment settings to require approval from reviewers before deployment","alt":"Remember to configure the environment settings to require approval from reviewers before deployment","nro":2,"url":"https://raw.githubusercontent.com/lonegunmanb/dao-of-terraform-modules-pic/master/20250504202841.png","index":2,"caption_template":"Figure _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Remember to configure the environment settings to require approval from reviewers before deployment","attributes":{},"skip":false,"key":"1.4.9.2"}]},"title":"The Dao of Terraform Modules: Design and Governance Strategies for High-Quality Terraform Modules","language":"en","gitbook":"*"},"file":{"path":"large-scale-terraform-module-governance/pipeline-security-considerations.md","mtime":"2026-01-07T07:25:19.937Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2026-01-12T06:55:39.089Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+
+    </body>
+</html>
+
